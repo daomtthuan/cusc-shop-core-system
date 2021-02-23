@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" 
+      xml:lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="#{config.app.description}"/>
+        <meta name="author" content="#{config.app.author}"/>
+        <meta name="keywords" content="#{config.app.keywords}"/>
+        <title>
+            <ui:insert name="title">
+                #{config.app.name}
+            </ui:insert>
+        </title>
+        <c:forEach var="sytle" items="#{config.vendors.styles}">
+            <link type="text/css" rel="stylesheet" href="#{sytle}" />
+        </c:forEach>
+        <ui:insert name="style" />
+    </h:head>
+    <h:body>
+        <div id="main">
+            <ui:include src="#{config.directory.components}/navbar.xhtml"/>
+            <div id="page">
+                <ui:insert name="page"/>
+            </div>
+        </div>
+        <c:forEach var="script" items="#{config.vendors.scripts}">
+            <link type="text/css" rel="stylesheet" href="#{script}" />
+        </c:forEach>
+        <ui:insert name="script" />
+    </h:body>  
+</html>
