@@ -7,7 +7,7 @@
     <ui:composition template="#{config.directory.layouts}/default.xhtml">
         <ui:define name="page">
             <div class="container">
-                <h1 class="text-center text-primary">Hello World</h1>
+                <h1 class="text-center text-primary">#{homePresenter.sayHello()}</h1>
             </div>
         </ui:define>
     </ui:composition>
