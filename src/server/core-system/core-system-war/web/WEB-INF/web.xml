@@ -10,7 +10,7 @@
     <context-param>
         <description>Resoureces directory</description>
         <param-name>javax.faces.WEBAPP_RESOURCES_DIRECTORY</param-name>
-        <param-value>/WEB-INF/assets</param-value>
+        <param-value>/WEB-INF/resources</param-value>
     </context-param>
     <servlet>
         <description>Faces Servlet</description>
@@ -20,12 +20,12 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
 </web-app>
