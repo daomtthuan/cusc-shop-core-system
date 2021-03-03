@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:composition template="#{config.directory.layouts}/dashboard.xhtml">
+        <ui:define name="title">Home</ui:define>
+
+        <ui:define name="page">
+            Hello
+        </ui:define>
+
+        <ui:define name="style">
+            <style>
+                .auth-wrapper {
+                    min-height: 100vh;
+                    background: url('#{config.directory.root}/assets/images/background/auth-bg.jpg') no-repeat center center;
+                    background-size: cover;
+                }
+
+                .auth-wrapper .auth-image {
+                    background: url('#{config.directory.root}/assets/images/background/auth.jpg') no-repeat center center;
+                    background-size: cover;
+                }
+            </style>
+        </ui:define>
+    </ui:composition>
+</html>

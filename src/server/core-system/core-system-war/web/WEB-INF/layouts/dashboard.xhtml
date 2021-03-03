@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="#{config.app.description}"/>
+        <meta name="author" content="#{config.app.author}"/>
+        <meta name="keywords" content="#{config.app.keywords}"/>
+
+        <c:forEach items="#{config.vendor.styles}" var="style">
+            <link rel="#{style.rel}" href="#{style.href}" />
+        </c:forEach>
+
+        <c:forEach items="#{config.asset.styles}" var="style">
+            <link rel="#{style.rel}" href="#{config.directory.root}/assets/#{style.href}" />
+        </c:forEach>
+
+        <ui:insert name="style"/>
+
+        <title>#{config.app.name} - Dashboard - <ui:insert name="title"/></title>
+    </h:head>
+    <h:body>
+        <div class="main-wrapper">
+            <div class="preloader">
+                <div class="lds-ripple">
+                    <div class="lds-pos"></div>
+                    <div class="lds-pos"></div>
+                </div>
+            </div>
+            <ui:insert name="page"/>
+        </div>
+
+        <c:forEach items="#{config.vendor.scripts}" var="script">
+            <script src="#{script.src}"></script>
+        </c:forEach>
+
+        <c:forEach items="#{config.asset.scripts}" var="script">
+            <script src="#{script.src}"></script>
+        </c:forEach>
+
+        <ui:insert name="script"/>
+        <script>
+            $(".preloader ").fadeOut();
+        </script>
+    </h:body>
+</html>

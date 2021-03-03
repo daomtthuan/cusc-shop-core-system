@@ -8,7 +8,7 @@ public class DirectoryConfig {
     private final String components;
     private final String root;
 
-    public DirectoryConfig(String layouts, String components) {
+    public DirectoryConfig(final String layouts, final String components) {
         this.layouts = layouts;
         this.components = components;
         this.root = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();

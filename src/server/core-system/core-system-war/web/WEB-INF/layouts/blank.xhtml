@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" 
-      xml:lang="en" 
+<html lang="en"
+      xml:lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -12,36 +13,40 @@
         <meta name="author" content="#{config.app.author}"/>
         <meta name="keywords" content="#{config.app.keywords}"/>
 
-        <title>
-            <ui:insert name="title">
-                #{config.app.name}
-            </ui:insert>
-        </title>
+        <c:forEach items="#{config.vendor.styles}" var="style">
+            <link rel="#{style.rel}" href="#{style.href}" />
+        </c:forEach>
 
-        <link rel="shortcut icon" href="#{config.directory.root}/assets/images/logo/favicon.ico" type="image/x-icon"/>
-        <link rel="icon" href="#{config.directory.root}/assets/images/logo/favicon.ico" type="image/x-icon"/>
-        <link rel="stylesheet" href="#{config.directory.root}/theme/dist/css/style.min.css" />
+        <c:forEach items="#{config.asset.styles}" var="style">
+            <link rel="#{style.rel}" href="#{config.directory.root}/assets/#{style.href}" />
+        </c:forEach>
 
         <ui:insert name="style"/>
+
+        <title>#{config.app.name} - <ui:insert name="title"/></title>
     </h:head>
-    <h:body>        
+    <h:body>
         <div class="main-wrapper">
             <div class="preloader">
                 <div class="lds-ripple">
                     <div class="lds-pos"></div>
                     <div class="lds-pos"></div>
                 </div>
-            </div>            
+            </div>
             <ui:insert name="page"/>
         </div>
 
-        <script src="#{config.directory.root}/theme/assets/libs/jquery/dist/jquery.min.js "></script>
-        <script src="#{config.directory.root}/theme/assets/libs/popper.js/dist/umd/popper.min.js "></script>
-        <script src="#{config.directory.root}/theme/assets/libs/bootstrap/dist/js/bootstrap.min.js "></script>
+        <c:forEach items="#{config.vendor.scripts}" var="script">
+            <script src="#{script.src}"></script>
+        </c:forEach>
+
+        <c:forEach items="#{config.asset.scripts}" var="script">
+            <script src="#{script.src}"></script>
+        </c:forEach>
 
         <ui:insert name="script"/>
         <script>
             $(".preloader ").fadeOut();
         </script>
-    </h:body>  
+    </h:body>
 </html>
