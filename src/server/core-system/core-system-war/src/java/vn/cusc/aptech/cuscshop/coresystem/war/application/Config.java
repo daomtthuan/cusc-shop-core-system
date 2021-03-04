@@ -1,10 +1,10 @@
-package vn.cusc.aptech.cuscshop.coresystem.war.app;
+package vn.cusc.aptech.cuscshop.coresystem.war.application;
 
 import java.io.Serializable;
 import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
-import vn.cusc.aptech.cuscshop.coresystem.war.app.config.*;
-import vn.cusc.aptech.cuscshop.coresystem.war.app.config.moudles.*;
+import vn.cusc.aptech.cuscshop.coresystem.war.application.config.*;
+import vn.cusc.aptech.cuscshop.coresystem.war.application.config.moudles.*;
 
 @Named(value = "config")
 @ApplicationScoped

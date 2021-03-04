@@ -3,19 +3,19 @@ package vn.cusc.aptech.cuscshop.coresystem.war.presenters;
 import java.io.Serializable;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import vn.cusc.aptech.cuscshop.coresystem.ejb.sessionbeans.AuthSessionBeanLocal;
+import javax.inject.Inject;
 import vn.cusc.aptech.cuscshop.coresystem.war.helpers.ValidationHelper;
 import vn.cusc.aptech.cuscshop.coresystem.war.helpers.ViewHelper;
+import vn.cusc.aptech.cuscshop.coresystem.war.session.AuthenticationSession;
 
 @Named(value = "loginPresenter")
 @ViewScoped
 public class LoginPresenter implements Serializable {
 
-    @EJB
-    private AuthSessionBeanLocal authSessionBean;
+    @Inject
+    private AuthenticationSession authenticationSession;
 
     private String username;
     private String usernameInputStyleClass;
@@ -36,7 +36,7 @@ public class LoginPresenter implements Serializable {
         this.authMessage = null;
     }
 
-    public String authenticate() {
+    public String login() {
         boolean usernameValid = Pattern.matches(ValidationHelper.usernamePattern, this.username);
         boolean passwordValid = Pattern.matches(ValidationHelper.passwordPattern, this.password);
 
@@ -48,12 +48,14 @@ public class LoginPresenter implements Serializable {
             return null;
         }
 
-        this.authMessage = authSessionBean.login(this.username, this.password);
-        if (this.authMessage == null) {
+        this.authenticationSession.login(this.username, this.password);
+        if (this.authenticationSession.isLoggedIn()) {
+            this.authMessage = null;
             return ViewHelper.redirect("dashboard/home");
+        } else {
+            this.authMessage = "Username or password incorrect.";
+            return null;
         }
-
-        return null;
     }
 
     public String getUsername() {

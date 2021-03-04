@@ -1,4 +1,4 @@
-package vn.cusc.aptech.cuscshop.coresystem.war.app.config;
+package vn.cusc.aptech.cuscshop.coresystem.war.application.config;
 
 public class AppConfig {
 

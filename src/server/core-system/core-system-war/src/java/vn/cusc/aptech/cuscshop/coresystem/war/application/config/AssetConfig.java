@@ -1,7 +1,7 @@
-package vn.cusc.aptech.cuscshop.coresystem.war.app.config;
+package vn.cusc.aptech.cuscshop.coresystem.war.application.config;
 
-import vn.cusc.aptech.cuscshop.coresystem.war.app.config.moudles.StyleModule;
-import vn.cusc.aptech.cuscshop.coresystem.war.app.config.moudles.ScriptModule;
+import vn.cusc.aptech.cuscshop.coresystem.war.application.config.moudles.StyleModule;
+import vn.cusc.aptech.cuscshop.coresystem.war.application.config.moudles.ScriptModule;
 
 public class AssetConfig {
 
