@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://java.sun.com/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="#{config.directory.layouts}/blank.xhtml">
+        <ui:define name="title">Test</ui:define>
+
+        <ui:define name="page">
+            <div class="main-contain">
+                <h2> List of Account Details </h2>
+                <h:dataTable id="accountTable"
+                             value="#{testPresenter.retrieveAllContacts()}"
+                             styleClass="table-striped table-bordered user-table"
+                             var="account">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="ID"/>
+                        </f:facet>
+                        <h:outputText value="#{account.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Username"/>
+                        </f:facet>
+                        <h:outputText value="#{account.username}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Password"/>
+                        </f:facet>
+                        <h:outputText value="#{account.password}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="FullName"/>
+                        </f:facet>
+                        <h:outputText value="#{account.fullName}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Birthday"/>
+                        </f:facet>
+                        <h:outputText value="#{account.birthday}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Gender"/>
+                        </f:facet>
+                        <h:outputText value="#{account.gender}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{account.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Address"/>
+                        </f:facet>
+                        <h:outputText value="#{account.address}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Phone"/>
+                        </f:facet>
+                        <h:outputText value="#{account.phone}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="State"/>
+                        </f:facet>
+                        <h:outputText value="#{account.state}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action" />
+                        </f:facet>
+                        <h:link styleClass="btn"
+                                outcome="">
+                            <f:param name="id" value="#{account.id}" />
+                            <span styleClass="glyphicon glyphicon-edit"></span>
+                        </h:link>
+                        <h:link styleClass="btn"
+                                outcome="">
+                            <f:param name="id" value="#{account.id}" />
+                            <span styleClass="glyphicon glyphicon-trash"></span>
+                        </h:link>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </ui:define>
+
+        <ui:define name="style">
+            <style>
+
+            </style>
+        </ui:define>
+        <ui:define name="script">
+            <script>
+
+            </script>
+        </ui:define>
+    </ui:composition>
+</html>
