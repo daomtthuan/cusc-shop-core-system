@@ -1,4 +1,4 @@
-package vn.cusc.aptech.cuscshop.coresystem.war.app.config.moudles;
+package vn.cusc.aptech.cuscshop.coresystem.war.application.config.moudles;
 
 public class ScriptModule {
 

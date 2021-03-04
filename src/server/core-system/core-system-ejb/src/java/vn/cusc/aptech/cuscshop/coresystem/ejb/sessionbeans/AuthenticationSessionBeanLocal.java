@@ -4,12 +4,8 @@ import javax.ejb.Local;
 import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Account;
 
 @Local
-public interface AuthSessionBeanLocal {
+public interface AuthenticationSessionBeanLocal {
 
-    String login(final String username, final String password);
-
-    Account getAccount();
-
-    void logout();
+    Account authenticate(final String username, final String password);
 
 }
