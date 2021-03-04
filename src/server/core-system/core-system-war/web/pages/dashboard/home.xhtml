@@ -3,12 +3,17 @@
 <html lang="en"
       xml:lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <ui:composition template="#{config.directory.layouts}/dashboard.xhtml">
         <ui:define name="title">Home</ui:define>
 
         <ui:define name="page">
-            Hello
+            <h1>Hello #{authenticationSession.account.fullName}</h1>
+            <hr/>
+            <h:form>
+                <h:commandButton value="Logout" action="#{homeDashboardPresenter.logout()}" styleClass="btn btn-dark" />
+            </h:form>
         </ui:define>
 
         <ui:define name="style">

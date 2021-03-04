@@ -51,7 +51,7 @@ public class LoginPresenter implements Serializable {
         this.authenticationSession.login(this.username, this.password);
         if (this.authenticationSession.isLoggedIn()) {
             this.authMessage = null;
-            return ViewHelper.redirect("dashboard/home");
+            return ViewHelper.redirect("/pages/dashboard/home");
         } else {
             this.authMessage = "Username or password incorrect.";
             return null;
