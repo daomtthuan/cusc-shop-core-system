@@ -82,14 +82,14 @@
                             <h:outputText value="Action" />
                         </f:facet>
                         <h:link styleClass="btn"
-                                outcome="">
+                                outcome="/pages/test.html">
                             <f:param name="id" value="#{account.id}" />
-                            <span styleClass="glyphicon glyphicon-edit"></span>
+                            <i class="fas fa-edit"></i>
                         </h:link>
                         <h:link styleClass="btn"
-                                outcome="">
+                                outcome="/pages/test.html">
                             <f:param name="id" value="#{account.id}" />
-                            <span styleClass="glyphicon glyphicon-trash"></span>
+                           <i class="fas fa-trash-alt"></i>
                         </h:link>
                     </h:column>
                 </h:dataTable>
