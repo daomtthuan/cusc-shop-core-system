@@ -13,13 +13,13 @@ VALUES ('Admin'),
 
 -- Insert User
 INSERT INTO account(username, password, full_name, birthday, gender, email, address, phone)
-VALUES ('admin', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Tô Chi Thảo', '1993-03-08', 0, 'daomtthuan.admin@gmail.com', N'9 Phố Giáp Thái Chung, Xã 8, Huyện Quang Tuyên Quang', '0292870758');
+VALUES ('admin', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Dao Minh Trung Thuan', '1993-03-08', 0, 'dmtthuana18088@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0292870758');
 INSERT INTO account(username, password, full_name, birthday, gender, email, address, phone)
-VALUES ('user1', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Nguyễn Trác Vy', '1976-11-21', 0, 'daomtthuan.user@gmail.com', N'597 Phố Chiêu, Thôn Trà Ngọc, Quận Kiên Thừa Thiên Huế', '01886697561'),
-       ('user2', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Hà Nghiêm Nương', '1981-02-20', 0, 'daomtthuan.user@gmail.com', N'190 Phố Bồ Toại Trân, Xã Thể, Quận Điền Chiểu Thủy Cần Thơ', '03205219336'),
-       ('user3', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Lâm Đường Thạch', '1984-07-07', 1, 'daomtthuan.user@gmail.com', N'901 Phố Cái Duệ Võ, Ấp Cát Vương, Quận Trình Thái Bình', '0586781301'),
-       ('user4', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Văn Phước Nữ', '1997-05-26', 0, 'daomtthuan.user@gmail.com', N'0516 Phố Đồng Khôi Chung, Thôn Nghị Xuyến, Quận Tuệ Tường Hà Nội', '02183697771'),
-       ('user5', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Bành Ẩn', '1994-05-26', 1, 'daomtthuan.user@gmail.com', N'4668 Phố Liễu, Phường Thiên Thiên, Quận Đôn Ngọc Miên Hồ Chí Minh', '02300532958');
+VALUES ('user1', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Nguyen Phuc Duy', '1976-11-21', 0, 'npduya18082@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '01886697561'),
+       ('user2', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Dang Quang Nghi', '1981-02-20', 0, 'dqnghia18086@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '03205219336'),
+       ('user3', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Ho Quang Tam', '1984-07-07', 1, 'hqtama16053@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0586781301'),
+       ('user4', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Joskye Dang', '1997-05-26', 0, 'daomtthuan.user@gmail.com', N'1 Tran Hung Dao Street, Ninh Kieu Ward, Can tho city', '02183697771'),
+       ('user5', '$2a$10$KfD1rAu6rQDfMYswpUKJn.l2HnU3FrxUDOcg9W16ENcRLEWTSnsNG', N'Henry Dao', '1994-05-26', 1, 'daomtthuan.user@gmail.com', N'1 Tran Binh Trong Street, Ninh Kieu Ward, Can tho city', '02300532958');
 
 -- Insert Permission
 INSERT INTO permission(id_account, id_role)
@@ -34,45 +34,45 @@ VALUES (1, 2),
 
 -- Insert data Category Group
 INSERT INTO category_group(name)
-VALUES (N'Linh kiện'),
-       (N'Thiết bị'),
-       (N'Bàn ghế'),
-       (N'Máy chơi Game'),
-       (N'Máy tính'),
-       (N'Phụ kiện');
+VALUES (N'Device Defense'),
+       (N'Network'),
+       (N'Printer'),
+       (N'Game machine'),
+       (N'Computer'),
+       (N'Accessories');
 
 -- Insert data Category
 INSERT INTO category(name, id_category_group)
-VALUES (N'Vi xử lý', 1),
-       (N'Bo mạch chủ', 1),
-       (N'Card đồ hoạ', 1),
-       (N'Bộ nhớ', 1),
-       (N'Tản nhiệt', 1),
-       (N'Lưu trữ', 1),
-       (N'Vỏ máy tính', 1),
-       (N'Nguồn', 1),
-       (N'Card âm thanh', 1),
-       (N'Bộ lưu điện', 1),
-       (N'ITX', 1),
-       (N'Màn hình', 2),
-       (N'Bàn phím', 2),
-       (N'Chuột', 2),
-       (N'Tai nghe', 2),
-       (N'Thiết bị mạng', 2),
-       (N'Bàn', 3),
-       (N'Ghế', 3),
-       (N'Máy chơi game', 4),
-       (N'Đĩa game', 4),
-       (N'Phụ kiện PS4', 4),
+VALUES (N'Central Processing Unit (CPU)', 1),
+       (N'Mainboard', 1),
+       (N'Graphics Processing Unit (GPU)', 1),
+       (N'Random Access Memory (RAM)', 1),
+       (N'Solid State Drive (SSD)', 1),
+       (N'Hard Disk Drive (HDD)', 1),
+       (N'Case computer', 6),
+       (N'Power', 6),
+       (N'Sound card', 6),
+       (N'Bộ lưu điện', 6),
+       (N'ITX', 6),
+       (N'LCD', 6),
+       (N'Keyboard', 6),
+       (N'Mouse', 6),
+       (N'Headphone', 6),
+       (N'Printer lajer', 3),
+       (N'Printer network', 3),
+       (N'VPS', 2),
+       (N'Play station', 4),
+       (N'Disk gaming', 4),
+       (N'Sony PS4', 4),
        (N'Gaming Accs', 4),
-       (N'Máy tính đồng bộ', 5),
-       (N'Máy tính xách tay', 5),
-       (N'Balo', 6),
-       (N'Mic thu thanh', 6),
-       (N'Chiếu sáng LED', 6),
-       (N'Thiết bị ghi hình', 6),
+       (N'PC Desktop', 5),
+       (N'PC Laptop', 5),
+       (N'Bads', 6),
+       (N'Mic record', 6),
+       (N'Projectors', 6),
+       (N'Camera', 6),
        (N'Hub-Cable-AIC', 6),
-       (N'Đồ chơi stream', 6);
+       (N'Playing stream', 6);
 
 -- Insert Brand
 INSERT INTO brand(name)
@@ -111,7 +111,7 @@ VALUES 	(N'Intel 10th Gen Core i9-10850K Processor – Unlocked',12990,100,1,1),
        (N'ASUS ROG Chariot SL300C RGB Gaming Chair',15490,100,18,3),
        (N'Microsoft Xbox One S Controller – Phantom Black',2090,100,19,4),
        (N'Marvel’s Spider-Man Game Disc',550,100,20,10),
-       (N'Đế Tản Nhiệt Kèm Khay Đựng Đĩa Game Cho Máy PS4 Pro & PS4 Slim',350,100,21,11),
+       (N'Gamming PS4 Pro & PS4 Slim',350,100,21,11),
        (N'Logitech G29 Driving Force Racing Wheel',6979,100,22,5),
        (N'Dell Vostro 3470ST (HXKWJ1) Desktop PC',7250,100,23,6),
        (N'Laptop Dell G3 Inspiron 3579 70167040 (Black) Geforce GTX1050Ti 4GB Intel Core i7 8750H 128GB 8GB',23490,100,24,6),
@@ -119,18 +119,18 @@ VALUES 	(N'Intel 10th Gen Core i9-10850K Processor – Unlocked',12990,100,1,1),
 
 -- Insert Event
 INSERT INTO event(title, post, id_account)
-VALUES (N'Mua Card đồ họa ASUS NVIDIA Geforce nhận ngay Combo quà', '2020-11-19', 1),
-       (N'TIỀN NHIỀU ĐỂ LÀM GÌ?', '2020-11-18', 1),
-       (N'ASUS Combo ROG Hủy Diệt Tháng 11', '2020-11-16', 1),
-       (N'Đồng Hành Cùng Combo AORUS PC', '2020-11-15', 1),
-       (N'Rinh PC ITX nhận Combo Wireless', '2020-11-14', 1);
+VALUES (N'Buy ASUS NVIDIA Geforce gets gift Combo', '2020-11-19', 1),
+       (N'How many money?', '2020-11-18', 1),
+       (N'ASUS Combo ROG HOT 11th', '2020-11-16', 1),
+       (N'Due Combo AORUS PC', '2020-11-15', 1),
+       (N'Take PC ITX get Combo Wireless', '2020-11-14', 1);
 
 -- Insert Review
 INSERT INTO review(star, content, id_account, id_product)
-VALUES (5, 'Ngon quá', 2, 1),
-       (5, 'Ngon, bổ, rẻ', 3, 1),
-       (5, 'Rất hài lòng với dịch vụ', 4, 1),
-       (4, 'Tạm được, phục vụ tốt, nhưng khách khá đông trong không gian hạn chế nên cảm thấy hơi ngột ngạt', 5, 1),
+VALUES (5, 'Good', 2, 1),
+       (5, 'Good, no sale, up sale', 3, 1),
+       (5, 'the best service', 4, 1),
+       (4, 'No idia, meal to, got it no place', 5, 1),
        (3, 'OK!!', 6, 1);
 
 -- Insert Bill
