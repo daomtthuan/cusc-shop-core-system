@@ -31,12 +31,6 @@
                     </h:column>
                     <h:column>
                         <f:facet name="header">
-                            <h:outputText value="Password"/>
-                        </f:facet>
-                        <h:outputText value="#{account.password}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
                             <h:outputText value="FullName"/>
                         </f:facet>
                         <h:outputText value="#{account.fullName}"/>
@@ -51,7 +45,9 @@
                         <f:facet name="header">
                             <h:outputText value="Gender"/>
                         </f:facet>
-                        <h:outputText value="#{account.gender}"/>
+                        <h:form>
+                            <h:selectBooleanCheckbox value="#{account.gender}"/>
+                        </h:form>
                     </h:column>
                     <h:column>
                         <f:facet name="header">
@@ -82,14 +78,14 @@
                             <h:outputText value="Action" />
                         </f:facet>
                         <h:link styleClass="btn"
-                                outcome="">
+                                outcome="/pages/test.html">
                             <f:param name="id" value="#{account.id}" />
-                            <span styleClass="glyphicon glyphicon-edit"></span>
+                            <span><i class="fas fa-edit"></i></span>
                         </h:link>
                         <h:link styleClass="btn"
-                                outcome="">
+                                outcome="/pages/test.html">
                             <f:param name="id" value="#{account.id}" />
-                            <span styleClass="glyphicon glyphicon-trash"></span>
+                            <span><i class="fas fa-trash-alt"></i></span>
                         </h:link>
                     </h:column>
                 </h:dataTable>
