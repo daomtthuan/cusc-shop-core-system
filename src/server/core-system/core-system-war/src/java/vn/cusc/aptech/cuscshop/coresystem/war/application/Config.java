@@ -33,10 +33,7 @@ public class Config implements Serializable {
                 new StyleModule[]{
                     new StyleModule("preconnect", "https://fonts.gstatic.com"),
                     new StyleModule("stylesheet", "https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"),
-                    new StyleModule("stylesheet", "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css"),
-                    new StyleModule("stylesheet", "https://cdn.jsdelivr.net/npm/simple-line-icons@2.5.5/css/simple-line-icons.css"),
-                    new StyleModule("stylesheet", "https://cdn.jsdelivr.net/npm/@icon/themify-icons@1.0.1-alpha.3/themify-icons.css")
-                }, // styles
+                    new StyleModule("stylesheet", "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css"),}, // styles
                 new ScriptModule[]{
                     new ScriptModule("https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"),
                     new ScriptModule("https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js")
