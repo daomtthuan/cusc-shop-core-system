@@ -1,0 +1,5 @@
+host: 167.179.72.73
+port: 3306
+user: cusc
+password: password1
+database: cusc_shop
