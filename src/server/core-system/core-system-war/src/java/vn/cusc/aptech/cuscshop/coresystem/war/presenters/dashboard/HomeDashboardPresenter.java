@@ -18,6 +18,6 @@ public class HomeDashboardPresenter implements Serializable {
 
     public String logout() {
         authSession.logout();
-        return viewHelper.getPage("/pages/login");
+        return viewHelper.getPage("login");
     }
 }
