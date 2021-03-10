@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.BillDetails;
 @Stateless
 public class BillDetailsFacade extends AbstractFacade<BillDetails> implements BillDetailsFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public BillDetailsFacade() {
-        super(BillDetails.class);
-    }
+  public BillDetailsFacade() {
+    super(BillDetails.class);
+  }
 
 }

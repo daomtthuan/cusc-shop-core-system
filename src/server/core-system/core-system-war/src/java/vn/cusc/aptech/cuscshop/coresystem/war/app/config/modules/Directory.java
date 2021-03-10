@@ -33,26 +33,26 @@ import javax.faces.context.FacesContext;
  */
 public class Directory {
 
-    private final String layouts;
-    private final String components;
-    private final String root;
+  private final String layouts;
+  private final String components;
+  private final String root;
 
-    public Directory(String layouts, String components) {
-        this.layouts = layouts;
-        this.components = components;
-        this.root = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
-    }
+  public Directory(String layouts, String components) {
+    this.layouts = layouts;
+    this.components = components;
+    this.root = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
+  }
 
-    public String getLayouts() {
-        return layouts;
-    }
+  public String getLayouts() {
+    return layouts;
+  }
 
-    public String getComponents() {
-        return components;
-    }
+  public String getComponents() {
+    return components;
+  }
 
-    public String getRoot() {
-        return root;
-    }
+  public String getRoot() {
+    return root;
+  }
 
 }

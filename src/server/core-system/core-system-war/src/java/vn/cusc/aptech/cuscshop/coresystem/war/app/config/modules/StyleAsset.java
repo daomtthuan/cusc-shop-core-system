@@ -31,32 +31,32 @@ package vn.cusc.aptech.cuscshop.coresystem.war.app.config.modules;
  */
 public class StyleAsset {
 
-    private final String rel;
-    private final String href;
-    public final String[] excludes;
+  private final String rel;
+  private final String href;
+  public final String[] excludes;
 
-    public StyleAsset(String rel, String href) {
-        this.rel = rel;
-        this.href = href;
-        excludes = new String[]{};
-    }
+  public StyleAsset(String rel, String href) {
+    this.rel = rel;
+    this.href = href;
+    excludes = new String[] {};
+  }
 
-    public StyleAsset(String rel, String href, String[] excludes) {
-        this.rel = rel;
-        this.href = href;
-        this.excludes = excludes;
-    }
+  public StyleAsset(String rel, String href, String[] excludes) {
+    this.rel = rel;
+    this.href = href;
+    this.excludes = excludes;
+  }
 
-    public String getRel() {
-        return rel;
-    }
+  public String getRel() {
+    return rel;
+  }
 
-    public String getHref() {
-        return href;
-    }
+  public String getHref() {
+    return href;
+  }
 
-    public String[] getExcludes() {
-        return excludes;
-    }
+  public String[] getExcludes() {
+    return excludes;
+  }
 
 }

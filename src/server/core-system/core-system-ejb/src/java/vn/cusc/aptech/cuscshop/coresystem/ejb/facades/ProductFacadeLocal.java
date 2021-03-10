@@ -36,18 +36,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Product;
 @Local
 public interface ProductFacadeLocal {
 
-    void create(Product product);
+  void create(Product product);
 
-    void edit(Product product);
+  void edit(Product product);
 
-    void remove(Product product);
+  void remove(Product product);
 
-    Product find(Object id);
+  Product find(Object id);
 
-    List<Product> findAll();
+  List<Product> findAll();
 
-    List<Product> findRange(int[] range);
+  List<Product> findRange(int[] range);
 
-    int count();
+  int count();
 
 }

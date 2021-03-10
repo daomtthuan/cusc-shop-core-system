@@ -12,29 +12,29 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.sessionbeans.AuthSessionBeanLocal;
 @SessionScoped
 public class AuthSession implements Serializable {
 
-    @EJB
-    private AuthSessionBeanLocal auth;
-    private Account account;
+  @EJB
+  private AuthSessionBeanLocal auth;
+  private Account account;
 
-    @PostConstruct
-    public void init() {
-        account = null;
-    }
+  @PostConstruct
+  public void init() {
+    account = null;
+  }
 
-    public void login(final String username, final String password) {
-        account = auth.authenticateLocal(username, password);
-    }
+  public void login(final String username, final String password) {
+    account = auth.authenticateLocal(username, password);
+  }
 
-    public void logout() {
-        account = null;
-    }
+  public void logout() {
+    account = null;
+  }
 
-    public Account getAccount() {
-        return account;
-    }
+  public Account getAccount() {
+    return account;
+  }
 
-    public boolean isLoggedIn() {
-        return account != null;
-    }
+  public boolean isLoggedIn() {
+    return account != null;
+  }
 
 }

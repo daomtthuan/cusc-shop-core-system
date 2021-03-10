@@ -37,15 +37,16 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class ViewHelper implements Serializable {
 
-    public String getPage(String name) {
-        return "/pages/" + name + ".html?faces-redirect=true";
-    }
+  public String getPage(String name) {
+    return "/pages/" + name + ".html?faces-redirect=true";
+  }
 
-    public String getComponentStyle(String name) {
-        return "components/" + name + "/style.css";
-    }
+  public String getComponentStyle(String name) {
+    return "components/" + name + "/style.css";
+  }
 
-    public String getComponentScript(String name) {
-        return "components/" + name + "/script.js";
-    }
+  public String getComponentScript(String name) {
+    return "components/" + name + "/script.js";
+  }
+
 }

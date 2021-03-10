@@ -38,22 +38,22 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Account;
 @Stateless
 public class AccountFacade extends AbstractFacade<Account> implements AccountFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public AccountFacade() {
-        super(Account.class);
-    }
+  public AccountFacade() {
+    super(Account.class);
+  }
 
-    @Override
-    public Account findByUsername(String username) {
-        List<Account> accounts = em.createNamedQuery("Account.findByUsername").setParameter("username", username).getResultList();
-        return accounts.isEmpty() ? null : accounts.get(0);
-    }
+  @Override
+  public Account findByUsername(String username) {
+    List<Account> accounts = em.createNamedQuery("Account.findByUsername").setParameter("username", username).getResultList();
+    return accounts.isEmpty() ? null : accounts.get(0);
+  }
 
 }

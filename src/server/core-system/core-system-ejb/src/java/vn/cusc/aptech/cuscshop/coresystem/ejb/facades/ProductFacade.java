@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Product;
 @Stateless
 public class ProductFacade extends AbstractFacade<Product> implements ProductFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public ProductFacade() {
-        super(Product.class);
-    }
+  public ProductFacade() {
+    super(Product.class);
+  }
 
 }

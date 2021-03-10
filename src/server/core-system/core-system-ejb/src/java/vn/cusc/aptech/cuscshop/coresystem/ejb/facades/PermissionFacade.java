@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Permission;
 @Stateless
 public class PermissionFacade extends AbstractFacade<Permission> implements PermissionFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public PermissionFacade() {
-        super(Permission.class);
-    }
+  public PermissionFacade() {
+    super(Permission.class);
+  }
 
 }

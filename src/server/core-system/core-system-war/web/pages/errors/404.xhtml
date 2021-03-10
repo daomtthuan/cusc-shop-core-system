@@ -26,33 +26,33 @@ THE SOFTWARE.
 <ui:composition template="#{configApp.directory.layouts}/blank.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <ui:define name="title">Not found</ui:define>
+  <ui:define name="title">Not found</ui:define>
 
-    <ui:define name="page">
-        <div class="error-wrapper d-flex align-items-center">
-            <div class="container">
-                <div class="col-xl-7 col-lg-6 bg-white shadow-sm p-3 mx-auto">
-                    <h1 class="text-danger">Oops!</h1>
-                    <h2 class="text-dark">Error 404 - Not found</h2>
-                    <hr/>
-                    <p>
-                        Sorry, the page you are looking for could not be found.
-                    </p>
-                    <a class="btn btn-dark" href="#{configApp.directory.root}" >
-                        Go home
-                    </a>
-                </div>
-            </div>
+  <ui:define name="page">
+    <div class="error-wrapper d-flex align-items-center">
+      <div class="container">
+        <div class="col-xl-7 col-lg-6 bg-white shadow-sm p-3 mx-auto">
+          <h1 class="text-danger">Oops!</h1>
+          <h2 class="text-dark">Error 404 - Not found</h2>
+          <hr/>
+          <p>
+            Sorry, the page you are looking for could not be found.
+          </p>
+          <a class="btn btn-dark" href="#{configApp.directory.root}" >
+            Go home
+          </a>
         </div>
-    </ui:define>
+      </div>
+    </div>
+  </ui:define>
 
-    <ui:define name="style">
-        <style>
-            .error-wrapper {
-                min-height: 100vh;
-                background: url('#{configApp.directory.root}/assets/images/background/auth-bg.jpg') no-repeat center center;
-                background-size: cover;
-            }
-        </style>
-    </ui:define>
+  <ui:define name="style">
+    <style>
+      .error-wrapper {
+        min-height: 100vh;
+        background: url('#{configApp.directory.root}/assets/images/background/auth-bg.jpg') no-repeat center center;
+        background-size: cover;
+      }
+    </style>
+  </ui:define>
 </ui:composition>

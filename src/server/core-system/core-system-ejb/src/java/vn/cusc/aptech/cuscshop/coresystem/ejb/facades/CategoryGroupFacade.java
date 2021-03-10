@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.CategoryGroup;
 @Stateless
 public class CategoryGroupFacade extends AbstractFacade<CategoryGroup> implements CategoryGroupFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public CategoryGroupFacade() {
-        super(CategoryGroup.class);
-    }
+  public CategoryGroupFacade() {
+    super(CategoryGroup.class);
+  }
 
 }

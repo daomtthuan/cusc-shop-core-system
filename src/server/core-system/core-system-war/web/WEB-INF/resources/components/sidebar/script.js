@@ -22,13 +22,13 @@
  * THE SOFTWARE.
  */
 $(document).ready(function () {
-    $("#sidebar").mCustomScrollbar({
-        theme: "minimal"
-    });
+  $("#sidebar").mCustomScrollbar({
+    theme: "minimal"
+  });
 
-    $('#sidebar-collapse').on('click', function () {
-        $('#sidebar, #page-wrapper').toggleClass('active');
-        $('.collapse.in').toggleClass('in');
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
+  $('#sidebar-collapse').on('click', function () {
+    $('#sidebar, #page-wrapper').toggleClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+  });
 });

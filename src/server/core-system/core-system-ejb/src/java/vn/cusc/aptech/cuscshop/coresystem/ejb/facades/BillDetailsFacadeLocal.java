@@ -36,18 +36,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.BillDetails;
 @Local
 public interface BillDetailsFacadeLocal {
 
-    void create(BillDetails billDetails);
+  void create(BillDetails billDetails);
 
-    void edit(BillDetails billDetails);
+  void edit(BillDetails billDetails);
 
-    void remove(BillDetails billDetails);
+  void remove(BillDetails billDetails);
 
-    BillDetails find(Object id);
+  BillDetails find(Object id);
 
-    List<BillDetails> findAll();
+  List<BillDetails> findAll();
 
-    List<BillDetails> findRange(int[] range);
+  List<BillDetails> findRange(int[] range);
 
-    int count();
+  int count();
 
 }

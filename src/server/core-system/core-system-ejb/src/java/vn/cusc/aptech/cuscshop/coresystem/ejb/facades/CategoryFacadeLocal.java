@@ -36,18 +36,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Category;
 @Local
 public interface CategoryFacadeLocal {
 
-    void create(Category category);
+  void create(Category category);
 
-    void edit(Category category);
+  void edit(Category category);
 
-    void remove(Category category);
+  void remove(Category category);
 
-    Category find(Object id);
+  Category find(Object id);
 
-    List<Category> findAll();
+  List<Category> findAll();
 
-    List<Category> findRange(int[] range);
+  List<Category> findRange(int[] range);
 
-    int count();
+  int count();
 
 }

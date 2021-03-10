@@ -36,18 +36,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Role;
 @Local
 public interface RoleFacadeLocal {
 
-    void create(Role role);
+  void create(Role role);
 
-    void edit(Role role);
+  void edit(Role role);
 
-    void remove(Role role);
+  void remove(Role role);
 
-    Role find(Object id);
+  Role find(Object id);
 
-    List<Role> findAll();
+  List<Role> findAll();
 
-    List<Role> findRange(int[] range);
+  List<Role> findRange(int[] range);
 
-    int count();
+  int count();
 
 }

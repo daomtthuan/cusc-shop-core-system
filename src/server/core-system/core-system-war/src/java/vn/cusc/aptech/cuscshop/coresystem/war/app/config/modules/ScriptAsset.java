@@ -31,25 +31,25 @@ package vn.cusc.aptech.cuscshop.coresystem.war.app.config.modules;
  */
 public class ScriptAsset {
 
-    public final String src;
-    public final String[] excludes;
+  public final String src;
+  public final String[] excludes;
 
-    public ScriptAsset(String src) {
-        this.src = src;
-        excludes = new String[]{};
-    }
+  public ScriptAsset(String src) {
+    this.src = src;
+    excludes = new String[] {};
+  }
 
-    public ScriptAsset(String src, String[] excludes) {
-        this.src = src;
-        this.excludes = excludes;
-    }
+  public ScriptAsset(String src, String[] excludes) {
+    this.src = src;
+    this.excludes = excludes;
+  }
 
-    public String getSrc() {
-        return src;
-    }
+  public String getSrc() {
+    return src;
+  }
 
-    public String[] getExcludes() {
-        return excludes;
-    }
+  public String[] getExcludes() {
+    return excludes;
+  }
 
 }

@@ -31,45 +31,45 @@ THE SOFTWARE.
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:sidebar="http://java.sun.com/jsf/composite/components/sidebar"
       xmlns:navbar="http://xmlns.jcp.org/jsf/composite/components/navbar">
-    <h:head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="#{configApp.meta.viewport}"/>
-        <meta name="description" content="#{configApp.meta.description}"/>
-        <meta name="author" content="#{configApp.meta.author}"/>
-        <meta name="keywords" content="#{configApp.meta.keywords}"/>
+  <h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="#{configApp.meta.viewport}"/>
+    <meta name="description" content="#{configApp.meta.description}"/>
+    <meta name="author" content="#{configApp.meta.author}"/>
+    <meta name="keywords" content="#{configApp.meta.keywords}"/>
 
-        <c:forEach items="#{configApp.resource.styles}" var="style">
-            <c:if test="#{style.excludes.stream().noneMatch((exclude) -> exclude eq 'dashboard')}">
-                <link rel="#{style.rel}" href="#{style.href}" />
-            </c:if>
-        </c:forEach>
+    <c:forEach items="#{configApp.resource.styles}" var="style">
+      <c:if test="#{style.excludes.stream().noneMatch((exclude) -> exclude eq 'dashboard')}">
+        <link rel="#{style.rel}" href="#{style.href}" />
+      </c:if>
+    </c:forEach>
 
-        <h:outputStylesheet name="#{viewHelper.getComponentStyle('sidebar')}" />
+    <h:outputStylesheet name="#{viewHelper.getComponentStyle('sidebar')}" />
 
-        <ui:insert name="style"/>
+    <ui:insert name="style"/>
 
-        <title>#{configApp.meta.name} - <ui:insert name="title"/></title>
-    </h:head>
-    <h:body>
-        <div class="d-flex w-100">
-            <sidebar:template/>
-            <div id="page-wrapper">
-                <navbar:template />
+    <title>#{configApp.meta.name} - <ui:insert name="title"/></title>
+  </h:head>
+  <h:body>
+    <div class="d-flex w-100">
+      <sidebar:template/>
+      <div id="page-wrapper">
+        <navbar:template />
 
-                <div id="page">
-                    <ui:insert name="page"/>
-                </div>
-            </div>
+        <div id="page">
+          <ui:insert name="page"/>
         </div>
+      </div>
+    </div>
 
-        <c:forEach items="#{configApp.resource.scripts}" var="script">
-            <c:if test="#{script.excludes.stream().noneMatch((exclude) -> exclude eq 'dashboard')}">
-                <script src="#{script.src}"></script>
-            </c:if>
-        </c:forEach>
+    <c:forEach items="#{configApp.resource.scripts}" var="script">
+      <c:if test="#{script.excludes.stream().noneMatch((exclude) -> exclude eq 'dashboard')}">
+        <script src="#{script.src}"></script>
+      </c:if>
+    </c:forEach>
 
-        <h:outputScript name="#{viewHelper.getComponentScript('sidebar')}" />
+    <h:outputScript name="#{viewHelper.getComponentScript('sidebar')}" />
 
-        <ui:insert name="script"/>
-    </h:body>
+    <ui:insert name="script"/>
+  </h:body>
 </html>

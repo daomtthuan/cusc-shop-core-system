@@ -31,44 +31,44 @@ package vn.cusc.aptech.cuscshop.coresystem.war.app.config.modules;
  */
 public class Meta {
 
-    private final String name;
-    private final String version;
-    private final String description;
-    private final String author;
-    private final String keywords;
-    private final String viewport;
+  private final String name;
+  private final String version;
+  private final String description;
+  private final String author;
+  private final String keywords;
+  private final String viewport;
 
-    public Meta(String name, String version, String description, String author, String keywords, String viewport) {
-        this.name = name;
-        this.version = version;
-        this.description = description;
-        this.author = author;
-        this.keywords = keywords;
-        this.viewport = viewport;
-    }
+  public Meta(String name, String version, String description, String author, String keywords, String viewport) {
+    this.name = name;
+    this.version = version;
+    this.description = description;
+    this.author = author;
+    this.keywords = keywords;
+    this.viewport = viewport;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getVersion() {
-        return version;
-    }
+  public String getVersion() {
+    return version;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getAuthor() {
-        return author;
-    }
+  public String getAuthor() {
+    return author;
+  }
 
-    public String getKeywords() {
-        return keywords;
-    }
+  public String getKeywords() {
+    return keywords;
+  }
 
-    public String getViewport() {
-        return viewport;
-    }
+  public String getViewport() {
+    return viewport;
+  }
 
 }

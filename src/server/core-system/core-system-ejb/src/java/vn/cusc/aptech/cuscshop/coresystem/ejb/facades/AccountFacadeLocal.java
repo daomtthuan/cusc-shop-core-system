@@ -36,20 +36,20 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Account;
 @Local
 public interface AccountFacadeLocal {
 
-    void create(Account account);
+  void create(Account account);
 
-    void edit(Account account);
+  void edit(Account account);
 
-    void remove(Account account);
+  void remove(Account account);
 
-    Account find(Object id);
+  Account find(Object id);
 
-    List<Account> findAll();
+  List<Account> findAll();
 
-    List<Account> findRange(int[] range);
+  List<Account> findRange(int[] range);
 
-    int count();
+  int count();
 
-    Account findByUsername(String username);
+  Account findByUsername(String username);
 
 }

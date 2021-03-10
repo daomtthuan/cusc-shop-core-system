@@ -38,18 +38,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.facades.AccountFacadeLocal;
 @Stateless
 public class AuthSessionBean implements AuthSessionBeanLocal {
 
-    @EJB
-    private AccountFacadeLocal accountFacade;
+  @EJB
+  private AccountFacadeLocal accountFacade;
 
-    @Override
-    public Account authenticateLocal(String username, String password) {
-        Account account = accountFacade.findByUsername(username);
-        if (account != null) {
-            if (BCrypt.checkpw(password, account.getPassword())) {
-                return account;
-            }
-        }
-        return null;
+  @Override
+  public Account authenticateLocal(String username, String password) {
+    Account account = accountFacade.findByUsername(username);
+    if (account != null) {
+      if (BCrypt.checkpw(password, account.getPassword())) {
+        return account;
+      }
     }
+    return null;
+  }
 
 }

@@ -11,13 +11,14 @@ import vn.cusc.aptech.cuscshop.coresystem.war.session.AuthSession;
 @ViewScoped
 public class HomeDashboardPresenter implements Serializable {
 
-    @Inject
-    private ViewHelper viewHelper;
-    @Inject
-    private AuthSession authSession;
+  @Inject
+  private ViewHelper viewHelper;
+  @Inject
+  private AuthSession authSession;
 
-    public String logout() {
-        authSession.logout();
-        return viewHelper.getPage("login");
-    }
+  public String logout() {
+    authSession.logout();
+    return viewHelper.getPage("login");
+  }
+
 }

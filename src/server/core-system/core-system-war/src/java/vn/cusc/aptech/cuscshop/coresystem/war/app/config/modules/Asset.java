@@ -31,20 +31,20 @@ package vn.cusc.aptech.cuscshop.coresystem.war.app.config.modules;
  */
 public class Asset {
 
-    private final StyleAsset[] styles;
-    private final ScriptAsset[] scripts;
+  private final StyleAsset[] styles;
+  private final ScriptAsset[] scripts;
 
-    public Asset(StyleAsset[] styles, ScriptAsset[] scripts) {
-        this.styles = styles;
-        this.scripts = scripts;
-    }
+  public Asset(StyleAsset[] styles, ScriptAsset[] scripts) {
+    this.styles = styles;
+    this.scripts = scripts;
+  }
 
-    public StyleAsset[] getStyles() {
-        return styles;
-    }
+  public StyleAsset[] getStyles() {
+    return styles;
+  }
 
-    public ScriptAsset[] getScripts() {
-        return scripts;
-    }
+  public ScriptAsset[] getScripts() {
+    return scripts;
+  }
 
 }

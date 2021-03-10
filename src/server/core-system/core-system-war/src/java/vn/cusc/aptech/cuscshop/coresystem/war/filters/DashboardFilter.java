@@ -16,27 +16,27 @@ import vn.cusc.aptech.cuscshop.coresystem.war.session.AuthSession;
 @WebFilter(filterName = "DashboardFilter", urlPatterns = {"/pages/dashboard/*"})
 public class DashboardFilter implements Filter {
 
-    @Inject
-    private AuthSession authSession;
+  @Inject
+  private AuthSession authSession;
 
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {
+  }
+
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    HttpServletRequest req = (HttpServletRequest) request;
+    HttpServletResponse res = (HttpServletResponse) response;
+
+    if (!authSession.isLoggedIn()) {
+      res.sendRedirect(req.getContextPath());
+    } else {
+      chain.doFilter(request, response);
     }
+  }
 
-    @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse res = (HttpServletResponse) response;
-
-        if (!authSession.isLoggedIn()) {
-            res.sendRedirect(req.getContextPath());
-        } else {
-            chain.doFilter(request, response);
-        }
-    }
-
-    @Override
-    public void destroy() {
-    }
+  @Override
+  public void destroy() {
+  }
 
 }

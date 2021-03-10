@@ -36,18 +36,18 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Event;
 @Local
 public interface EventFacadeLocal {
 
-    void create(Event event);
+  void create(Event event);
 
-    void edit(Event event);
+  void edit(Event event);
 
-    void remove(Event event);
+  void remove(Event event);
 
-    Event find(Object id);
+  Event find(Object id);
 
-    List<Event> findAll();
+  List<Event> findAll();
 
-    List<Event> findRange(int[] range);
+  List<Event> findRange(int[] range);
 
-    int count();
+  int count();
 
 }

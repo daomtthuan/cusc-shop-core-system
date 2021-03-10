@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Event;
 @Stateless
 public class EventFacade extends AbstractFacade<Event> implements EventFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public EventFacade() {
-        super(Event.class);
-    }
+  public EventFacade() {
+    super(Event.class);
+  }
 
 }

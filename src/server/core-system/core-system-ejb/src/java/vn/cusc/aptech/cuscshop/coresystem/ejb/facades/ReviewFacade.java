@@ -37,16 +37,16 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Review;
 @Stateless
 public class ReviewFacade extends AbstractFacade<Review> implements ReviewFacadeLocal {
 
-    @PersistenceContext(unitName = "core-system-ejbPU")
-    private EntityManager em;
+  @PersistenceContext(unitName = "core-system-ejbPU")
+  private EntityManager em;
 
-    @Override
-    protected EntityManager getEntityManager() {
-        return em;
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-    public ReviewFacade() {
-        super(Review.class);
-    }
+  public ReviewFacade() {
+    super(Review.class);
+  }
 
 }

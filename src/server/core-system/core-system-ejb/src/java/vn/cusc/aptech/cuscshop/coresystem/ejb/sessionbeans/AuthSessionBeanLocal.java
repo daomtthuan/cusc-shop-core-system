@@ -33,6 +33,6 @@ import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Account;
 @Local
 public interface AuthSessionBeanLocal {
 
-    Account authenticateLocal(String username, String password);
+  Account authenticateLocal(String username, String password);
 
 }
