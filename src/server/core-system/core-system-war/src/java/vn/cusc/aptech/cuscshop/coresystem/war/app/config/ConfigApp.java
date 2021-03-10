@@ -77,6 +77,9 @@ public class ConfigApp implements Serializable {
                             directory.getRoot() + "/assets/styles/theme.css" // href
                     ),
                     new StyleAsset("stylesheet", // rel
+                            directory.getRoot() + "/assets/styles/custom.css" // href
+                    ),
+                    new StyleAsset("stylesheet", // rel
                             "https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css", // href
                             new String[]{"blank"} // excludes
                     )

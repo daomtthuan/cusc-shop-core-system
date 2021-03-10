@@ -29,7 +29,8 @@ THE SOFTWARE.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-      xmlns:sidebar="http://java.sun.com/jsf/composite/components/sidebar">
+      xmlns:sidebar="http://java.sun.com/jsf/composite/components/sidebar"
+      xmlns:navbar="http://xmlns.jcp.org/jsf/composite/components/navbar">
     <h:head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="#{configApp.meta.viewport}"/>
@@ -52,8 +53,13 @@ THE SOFTWARE.
     <h:body>
         <div class="d-flex w-100">
             <sidebar:template/>
+            <div id="page-wrapper">
+                <navbar:template />
 
-            <ui:insert name="page"/>
+                <div id="page">
+                    <ui:insert name="page"/>
+                </div>
+            </div>
         </div>
 
         <c:forEach items="#{configApp.resource.scripts}" var="script">
