@@ -27,30 +27,33 @@ THE SOFTWARE.
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+                xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
   <ui:define name="title">Shop - Brand</ui:define>
 
   <ui:define name="page">
     <h:form styleClass="container-fluid">
-      <div class=" row no-gutters shadow-sm">
+      <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <h:outputLabel styleClass="text-dark" for="input-name" value="Brandname" />
-            <h:inputText styleClass="form-control #{AddBrandShopPresenter.nameInputStyleClass}" id="input-name"  p:placeholder="Brand name" value="#{loginPresenter.username}"/>
+            <h:outputLabel styleClass="text-dark" for="input-name" value="Name" />
+            <h:inputText styleClass="form-control #{addBrandShopPresenter.nameInputStyleClass}" id="input-name"  p:placeholder="Enter name" value="#{addBrandShopPresenter.name}"/>
             <div class="invalid-feedback">Invalid username</div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <h:outputLabel styleClass="text-dark" for="input-state" value="Brandname" />
-            <h:inputText styleClass="form-control #{AddBrandShopPresenter.nameInputStyleClass}" id="input-state"  p:placeholder="Brand name" value="#{loginPresenter.username}"/>
-            <div class="invalid-feedback">Invalid username</div>
+            <h:outputLabel for="input-state" value="State" />
+            <h:selectOneRadio value="#{addBrandShopPresenter.state}" styleClass="form-control-radio-inline form-control">
+              <f:selectItem itemValue="#{true}" itemLabel="Enabled" />
+              <f:selectItem itemValue="#{false}" itemLabel="Disabled" />
+            </h:selectOneRadio>
           </div>
         </div>
       </div>
-      <div class="row no-gutters shadow-sm">
+      <div class="row">
         <div class="col-12">
-          <h:commandButton type="submit" styleClass="btn btn-block btn-dark" value="Create" action="#{AddBrandShopPresenter.add()}" />
+          <h:commandButton type="submit" styleClass="btn btn-block btn-dark" value="Add" action="#{addBrandShopPresenter.add()}" />
         </div>
       </div>
     </h:form>

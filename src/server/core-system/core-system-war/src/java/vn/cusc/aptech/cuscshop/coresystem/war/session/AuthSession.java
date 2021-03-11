@@ -5,12 +5,17 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.inject.Inject;
 import vn.cusc.aptech.cuscshop.coresystem.ejb.entities.Account;
 import vn.cusc.aptech.cuscshop.coresystem.ejb.sessionbeans.AuthSessionBeanLocal;
+import vn.cusc.aptech.cuscshop.coresystem.war.app.helpers.ViewHelper;
 
 @Named(value = "authSession")
 @SessionScoped
 public class AuthSession implements Serializable {
+
+  @Inject
+  private ViewHelper viewHelper;
 
   @EJB
   private AuthSessionBeanLocal auth;
@@ -25,8 +30,9 @@ public class AuthSession implements Serializable {
     account = auth.authenticateLocal(username, password);
   }
 
-  public void logout() {
+  public String logout() {
     account = null;
+    return viewHelper.getPage("login");
   }
 
   public Account getAccount() {

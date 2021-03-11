@@ -87,11 +87,28 @@ public class ConfigApp implements Serializable {
       new ScriptAsset[] {
         new ScriptAsset("https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"),
         new ScriptAsset("https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"),
+        new ScriptAsset(directory.getRoot() + "/assets/scripts/custom.js"),
         new ScriptAsset("https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js", // src
           new String[] {"blank"} // excludes
         )
       } // scripts
     );
+  }
+
+  public String getPlugin(String name) {
+    if (name.equalsIgnoreCase("datatables.min.js")) {
+      return "https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js";
+    }
+
+    if (name.equalsIgnoreCase("datatables.bootstrap4.min.js")) {
+      return "https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js";
+    }
+
+    if (name.equalsIgnoreCase("dataTables.bootstrap4.min.css")) {
+      return "https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css";
+    }
+
+    return null;
   }
 
   public Meta getMeta() {

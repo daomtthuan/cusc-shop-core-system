@@ -28,43 +28,43 @@ THE SOFTWARE.
               xmlns:cc="http://xmlns.jcp.org/jsf/composite"
               xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
               xmlns:h="http://xmlns.jcp.org/jsf/html">
-  <cc:interface />
+    <cc:interface />
 
-  <cc:implementation>
-    <nav id="sidebar" class="bg-white py-3 px-2">
-      <div class="d-flex align-items-center">
-        <div class="text-center mx-auto">
-          <div class="logo logo-64 mx-auto mb-2"></div>
-          <h1 class="h3 font-weight-bold text-primary">
-            CUSC SHOP <br/>
-            CORE SYSTEM
-          </h1>
-          <h3 class="small mb-0">Version #{configApp.meta.version}</h3>
-        </div>
-      </div>
-      <hr/>
-      <div id="sidebar-accordion" class="accordion">
-        <h:link styleClass="btn btn-block btn-dark btn-sm text-left mb-2" value="Home" outcome="#{viewHelper.getPage('dashboard/home')}" />
-        <button id="heading-access-system" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-access-system" aria-expanded="true" aria-controls="collapse-access-system">Access System</button>
-        <div id="collapse-access-system" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-access-system" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Account" outcome="#{viewHelper.getPage('dashboard/access-system/account/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Permission" outcome="#{viewHelper.getPage('dashboard/access-system/permission/list')}" />
-        </div>
-        <button id="heading-shop" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-shop" aria-expanded="true" aria-controls="collapse-shop">Shop</button>
-        <div id="collapse-shop" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-shop" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Brand" outcome="#{viewHelper.getPage('dashboard/shop/brand/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category Group" outcome="#{viewHelper.getPage('dashboard/shop/category-group/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category" outcome="#{viewHelper.getPage('dashboard/shop/category/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Product" outcome="#{viewHelper.getPage('dashboard/shop/product/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Bill" outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Event" outcome="#{viewHelper.getPage('dashboard/shop/event/list')}" />
-        </div>
-        <button id="heading-statistics" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-statistics" aria-expanded="true" aria-controls="collapse-statistics">Statistics</button>
-        <div id="collapse-statistics" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-statistics" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Revenue" outcome="#{viewHelper.getPage('dashboard/statistics/revenue')}" />
-        </div>
-      </div>
-    </nav>
-  </cc:implementation>
+    <cc:implementation>
+        <nav id="sidebar" class="py-3 px-2">
+            <div class="d-flex align-items-center">
+                <div class="text-center mx-auto">
+                    <div class="logo logo-64 mx-auto mb-2"></div>
+                    <h1 class="h3 font-weight-bold text-primary">
+                        CUSC SHOP <br/>
+                        CORE SYSTEM
+                    </h1>
+                    <h3 class="small mb-0">Version #{configApp.meta.version}</h3>
+                </div>
+            </div>
+            <hr/>
+            <div id="sidebar-accordion" class="accordion">
+                <h:link styleClass="btn btn-block btn-dark btn-sm text-left mb-2" value="Home" outcome="#{viewHelper.getPage('dashboard/home')}" />
+                <button id="heading-access-system" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-access-system" aria-expanded="true" aria-controls="collapse-access-system">Access System</button>
+                <div id="collapse-access-system" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-access-system" data-parent="#sidebar-accordion">
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Account" outcome="#{viewHelper.getPage('dashboard/access-system/account/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Permission" outcome="#{viewHelper.getPage('dashboard/access-system/permission/list')}" />
+                </div>
+                <button id="heading-shop" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-shop" aria-expanded="true" aria-controls="collapse-shop">Shop</button>
+                <div id="collapse-shop" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-shop" data-parent="#sidebar-accordion">
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Brand" outcome="#{viewHelper.getPage('dashboard/shop/brand/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category Group" outcome="#{viewHelper.getPage('dashboard/shop/category-group/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category" outcome="#{viewHelper.getPage('dashboard/shop/category/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Product" outcome="#{viewHelper.getPage('dashboard/shop/product/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Bill" outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}" />
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Event" outcome="#{viewHelper.getPage('dashboard/shop/event/list')}" />
+                </div>
+                <button id="heading-statistics" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-statistics" aria-expanded="true" aria-controls="collapse-statistics">Statistics</button>
+                <div id="collapse-statistics" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-statistics" data-parent="#sidebar-accordion">
+                    <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Revenue" outcome="#{viewHelper.getPage('dashboard/statistics/revenue')}" />
+                </div>
+            </div>
+        </nav>
+    </cc:implementation>
 </ui:component>
 
