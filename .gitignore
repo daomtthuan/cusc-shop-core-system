@@ -7,3 +7,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+src/server/core-system/nbproject/project.properties
