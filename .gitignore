@@ -9,3 +9,4 @@ nbdist/
 .nb-gradle/
 src/server/core-system/nbproject/project.properties
 src/server/core-system/core-system-ejb/nbproject/project.properties
+src/server/core-system/core-system-ejb/nbproject/project.properties
