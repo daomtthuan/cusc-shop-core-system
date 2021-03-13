@@ -24,8 +24,10 @@
 package vn.cusc.aptech.cuscshop.coresystem.war.presenters.dashboard.shop.bill;
 
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import vn.cusc.aptech.cuscshop.coresystem.ejb.facades.BillFacadeLocal;
 
 /**
  *
@@ -34,6 +36,9 @@ import javax.faces.view.ViewScoped;
 @Named(value = "listBillShopPresenter")
 @ViewScoped
 public class ListBillShopPresenter implements Serializable {
+
+  @EJB
+  private BillFacadeLocal billFacade;
 
   /**
    * Creates a new instance of ListBillShopPresenter
