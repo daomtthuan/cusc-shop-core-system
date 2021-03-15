@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### NetBeans ###
 **/nbproject/private/
 **/nbproject/Makefile-*.mk
@@ -14,3 +15,14 @@ src/server/core-system/nbproject/project.properties
 src/server/core-system/core-system-war/nbproject/project.properties
 src/server/core-system/core-system-ejb/nbproject/project.properties
 src/server/core-system/core-system-ejb/nbproject/project.properties
+=======
+/project/application/nbproject/
+/project/application/cscs-war/nbproject/
+/project/application/cscs-ejb/nbproject/
+/project/application/cscs-ejb/build/
+/project/application/build/
+/project/application/cscs-war/build/
+/project/application/cscs-ejb/dist/
+/project/application/cscs-war/dist/
+/project/application/dist/
+>>>>>>> 4ec6471766f025206cd9d46f0cd238bb781193bf
