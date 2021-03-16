@@ -21,33 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
 
-import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
+var toggleScrolltop = function () {
+  if ($(this).scrollTop() > 100) {
+    $('#scrolltop').fadeIn();
+  } else {
+    $('#scrolltop').fadeOut();
+  }
+};
 
-/**
- *
- * @author Daomtthuan
- */
-@Local
-public interface CategoryFacadeLocal {
+toggleScrolltop();
+$(window).scroll(toggleScrolltop);
 
-  void create(Category category);
-
-  void edit(Category category);
-
-  void remove(Category category);
-
-  Category find(Object id);
-
-  List<Category> findAll();
-
-  List<Category> findRange(int[] range);
-
-  int count();
-
-  List<Category> findByFilter(Object id);
-
-}
+$('#scrolltop').click(function () {
+  $('html, body').animate({scrollTop: 0}, 800);
+  return false;
+});

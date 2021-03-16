@@ -23,10 +23,12 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import vn.cusc.aptech.cscs.ejb.entities.Category;
+import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
 
 /**
  *
@@ -45,6 +47,15 @@ public class CategoryFacade extends AbstractFacade<Category> implements Category
 
   public CategoryFacade() {
     super(Category.class);
+  }
+
+  @Override
+  public List<Category> findByFilter(Object idCategoryGroup) {
+    List<Category> categories = em.createQuery("SELECT c FROM Category c WHERE c.categoryGroup = :categoryGroup OR :idCategoryGroup = 0")
+      .setParameter("idCategoryGroup", idCategoryGroup)
+      .setParameter("categoryGroup", em.find(CategoryGroup.class, idCategoryGroup))
+      .getResultList();
+    return categories;
   }
 
 }

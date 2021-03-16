@@ -54,10 +54,13 @@ public class EmployeeFacade extends AbstractFacade<Employee> implements Employee
     List<Employee> employees = em.createNamedQuery("Employee.findByUsername").setParameter("username", username).getResultList();
     return employees.isEmpty() ? null : employees.get(0);
   }
-  
+
   @Override
-  public List<Employee> findByRole(Object id) {
-    List<Employee> employees = em.createQuery("SELECT e FROM Employee e WHERE e.role = :role").setParameter("role", em.find(Role.class, id)).getResultList();
+  public List<Employee> findByFilter(Object idRole) {
+    List<Employee> employees = em.createQuery("SELECT e FROM Employee e WHERE e.role = :role OR :idRole = 0")
+      .setParameter("idRole", idRole)
+      .setParameter("role", em.find(Role.class, idRole))
+      .getResultList();
     return employees;
   }
 

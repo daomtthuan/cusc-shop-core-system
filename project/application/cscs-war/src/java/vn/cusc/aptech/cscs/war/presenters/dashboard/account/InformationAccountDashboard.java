@@ -21,33 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.account;
 
-import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
+import java.io.Serializable;
+import javax.inject.Named;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface CategoryFacadeLocal {
+@Named(value = "informationAccountDashboard")
+@ViewScoped
+public class InformationAccountDashboard implements Serializable {
 
-  void create(Category category);
+  @Inject
+  private AuthSession authSession;
 
-  void edit(Category category);
-
-  void remove(Category category);
-
-  Category find(Object id);
-
-  List<Category> findAll();
-
-  List<Category> findRange(int[] range);
-
-  int count();
-
-  List<Category> findByFilter(Object id);
+  public Employee getAccount() {
+    return authSession.getAccount();
+  }
 
 }

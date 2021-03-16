@@ -46,24 +46,26 @@ THE SOFTWARE.
       <div id="sidebar-accordion" class="accordion px-1">
         <h:link styleClass="btn btn-block btn-dark btn-sm text-left mb-2" value="Home" outcome="#{viewHelper.getPage('dashboard/home')}" />
         <button id="heading-access-system" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-access-system" aria-expanded="true" aria-controls="collapse-access-system">Access System</button>
-        <div id="collapse-access-system" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-access-system" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Account" outcome="#{viewHelper.getPage('dashboard/access-system/account/list')}" />
+        <div id="collapse-access-system" class="collapse" aria-labelledby="heading-access-system" data-parent="#sidebar-accordion">
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Account" outcome="#{viewHelper.getPage('dashboard/access-system/account/list')}" />
+          <div class="mb-1 border"></div>
         </div>
         <button id="heading-shop" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-shop" aria-expanded="true" aria-controls="collapse-shop">Shop</button>
-        <div id="collapse-shop" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-shop" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Customer" outcome="#{viewHelper.getPage('dashboard/shop/customer/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Brand" outcome="#{viewHelper.getPage('dashboard/shop/brand/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category Group" outcome="#{viewHelper.getPage('dashboard/shop/category-group/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Category" outcome="#{viewHelper.getPage('dashboard/shop/category/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Product" outcome="#{viewHelper.getPage('dashboard/shop/product/list')}" />
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Bill" outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}" />
+        <div id="collapse-shop" class="collapse" aria-labelledby="heading-shop" data-parent="#sidebar-accordion">
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Customer" outcome="#{viewHelper.getPage('dashboard/shop/customer/list')}" />
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Brand" outcome="#{viewHelper.getPage('dashboard/shop/brand/list')}" />
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Category Group" outcome="#{viewHelper.getPage('dashboard/shop/category-group/list')}" />
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Category" outcome="#{viewHelper.getPage('dashboard/shop/category/list')}" />
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Product" outcome="#{viewHelper.getPage('dashboard/shop/product/list')}" />
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Bill" outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}" />
+          <div class="mb-1 border"></div>
         </div>
         <button id="heading-statistics" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-statistics" aria-expanded="true" aria-controls="collapse-statistics">Statistics</button>
-        <div id="collapse-statistics" class="collapse border py-1 px-2 mb-2" aria-labelledby="heading-statistics" data-parent="#sidebar-accordion">
-          <h:link styleClass="btn btn-sm btn-block btn-light text-left my-1" value="Revenue" outcome="#{viewHelper.getPage('dashboard/statistics/revenue')}" />
+        <div id="collapse-statistics" class="collapse" aria-labelledby="heading-statistics" data-parent="#sidebar-accordion">
+          <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1" value="Revenue" outcome="#{viewHelper.getPage('dashboard/statistics/revenue')}" />
+          <div class="mb-1 border"></div>
         </div>
       </div>
     </nav>
   </cc:implementation>
 </ui:component>
-

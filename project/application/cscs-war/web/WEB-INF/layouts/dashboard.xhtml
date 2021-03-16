@@ -30,7 +30,8 @@ THE SOFTWARE.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:sidebar="http://java.sun.com/jsf/composite/components/sidebar"
-      xmlns:navbar="http://xmlns.jcp.org/jsf/composite/components/navbar">
+      xmlns:navbar="http://xmlns.jcp.org/jsf/composite/components/navbar"
+      xmlns:scrolltop="http://xmlns.jcp.org/jsf/composite/components/scrolltop">
   <h:head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="#{configApp.meta.viewport}"/>
@@ -66,8 +67,10 @@ THE SOFTWARE.
         <script src="#{script.src}"></script>
       </c:if>
     </c:forEach>
+    <scrolltop:template/>
 
     <h:outputScript name="#{viewHelper.getComponentScript('sidebar')}" />
+    <h:outputScript name="#{viewHelper.getComponentScript('scrolltop')}" />
 
     <ui:insert name="script"/>
   </h:body>

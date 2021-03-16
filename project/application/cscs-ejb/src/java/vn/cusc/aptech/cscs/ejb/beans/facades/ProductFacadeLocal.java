@@ -48,4 +48,6 @@ public interface ProductFacadeLocal {
 
   int count();
 
+  List<Product> findByFilter(Object idBrand, Object idCategoryGroup, Object idCategory);
+
 }
