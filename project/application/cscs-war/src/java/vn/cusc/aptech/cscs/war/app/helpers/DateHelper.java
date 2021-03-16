@@ -21,28 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard;
+package vn.cusc.aptech.cscs.war.app.helpers;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import javax.inject.Named;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
-import vn.cusc.aptech.cscs.war.session.AuthSession;
+import javax.enterprise.context.ApplicationScoped;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "accountDashboard")
-@ViewScoped
-public class AccountDashboard implements Serializable {
+@Named(value = "dateHelper")
+@ApplicationScoped
+public class DateHelper implements Serializable {
 
-  @Inject
-  private AuthSession authSession;
+  public LocalDate dateOf(Date date) {
+    return new java.sql.Date(date.getTime()).toLocalDate();
+  }
 
-  public Employee getAccount() {
-    return authSession.getAccount();
+  public int[] getCurrentYears() {
+    int[] years = new int[150];
+    int current = LocalDateTime.now().getYear();
+    for (int i = 0; i < 150; i++) {
+      years[i] = current--;
+    }
+    return years;
   }
 
 }

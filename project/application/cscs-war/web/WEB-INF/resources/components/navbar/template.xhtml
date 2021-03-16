@@ -42,8 +42,8 @@ THE SOFTWARE.
             ##{authSession.account.username}
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-account">
-            <h:link styleClass="dropdown-item" outcome="#{viewHelper.getPage('dashboard/account')}" value="Account" />
-            <a class="dropdown-item" href="#">Change password</a>
+            <h:link styleClass="dropdown-item" outcome="#{viewHelper.getPage('dashboard/account/information')}" value="Account" />
+            <h:link styleClass="dropdown-item" outcome="#{viewHelper.getPage('dashboard/account/change-password')}" value="Change password" />
             <div class="dropdown-divider"></div>
             <h:form>
               <h:commandLink action="#{authSession.logout()}" value="Logout" styleClass="dropdown-item" />
