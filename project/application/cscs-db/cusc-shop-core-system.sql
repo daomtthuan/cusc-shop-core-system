@@ -152,12 +152,12 @@ VALUES
 INSERT INTO
 	information (full_name, birthday, gender, email, address, phone)
 VALUES 
-	('Dao Minh Trung Thuan', '1993-03-08', 0, 'dmtthuana18088@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0292870758'), 
-	('Nguyen Phuc Duy', '1976-11-21', 0, 'npduya18082@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '01886697561'), 
-	('Dang Quang Nghi', '1981-02-20', 0, 'dqnghia18086@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '03205219336'), 
-	('Ho Quang Tam', '1984-07-07', 1, 'hqtama16053@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0586781301'),
-	('Nguyen Hoang Lam', '1997-05-26', 0, 'daomtthuan.user@gmail.com', N'1 Tran Hung Dao Street, Ninh Kieu Ward, Can tho city', '02183697771'),
-	('Quach Gia Bao', '1994-05-26', 1, 'daomtthuan.user@gmail.com', N'1 Tran Binh Trong Street, Ninh Kieu Ward, Can tho city', '02300532958');
+	('Dao Minh Trung Thuan', '1993-03-08', true, 'dmtthuana18088@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0292870758'), 
+	('Nguyen Phuc Duy', '1976-11-21', true, 'npduya18082@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '01886697561'), 
+	('Dang Quang Nghi', '1981-02-20', true, 'dqnghia18086@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '03205219336'), 
+	('Ho Quang Tam', '1984-07-07', true, 'hqtama16053@cusc.ctu.edu.vn', N'1 Ly Tu Trong Street, Ninh Kieu Ward, Can tho city', '0586781301'),
+	('Nguyen Hoang Lam', '1997-05-26', false, 'daomtthuan.user@gmail.com', N'1 Tran Hung Dao Street, Ninh Kieu Ward, Can tho city', '02183697771'),
+	('Quach Gia Bao', '1994-05-26', true, 'daomtthuan.user@gmail.com', N'1 Tran Binh Trong Street, Ninh Kieu Ward, Can tho city', '02300532958');
 
 INSERT INTO
 	employee (username, password, role, information)

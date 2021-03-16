@@ -21,39 +21,28 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.helpers;
+package vn.cusc.aptech.cscs.war.presenters.dashboard;
 
 import java.io.Serializable;
 import javax.inject.Named;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "viewHelper")
-@ApplicationScoped
-public class ViewHelper implements Serializable {
+@Named(value = "accountDashboard")
+@ViewScoped
+public class AccountDashboard implements Serializable {
 
   @Inject
-  private ConfigApp configApp;
+  private AuthSession authSession;
 
-  public String getPageUrl(String name) {
-    return configApp.getDirectory().getRoot() + "/pages/" + name + ".html";
-  }
-
-  public String getPage(String name) {
-    return "/pages/" + name + ".html?faces-redirect=true";
-  }
-
-  public String getComponentStyle(String name) {
-    return "components/" + name + "/style.css";
-  }
-
-  public String getComponentScript(String name) {
-    return "components/" + name + "/script.js";
+  public Employee getAccount() {
+    return authSession.getAccount();
   }
 
 }

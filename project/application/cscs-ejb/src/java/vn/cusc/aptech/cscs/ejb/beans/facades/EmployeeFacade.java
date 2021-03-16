@@ -28,6 +28,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Role;
 
 /**
  *
@@ -50,8 +51,14 @@ public class EmployeeFacade extends AbstractFacade<Employee> implements Employee
 
   @Override
   public Employee findByUsername(String username) {
-    List<Employee> accounts = em.createNamedQuery("Employee.findByUsername").setParameter("username", username).getResultList();
-    return accounts.isEmpty() ? null : accounts.get(0);
+    List<Employee> employees = em.createNamedQuery("Employee.findByUsername").setParameter("username", username).getResultList();
+    return employees.isEmpty() ? null : employees.get(0);
+  }
+  
+  @Override
+  public List<Employee> findByRole(Object id) {
+    List<Employee> employees = em.createQuery("SELECT e FROM Employee e WHERE e.role = :role").setParameter("role", em.find(Role.class, id)).getResultList();
+    return employees;
   }
 
 }

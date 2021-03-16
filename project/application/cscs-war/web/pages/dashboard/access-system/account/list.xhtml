@@ -25,10 +25,83 @@ THE SOFTWARE.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
   <ui:define name="title">Access System - Account</ui:define>
 
   <ui:define name="page">
-    Account
+    <div class="container-fluid">
+      <h2>Employee account list</h2>
+      <h:form>
+        <div class="form-group">
+          <h:outputLabel for="input-role" value="Role" />
+          <h:selectOneMenu id="input-role" value="#{listAccountAccesssystemDashboardPresenter.idRole}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="--" />
+            <c:forEach items="#{listAccountAccesssystemDashboardPresenter.roles}" var="role">
+              <f:selectItem itemValue="#{role.id}" itemLabel="#{role.name}" />
+            </c:forEach>
+          </h:selectOneMenu>
+        </div>
+        <h:commandButton value="Show" styleClass="btn btn-dark" />
+      </h:form>
+      <hr />
+      <h:dataTable id="datatable" value="#{listAccountAccesssystemDashboardPresenter.accounts}" var="account" styleClass="table table-sm table-striped table-bordered table-responsive-md">
+        <h:column>
+          <f:facet name="header">Actions</f:facet>
+          <h:form>
+            <h:link outcome="#{viewHelper.getPage('dashboard/access-system/account/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+              <f:param name="id" value="#{account.id}" />
+              <i class="fas fa-edit"></i>
+            </h:link>
+            <h:commandLink id="remove" action="#{listAccountAccesssystemDashboardPresenter.removeAccount(account.id)}" styleClass="btn btn-sm btn-danger">
+              <i class="fas fa-trash"></i>
+            </h:commandLink>
+          </h:form>
+        </h:column>
+        <h:column>
+          <f:facet name="header">ID</f:facet>
+            #{account.id}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Username</f:facet>
+            #{account.username}
+        </h:column>
+        <h:column>
+          <f:facet name="header">State</f:facet>
+            #{account.state ? "Enabled" : "Disabled"}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Full name</f:facet>
+            #{account.information.fullName}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Gender</f:facet>
+            #{account.information.gender ? "Male" : "Female"}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Email</f:facet>
+            #{account.information.email}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Phone</f:facet>
+            #{account.information.phone}
+        </h:column>
+      </h:dataTable>
+    </div>
+  </ui:define>
+
+  <ui:define name="script">
+    <script src="#{configApp.getPlugin('datatables.min.js')}"></script>
+    <script src="#{configApp.getPlugin('datatables.bootstrap4.min.js')}"></script>
+    <script>
+      $('#datatable').DataTable();
+      $('#datatable thead').addClass('thead-dark');
+    </script>
+  </ui:define>
+
+  <ui:define name="style">
+    <link rel="stylesheet" href="#{configApp.getPlugin('dataTables.bootstrap4.min.css')}" />
   </ui:define>
 </ui:composition>
