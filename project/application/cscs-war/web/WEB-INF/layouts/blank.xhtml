@@ -28,7 +28,8 @@ THE SOFTWARE.
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:scrolltop="http://xmlns.jcp.org/jsf/composite/components/scrolltop">
   <h:head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="#{configApp.meta.viewport}"/>
@@ -54,6 +55,10 @@ THE SOFTWARE.
         <script src="#{script.src}"></script>
       </c:if>
     </c:forEach>
+
+    <scrolltop:template/>
+
+    <h:outputScript name="#{viewHelper.getComponentScript('scrolltop')}" />
 
     <ui:insert name="script"/>
   </h:body>

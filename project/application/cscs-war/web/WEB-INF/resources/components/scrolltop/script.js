@@ -22,8 +22,18 @@
  * THE SOFTWARE.
  */
 
-$('.form-control-radio td, .form-control-radio-inline td').addClass('custom-control custom-radio');
-$('.form-control-radio label, .form-control-radio-inline label').addClass('custom-control-label');
-$('.form-control-radio input, .form-control-radio-inline input').addClass('custom-control-input');
-$('.form-control-radio-inline td').addClass('custom-control-inline');
-$('.header-sticky-top').css('top', $('.navbar.sticky-top').outerHeight() + 'px');
+var toggleScrolltop = function () {
+  if ($(this).scrollTop() > 100) {
+    $('#scrolltop').fadeIn();
+  } else {
+    $('#scrolltop').fadeOut();
+  }
+};
+
+toggleScrolltop();
+$(window).scroll(toggleScrolltop);
+
+$('#scrolltop').click(function () {
+  $('html, body').animate({scrollTop: 0}, 800);
+  return false;
+});
