@@ -50,6 +50,6 @@ public interface EmployeeFacadeLocal {
 
   Employee findByUsername(String username);
 
-  List<Employee> findByFilter(Object idRole)
+  List<Employee> findByFilter(Object idRole);
 
 }
