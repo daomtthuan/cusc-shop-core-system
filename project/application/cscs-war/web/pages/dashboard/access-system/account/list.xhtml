@@ -39,17 +39,15 @@ THE SOFTWARE.
           <h:outputLabel for="input-role" value="Role" />
           <h:selectOneMenu id="input-role" value="#{listAccountAccesssystemDashboardPresenter.idRole}" styleClass="custom-select">
             <f:selectItem itemValue="0" itemLabel="--" />
-            <c:forEach items="#{listAccountAccesssystemDashboardPresenter.roles}" var="role">
-              <f:selectItem itemValue="#{role.id}" itemLabel="#{role.name}" />
-            </c:forEach>
+            <f:selectItems value="#{listAccountAccesssystemDashboardPresenter.roles}" var="role" itemValue="#{role.id}" itemLabel="#{role.name}" />
+            <f:ajax render="datatable" />
           </h:selectOneMenu>
         </div>
-        <h:commandButton value="Show" styleClass="btn btn-dark" />
       </h:form>
       <hr />
-      <h:dataTable id="datatable" value="#{listAccountAccesssystemDashboardPresenter.accounts}" var="account" styleClass="table table-sm table-striped table-bordered table-responsive-md">
+      <h:dataTable id="datatable" value="#{listAccountAccesssystemDashboardPresenter.accounts}" var="account" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light">
         <h:column>
-          <f:facet name="header">Actions</f:facet>
+          <f:facet name="header" class="bg-dark">Actions</f:facet>
           <h:form>
             <h:link outcome="#{viewHelper.getPage('dashboard/access-system/account/edit')}" styleClass="btn btn-sm btn-primary mr-1">
               <f:param name="id" value="#{account.id}" />
@@ -97,7 +95,6 @@ THE SOFTWARE.
     <script src="#{configApp.getPlugin('datatables.bootstrap4.min.js')}"></script>
     <script>
       $('#datatable').DataTable();
-      $('#datatable thead').addClass('thead-dark');
     </script>
   </ui:define>
 

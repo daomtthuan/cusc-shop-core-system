@@ -25,10 +25,96 @@ THE SOFTWARE.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
   <ui:define name="title">Shop - Product</ui:define>
 
   <ui:define name="page">
-    Shop - Product
+    <div class="container-fluid">
+      <h2>Product list</h2>
+      <h:form>
+        <div class="form-group">
+          <h:outputLabel for="input-brand" value="Brand" />
+          <h:selectOneMenu id="input-brand" value="#{listProductShopDashboardPresenter.idBrand}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="--" />
+            <f:selectItems value="#{listProductShopDashboardPresenter.brands}" var="brand" itemValue="#{brand.id}" itemLabel="#{brand.name}" />
+            <f:ajax render="datatable" />
+          </h:selectOneMenu>
+        </div>
+        <div class="form-group">
+          <h:outputLabel for="input-category-group" value="Category Group" />
+          <h:selectOneMenu id="input-category-group" value="#{listProductShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="--" />
+            <f:selectItems value="#{listProductShopDashboardPresenter.categoryGroups}" var="categoryGroup" itemValue="#{categoryGroup.id}" itemLabel="#{categoryGroup.name}" />
+            <f:ajax render="datatable input-category" />
+          </h:selectOneMenu>
+        </div>
+        <div class="form-group">
+          <h:outputLabel for="input-category" value="Category" />
+          <h:selectOneMenu id="input-category" value="#{listProductShopDashboardPresenter.idCategory}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="--" />
+            <f:selectItems value="#{listProductShopDashboardPresenter.categories}" var="category" itemValue="#{category.id}" itemLabel="#{category.name}" />
+            <f:ajax render="datatable" />
+          </h:selectOneMenu>
+        </div>
+      </h:form>
+      <hr />
+      <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light">
+        <h:column>
+          <f:facet name="header" class="bg-dark">Actions</f:facet>
+          <h:form>
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/product/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+              <f:param name="id" value="#{product.id}" />
+              <i class="fas fa-edit"></i>
+            </h:link>
+            <h:commandLink id="remove" action="#{listProductShopDashboardPresenter.removeProduct(product.id)}" styleClass="btn btn-sm btn-danger">
+              <i class="fas fa-trash"></i>
+            </h:commandLink>
+          </h:form>
+        </h:column>
+        <h:column>
+          <f:facet name="header">ID</f:facet>
+            #{product.id}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Name</f:facet>
+            #{product.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">State</f:facet>
+            #{product.state ? "Enabled" : "Disabled"}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Brand</f:facet>
+            #{product.brand.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Category</f:facet>
+            #{product.category.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Price</f:facet>
+            #{product.price}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Quantity</f:facet>
+            #{product.quantity}
+        </h:column>
+      </h:dataTable>
+    </div>
+  </ui:define>
+
+  <ui:define name="script">
+    <script src="#{configApp.getPlugin('datatables.min.js')}"></script>
+    <script src="#{configApp.getPlugin('datatables.bootstrap4.min.js')}"></script>
+    <script>
+      $('#datatable').DataTable();
+    </script>
+  </ui:define>
+
+  <ui:define name="style">
+    <link rel="stylesheet" href="#{configApp.getPlugin('dataTables.bootstrap4.min.css')}" />
   </ui:define>
 </ui:composition>

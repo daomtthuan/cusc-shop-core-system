@@ -48,4 +48,6 @@ public interface CategoryFacadeLocal {
 
   int count();
 
+  List<Category> findByFilter(Object id);
+
 }

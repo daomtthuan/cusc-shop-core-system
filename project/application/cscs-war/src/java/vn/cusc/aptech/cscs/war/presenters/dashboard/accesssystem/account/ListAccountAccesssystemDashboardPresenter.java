@@ -50,10 +50,10 @@ public class ListAccountAccesssystemDashboardPresenter implements Serializable {
   @EJB
   private EmployeeFacadeLocal employeeFacade;
 
-  private int idRole;
-
   @Inject
   private ViewHelper viewHelper;
+
+  private int idRole;
 
   @PostConstruct
   public void init() {
@@ -61,11 +61,7 @@ public class ListAccountAccesssystemDashboardPresenter implements Serializable {
   }
 
   public List<Employee> getAccounts() {
-    if (idRole == 0) {
-      return employeeFacade.findAll();
-    } else {
-      return employeeFacade.findByRole(idRole);
-    }
+    return employeeFacade.findByFilter(idRole);
   }
 
   public List<Role> getRoles() {
