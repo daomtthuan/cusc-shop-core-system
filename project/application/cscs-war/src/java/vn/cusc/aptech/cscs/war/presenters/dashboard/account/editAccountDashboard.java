@@ -25,16 +25,18 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.account;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
 
@@ -45,6 +47,9 @@ import vn.cusc.aptech.cscs.war.session.AuthSession;
 @Named(value = "editAccountDashboard")
 @ViewScoped
 public class EditAccountDashboard implements Serializable {
+
+  @EJB
+  private InformationFacadeLocal informationFacade;
 
   @Inject
   private AuthSession authSession;
@@ -60,23 +65,36 @@ public class EditAccountDashboard implements Serializable {
   private int dayBirthday;
   private int monthBirthday;
   private int yearBirthday;
+  private LocalDate birthday;
   private String email;
   private String phone;
   private String address;
 
+  private String fullNameInputStyleClass;
+  private String birthdayInputStyleClass;
+  private String emailInputStyleClass;
+  private String phoneInputStyleClass;
+  private String addressInputStyleClass;
+
   @PostConstruct
   public void init() {
     Information information = authSession.getAccount().getInformation();
-    LocalDate birthday = dateHelper.dateOf(information.getBirthday());
 
     fullName = information.getFullName();
     gender = information.getGender();
+    birthday = dateHelper.localDateOf(information.getBirthday());
     dayBirthday = birthday.getDayOfMonth();
     monthBirthday = birthday.getMonthValue();
     yearBirthday = birthday.getYear();
     email = information.getEmail();
     phone = information.getPhone();
     address = information.getAddress();
+
+    fullNameInputStyleClass = null;
+    birthdayInputStyleClass = null;
+    emailInputStyleClass = null;
+    phoneInputStyleClass = null;
+    addressInputStyleClass = null;
   }
 
   public Employee getAccount() {
@@ -84,7 +102,38 @@ public class EditAccountDashboard implements Serializable {
   }
 
   public String edit() {
-    return viewHelper.getPage("dashboard/account/information");
+    boolean fullNameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, fullName);
+    boolean emailValid = Pattern.matches(ValidationHelper.RegexPattern.EMAIL, email);
+    boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
+    boolean addressValid = Pattern.matches(ValidationHelper.RegexPattern.ANY, address);
+    boolean birthdayValid = true;
+
+    fullNameInputStyleClass = fullNameValid ? null : ValidationHelper.StyleClass.INVALID;
+    emailInputStyleClass = emailValid ? null : ValidationHelper.StyleClass.INVALID;
+    phoneInputStyleClass = phoneValid ? null : ValidationHelper.StyleClass.INVALID;
+    addressInputStyleClass = addressValid ? null : ValidationHelper.StyleClass.INVALID;
+    try {
+      birthday = dateHelper.localDateOf(yearBirthday, monthBirthday, dayBirthday);
+    } catch (Exception e) {
+      birthdayValid = false;
+      birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;
+    }
+
+    if (!fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
+      return null;
+    }
+
+    Information information = authSession.getAccount().getInformation();
+    information.setFullName(fullName);
+    information.setGender(gender);
+    information.setBirthday(dateHelper.dateOf(birthday));
+    information.setEmail(email);
+    information.setPhone(phone);
+    information.setAddress(address);
+    informationFacade.edit(information);
+
+    return viewHelper.getPage(
+      "dashboard/account/information");
   }
 
   public String getFullName() {

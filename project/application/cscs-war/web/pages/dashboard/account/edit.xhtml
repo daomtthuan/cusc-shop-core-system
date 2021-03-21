@@ -33,8 +33,7 @@ THE SOFTWARE.
 
   <ui:define name="page">
     <div class="container-fluid">
-      <h:link styleClass="btn btn-primary mr-2" outcome="#{viewHelper.getPage('dashboard/account/edit')}" value="Edit" />
-      <h:link styleClass="btn btn-primary" outcome="#{viewHelper.getPage('dashboard/account/change-password')}" value="Change password" />
+      <h2>Edit account information</h2>
       <hr/>
       <h:form>
         <div class="row">
@@ -53,7 +52,7 @@ THE SOFTWARE.
             </div>
             <div class="form-group">
               <h:outputLabel for="input-full-name" value="Full name" />
-              <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control" disabled="true" />
+              <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control" />
             </div>
           </div>
           <div class="col-md-6">
@@ -80,23 +79,26 @@ THE SOFTWARE.
             </div>
             <div class="form-group">
               <h:outputLabel for="input-gender" value="Gender" />
-              <h:inputText id="input-gender" value="#{editAccountDashboard.gender ? 'Male' : 'Female'}" styleClass="form-control" disabled="true" />
+              <h:selectOneRadio id="input-gender" value="#{editAccountDashboard.gender}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="Male" />
+                <f:selectItem itemValue="false" itemLabel="Female" />
+              </h:selectOneRadio>
             </div>
             <div class="form-group">
               <h:outputLabel for="input-email" value="Email" />
-              <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control" disabled="true" />
+              <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control" />
             </div>
             <div class="form-group">
               <h:outputLabel for="input-phone" value="Phone" />
-              <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control" disabled="true" />
+              <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control" />
             </div>
           </div>
         </div>
         <div class="form-group">
           <h:outputLabel for="input-address" value="Address" />
-          <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control" disabled="true" />
+          <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control" />
         </div>
-        <h:commandButton styleClass="btn btn-primary" action="#{editAccountDashboard.edit()}" />
+        <h:commandButton styleClass="btn btn-primary" action="#{editAccountDashboard.edit()}" value="Edit" />
       </h:form>
     </div>
   </ui:define>

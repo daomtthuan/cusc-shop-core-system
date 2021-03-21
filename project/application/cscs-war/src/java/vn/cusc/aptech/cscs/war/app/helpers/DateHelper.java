@@ -27,9 +27,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
 
@@ -41,8 +39,20 @@ import javax.enterprise.context.ApplicationScoped;
 @ApplicationScoped
 public class DateHelper implements Serializable {
 
-  public LocalDate dateOf(Date date) {
-    return new java.sql.Date(date.getTime()).toLocalDate();
+  public Date dateOf(int year, int month, int day) {
+    return Date.from((LocalDate.of(year, month, day).atStartOfDay(ZoneId.systemDefault()).toInstant()));
+  }
+
+  public Date dateOf(LocalDate date) {
+    return Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
+  }
+
+  public LocalDate localDateOf(int year, int month, int day) {
+    return LocalDate.of(year, month, day);
+  }
+
+  public LocalDate localDateOf(Date date) {
+    return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
   }
 
   public int[] getCurrentYears() {

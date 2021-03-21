@@ -66,11 +66,11 @@ public class LoginPresenter implements Serializable {
   }
 
   public String login() {
-    boolean usernameValid = Pattern.matches(ValidationHelper.usernamePattern, username);
-    boolean passwordValid = Pattern.matches(ValidationHelper.passwordPattern, password);
+    boolean usernameValid = Pattern.matches(ValidationHelper.RegexPattern.USERNAME, username);
+    boolean passwordValid = Pattern.matches(ValidationHelper.RegexPattern.PASSWORD, password);
 
-    usernameInputStyleClass = usernameValid ? null : ValidationHelper.invalidStyleClass;
-    passwordInputStyleClass = passwordValid ? null : ValidationHelper.invalidStyleClass;
+    usernameInputStyleClass = usernameValid ? null : ValidationHelper.StyleClass.INVALID;
+    passwordInputStyleClass = passwordValid ? null : ValidationHelper.StyleClass.INVALID;
 
     if (!usernameValid || !passwordValid) {
       authMessage = null;
