@@ -35,4 +35,6 @@ public interface AuthSessionBeanLocal {
 
   Employee authenticateByEmployeeLocalAccount(String username, String password);
 
+  String changePassword(Object id, String oldPassword, String newPassword);
+
 }

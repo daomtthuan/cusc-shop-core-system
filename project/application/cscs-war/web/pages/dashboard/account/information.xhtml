@@ -59,7 +59,7 @@ THE SOFTWARE.
           <div class="col-md-6">
             <div class="form-group">
               <h:outputLabel for="input-birthday" value="Birthday" />
-              <h:inputText id="input-birthday" value="#{informationAccountDashboard.account.information.birthday}" styleClass="form-control" disabled="true" />
+              <h:inputText id="input-birthday" value="#{dateHelper.localDateOf(informationAccountDashboard.account.information.birthday)}" styleClass="form-control" disabled="true" />
             </div>
             <div class="form-group">
               <h:outputLabel for="input-gender" value="Gender" />

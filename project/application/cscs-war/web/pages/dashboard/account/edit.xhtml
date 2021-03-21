@@ -52,30 +52,38 @@ THE SOFTWARE.
             </div>
             <div class="form-group">
               <h:outputLabel for="input-full-name" value="Full name" />
-              <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control" />
+              <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control #{editAccountDashboard.fullNameInputStyleClass}" />
+              <div class="invalid-feedback">Invalid full name</div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <h:outputLabel value="Birthday" />
-              <div class="d-flex align-items-center ">
-                <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-2" />
-                <h:selectOneMenu id="input-month-birthday" value="#{editAccountDashboard.monthBirthday}" styleClass="custom-select">
-                  <c:forEach begin="1" end="12" var="month">
-                    <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
-                  </c:forEach>
-                </h:selectOneMenu>
-                <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mx-2" />
-                <h:selectOneMenu id="input-day-birthday" value="#{editAccountDashboard.dayBirthday}" styleClass="custom-select">
-                  <c:forEach begin="1" end="31" var="day">
-                    <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
-                  </c:forEach>
-                </h:selectOneMenu>
-                <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mx-2" />
-                <h:selectOneMenu id="input-year-birthday" value="#{editAccountDashboard.yearBirthday}" styleClass="custom-select">
-                  <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
-                </h:selectOneMenu>
+              <div class="no-gutters row #{editAccountDashboard.birthdayInputStyleClass}">
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-year-birthday" value="#{editAccountDashboard.yearBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center mx-3">
+                  <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-month-birthday" value="#{editAccountDashboard.monthBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <c:forEach begin="1" end="12" var="month">
+                      <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-day-birthday" value="#{editAccountDashboard.dayBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <c:forEach begin="1" end="31" var="day">
+                      <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
               </div>
+              <div class="invalid-feedback">Invalid birthday</div>
             </div>
             <div class="form-group">
               <h:outputLabel for="input-gender" value="Gender" />
@@ -86,17 +94,20 @@ THE SOFTWARE.
             </div>
             <div class="form-group">
               <h:outputLabel for="input-email" value="Email" />
-              <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control" />
+              <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control #{editAccountDashboard.emailInputStyleClass}" />
+              <div class="invalid-feedback">Invalid email</div>
             </div>
             <div class="form-group">
               <h:outputLabel for="input-phone" value="Phone" />
-              <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control" />
+              <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control #{editAccountDashboard.phoneInputStyleClass}" />
+              <div class="invalid-feedback">Invalid phone</div>
             </div>
           </div>
         </div>
         <div class="form-group">
           <h:outputLabel for="input-address" value="Address" />
-          <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control" />
+          <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control #{editAccountDashboard.addressInputStyleClass}" />
+          <div class="invalid-feedback">Invalid address</div>
         </div>
         <h:commandButton styleClass="btn btn-primary" action="#{editAccountDashboard.edit()}" value="Edit" />
       </h:form>

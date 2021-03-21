@@ -50,4 +50,20 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
     return null;
   }
 
+  @Override
+  public String changePassword(Object id, String oldPassword, String newPassword) {
+    Employee account = employeeFacade.find(id);
+    if (account == null) {
+      return "Account not found";
+    }
+
+    if (!BCrypt.checkpw(oldPassword, account.getPassword())) {
+      return "Password incorrect";
+    }
+
+    account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
+    employeeFacade.edit(account);
+    return null;
+  }
+
 }

@@ -33,7 +33,7 @@ public class ValidationHelper {
 
     public static final String USERNAME = "^\\w{1,100}$";
     public static final String PASSWORD = "^.{1,100}$";
-    public static final String NAME = "^\\w{1,100}";
+    public static final String NAME = "^[\\w ]{1,100}";
     public static final String EMAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     public static final String PHONE = "^\\+?\\d{10,}$";
     public static final String ANY = "^.+$";

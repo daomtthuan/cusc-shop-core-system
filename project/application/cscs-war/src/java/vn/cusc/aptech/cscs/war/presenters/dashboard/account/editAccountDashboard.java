@@ -25,7 +25,6 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.account;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -198,6 +197,46 @@ public class EditAccountDashboard implements Serializable {
 
   public void setAddress(String address) {
     this.address = address;
+  }
+
+  public String getFullNameInputStyleClass() {
+    return fullNameInputStyleClass;
+  }
+
+  public void setFullNameInputStyleClass(String fullNameInputStyleClass) {
+    this.fullNameInputStyleClass = fullNameInputStyleClass;
+  }
+
+  public String getBirthdayInputStyleClass() {
+    return birthdayInputStyleClass;
+  }
+
+  public void setBirthdayInputStyleClass(String birthdayInputStyleClass) {
+    this.birthdayInputStyleClass = birthdayInputStyleClass;
+  }
+
+  public String getEmailInputStyleClass() {
+    return emailInputStyleClass;
+  }
+
+  public void setEmailInputStyleClass(String emailInputStyleClass) {
+    this.emailInputStyleClass = emailInputStyleClass;
+  }
+
+  public String getPhoneInputStyleClass() {
+    return phoneInputStyleClass;
+  }
+
+  public void setPhoneInputStyleClass(String phoneInputStyleClass) {
+    this.phoneInputStyleClass = phoneInputStyleClass;
+  }
+
+  public String getAddressInputStyleClass() {
+    return addressInputStyleClass;
+  }
+
+  public void setAddressInputStyleClass(String addressInputStyleClass) {
+    this.addressInputStyleClass = addressInputStyleClass;
   }
 
 }
