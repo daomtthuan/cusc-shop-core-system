@@ -40,10 +40,6 @@ public class ViewHelper implements Serializable {
   @Inject
   private ConfigApp configApp;
 
-  public String getPageUrl(String name) {
-    return configApp.getDirectory().getRoot() + "/pages/" + name + ".html";
-  }
-
   public String getPage(String name) {
     return "/pages/" + name + ".html?faces-redirect=true";
   }

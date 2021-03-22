@@ -34,6 +34,9 @@ THE SOFTWARE.
   <ui:define name="page">
     <div class="container-fluid">
       <h2>Employee account list</h2>
+      <hr />
+      <h:link outcome="#{viewHelper.getPage('dashboard/access-system/account/add')}" styleClass="btn btn-primary" value="Add" />
+      <hr />
       <h:form>
         <div class="form-group">
           <h:outputLabel for="input-role" value="Role" />

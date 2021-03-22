@@ -65,9 +65,7 @@ public class ListAccountAccesssystemDashboardPresenter implements Serializable {
   }
 
   public List<Role> getRoles() {
-    List<Role> roles = roleFacade.findAll();
-    roles.removeIf(role -> role.getName().equalsIgnoreCase("customer"));
-    return roles;
+    return roleFacade.findOnlyEmployeeRoles();
   }
 
   public String removeAccount(int id) {

@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,6 +46,14 @@ public class RoleFacade extends AbstractFacade<Role> implements RoleFacadeLocal 
 
   public RoleFacade() {
     super(Role.class);
+  }
+
+  @Override
+  public List<Role> findOnlyEmployeeRoles() {
+    List<Role> roles = em.createQuery("SELECT r FROM Role r WHERE r.name <> :name")
+      .setParameter("name", "customer")
+      .getResultList();
+    return roles;
   }
 
 }
