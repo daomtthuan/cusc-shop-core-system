@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 Daomtthuan.
+ * Copyright 2021 ASUS.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,35 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.category;
 
-import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
+import java.io.Serializable;
+import javax.ejb.EJB;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
- * @author Daomtthuan
+ * @author Dang Quang Nghi
  */
-@Local
-public interface CategoryFacadeLocal {
+@Named(value = "editCategoryDashboard")
+@ViewScoped
+public class EditCategoryDashboard implements Serializable {
 
-  void create(Category category);
+  @EJB
+  private CategoryFacadeLocal categoryFacade;
 
-  void edit(Category category);
+  @EJB
+  private CategoryGroupFacadeLocal categoryGroupFacade;
 
-  void remove(Category category);
-
-  Category find(Object id);
-
-  List<Category> findAll();
-
-  List<Category> findRange(int[] range);
-
-  int count();
-
-  List<Category> findByFilter(Object id);
-
-  public List<Category> findByFilter(int idCategory, int idCategoryGroup);
+  // Add business logic below. (Right-click in editor and choose
+  // "Insert Code > Add Business Method")
+  @Inject
+  private ViewHelper viewHelper;
 
 }
