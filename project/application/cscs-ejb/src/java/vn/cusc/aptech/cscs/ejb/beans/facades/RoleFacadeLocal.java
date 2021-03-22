@@ -48,4 +48,6 @@ public interface RoleFacadeLocal {
 
   int count();
 
+  List<Role> findOnlyEmployeeRoles();
+
 }

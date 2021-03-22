@@ -23,11 +23,18 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import java.util.Date;
 import javax.ejb.EJB;
+import javax.ejb.SessionSynchronization;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Information;
 
 /**
  *
@@ -35,6 +42,12 @@ import vn.cusc.aptech.cscs.ejb.entities.Employee;
  */
 @Stateless
 public class AuthSessionBean implements AuthSessionBeanLocal {
+
+  @EJB
+  private RoleFacadeLocal roleFacade;
+
+  @EJB
+  private InformationFacadeLocal informationFacade;
 
   @EJB
   private EmployeeFacadeLocal employeeFacade;
@@ -63,6 +76,25 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
 
     account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
     employeeFacade.edit(account);
+    return null;
+  }
+
+  @Override
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address) {
+    if (employeeFacade.findByUsername(username) != null) {
+      return "Username already exists";
+    }
+
+    Information information = new Information(null, fullName, birthday, gender, email, address, phone);
+    informationFacade.create(information);
+
+    String hashPassword = BCrypt.hashpw("1234", BCrypt.gensalt());
+    Employee account = new Employee(null, username, hashPassword, state);
+    account.setInformation(information);
+    account.setRole(roleFacade.find(idRole));
+    employeeFacade.create(account);
+
     return null;
   }
 

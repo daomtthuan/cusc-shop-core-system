@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.customer;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
 
 import java.io.Serializable;
 import javax.inject.Named;
@@ -31,14 +31,14 @@ import javax.enterprise.context.Dependent;
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "listCustomerDashBoardPresenter")
+@Named(value = "editCustomerDashBoardPresenter")
 @Dependent
-public class ListCustomerShopDashBoardPresenter implements Serializable {
+public class EditCustomerShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListCustomerDashBoardPresenter
+   * Creates a new instance of EditCustomerDashBoardPresenter
    */
-  public ListCustomerShopDashBoardPresenter() {
+  public EditCustomerShopDashBoardPresenter() {
   }
 
 }

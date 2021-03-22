@@ -35,6 +35,7 @@ import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
@@ -65,9 +66,7 @@ public class ListAccountAccesssystemDashboardPresenter implements Serializable {
   }
 
   public List<Role> getRoles() {
-    List<Role> roles = roleFacade.findAll();
-    roles.removeIf(role -> role.getName().equalsIgnoreCase("customer"));
-    return roles;
+    return roleFacade.findOnlyEmployeeRoles();
   }
 
   public String removeAccount(int id) {

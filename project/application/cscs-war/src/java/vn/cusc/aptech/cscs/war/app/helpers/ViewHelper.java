@@ -24,8 +24,10 @@
 package vn.cusc.aptech.cscs.war.app.helpers;
 
 import java.io.Serializable;
+import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
 
@@ -40,8 +42,8 @@ public class ViewHelper implements Serializable {
   @Inject
   private ConfigApp configApp;
 
-  public String getPageUrl(String name) {
-    return configApp.getDirectory().getRoot() + "/pages/" + name + ".html";
+  public Map<String, String> getParameters() {
+    return FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
   }
 
   public String getPage(String name) {
