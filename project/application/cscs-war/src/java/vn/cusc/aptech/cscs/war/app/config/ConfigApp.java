@@ -60,7 +60,7 @@ public class ConfigApp implements Serializable {
     resource = new Asset(
       new StyleAsset[] {
         new StyleAsset("shortcut icon", // rel
-          directory.getRoot() + "/assets/icons/favicon.ico" // href
+          directory.getRoot() + "/assets/images/logo/32.png" // href
         ),
         new StyleAsset("preconnect", // rel
           "https://fonts.gstatic.com"

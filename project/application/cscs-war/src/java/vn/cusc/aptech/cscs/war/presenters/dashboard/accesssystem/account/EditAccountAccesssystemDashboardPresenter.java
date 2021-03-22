@@ -29,11 +29,18 @@ import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Information;
 import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
@@ -43,9 +50,15 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
  *
  * @author Daomtthuan
  */
-@Named(value = "addAccountAccesssystemDashboardPresenter")
+@Named(value = "editAccountAccesssystemDashboardPresenter")
 @ViewScoped
-public class AddAccountAccesssystemDashboardPresenter implements Serializable {
+public class EditAccountAccesssystemDashboardPresenter implements Serializable {
+
+  @EJB
+  private InformationFacadeLocal informationFacade;
+
+  @EJB
+  private EmployeeFacadeLocal employeeFacade;
 
   @EJB
   private AuthSessionBeanLocal authSessionBean;
@@ -58,6 +71,8 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
 
   @Inject
   private DateHelper dateHelper;
+
+  private Employee account;
 
   private String username;
   private int role;
@@ -72,33 +87,30 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
   private String phone;
   private String address;
 
-  private String usernameInputStyleClass;
-  private String roleInputStyleClass;
   private String fullNameInputStyleClass;
   private String birthdayInputStyleClass;
   private String emailInputStyleClass;
   private String phoneInputStyleClass;
   private String addressInputStyleClass;
 
-  private String usernameFeedback;
-
   @PostConstruct
   public void init() {
-    username = null;
-    role = 0;
-    state = true;
-    fullName = null;
-    gender = true;
-    dayBirthday = 0;
-    monthBirthday = 0;
-    yearBirthday = 0;
-    birthday = null;
-    email = null;
-    phone = null;
-    address = null;
+    account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    Information information = account.getInformation();
 
-    usernameInputStyleClass = null;
-    roleInputStyleClass = null;
+    username = account.getUsername();
+    role = account.getRole().getId();
+    state = account.getState();
+    fullName = information.getFullName();
+    gender = information.getGender();
+    birthday = dateHelper.localDateOf(information.getBirthday());
+    dayBirthday = birthday.getDayOfMonth();
+    monthBirthday = birthday.getMonthValue();
+    yearBirthday = birthday.getYear();
+    email = information.getEmail();
+    phone = information.getPhone();
+    address = information.getAddress();
+
     fullNameInputStyleClass = null;
     birthdayInputStyleClass = null;
     emailInputStyleClass = null;
@@ -106,18 +118,14 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
     addressInputStyleClass = null;
   }
 
-  public String add() {
-    boolean usernameValid = Pattern.matches(ValidationHelper.RegexPattern.USERNAME, username);
-    boolean roleValid = role != 0;
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public String edit() {
     boolean fullNameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, fullName);
     boolean emailValid = Pattern.matches(ValidationHelper.RegexPattern.EMAIL, email);
     boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
     boolean addressValid = Pattern.matches(ValidationHelper.RegexPattern.ANY, address);
     boolean birthdayValid = true;
 
-    usernameFeedback = usernameValid ? null : "Invalid username";
-    usernameInputStyleClass = usernameValid ? null : ValidationHelper.StyleClass.INVALID;
-    roleInputStyleClass = roleValid ? null : ValidationHelper.StyleClass.INVALID;
     fullNameInputStyleClass = fullNameValid ? null : ValidationHelper.StyleClass.INVALID;
     emailInputStyleClass = emailValid ? null : ValidationHelper.StyleClass.INVALID;
     phoneInputStyleClass = phoneValid ? null : ValidationHelper.StyleClass.INVALID;
@@ -129,15 +137,22 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
       birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;
     }
 
-    if (!usernameValid || !roleValid || !fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
+    if (!fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
       return null;
     }
 
-    usernameFeedback = authSessionBean.createAccount(username, role, state, fullName, dateHelper.dateOf(birthday), gender, email, phone, address);
-    if (usernameFeedback != null) {
-      usernameInputStyleClass = ValidationHelper.StyleClass.INVALID;
-      return null;
-    }
+    account.setRole(roleFacade.find(role));
+    account.setState(state);
+    employeeFacade.edit(account);
+
+    Information information = account.getInformation();
+    information.setFullName(fullName);
+    information.setGender(gender);
+    information.setBirthday(dateHelper.dateOf(birthday));
+    information.setEmail(email);
+    information.setPhone(phone);
+    information.setAddress(address);
+    informationFacade.edit(information);
 
     return viewHelper.getPage("dashboard/access-system/account/list");
   }
@@ -280,30 +295,6 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
 
   public void setAddressInputStyleClass(String addressInputStyleClass) {
     this.addressInputStyleClass = addressInputStyleClass;
-  }
-
-  public String getUsernameInputStyleClass() {
-    return usernameInputStyleClass;
-  }
-
-  public void setUsernameInputStyleClass(String usernameInputStyleClass) {
-    this.usernameInputStyleClass = usernameInputStyleClass;
-  }
-
-  public String getRoleInputStyleClass() {
-    return roleInputStyleClass;
-  }
-
-  public void setRoleInputStyleClass(String roleInputStyleClass) {
-    this.roleInputStyleClass = roleInputStyleClass;
-  }
-
-  public String getUsernameFeedback() {
-    return usernameFeedback;
-  }
-
-  public void setUsernameFeedback(String usernameFeedback) {
-    this.usernameFeedback = usernameFeedback;
   }
 
 }
