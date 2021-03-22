@@ -45,7 +45,7 @@ import vn.cusc.aptech.cscs.war.session.AuthSession;
  */
 @Named(value = "editAccountDashboard")
 @ViewScoped
-public class EditAccountDashboard1 implements Serializable {
+public class EditAccountDashboard implements Serializable {
 
   @EJB
   private InformationFacadeLocal informationFacade;
