@@ -26,14 +26,17 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.accesssystem.account;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
@@ -43,6 +46,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 @Named(value = "addAccountAccesssystemDashboardPresenter")
 @ViewScoped
 public class AddAccountAccesssystemDashboardPresenter implements Serializable {
+
+  @EJB
+  private AuthSessionBeanLocal authSessionBean;
 
   @EJB
   private RoleFacadeLocal roleFacade;
@@ -99,7 +105,39 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
   }
 
   public String add() {
-    return null;
+    boolean usernameValid = Pattern.matches(ValidationHelper.RegexPattern.USERNAME, username);
+    boolean roleValid = role != 0;
+    boolean fullNameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, fullName);
+    boolean emailValid = Pattern.matches(ValidationHelper.RegexPattern.EMAIL, email);
+    boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
+    boolean addressValid = Pattern.matches(ValidationHelper.RegexPattern.ANY, address);
+    boolean birthdayValid = true;
+
+    usernameFeedback = usernameValid ? null : "Invalid username";
+    usernameInputStyleClass = usernameValid ? null : ValidationHelper.StyleClass.INVALID;
+    roleInputStyleClass = roleValid ? null : ValidationHelper.StyleClass.INVALID;
+    fullNameInputStyleClass = fullNameValid ? null : ValidationHelper.StyleClass.INVALID;
+    emailInputStyleClass = emailValid ? null : ValidationHelper.StyleClass.INVALID;
+    phoneInputStyleClass = phoneValid ? null : ValidationHelper.StyleClass.INVALID;
+    addressInputStyleClass = addressValid ? null : ValidationHelper.StyleClass.INVALID;
+    try {
+      birthday = dateHelper.localDateOf(yearBirthday, monthBirthday, dayBirthday);
+    } catch (Exception e) {
+      birthdayValid = false;
+      birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;
+    }
+
+    if (!usernameValid || !roleValid || !fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
+      return null;
+    }
+
+    usernameFeedback = authSessionBean.createAccount(username, role, state, fullName, dateHelper.dateOf(birthday), gender, email, phone, address);
+    if (usernameFeedback != null) {
+      usernameInputStyleClass = ValidationHelper.StyleClass.INVALID;
+      return null;
+    }
+
+    return viewHelper.getPage("dashboard/access-system/account/list");
   }
 
   public List<Role> getRoles() {
