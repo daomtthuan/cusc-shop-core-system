@@ -82,7 +82,7 @@ public class LoginPresenter implements Serializable {
       authMessage = null;
       return viewHelper.getPage("dashboard/home");
     } else {
-      authMessage = "Username or password incorrect.";
+      authMessage = authSession.getMessage();
       return null;
     }
   }

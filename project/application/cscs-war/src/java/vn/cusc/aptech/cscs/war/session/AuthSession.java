@@ -68,7 +68,19 @@ public class AuthSession implements Serializable {
   }
 
   public boolean isLoggedIn() {
-    return account != null;
+    return account != null && account.getState();
+  }
+
+  public String getMessage() {
+    if (account == null) {
+      return "Username or password incorrect";
+    }
+
+    if (!account.getState()) {
+      return "Account disabled";
+    }
+
+    return null;
   }
 
 }
