@@ -76,5 +76,5 @@ THE SOFTWARE.
 .header-sticky-top {
   position: -webkit-sticky;
   position: sticky;
-  z-index: 1020;
+  z-index: 1;
 }

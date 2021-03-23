@@ -48,10 +48,10 @@ THE SOFTWARE.
         </div>
       </h:form>
       <hr />
-      <h:dataTable id="datatable" value="#{listAccountAccesssystemDashboardPresenter.accounts}" var="account" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light header-sticky-top">
+      <h:dataTable id="datatable" value="#{listAccountAccesssystemDashboardPresenter.accounts}" var="account" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
         <h:column>
           <f:facet name="header" class="bg-dark">Actions</f:facet>
-          <h:form rendered="#{account != authSession.account}">
+          <h:form styleClass="d-flex" rendered="#{account != authSession.account}">
             <h:link outcome="#{viewHelper.getPage('dashboard/access-system/account/edit')}" styleClass="btn btn-sm btn-primary mr-1">
               <f:param name="id" value="#{account.id}" />
               <i class="fas fa-edit"></i>
