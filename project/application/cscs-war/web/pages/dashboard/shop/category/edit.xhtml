@@ -42,81 +42,33 @@ THE SOFTWARE.
         <div class="col-md-12">
           <h:form>
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
+
                 <div class="form-group">
-                  <h:outputLabel for="input-name" value="Category name" />
-                  <h:inputText id="input-name" value="#{editAccountDashboard.account.username}" styleClass="form-control" disabled="true" />
+                  <h:outputLabel for="input-name" value="name" />
+                  <h:inputText id="input-name" value="#{editCategoryShopDashboard.name}" styleClass="form-control #{editCategoryShopDashboard.nameInputStyleClass}" />
+                  <div class="invalid-feedback">Invalid name</div>
                 </div>
                 <div class="form-group">
-                  <h:outputLabel for="input-role" value="Role" />
-                  <h:inputText id="input-role" value="#{editAccountDashboard.account.role.name}" styleClass="form-control" disabled="true" />
+                  <h:outputLabel for="input-category-group" value="Category Group" />
+                  <h:selectOneMenu id="input-category-group" value="#{editCategoryShopDashboard.cateGroup}" styleClass="custom-select">
+                    <f:selectItems value="#{editCategoryShopDashboard.categoryGroups}" var="cateGroup" itemValue="#{cateGroup.id}" itemLabel="#{cateGroup.name}" />
+                  </h:selectOneMenu>
                 </div>
                 <div class="form-group">
                   <h:outputLabel for="input-state" value="State" />
-                  <h:inputText id="input-state" value="#{editAccountDashboard.account.state ? 'Enabled' : 'Disabled'}" styleClass="form-control" disabled="true" />
-                </div>
-                <div class="form-group">
-                  <h:outputLabel for="input-full-name" value="Full name" />
-                  <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control #{editAccountDashboard.fullNameInputStyleClass}" />
-                  <div class="invalid-feedback">Invalid full name</div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <h:outputLabel value="Birthday" />
-                  <div class="no-gutters row #{editAccountDashboard.birthdayInputStyleClass}">
-                    <div class="col d-flex align-items-center">
-                      <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mr-3" />
-                      <h:selectOneMenu id="input-year-birthday" value="#{editAccountDashboard.yearBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
-                        <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
-                      </h:selectOneMenu>
-                    </div>
-                    <div class="col d-flex align-items-center mx-3">
-                      <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-3" />
-                      <h:selectOneMenu id="input-month-birthday" value="#{editAccountDashboard.monthBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
-                        <c:forEach begin="1" end="12" var="month">
-                          <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
-                        </c:forEach>
-                      </h:selectOneMenu>
-                    </div>
-                    <div class="col d-flex align-items-center">
-                      <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mr-3" />
-                      <h:selectOneMenu id="input-day-birthday" value="#{editAccountDashboard.dayBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
-                        <c:forEach begin="1" end="31" var="day">
-                          <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
-                        </c:forEach>
-                      </h:selectOneMenu>
-                    </div>
-                  </div>
-                  <div class="invalid-feedback">Invalid birthday</div>
-                </div>
-                <div class="form-group">
-                  <h:outputLabel for="input-gender" value="Gender" />
-                  <h:selectOneRadio id="input-gender" value="#{editAccountDashboard.gender}" styleClass="form-control-radio-inline form-control">
-                    <f:selectItem itemValue="true" itemLabel="Male" />
-                    <f:selectItem itemValue="false" itemLabel="Female" />
+                  <h:selectOneRadio id="input-state" value="#{editCategoryShopDashboard.state}" styleClass="form-control-radio-inline form-control">
+                    <f:selectItem itemValue="true" itemLabel="Enabled" />
+                    <f:selectItem itemValue="false" itemLabel="Disabled" />
                   </h:selectOneRadio>
                 </div>
-                <div class="form-group">
-                  <h:outputLabel for="input-email" value="Email" />
-                  <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control #{editAccountDashboard.emailInputStyleClass}" />
-                  <div class="invalid-feedback">Invalid email</div>
-                </div>
-                <div class="form-group">
-                  <h:outputLabel for="input-phone" value="Phone" />
-                  <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control #{editAccountDashboard.phoneInputStyleClass}" />
-                  <div class="invalid-feedback">Invalid phone</div>
-                </div>
+
               </div>
+
             </div>
             <div class="row">
               <div class="col-md-12">
-                <div class="form-group">
-                  <h:outputLabel for="input-address" value="Address" />
-                  <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control #{editAccountDashboard.addressInputStyleClass}" />
-                  <div class="invalid-feedback">Invalid address</div>
-                </div>
-                <h:commandButton styleClass="btn btn-primary" action="#{editAccountDashboard.edit()}" value="Edit" />
+                <h:commandButton styleClass="btn btn-primary" action="#{editCategoryShopDashboard.edit()}" value="Save" />
               </div>
             </div>
           </h:form>

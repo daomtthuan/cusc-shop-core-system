@@ -37,6 +37,7 @@ public class ValidationHelper {
     public static final String EMAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     public static final String PHONE = "^\\+?\\d{10,}$";
     public static final String ANY = "^.+$";
+    public static final String ANY_NAME = "^.{1,100}";
 
   }
 

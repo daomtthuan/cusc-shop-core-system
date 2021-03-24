@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,6 +46,14 @@ public class CategoryGroupFacade extends AbstractFacade<CategoryGroup> implement
 
   public CategoryGroupFacade() {
     super(CategoryGroup.class);
+  }
+
+  @Override
+  public List<CategoryGroup> findOnlyCateGroup() {
+    List<CategoryGroup> cateGroup = em.createQuery("SELECT cg FROM CategoryGroup cg WHERE cg.name <> :name")
+      .setParameter("name", "Category")
+      .getResultList();
+    return cateGroup;
   }
 
 }
