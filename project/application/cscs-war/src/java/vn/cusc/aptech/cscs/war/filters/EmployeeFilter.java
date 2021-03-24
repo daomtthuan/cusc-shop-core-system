@@ -21,66 +21,49 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.session;
+package vn.cusc.aptech.cscs.war.filters;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
+import java.io.IOException;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
-import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "authSession")
-@SessionScoped
-public class AuthSession implements Serializable {
-
-  @EJB
-  private AuthSessionBeanLocal auth;
+@WebFilter(filterName = "EmployeeFilter", urlPatterns = {"/pages/dashboard/*"})
+public class EmployeeFilter implements Filter {
 
   @Inject
-  private ViewHelper viewHelper;
+  private AuthSession authSession;
 
-  private Employee account;
-
-  @PostConstruct
-  public void init() {
-    account = null;
+  @Override
+  public void init(FilterConfig filterConfig) throws ServletException {
   }
 
-  public void login(final String username, final String password) {
-    account = auth.authenticateByEmployeeLocalAccount(username, password);
-  }
+  @Override
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    HttpServletRequest req = (HttpServletRequest) request;
+    HttpServletResponse res = (HttpServletResponse) response;
 
-  public String logout() {
-    account = null;
-    return viewHelper.getPage("login");
-  }
-
-  public Employee getAccount() {
-    return account;
-  }
-
-  public boolean isLoggedIn() {
-    return account != null && account.getState();
-  }
-
-  public String getMessage() {
-    if (account == null) {
-      return "Username or password incorrect";
+    if (!authSession.isLoggedIn()) {
+      res.sendRedirect(req.getContextPath());
+    } else {
+      chain.doFilter(request, response);
     }
+  }
 
-    if (!account.getState()) {
-      return "Account disabled";
-    }
-
-    return null;
+  @Override
+  public void destroy() {
   }
 
 }

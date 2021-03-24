@@ -29,7 +29,6 @@ var toggleScrolltop = function () {
     $('#scrolltop').fadeOut();
   }
 };
-
 toggleScrolltop();
 $(window).scroll(toggleScrolltop);
 

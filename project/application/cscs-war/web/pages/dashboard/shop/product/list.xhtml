@@ -35,6 +35,8 @@ THE SOFTWARE.
     <div class="container-fluid">
       <h2>Product list</h2>
       <hr />
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/product/add')}" styleClass="btn btn-primary" value="Add" />
+      <hr />
       <h:form>
         <div class="form-group">
           <h:outputLabel for="input-brand" value="Brand" />
@@ -62,10 +64,10 @@ THE SOFTWARE.
         </div>
       </h:form>
       <hr />
-      <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light header-sticky-top">
+      <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
         <h:column>
           <f:facet name="header" class="bg-dark">Actions</f:facet>
-          <h:form>
+          <h:form styleClass="d-flex">
             <h:link outcome="#{viewHelper.getPage('dashboard/shop/product/edit')}" styleClass="btn btn-sm btn-primary mr-1">
               <f:param name="id" value="#{product.id}" />
               <i class="fas fa-edit"></i>
@@ -76,24 +78,12 @@ THE SOFTWARE.
           </h:form>
         </h:column>
         <h:column>
-          <f:facet name="header">ID</f:facet>
-            #{product.id}
-        </h:column>
-        <h:column>
           <f:facet name="header">Name</f:facet>
             #{product.name}
         </h:column>
         <h:column>
           <f:facet name="header">State</f:facet>
             #{product.state ? "Enabled" : "Disabled"}
-        </h:column>
-        <h:column>
-          <f:facet name="header">Brand</f:facet>
-            #{product.brand.name}
-        </h:column>
-        <h:column>
-          <f:facet name="header">Category</f:facet>
-            #{product.category.name}
         </h:column>
         <h:column>
           <f:facet name="header">Price</f:facet>

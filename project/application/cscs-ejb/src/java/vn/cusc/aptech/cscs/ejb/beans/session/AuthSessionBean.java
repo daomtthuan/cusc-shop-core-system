@@ -25,7 +25,6 @@ package vn.cusc.aptech.cscs.ejb.beans.session;
 
 import java.util.Date;
 import javax.ejb.EJB;
-import javax.ejb.SessionSynchronization;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
