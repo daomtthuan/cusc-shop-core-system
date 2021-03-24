@@ -21,46 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard.brand;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Brand;
-import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "listBrandShopDashBoardPresenter")
+@Named(value = "addBrandDashBoardPresenter")
 @ViewScoped
-public class ListBrandShopDashBoardPresenter implements Serializable {
-
-  @EJB
-  private BrandFacadeLocal brandFacade;
-
-  @Inject
-  private ViewHelper viewHelper;
+public class AddBrandShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListBrandDashboardPresenter
+   * Creates a new instance of AddBrandDashBoardPresenter
    */
-  public ListBrandShopDashBoardPresenter() {
-
-  }
-
-  public List<Brand> getBrands() {
-    return brandFacade.findAll();
-  }
-
-  public String removeBrand(Object id) {
-    brandFacade.remove(brandFacade.find(id));
-    return viewHelper.getPage("dashboard/shop/brand/list");
+  public AddBrandShopDashBoardPresenter() {
   }
 
 }
