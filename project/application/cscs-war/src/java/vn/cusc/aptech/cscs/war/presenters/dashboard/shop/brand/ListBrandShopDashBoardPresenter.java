@@ -21,36 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard.brand;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Brand;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "listBrandShopPresenter")
+@Named(value = "listBrandShopDashBoardPresenter")
 @ViewScoped
-public class ListBrandShopPresenter implements Serializable {
+public class ListBrandShopDashBoardPresenter implements Serializable {
 
   @EJB
   private BrandFacadeLocal brandFacade;
 
+  @Inject
+  private ViewHelper viewHelper;
+
   /**
    * Creates a new instance of ListBrandDashboardPresenter
    */
-  public ListBrandShopPresenter() {
+  public ListBrandShopDashBoardPresenter() {
 
   }
 
-  public List<Brand> getBean() {
+  public List<Brand> getBrands() {
     return brandFacade.findAll();
+  }
+
+  public String removeBrand(Object id) {
+    brandFacade.remove(brandFacade.find(id));
+    return viewHelper.getPage("dashboard/shop/brand/list");
   }
 
 }
