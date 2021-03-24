@@ -30,8 +30,10 @@ import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
@@ -40,6 +42,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 @Named(value = "addProductShopDashboardPresenter")
 @ViewScoped
 public class AddProductShopDashboardPresenter implements Serializable {
+
+  @Inject
+  private ViewHelper viewHelper;
 
   private String name;
   private int category;
@@ -71,61 +76,63 @@ public class AddProductShopDashboardPresenter implements Serializable {
   }
 
   public String add() {
-    boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, name);
+    boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.ANY_NAME, name);
     boolean categoryValid = category != 0;
     boolean brandValid = brand != 0;
     boolean pricelValid = price >= 0;
-    boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
-    boolean addressValid = Pattern.matches(ValidationHelper.RegexPattern.ANY, address);
-    boolean birthdayValid = true;
+    boolean quantityValid = quantity >= 0;
 
-    usernameFeedback = usernameValid ? null : "Invalid username";
-    usernameInputStyleClass = usernameValid ? null : ValidationHelper.StyleClass.INVALID;
-    roleInputStyleClass = roleValid ? null : ValidationHelper.StyleClass.INVALID;
-    fullNameInputStyleClass = fullNameValid ? null : ValidationHelper.StyleClass.INVALID;
-    emailInputStyleClass = emailValid ? null : ValidationHelper.StyleClass.INVALID;
-    phoneInputStyleClass = phoneValid ? null : ValidationHelper.StyleClass.INVALID;
-    addressInputStyleClass = addressValid ? null : ValidationHelper.StyleClass.INVALID;
-    try {
-      birthday = dateHelper.localDateOf(yearBirthday, monthBirthday, dayBirthday);
-    } catch (Exception e) {
-      birthdayValid = false;
-      birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;
-    }
+    nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
+    categoryInputStyleClass = categoryValid ? null : ValidationHelper.StyleClass.INVALID;;
+    brandInputStyleClass = brandValid ? null : ValidationHelper.StyleClass.INVALID;;
+    priceInputStyleClass = pricelValid ? null : ValidationHelper.StyleClass.INVALID;;
+    quantityInputStyleClass = quantityValid ? null : ValidationHelper.StyleClass.INVALID;;
 
-    if (!usernameValid || !roleValid || !fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
+    if (!nameValid || !categoryValid || !brandValid || !pricelValid || !quantityValid) {
       return null;
     }
 
-    usernameFeedback = authSessionBean.createAccount(username, role, state, fullName, dateHelper.dateOf(birthday), gender, email, phone, address);
-    if (usernameFeedback != null) {
-      usernameInputStyleClass = ValidationHelper.StyleClass.INVALID;
-      return null;
-    }
-
-    return viewHelper.getPage("dashboard/access-system/account/list");
+    return viewHelper.getPage("dashboard/shop/product/list");
   }
 
-  public List<Role> getRoles() {
-    List<Role> roles = roleFacade.findOnlyEmployeeRoles();
-    roles.removeIf(r -> r.getName().equalsIgnoreCase("administrator"));
-    return roles;
+  public String getName() {
+    return name;
   }
 
-  public String getUsername() {
-    return username;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public int getCategory() {
+    return category;
   }
 
-  public int getRole() {
-    return role;
+  public void setCategory(int category) {
+    this.category = category;
   }
 
-  public void setRole(int role) {
-    this.role = role;
+  public int getBrand() {
+    return brand;
+  }
+
+  public void setBrand(int brand) {
+    this.brand = brand;
+  }
+
+  public double getPrice() {
+    return price;
+  }
+
+  public void setPrice(double price) {
+    this.price = price;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
   }
 
   public boolean isState() {
@@ -136,140 +143,44 @@ public class AddProductShopDashboardPresenter implements Serializable {
     this.state = state;
   }
 
-  public String getFullName() {
-    return fullName;
+  public String getNameInputStyleClass() {
+    return nameInputStyleClass;
   }
 
-  public void setFullName(String fullName) {
-    this.fullName = fullName;
+  public void setNameInputStyleClass(String nameInputStyleClass) {
+    this.nameInputStyleClass = nameInputStyleClass;
   }
 
-  public boolean isGender() {
-    return gender;
+  public String getCategoryInputStyleClass() {
+    return categoryInputStyleClass;
   }
 
-  public void setGender(boolean gender) {
-    this.gender = gender;
+  public void setCategoryInputStyleClass(String categoryInputStyleClass) {
+    this.categoryInputStyleClass = categoryInputStyleClass;
   }
 
-  public int getDayBirthday() {
-    return dayBirthday;
+  public String getBrandInputStyleClass() {
+    return brandInputStyleClass;
   }
 
-  public void setDayBirthday(int dayBirthday) {
-    this.dayBirthday = dayBirthday;
+  public void setBrandInputStyleClass(String brandInputStyleClass) {
+    this.brandInputStyleClass = brandInputStyleClass;
   }
 
-  public int getMonthBirthday() {
-    return monthBirthday;
+  public String getPriceInputStyleClass() {
+    return priceInputStyleClass;
   }
 
-  public void setMonthBirthday(int monthBirthday) {
-    this.monthBirthday = monthBirthday;
+  public void setPriceInputStyleClass(String priceInputStyleClass) {
+    this.priceInputStyleClass = priceInputStyleClass;
   }
 
-  public int getYearBirthday() {
-    return yearBirthday;
+  public String getQuantityInputStyleClass() {
+    return quantityInputStyleClass;
   }
 
-  public void setYearBirthday(int yearBirthday) {
-    this.yearBirthday = yearBirthday;
-  }
-
-  public LocalDate getBirthday() {
-    return birthday;
-  }
-
-  public void setBirthday(LocalDate birthday) {
-    this.birthday = birthday;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-  public String getFullNameInputStyleClass() {
-    return fullNameInputStyleClass;
-  }
-
-  public void setFullNameInputStyleClass(String fullNameInputStyleClass) {
-    this.fullNameInputStyleClass = fullNameInputStyleClass;
-  }
-
-  public String getBirthdayInputStyleClass() {
-    return birthdayInputStyleClass;
-  }
-
-  public void setBirthdayInputStyleClass(String birthdayInputStyleClass) {
-    this.birthdayInputStyleClass = birthdayInputStyleClass;
-  }
-
-  public String getEmailInputStyleClass() {
-    return emailInputStyleClass;
-  }
-
-  public void setEmailInputStyleClass(String emailInputStyleClass) {
-    this.emailInputStyleClass = emailInputStyleClass;
-  }
-
-  public String getPhoneInputStyleClass() {
-    return phoneInputStyleClass;
-  }
-
-  public void setPhoneInputStyleClass(String phoneInputStyleClass) {
-    this.phoneInputStyleClass = phoneInputStyleClass;
-  }
-
-  public String getAddressInputStyleClass() {
-    return addressInputStyleClass;
-  }
-
-  public void setAddressInputStyleClass(String addressInputStyleClass) {
-    this.addressInputStyleClass = addressInputStyleClass;
-  }
-
-  public String getUsernameInputStyleClass() {
-    return usernameInputStyleClass;
-  }
-
-  public void setUsernameInputStyleClass(String usernameInputStyleClass) {
-    this.usernameInputStyleClass = usernameInputStyleClass;
-  }
-
-  public String getRoleInputStyleClass() {
-    return roleInputStyleClass;
-  }
-
-  public void setRoleInputStyleClass(String roleInputStyleClass) {
-    this.roleInputStyleClass = roleInputStyleClass;
-  }
-
-  public String getUsernameFeedback() {
-    return usernameFeedback;
-  }
-
-  public void setUsernameFeedback(String usernameFeedback) {
-    this.usernameFeedback = usernameFeedback;
+  public void setQuantityInputStyleClass(String quantityInputStyleClass) {
+    this.quantityInputStyleClass = quantityInputStyleClass;
   }
 
 }
