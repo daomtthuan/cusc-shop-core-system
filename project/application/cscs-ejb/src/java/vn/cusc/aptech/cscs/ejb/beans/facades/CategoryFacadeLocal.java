@@ -50,4 +50,6 @@ public interface CategoryFacadeLocal {
 
   List<Category> findByFilter(Object id);
 
+  public List<Category> findByFilter(int idCategory, int idCategoryGroup);
+
 }

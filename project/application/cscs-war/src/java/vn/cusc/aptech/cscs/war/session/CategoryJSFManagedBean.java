@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 Daomtthuan.
+ * Copyright 2021 ASUS.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,30 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.helpers;
+package vn.cusc.aptech.cscs.war.session;
+
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
+import java.io.Serializable;
+import javax.ejb.EJB;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
 
 /**
  *
- * @author Daomtthuan
+ * @author ASUS
  */
-public class ValidationHelper {
+@Named(value = "categoryJSFManagedBean")
+@SessionScoped
+public class CategoryJSFManagedBean implements Serializable {
 
-  public static final class RegexPattern {
+  @EJB
+  private CategoryFacadeLocal categoryFacade;
 
-    public static final String USERNAME = "^\\w{1,100}$";
-    public static final String PASSWORD = "^.{1,100}$";
-    public static final String NAME = "^[\\w ]{1,100}";
-    public static final String EMAIL = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-    public static final String PHONE = "^\\+?\\d{10,}$";
-    public static final String ANY = "^.+$";
-    public static final String ANY_NAME = "^.{1,100}";
-
+  public CategoryFacadeLocal getCategoryFacade() {
+    return categoryFacade;
   }
 
-  public static final class StyleClass {
+  public void setCategoryFacade(CategoryFacadeLocal categoryFacade) {
+    this.categoryFacade = categoryFacade;
+  }
 
-    public static final String VALID = "is-valid";
-    public static final String INVALID = "is-invalid";
+  /**
+   * Creates a new instance of CategoryJSFManagedBean
+   */
+  public CategoryJSFManagedBean() {
 
   }
 

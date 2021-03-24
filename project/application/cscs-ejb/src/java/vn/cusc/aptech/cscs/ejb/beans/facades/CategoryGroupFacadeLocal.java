@@ -48,4 +48,6 @@ public interface CategoryGroupFacadeLocal {
 
   int count();
 
+  List<CategoryGroup> findOnlyCateGroup();
+
 }
