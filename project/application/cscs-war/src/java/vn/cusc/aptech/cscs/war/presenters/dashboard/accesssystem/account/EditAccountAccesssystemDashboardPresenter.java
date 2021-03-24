@@ -85,7 +85,6 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   private String email;
   private String phone;
   private String address;
-
   private String fullNameInputStyleClass;
   private String birthdayInputStyleClass;
   private String emailInputStyleClass;
