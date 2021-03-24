@@ -24,33 +24,21 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.brand;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Brand;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "listBrandShopPresenter")
+@Named(value = "addBrandDashBoardPresenter")
 @ViewScoped
-public class ListBrandShopPresenter implements Serializable {
-
-  @EJB
-  private BrandFacadeLocal brandFacade;
+public class AddBrandShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListBrandDashboardPresenter
+   * Creates a new instance of AddBrandDashBoardPresenter
    */
-  public ListBrandShopPresenter() {
-
-  }
-
-  public List<Brand> getBean() {
-    return brandFacade.findAll();
+  public AddBrandShopDashBoardPresenter() {
   }
 
 }
