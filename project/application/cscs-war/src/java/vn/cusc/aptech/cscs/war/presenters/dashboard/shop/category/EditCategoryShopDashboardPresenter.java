@@ -42,9 +42,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
  *
  * @author Dang Quang Nghi
  */
-@Named(value = "editCategoryShopDashboard")
+@Named(value = "editCategoryShopDashboardPresenter")
 @ViewScoped
-public class EditCategoryShopDashboard implements Serializable {
+public class EditCategoryShopDashboardPresenter implements Serializable {
 
   @EJB
   private CategoryFacadeLocal categoryFacade;
@@ -52,10 +52,15 @@ public class EditCategoryShopDashboard implements Serializable {
   @EJB
   private CategoryGroupFacadeLocal categoryGroupFacade;
 
-  // Add business logic below. (Right-click in editor and choose
-  // "Insert Code > Add Business Method")
   @Inject
   private ViewHelper viewHelper;
+
+  private int cateGroup;
+  private String name;
+  private boolean state;
+
+  private Category cate;
+  private String nameInputStyleClass;
 
   public int getCateGroup() {
     return cateGroup;
@@ -96,13 +101,6 @@ public class EditCategoryShopDashboard implements Serializable {
   public void setNameInputStyleClass(String nameInputStyleClass) {
     this.nameInputStyleClass = nameInputStyleClass;
   }
-
-  private int cateGroup;
-  private String name;
-  private boolean state;
-
-  private Category cate;
-  private String nameInputStyleClass;
 
   @PostConstruct
   public void init() {
