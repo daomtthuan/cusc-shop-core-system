@@ -66,7 +66,7 @@ THE SOFTWARE.
       <hr />
       <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
         <h:column>
-          <f:facet name="header" class="bg-dark">Actions</f:facet>
+          <f:facet name="header">Actions</f:facet>
           <h:form styleClass="d-flex">
             <h:link outcome="#{viewHelper.getPage('dashboard/shop/product/edit')}" styleClass="btn btn-sm btn-primary mr-1">
               <f:param name="id" value="#{product.id}" />
