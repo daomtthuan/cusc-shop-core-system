@@ -60,17 +60,4 @@ THE SOFTWARE.
       </h:dataTable>
     </div>
   </ui:define>
-
-  <ui:define name="script">
-    <script src="#{configApp.getPlugin('datatables.min.js')}"></script>
-    <script src="#{configApp.getPlugin('datatables.bootstrap4.min.js')}"></script>
-    <script>
-      $('#datatable').DataTable();
-      $('#datatable thead').addClass('thead-dark');
-    </script>
-  </ui:define>
-
-  <ui:define name="style">
-    <link rel="stylesheet" href="#{configApp.getPlugin('dataTables.bootstrap4.min.css')}" />
-  </ui:define>
 </ui:composition>
