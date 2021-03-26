@@ -44,7 +44,7 @@ THE SOFTWARE.
           </div>
           <div class="form-group">
             <h:outputLabel for="input-role" value="Role" />
-            <h:selectOneMenu id="input-role" value="#{addAccountAccesssystemDashboardPresenter.role}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.roleInputStyleClass}">
+            <h:selectOneMenu id="input-role" value="#{addAccountAccesssystemDashboardPresenter.idRole}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.roleInputStyleClass}">
               <f:selectItem itemValue="0" itemLabel="--" />
               <f:selectItems value="#{addAccountAccesssystemDashboardPresenter.roles}" var="role" itemValue="#{role.id}" itemLabel="#{role.name}" />
             </h:selectOneMenu>

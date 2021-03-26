@@ -24,14 +24,19 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.product;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.entities.Role;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Brand;
+import vn.cusc.aptech.cscs.ejb.entities.Category;
+import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
@@ -43,17 +48,28 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 @ViewScoped
 public class AddProductShopDashboardPresenter implements Serializable {
 
+  @EJB
+  private CategoryFacadeLocal categoryFacade;
+
+  @EJB
+  private CategoryGroupFacadeLocal categoryGroupFacade;
+
+  @EJB
+  private BrandFacadeLocal brandFacade;
+
   @Inject
   private ViewHelper viewHelper;
 
   private String name;
-  private int category;
-  private int brand;
+  private int idCategoryGroup;
+  private int idCategory;
+  private int idBrand;
   private double price;
   private int quantity;
   private boolean state;
 
   private String nameInputStyleClass;
+  private String categoryGroupInputStyleClass;
   private String categoryInputStyleClass;
   private String brandInputStyleClass;
   private String priceInputStyleClass;
@@ -62,13 +78,15 @@ public class AddProductShopDashboardPresenter implements Serializable {
   @PostConstruct
   public void init() {
     name = null;
-    category = 0;
-    brand = 0;
+    idCategoryGroup = 0;
+    idCategory = 0;
+    idBrand = 0;
     price = 0;
     quantity = 0;
     state = true;
 
     nameInputStyleClass = null;
+    categoryGroupInputStyleClass = null;
     categoryInputStyleClass = null;
     brandInputStyleClass = null;
     priceInputStyleClass = null;
@@ -77,22 +95,34 @@ public class AddProductShopDashboardPresenter implements Serializable {
 
   public String add() {
     boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.ANY_NAME, name);
-    boolean categoryValid = category != 0;
-    boolean brandValid = brand != 0;
+    boolean categoryValid = idCategory != 0;
+    boolean brandValid = idBrand != 0;
     boolean pricelValid = price >= 0;
     boolean quantityValid = quantity >= 0;
 
     nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
-    categoryInputStyleClass = categoryValid ? null : ValidationHelper.StyleClass.INVALID;;
-    brandInputStyleClass = brandValid ? null : ValidationHelper.StyleClass.INVALID;;
-    priceInputStyleClass = pricelValid ? null : ValidationHelper.StyleClass.INVALID;;
-    quantityInputStyleClass = quantityValid ? null : ValidationHelper.StyleClass.INVALID;;
+    categoryInputStyleClass = categoryValid ? null : ValidationHelper.StyleClass.INVALID;
+    brandInputStyleClass = brandValid ? null : ValidationHelper.StyleClass.INVALID;
+    priceInputStyleClass = pricelValid ? null : ValidationHelper.StyleClass.INVALID;
+    quantityInputStyleClass = quantityValid ? null : ValidationHelper.StyleClass.INVALID;
 
     if (!nameValid || !categoryValid || !brandValid || !pricelValid || !quantityValid) {
       return null;
     }
 
     return viewHelper.getPage("dashboard/shop/product/list");
+  }
+
+  public List<Brand> getBrands() {
+    return brandFacade.findAll();
+  }
+
+  public List<CategoryGroup> getCategoryGroups() {
+    return categoryGroupFacade.findAll();
+  }
+
+  public List<Category> getCategories() {
+    return categoryFacade.findByFilter(idCategoryGroup);
   }
 
   public String getName() {
@@ -103,20 +133,28 @@ public class AddProductShopDashboardPresenter implements Serializable {
     this.name = name;
   }
 
-  public int getCategory() {
-    return category;
+  public int getIdCategoryGroup() {
+    return idCategoryGroup;
   }
 
-  public void setCategory(int category) {
-    this.category = category;
+  public void setIdCategoryGroup(int idCategoryGroup) {
+    this.idCategoryGroup = idCategoryGroup;
   }
 
-  public int getBrand() {
-    return brand;
+  public int getIdCategory() {
+    return idCategory;
   }
 
-  public void setBrand(int brand) {
-    this.brand = brand;
+  public void setIdCategory(int idCategory) {
+    this.idCategory = idCategory;
+  }
+
+  public int getIdBrand() {
+    return idBrand;
+  }
+
+  public void setIdBrand(int idBrand) {
+    this.idBrand = idBrand;
   }
 
   public double getPrice() {
@@ -149,6 +187,14 @@ public class AddProductShopDashboardPresenter implements Serializable {
 
   public void setNameInputStyleClass(String nameInputStyleClass) {
     this.nameInputStyleClass = nameInputStyleClass;
+  }
+
+  public String getCategoryGroupInputStyleClass() {
+    return categoryGroupInputStyleClass;
+  }
+
+  public void setCategoryGroupInputStyleClass(String categoryGroupInputStyleClass) {
+    this.categoryGroupInputStyleClass = categoryGroupInputStyleClass;
   }
 
   public String getCategoryInputStyleClass() {

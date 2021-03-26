@@ -74,7 +74,7 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   private Employee account;
 
   private String username;
-  private int role;
+  private int idRole;
   private boolean state;
   private String fullName;
   private boolean gender;
@@ -93,11 +93,12 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
+
     account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
     Information information = account.getInformation();
 
     username = account.getUsername();
-    role = account.getRole().getId();
+    idRole = account.getRole().getId();
     state = account.getState();
     fullName = information.getFullName();
     gender = information.getGender();
@@ -139,7 +140,7 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
       return null;
     }
 
-    account.setRole(roleFacade.find(role));
+    account.setRole(roleFacade.find(idRole));
     account.setState(state);
     employeeFacade.edit(account);
 
@@ -167,12 +168,12 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
     this.username = username;
   }
 
-  public int getRole() {
-    return role;
+  public int getIdRole() {
+    return idRole;
   }
 
-  public void setRole(int role) {
-    this.role = role;
+  public void setIdRole(int idRole) {
+    this.idRole = idRole;
   }
 
   public boolean isState() {
