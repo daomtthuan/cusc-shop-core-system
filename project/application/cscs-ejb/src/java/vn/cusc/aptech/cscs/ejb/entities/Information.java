@@ -63,44 +63,51 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Information implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
+
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "full_name")
   private String fullName;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "birthday")
   @Temporal(TemporalType.TIMESTAMP)
   private Date birthday;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "gender")
   private boolean gender;
-  // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
+
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "email")
   private String email;
+
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 500)
   @Column(name = "address")
   private String address;
-  // @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$", message="Invalid phone/fax format, should be as xxx-xxx-xxxx")//if the field contains phone or fax number consider using this annotation to enforce field validation
+
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "phone")
   private String phone;
+
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "information")
   private Collection<Employee> employeeCollection;
+
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "information")
   private Collection<Customer> customerCollection;
 
@@ -204,15 +211,12 @@ public class Information implements Serializable {
 
   @Override
   public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Information)) {
       return false;
     }
+
     Information other = (Information) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-      return false;
-    }
-    return true;
+    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
   }
 
   @Override

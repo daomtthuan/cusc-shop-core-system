@@ -44,6 +44,7 @@ import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
@@ -64,6 +65,9 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
 
   @EJB
   private RoleFacadeLocal roleFacade;
+
+  @Inject
+  private AuthSession authSession;
 
   @Inject
   private ViewHelper viewHelper;
@@ -94,7 +98,13 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   @PostConstruct
   public void init() {
     try {
-      account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      int id = Integer.valueOf(viewHelper.getParameters().get("id"));
+      if (id == authSession.getAccount().getId()) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
+      account = employeeFacade.find(id);
       Information information = account.getInformation();
 
       username = account.getUsername();

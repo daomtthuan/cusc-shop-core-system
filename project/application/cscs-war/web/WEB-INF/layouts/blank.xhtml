@@ -32,12 +32,12 @@ THE SOFTWARE.
       xmlns:scrolltop="http://xmlns.jcp.org/jsf/composite/components/scrolltop">
   <h:head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="#{configApp.meta.viewport}"/>
-    <meta name="description" content="#{configApp.meta.description}"/>
-    <meta name="author" content="#{configApp.meta.author}"/>
-    <meta name="keywords" content="#{configApp.meta.keywords}"/>
+    <meta name="viewport" content="#{appConfig.meta.viewport}"/>
+    <meta name="description" content="#{appConfig.meta.description}"/>
+    <meta name="author" content="#{appConfig.meta.author}"/>
+    <meta name="keywords" content="#{appConfig.meta.keywords}"/>
 
-    <c:forEach items="#{configApp.resource.styles}" var="style">
+    <c:forEach items="#{appConfig.resource.styles}" var="style">
       <c:if test="#{style.excludes.stream().noneMatch((exclude) -> exclude eq 'blank')}">
         <link rel="#{style.rel}" href="#{style.href}" />
       </c:if>
@@ -45,12 +45,12 @@ THE SOFTWARE.
 
     <ui:insert name="style"/>
 
-    <title>#{configApp.meta.name} - <ui:insert name="title"/></title>
+    <title>#{appConfig.meta.name} - <ui:insert name="title"/></title>
   </h:head>
   <h:body>
     <ui:insert name="page"/>
 
-    <c:forEach items="#{configApp.resource.scripts}" var="script">
+    <c:forEach items="#{appConfig.resource.scripts}" var="script">
       <c:if test="#{script.excludes.stream().noneMatch((exclude) -> exclude eq 'blank')}">
         <script src="#{script.src}"></script>
       </c:if>

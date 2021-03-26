@@ -21,26 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.war.app.config;
 
-import java.util.Date;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import java.util.HashSet;
+import java.util.Set;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.ApplicationPath;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+@ApplicationPath("apis")
+public class RestfulApiConfig extends Application {
 
-  Employee authenticateByEmployeeLocalAccount(String username, String password);
+  @Override
+  public Set<Class<?>> getClasses() {
+    Set<Class<?>> resources = new HashSet<>();
+    addRestResourceClasses(resources);
+    return resources;
+  }
 
-  Customer authenticateByCustomerLocalAccount(String username, String password);
-
-  String changePassword(Object id, String oldPassword, String newPassword);
-
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  /**
+   * Do not modify addRestResourceClasses() method. It is automatically populated with all resources defined in the project. If required, comment out calling
+   * this method in getClasses().
+   */
+  private void addRestResourceClasses(Set<Class<?>> resources) {
+    resources.add(vn.cusc.aptech.cscs.war.apis.AuthApi.class);
+  }
 
 }

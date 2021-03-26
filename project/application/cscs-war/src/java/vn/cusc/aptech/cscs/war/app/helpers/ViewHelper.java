@@ -31,7 +31,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
+import vn.cusc.aptech.cscs.war.app.config.AppConfig;
 
 /**
  *
@@ -42,7 +42,7 @@ import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
 public class ViewHelper implements Serializable {
 
   @Inject
-  private ConfigApp configApp;
+  private AppConfig appConfig;
 
   private ExternalContext getContext() {
     return FacesContext.getCurrentInstance().getExternalContext();

@@ -48,4 +48,6 @@ public interface CustomerFacadeLocal {
 
   int count();
 
+  Customer findByUsername(String username);
+
 }

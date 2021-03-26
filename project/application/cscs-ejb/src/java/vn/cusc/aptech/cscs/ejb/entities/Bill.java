@@ -62,36 +62,45 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Bill implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "create_date")
   @Temporal(TemporalType.TIMESTAMP)
   private Date createDate;
+
   @Column(name = "pay_date")
   @Temporal(TemporalType.TIMESTAMP)
   private Date payDate;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "status")
   private int status;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
+
   @JoinColumn(name = "customer", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Customer customer;
+
   @JoinColumn(name = "salesman", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Employee salesman;
+
   @JoinColumn(name = "shipper", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Employee shipper;
+
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill1")
   private Collection<BillDetails> billDetailsCollection;
 
@@ -195,11 +204,9 @@ public class Bill implements Serializable {
     if (!(object instanceof Bill)) {
       return false;
     }
+
     Bill other = (Bill) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-      return false;
-    }
-    return true;
+    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
   }
 
   @Override
