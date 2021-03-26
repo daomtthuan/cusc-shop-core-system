@@ -24,16 +24,12 @@
 package vn.cusc.aptech.cscs.war.apis;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.json.Json;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.core.Context;
@@ -43,7 +39,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
 
 /**
  * REST Web Service

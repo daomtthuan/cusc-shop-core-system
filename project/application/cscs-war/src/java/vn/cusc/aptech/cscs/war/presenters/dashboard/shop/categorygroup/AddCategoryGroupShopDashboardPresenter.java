@@ -24,17 +24,13 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
 import java.io.Serializable;
-<<<<<<< HEAD
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-=======
->>>>>>> ce5467a6a25a6738a150708610f2d8084406f83b
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
 import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;

@@ -68,13 +68,3 @@ THE SOFTWARE.
   width: 1024px;
   height: 1024px;
 }
-
-.navbar {
-  background-color: #f9fbfd;
-}
-
-.header-sticky-top {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1;
-}

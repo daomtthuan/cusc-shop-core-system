@@ -33,61 +33,47 @@ THE SOFTWARE.
 
   <ui:define name="page">
     <div class="container-fluid">
-
-      <div class="row">
-        <div class="col-md-12">
-          <h2>List of the Category</h2>
+      <h2>Category list</h2>
+      <hr />
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/add')}" styleClass="btn btn-primary" value="Add" />
+      <hr />
+      <h:form>
+        <div class="form-group">
+          <h:outputLabel for="input-role" value="Category Group" />
+          <h:selectOneMenu id="input-role" value="#{listCategoryShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="--All Groups--" />
+            <f:selectItems value="#{listCategoryShopDashboardPresenter.categorys}" var="cateGroup" itemValue="#{cateGroup.id}" itemLabel="#{cateGroup.name}" />
+            <f:ajax render="datatable" />
+          </h:selectOneMenu>
         </div>
-      </div>
+      </h:form>
+      <hr />
+      <div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/add')}" styleClass="btn btn-primary" value="Add" />
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h:form>
-            <div class="form-group">
-              <h:outputLabel for="input-role" value="Category Group" />
-              <h:selectOneMenu id="input-role" value="#{listCategoryShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
-                <f:selectItem itemValue="0" itemLabel="--All Groups--" />
-                <f:selectItems value="#{listCategoryShopDashboardPresenter.categorys}" var="cateGroup" itemValue="#{cateGroup.id}" itemLabel="#{cateGroup.name}" />
-                <f:ajax render="datatable" />
-              </h:selectOneMenu>
-            </div>
-          </h:form>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h:dataTable id="datatable" value="#{listCategoryShopDashboardPresenter.categorys}" var="category" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light header-sticky-top">
-            <h:column>
-              <f:facet name="header" class="bg-dark">Actions</f:facet>
-              <h:form>
-                <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/edit')}" styleClass="btn btn-sm btn-primary mr-1">
-                  <f:param name="id" value="#{category.id}" />
-                  <i class="fas fa-edit"></i>
-                </h:link>
-                <h:commandLink id="remove" action="#{listCategoryShopDashboardPresenter.removeCategory(category.id)}" styleClass="btn btn-sm btn-danger">
-                  <i class="fas fa-trash"></i>
-                </h:commandLink>
-              </h:form>
-            </h:column>
-            <h:column>
-              <f:facet name="header">Name</f:facet>
-                #{category.name}
-            </h:column>
-            <h:column>
-              <f:facet name="header">State</f:facet>
-                #{category.state ? "Enabled" : "Disabled"}
-            </h:column>
-
-          </h:dataTable>
-        </div>
+        <h:dataTable id="datatable" value="#{listCategoryShopDashboardPresenter.categorys}" var="category" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+          <h:column>
+            <f:facet name="header">Actions</f:facet>
+            <h:form styleClass="d-flex">
+              <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+                <f:param name="id" value="#{category.id}" />
+                <i class="fas fa-edit"></i>
+              </h:link>
+              <h:commandLink id="remove" action="#{listCategoryShopDashboardPresenter.removeCategory(category.id)}" styleClass="btn btn-sm btn-danger">
+                <i class="fas fa-trash"></i>
+              </h:commandLink>
+            </h:form>
+          </h:column>
+          <h:column>
+            <f:facet name="header">Name</f:facet>
+              #{category.name}
+          </h:column>
+          <h:column>
+            <f:facet name="header">State</f:facet>
+              #{category.state ? "Enabled" : "Disabled"}
+          </h:column>
+        </h:dataTable>
       </div>
     </div>
-
   </ui:define>
 </ui:composition>

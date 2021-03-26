@@ -26,4 +26,4 @@ $('.form-control-radio td, .form-control-radio-inline td').addClass('custom-cont
 $('.form-control-radio label, .form-control-radio-inline label').addClass('custom-control-label');
 $('.form-control-radio input, .form-control-radio-inline input').addClass('custom-control-input');
 $('.form-control-radio-inline td').addClass('custom-control-inline');
-$('.header-sticky-top').css('top', $('.navbar.sticky-top').outerHeight() + 'px');
+$('#datatable th.position-sticky').css('top', $('.navbar.sticky-top').outerHeight() + 'px');
