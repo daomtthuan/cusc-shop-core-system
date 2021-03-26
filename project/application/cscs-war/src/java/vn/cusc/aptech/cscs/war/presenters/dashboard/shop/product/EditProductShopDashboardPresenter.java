@@ -46,9 +46,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
  *
  * @author Daomtthuan
  */
-@Named(value = "addProductShopDashboardPresenter")
+@Named(value = "editProductShopDashboardPresenter")
 @ViewScoped
-public class AddProductShopDashboardPresenter implements Serializable {
+public class EditProductShopDashboardPresenter implements Serializable {
 
   @EJB
   private ProductFacadeLocal productFacade;
@@ -65,6 +65,8 @@ public class AddProductShopDashboardPresenter implements Serializable {
   @Inject
   private ViewHelper viewHelper;
 
+  private Product product;
+
   private String name;
   private int idCategoryGroup;
   private int idCategory;
@@ -76,29 +78,34 @@ public class AddProductShopDashboardPresenter implements Serializable {
   private String nameInputStyleClass;
   private String categoryGroupInputStyleClass;
   private String categoryInputStyleClass;
-  private String brandInputStyleClass;
   private String priceInputStyleClass;
   private String quantityInputStyleClass;
 
   @PostConstruct
   public void init() {
-    name = null;
-    idCategoryGroup = 0;
-    idCategory = 0;
-    idBrand = 0;
-    price = null;
-    quantity = null;
-    state = true;
+    try {
+      product = productFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      Category category = product.getCategory();
 
-    nameInputStyleClass = null;
-    categoryGroupInputStyleClass = null;
-    categoryInputStyleClass = null;
-    brandInputStyleClass = null;
-    priceInputStyleClass = null;
-    quantityInputStyleClass = null;
+      name = product.getName();
+      idCategoryGroup = category.getCategoryGroup().getId();
+      idCategory = category.getId();
+      idBrand = product.getBrand().getId();
+      price = String.valueOf(product.getPrice());
+      quantity = String.valueOf(product.getQuantity());
+      state = product.getState();
+
+      nameInputStyleClass = null;
+      categoryGroupInputStyleClass = null;
+      categoryInputStyleClass = null;
+      priceInputStyleClass = null;
+      quantityInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
-  public String add() {
+  public String edit() {
     float priceValue = 0;
     int quantityValue = 0;
 
@@ -124,16 +131,18 @@ public class AddProductShopDashboardPresenter implements Serializable {
 
     nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
     categoryInputStyleClass = categoryValid ? null : ValidationHelper.StyleClass.INVALID;
-    brandInputStyleClass = brandValid ? null : ValidationHelper.StyleClass.INVALID;
 
     if (!nameValid || !categoryValid || !brandValid || !pricelValid || !quantityValid) {
       return null;
     }
 
-    Product product = new Product(null, name, priceValue, quantityValue, state);
-    product.setBrand(brandFacade.find(idBrand));
+    product.setName(name);
     product.setCategory(categoryFacade.find(idCategory));
-    productFacade.create(product);
+    product.setBrand(brandFacade.find(idBrand));
+    product.setPrice(priceValue);
+    product.setQuantity(quantityValue);
+    product.setState(state);
+    productFacade.edit(product);
 
     return viewHelper.getPage("dashboard/shop/product/list");
   }
@@ -228,14 +237,6 @@ public class AddProductShopDashboardPresenter implements Serializable {
 
   public void setCategoryInputStyleClass(String categoryInputStyleClass) {
     this.categoryInputStyleClass = categoryInputStyleClass;
-  }
-
-  public String getBrandInputStyleClass() {
-    return brandInputStyleClass;
-  }
-
-  public void setBrandInputStyleClass(String brandInputStyleClass) {
-    this.brandInputStyleClass = brandInputStyleClass;
   }
 
   public String getPriceInputStyleClass() {

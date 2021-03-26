@@ -52,9 +52,12 @@ public class ViewHelper implements Serializable {
     return getContext().getRequestParameterMap();
   }
 
-  public void redirect(String name) throws IOException {
+  public void redirect(String name) {
     ExternalContext context = getContext();
-    context.redirect(context.getRequestContextPath() + "/pages/" + name + ".html");
+    try {
+      context.redirect(context.getRequestContextPath() + "/pages/" + name + ".html");
+    } catch (IOException e) {
+    }
   }
 
   public String getPage(String name) {

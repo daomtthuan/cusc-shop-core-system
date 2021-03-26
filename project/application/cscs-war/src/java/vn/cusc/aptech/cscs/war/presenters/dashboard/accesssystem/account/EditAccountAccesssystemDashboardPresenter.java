@@ -93,28 +93,31 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
+    try {
+      account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      Information information = account.getInformation();
 
-    account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
-    Information information = account.getInformation();
+      username = account.getUsername();
+      idRole = account.getRole().getId();
+      state = account.getState();
+      fullName = information.getFullName();
+      gender = information.getGender();
+      birthday = dateHelper.localDateOf(information.getBirthday());
+      dayBirthday = birthday.getDayOfMonth();
+      monthBirthday = birthday.getMonthValue();
+      yearBirthday = birthday.getYear();
+      email = information.getEmail();
+      phone = information.getPhone();
+      address = information.getAddress();
 
-    username = account.getUsername();
-    idRole = account.getRole().getId();
-    state = account.getState();
-    fullName = information.getFullName();
-    gender = information.getGender();
-    birthday = dateHelper.localDateOf(information.getBirthday());
-    dayBirthday = birthday.getDayOfMonth();
-    monthBirthday = birthday.getMonthValue();
-    yearBirthday = birthday.getYear();
-    email = information.getEmail();
-    phone = information.getPhone();
-    address = information.getAddress();
-
-    fullNameInputStyleClass = null;
-    birthdayInputStyleClass = null;
-    emailInputStyleClass = null;
-    phoneInputStyleClass = null;
-    addressInputStyleClass = null;
+      fullNameInputStyleClass = null;
+      birthdayInputStyleClass = null;
+      emailInputStyleClass = null;
+      phoneInputStyleClass = null;
+      addressInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
   @TransactionAttribute(TransactionAttributeType.REQUIRED)

@@ -43,6 +43,18 @@ THE SOFTWARE.
             <div class="invalid-feedback">Invalid name</div>
           </div>
           <div class="form-group">
+            <h:outputLabel for="input-price" value="Price" />
+            <h:inputText id="input-price" value="#{addProductShopDashboardPresenter.price}" styleClass="form-control #{addProductShopDashboardPresenter.priceInputStyleClass}" />
+            <div class="invalid-feedback">Invalid price</div>
+          </div>
+          <div class="form-group">
+            <h:outputLabel for="input-quantity" value="Quantity" />
+            <h:inputText id="input-quantity" value="#{addProductShopDashboardPresenter.quantity}" styleClass="form-control #{addProductShopDashboardPresenter.quantityInputStyleClass}"  />
+            <div class="invalid-feedback">Invalid quantity</div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
             <h:outputLabel for="input-brand" value="Brand" />
             <h:selectOneMenu id="input-brand" value="#{addProductShopDashboardPresenter.idBrand}" styleClass="custom-select #{addProductShopDashboardPresenter.brandInputStyleClass}">
               <f:selectItem itemValue="0" itemLabel="--" />
@@ -52,24 +64,28 @@ THE SOFTWARE.
           </div>
           <div class="form-group">
             <h:outputLabel for="input-category-group" value="Category Group" />
-            <h:selectOneMenu id="input-category-group" value="#{addProductShopDashboardPresenter.categoryGroup}" styleClass="custom-select">
+            <h:selectOneMenu id="input-category-group" value="#{addProductShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
               <f:selectItem itemValue="0" itemLabel="--" />
-              <f:selectItems value="#{listProductShopDashboardPresenter.categoryGroups}" var="categoryGroup" itemValue="#{categoryGroup.id}" itemLabel="#{categoryGroup.name}" />
+              <f:selectItems value="#{addProductShopDashboardPresenter.categoryGroups}" var="categoryGroup" itemValue="#{categoryGroup.id}" itemLabel="#{categoryGroup.name}" />
               <f:ajax render="input-category" />
             </h:selectOneMenu>
           </div>
           <div class="form-group">
             <h:outputLabel for="input-category" value="Category" />
-            <h:selectOneMenu id="input-category" value="#{listProductShopDashboardPresenter.idCategory}" styleClass="custom-select #{addProductShopDashboardPresenter.brandInputStyleClass}">
+            <h:selectOneMenu id="input-category" value="#{addProductShopDashboardPresenter.idCategory}" styleClass="custom-select #{addProductShopDashboardPresenter.categoryInputStyleClass}">
               <f:selectItem itemValue="0" itemLabel="--" />
-              <f:selectItems value="#{listProductShopDashboardPresenter.categories}" var="category" itemValue="#{category.id}" itemLabel="#{category.name}" />
+              <f:selectItems value="#{addProductShopDashboardPresenter.categories}" var="category" itemValue="#{category.id}" itemLabel="#{category.name}" />
             </h:selectOneMenu>
             <div class="invalid-feedback">Choose category for product</div>
           </div>
         </div>
-        <div class="col-md-6">
-
-        </div>
+      </div>
+      <div class="form-group">
+        <h:outputLabel for="input-state" value="State" />
+        <h:selectOneRadio id="input-state" value="#{addProductShopDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
+          <f:selectItem itemValue="true" itemLabel="Enabled" />
+          <f:selectItem itemValue="false" itemLabel="Disabled" />
+        </h:selectOneRadio>
       </div>
       <h:commandButton action="#{addProductShopDashboardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
     </h:form>
