@@ -27,35 +27,48 @@ THE SOFTWARE.
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-    <ui:define name="title">Access System - Account - Add Account</ui:define>
-    <ui:define name="page">
-        <h:form styleClass="container-fluid">
-            <div class=" row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <h:outputLabel  for="input-name" value="Full name" />
-                        <h:inputText styleClass="form-control #{addAccountAccessystemPresenter.nameInputStyleClass}" id="input-name"  p:placeholder="Full name" value="#{addAccountAccessystemPresenter.fullName}"/>
-                        <div class="invalid-feedback">Invalid username</div>
-                    </div>
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  <ui:define name="title">Dashboard - Shop - Add Category Group</ui:define>
+  <ui:define name="page">
+    <h:form styleClass="container-fluid">
+
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Add of the Category group</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h:form>
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="form-group">
+                  <h:outputLabel for="input-name" value="Name" />
+                  <h:inputText id="input-name" value="#{addCategoryGroupShopDashboardPresenter.name}" styleClass="form-control #{addCategoryGroupShopDashboardPresenter.nameInputStyleClass}" />
+                  <div class="invalid-feedback">Invalid name</div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <h:outputLabel class="control-label" for="Gender">
-                            Gender
-                        </h:outputLabel>
-                        <h:selectBooleanCheckbox id="Gender"
-                                                 value="#{addAccountAccessystemPresenter.gender}">
-                        </h:selectBooleanCheckbox>
-                    </div>
+
+                <div class="form-group">
+                  <h:outputLabel for="input-state" value="State" />
+                  <h:selectOneRadio id="input-state" value="#{addCategoryGroupShopDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
+                    <f:selectItem itemValue="true" itemLabel="Enabled" />
+                    <f:selectItem itemValue="false" itemLabel="Disabled" />
+                  </h:selectOneRadio>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <h:outputLabel for="email" class="control-label">Email address</h:outputLabel>
-                        <h:inputText p:type="email" styleClass="form-control" id="email" value="#{addAccountAccessystemPresenter.email}" p:placeholder="Enter email"/>
-                    </div>
-                </div>
+
+              </div>
+
             </div>
-        </h:form>
-    </ui:define>
+            <div class="row">
+              <div class="col-md-12">
+                <h:commandButton styleClass="btn btn-primary" action="#{addCategoryGroupShopDashboardPresenter.add()}" value="Save" />
+              </div>
+            </div>
+          </h:form>
+        </div>
+      </div>
+    </h:form>
+  </ui:define>
 </ui:composition>

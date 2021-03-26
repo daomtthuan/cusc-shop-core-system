@@ -23,8 +23,19 @@
  */
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
+import java.io.Serializable;
+import java.util.List;
+import java.util.regex.Pattern;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
@@ -32,12 +43,91 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "editCategoryGroupShopDashboardPresenter")
 @ViewScoped
-public class EditCategoryGroupShopDashboardPresenter {
+public class EditCategoryGroupShopDashboardPresenter implements Serializable {
 
   /**
    * Creates a new instance of EditCategoryGroupShopDashboardPresenter
    */
+  @EJB
+  private CategoryGroupFacadeLocal categoryGroupFacade;
+
+  @Inject
+  private ViewHelper viewHelper;
+  private CategoryGroup cg;
+
+  public CategoryGroup getCg() {
+    return cg;
+  }
+
+  public void setCg(CategoryGroup cg) {
+    this.cg = cg;
+  }
+  private int cateGroup;
+  private String name;
+  private boolean state;
+  private String nameInputStyleClass;
+
+  public int getCateGroup() {
+    return cateGroup;
+  }
+
+  public void setCateGroup(int cateGroup) {
+    this.cateGroup = cateGroup;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public boolean isState() {
+    return state;
+  }
+
+  public void setState(boolean state) {
+    this.state = state;
+  }
+
+  public String getNameInputStyleClass() {
+    return nameInputStyleClass;
+  }
+
+  public void setNameInputStyleClass(String nameInputStyleClass) {
+    this.nameInputStyleClass = nameInputStyleClass;
+  }
+
   public EditCategoryGroupShopDashboardPresenter() {
+  }
+
+  @PostConstruct
+  public void init() {
+
+    cg = categoryGroupFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+
+    state = cg.getState();
+    name = cg.getName();
+
+    nameInputStyleClass = null;
+
+  }
+
+  public String edit() {
+    //CategoryGroup cg = new CategoryGroup();
+    boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.ANY_NAME, name);
+
+    nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
+
+    if (!nameValid) {
+      return null;
+    }
+
+    cg.setName(name);
+    cg.setState(state);
+    categoryGroupFacade.edit(cg);
+    return viewHelper.getPage("dashboard/shop/category-group/list");
   }
 
 }

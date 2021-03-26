@@ -23,8 +23,18 @@
  */
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
+import java.io.Serializable;
+import java.util.regex.Pattern;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Category;
+import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
@@ -32,12 +42,88 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "addCategoryGroupShopDashboardPresenter")
 @ViewScoped
-public class AddCategoryGroupShopDashboardPresenter {
+public class AddCategoryGroupShopDashboardPresenter implements Serializable {
 
   /**
    * Creates a new instance of AddCategoryGroupShopDashboardPresenter
    */
   public AddCategoryGroupShopDashboardPresenter() {
+  }
+  @EJB
+  private CategoryGroupFacadeLocal categoryGroupFacade;
+
+  @Inject
+  private ViewHelper viewHelper;
+
+  private int cateGroup;
+  private String name;
+  private boolean state;
+
+  private String nameInputStyleClass;
+  private CategoryGroup categoryGroup;
+
+  public CategoryGroup getCategoryGroup() {
+    return categoryGroup;
+  }
+
+  public void setCategoryGroup(CategoryGroup categoryGroup) {
+    this.categoryGroup = categoryGroup;
+  }
+
+  public int getCateGroup() {
+    return cateGroup;
+  }
+
+  public void setCateGroup(int cateGroup) {
+    this.cateGroup = cateGroup;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public boolean isState() {
+    return state;
+  }
+
+  public void setState(boolean state) {
+    this.state = state;
+  }
+
+  public String getNameInputStyleClass() {
+    return nameInputStyleClass;
+  }
+
+  public void setNameInputStyleClass(String nameInputStyleClass) {
+    this.nameInputStyleClass = nameInputStyleClass;
+  }
+
+  @PostConstruct
+  public void init() {
+    cateGroup = 0;
+    state = true;
+    name = null;
+    nameInputStyleClass = null;
+
+  }
+
+  public String add() {
+    //CategoryGroup categoryGroup = new CategoryGroup();
+    boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.ANY_NAME, name);
+
+    nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
+
+    if (!nameValid) {
+      return null;
+    }
+
+    categoryGroupFacade.create(categoryGroup);
+
+    return viewHelper.getPage("dashboard/shop/category-group/list");
   }
 
 }
