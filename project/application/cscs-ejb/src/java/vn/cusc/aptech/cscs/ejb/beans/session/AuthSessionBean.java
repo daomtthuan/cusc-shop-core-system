@@ -29,9 +29,12 @@ import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import org.mindrot.jbcrypt.BCrypt;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Account;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
 
@@ -43,6 +46,9 @@ import vn.cusc.aptech.cscs.ejb.entities.Information;
 public class AuthSessionBean implements AuthSessionBeanLocal {
 
   @EJB
+  private CustomerFacadeLocal customerFacade;
+
+  @EJB
   private RoleFacadeLocal roleFacade;
 
   @EJB
@@ -51,15 +57,25 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
   @EJB
   private EmployeeFacadeLocal employeeFacade;
 
+  private boolean authenticate(Account account, String password) {
+    if (account != null) {
+      if (BCrypt.checkpw(password, account.getPassword())) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   @Override
   public Employee authenticateByEmployeeLocalAccount(String username, String password) {
     Employee account = employeeFacade.findByUsername(username);
-    if (account != null) {
-      if (BCrypt.checkpw(password, account.getPassword())) {
-        return account;
-      }
-    }
-    return null;
+    return authenticate(account, password) ? account : null;
+  }
+
+  @Override
+  public Customer authenticateByCustomerLocalAccount(String username, String password) {
+    Customer account = customerFacade.findByUsername(username);
+    return authenticate(account, password) ? account : null;
   }
 
   @Override
@@ -69,7 +85,7 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
       return "Account not found";
     }
 
-    if (!BCrypt.checkpw(oldPassword, account.getPassword())) {
+    if (!authenticate(account, oldPassword)) {
       return "Password incorrect";
     }
 

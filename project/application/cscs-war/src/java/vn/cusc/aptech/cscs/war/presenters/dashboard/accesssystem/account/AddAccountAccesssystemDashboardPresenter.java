@@ -60,7 +60,7 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
   private DateHelper dateHelper;
 
   private String username;
-  private int role;
+  private int idRole;
   private boolean state;
   private String fullName;
   private boolean gender;
@@ -85,7 +85,7 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
   @PostConstruct
   public void init() {
     username = null;
-    role = 0;
+    idRole = 0;
     state = true;
     fullName = null;
     gender = true;
@@ -108,7 +108,7 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
 
   public String add() {
     boolean usernameValid = Pattern.matches(ValidationHelper.RegexPattern.USERNAME, username);
-    boolean roleValid = role != 0;
+    boolean roleValid = idRole != 0;
     boolean fullNameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, fullName);
     boolean emailValid = Pattern.matches(ValidationHelper.RegexPattern.EMAIL, email);
     boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
@@ -133,7 +133,7 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
       return null;
     }
 
-    usernameFeedback = authSessionBean.createAccount(username, role, state, fullName, dateHelper.dateOf(birthday), gender, email, phone, address);
+    usernameFeedback = authSessionBean.createAccount(username, idRole, state, fullName, dateHelper.dateOf(birthday), gender, email, phone, address);
     if (usernameFeedback != null) {
       usernameInputStyleClass = ValidationHelper.StyleClass.INVALID;
       return null;
@@ -156,12 +156,12 @@ public class AddAccountAccesssystemDashboardPresenter implements Serializable {
     this.username = username;
   }
 
-  public int getRole() {
-    return role;
+  public int getIdRole() {
+    return idRole;
   }
 
-  public void setRole(int role) {
-    this.role = role;
+  public void setIdRole(int idRole) {
+    this.idRole = idRole;
   }
 
   public boolean isState() {

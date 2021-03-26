@@ -55,16 +55,19 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Role implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
+
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "name")
   private String name;
+
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
   private Collection<Employee> employeeCollection;
 
@@ -114,15 +117,12 @@ public class Role implements Serializable {
 
   @Override
   public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Role)) {
       return false;
     }
+
     Role other = (Role) object;
-    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-      return false;
-    }
-    return true;
+    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
   }
 
   @Override

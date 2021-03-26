@@ -33,9 +33,9 @@ import vn.cusc.aptech.cscs.war.app.config.modules.*;
  *
  * @author Daomtthuan
  */
-@Named(value = "configApp")
+@Named(value = "appConfig")
 @ApplicationScoped
-public class ConfigApp implements Serializable {
+public class AppConfig implements Serializable {
 
   private Meta meta;
   private Directory directory;

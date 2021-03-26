@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,6 +46,12 @@ public class CustomerFacade extends AbstractFacade<Customer> implements Customer
 
   public CustomerFacade() {
     super(Customer.class);
+  }
+
+  @Override
+  public Customer findByUsername(String username) {
+    List<Customer> customers = em.createNamedQuery("Customer.findByUsername").setParameter("username", username).getResultList();
+    return customers.isEmpty() ? null : customers.get(0);
   }
 
 }

@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="#{configApp.directory.layouts}/blank.xhtml"
+<ui:composition template="#{appConfig.directory.layouts}/blank.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
@@ -38,7 +38,7 @@ THE SOFTWARE.
           <div class="col-xl-5 col-lg-6 bg-white p-3">
             <h2 class="text-center">Login</h2>
             <p class="text-center small">Enter username and password to access administrator dashboard.</p>
-            <h:form>
+            <h:form id="form">
               <div class="form-group">
                 <h:outputLabel for="input-username" value="Username" />
                 <h:inputText styleClass="form-control #{loginPresenter.usernameInputStyleClass}" id="input-username" value="#{loginPresenter.username}"/>
@@ -62,12 +62,12 @@ THE SOFTWARE.
     <style>
       .auth-wrapper {
         min-height: 100vh;
-        background: url('#{configApp.directory.root}/assets/images/background/auth-bg.jpg') no-repeat center center;
+        background: url('#{appConfig.directory.root}/assets/images/background/auth-bg.jpg') no-repeat center center;
         background-size: cover;
       }
 
       .auth-wrapper .auth-image {
-        background: url('#{configApp.directory.root}/assets/images/background/auth.jpg') no-repeat center center;
+        background: url('#{appConfig.directory.root}/assets/images/background/auth.jpg') no-repeat center center;
         background-size: cover;
       }
     </style>

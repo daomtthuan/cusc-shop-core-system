@@ -23,13 +23,15 @@
  */
 package vn.cusc.aptech.cscs.war.app.helpers;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
 import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
+import vn.cusc.aptech.cscs.war.app.config.AppConfig;
 
 /**
  *
@@ -40,10 +42,22 @@ import vn.cusc.aptech.cscs.war.app.config.ConfigApp;
 public class ViewHelper implements Serializable {
 
   @Inject
-  private ConfigApp configApp;
+  private AppConfig appConfig;
+
+  private ExternalContext getContext() {
+    return FacesContext.getCurrentInstance().getExternalContext();
+  }
 
   public Map<String, String> getParameters() {
-    return FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+    return getContext().getRequestParameterMap();
+  }
+
+  public void redirect(String name) {
+    ExternalContext context = getContext();
+    try {
+      context.redirect(context.getRequestContextPath() + "/pages/" + name + ".html");
+    } catch (IOException e) {
+    }
   }
 
   public String getPage(String name) {

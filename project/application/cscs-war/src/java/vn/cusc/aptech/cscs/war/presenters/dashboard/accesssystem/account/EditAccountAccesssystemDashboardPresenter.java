@@ -44,6 +44,7 @@ import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
@@ -66,6 +67,9 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   private RoleFacadeLocal roleFacade;
 
   @Inject
+  private AuthSession authSession;
+
+  @Inject
   private ViewHelper viewHelper;
 
   @Inject
@@ -74,7 +78,7 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   private Employee account;
 
   private String username;
-  private int role;
+  private int idRole;
   private boolean state;
   private String fullName;
   private boolean gender;
@@ -93,27 +97,37 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
-    account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
-    Information information = account.getInformation();
+    try {
+      int id = Integer.valueOf(viewHelper.getParameters().get("id"));
+      if (id == authSession.getAccount().getId()) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
 
-    username = account.getUsername();
-    role = account.getRole().getId();
-    state = account.getState();
-    fullName = information.getFullName();
-    gender = information.getGender();
-    birthday = dateHelper.localDateOf(information.getBirthday());
-    dayBirthday = birthday.getDayOfMonth();
-    monthBirthday = birthday.getMonthValue();
-    yearBirthday = birthday.getYear();
-    email = information.getEmail();
-    phone = information.getPhone();
-    address = information.getAddress();
+      account = employeeFacade.find(id);
+      Information information = account.getInformation();
 
-    fullNameInputStyleClass = null;
-    birthdayInputStyleClass = null;
-    emailInputStyleClass = null;
-    phoneInputStyleClass = null;
-    addressInputStyleClass = null;
+      username = account.getUsername();
+      idRole = account.getRole().getId();
+      state = account.getState();
+      fullName = information.getFullName();
+      gender = information.getGender();
+      birthday = dateHelper.localDateOf(information.getBirthday());
+      dayBirthday = birthday.getDayOfMonth();
+      monthBirthday = birthday.getMonthValue();
+      yearBirthday = birthday.getYear();
+      email = information.getEmail();
+      phone = information.getPhone();
+      address = information.getAddress();
+
+      fullNameInputStyleClass = null;
+      birthdayInputStyleClass = null;
+      emailInputStyleClass = null;
+      phoneInputStyleClass = null;
+      addressInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
   @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -139,7 +153,7 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
       return null;
     }
 
-    account.setRole(roleFacade.find(role));
+    account.setRole(roleFacade.find(idRole));
     account.setState(state);
     employeeFacade.edit(account);
 
@@ -167,12 +181,12 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
     this.username = username;
   }
 
-  public int getRole() {
-    return role;
+  public int getIdRole() {
+    return idRole;
   }
 
-  public void setRole(int role) {
-    this.role = role;
+  public void setIdRole(int idRole) {
+    this.idRole = idRole;
   }
 
   public boolean isState() {

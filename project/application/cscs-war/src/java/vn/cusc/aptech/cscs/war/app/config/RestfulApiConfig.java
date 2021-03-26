@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 ASUS.
+ * Copyright 2021 Daomtthuan.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,38 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.session;
+package vn.cusc.aptech.cscs.war.app.config;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
-import javax.ejb.EJB;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
+import java.util.HashSet;
+import java.util.Set;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.ApplicationPath;
 
 /**
  *
- * @author ASUS
+ * @author Daomtthuan
  */
-@Named(value = "categoryJSFManagedBean")
-@SessionScoped
-public class CategoryJSFManagedBean implements Serializable {
+@ApplicationPath("apis")
+public class RestfulApiConfig extends Application {
 
-  @EJB
-  private CategoryFacadeLocal categoryFacade;
-
-  public CategoryFacadeLocal getCategoryFacade() {
-    return categoryFacade;
-  }
-
-  public void setCategoryFacade(CategoryFacadeLocal categoryFacade) {
-    this.categoryFacade = categoryFacade;
+  @Override
+  public Set<Class<?>> getClasses() {
+    Set<Class<?>> resources = new HashSet<>();
+    addRestResourceClasses(resources);
+    return resources;
   }
 
   /**
-   * Creates a new instance of CategoryJSFManagedBean
+   * Do not modify addRestResourceClasses() method. It is automatically populated with all resources defined in the project. If required, comment out calling
+   * this method in getClasses().
    */
-  public CategoryJSFManagedBean() {
-
+  private void addRestResourceClasses(Set<Class<?>> resources) {
+    resources.add(vn.cusc.aptech.cscs.war.apis.AuthApi.class);
   }
 
 }

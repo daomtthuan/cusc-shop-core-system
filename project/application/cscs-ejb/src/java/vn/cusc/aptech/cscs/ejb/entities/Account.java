@@ -21,26 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
-
-import java.util.Date;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+package vn.cusc.aptech.cscs.ejb.entities;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+public interface Account {
 
-  Employee authenticateByEmployeeLocalAccount(String username, String password);
+  Integer getId();
 
-  Customer authenticateByCustomerLocalAccount(String username, String password);
+  void setId(Integer id);
 
-  String changePassword(Object id, String oldPassword, String newPassword);
+  String getUsername();
 
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  void setUsername(String username);
+
+  String getPassword();
+
+  void setPassword(String password);
+
+  boolean getState();
+
+  void setState(boolean state);
+
+  Information getInformation();
+
+  void setInformation(Information information);
 
 }

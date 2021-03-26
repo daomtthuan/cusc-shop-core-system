@@ -23,103 +23,71 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-  <ui:define name="title">Access System - Account - Add Account</ui:define>
+  <ui:define name="title">Shop - Product - Add Product</ui:define>
   <ui:define name="page">
     <h:form styleClass="container-fluid">
-      <h2>Add employee account</h2>
+      <h2>Add product</h2>
       <hr />
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
             <h:outputLabel for="input-name" value="Name" />
-            <h:inputText id="input-name" value="#{addP .username}" styleClass="form-control #{addAccountAccesssystemDashboardPresenter.usernameInputStyleClass}" />
-            <div class="invalid-feedback">#{addAccountAccesssystemDashboardPresenter.usernameFeedback}</div>
+            <h:inputText id="input-name" value="#{addProductShopDashboardPresenter.name}" styleClass="form-control #{addProductShopDashboardPresenter.nameInputStyleClass}" />
+            <div class="invalid-feedback">Invalid name</div>
           </div>
           <div class="form-group">
-            <h:outputLabel for="input-role" value="Role" />
-            <h:selectOneMenu id="input-role" value="#{addAccountAccesssystemDashboardPresenter.role}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.roleInputStyleClass}">
-              <f:selectItem itemValue="0" itemLabel="--" />
-              <f:selectItems value="#{addAccountAccesssystemDashboardPresenter.roles}" var="role" itemValue="#{role.id}" itemLabel="#{role.name}" />
-            </h:selectOneMenu>
-            <div class="invalid-feedback">Choose role for account</div>
+            <h:outputLabel for="input-price" value="Price" />
+            <h:inputText id="input-price" value="#{addProductShopDashboardPresenter.price}" styleClass="form-control #{addProductShopDashboardPresenter.priceInputStyleClass}" />
+            <div class="invalid-feedback">Invalid price</div>
           </div>
           <div class="form-group">
-            <h:outputLabel for="input-state" value="State" />
-            <h:selectOneRadio id="input-state" value="#{addAccountAccesssystemDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
-              <f:selectItem itemValue="true" itemLabel="Enabled" />
-              <f:selectItem itemValue="false" itemLabel="Disabled" />
-            </h:selectOneRadio>
-          </div>
-          <div class="form-group">
-            <h:outputLabel for="input-full-name" value="Full name" />
-            <h:inputText id="input-full-name" value="#{addAccountAccesssystemDashboardPresenter.fullName}" styleClass="form-control #{addAccountAccesssystemDashboardPresenter.fullNameInputStyleClass}" />
-            <div class="invalid-feedback">Invalid full name</div>
+            <h:outputLabel for="input-quantity" value="Quantity" />
+            <h:inputText id="input-quantity" value="#{addProductShopDashboardPresenter.quantity}" styleClass="form-control #{addProductShopDashboardPresenter.quantityInputStyleClass}"  />
+            <div class="invalid-feedback">Invalid quantity</div>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <h:outputLabel value="Birthday" />
-            <div class="no-gutters row #{addAccountAccesssystemDashboardPresenter.birthdayInputStyleClass}">
-              <div class="col d-flex align-items-center">
-                <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mr-3" />
-                <h:selectOneMenu id="input-year-birthday" value="#{addAccountAccesssystemDashboardPresenter.yearBirthday}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.birthdayInputStyleClass}">
-                  <f:selectItem itemValue="0" itemLabel="--" />
-                  <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
-                </h:selectOneMenu>
-              </div>
-              <div class="col d-flex align-items-center mx-3">
-                <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-3" />
-                <h:selectOneMenu id="input-month-birthday" value="#{addAccountAccesssystemDashboardPresenter.monthBirthday}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.birthdayInputStyleClass}">
-                  <f:selectItem itemValue="0" itemLabel="--" />
-                  <c:forEach begin="1" end="12" var="month">
-                    <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
-                  </c:forEach>
-                </h:selectOneMenu>
-              </div>
-              <div class="col d-flex align-items-center">
-                <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mr-3" />
-                <h:selectOneMenu id="input-day-birthday" value="#{addAccountAccesssystemDashboardPresenter.dayBirthday}" styleClass="custom-select #{addAccountAccesssystemDashboardPresenter.birthdayInputStyleClass}">
-                  <f:selectItem itemValue="0" itemLabel="--" />
-                  <c:forEach begin="1" end="31" var="day">
-                    <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
-                  </c:forEach>
-                </h:selectOneMenu>
-              </div>
-            </div>
-            <div class="invalid-feedback">Invalid birthday</div>
+            <h:outputLabel for="input-brand" value="Brand" />
+            <h:selectOneMenu id="input-brand" value="#{addProductShopDashboardPresenter.idBrand}" styleClass="custom-select #{addProductShopDashboardPresenter.brandInputStyleClass}">
+              <f:selectItem itemValue="0" itemLabel="--" />
+              <f:selectItems value="#{addProductShopDashboardPresenter.brands}" var="brand" itemValue="#{brand.id}" itemLabel="#{brand.name}" />
+            </h:selectOneMenu>
+            <div class="invalid-feedback">Choose brand for product</div>
           </div>
           <div class="form-group">
-            <h:outputLabel for="input-gender" value="Gender" />
-            <h:selectOneRadio id="input-gender" value="#{addAccountAccesssystemDashboardPresenter.gender}" styleClass="form-control-radio-inline form-control">
-              <f:selectItem itemValue="true" itemLabel="Male" />
-              <f:selectItem itemValue="false" itemLabel="Female" />
-            </h:selectOneRadio>
+            <h:outputLabel for="input-category-group" value="Category Group" />
+            <h:selectOneMenu id="input-category-group" value="#{addProductShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
+              <f:selectItem itemValue="0" itemLabel="--" />
+              <f:selectItems value="#{addProductShopDashboardPresenter.categoryGroups}" var="categoryGroup" itemValue="#{categoryGroup.id}" itemLabel="#{categoryGroup.name}" />
+              <f:ajax render="input-category" />
+            </h:selectOneMenu>
           </div>
           <div class="form-group">
-            <h:outputLabel for="input-email" value="Email" />
-            <h:inputText id="input-email" value="#{addAccountAccesssystemDashboardPresenter.email}" styleClass="form-control #{addAccountAccesssystemDashboardPresenter.emailInputStyleClass}" />
-            <div class="invalid-feedback">Invalid email</div>
-          </div>
-          <div class="form-group">
-            <h:outputLabel for="input-phone" value="Phone" />
-            <h:inputText id="input-phone" value="#{addAccountAccesssystemDashboardPresenter.phone}" styleClass="form-control #{addAccountAccesssystemDashboardPresenter.phoneInputStyleClass}" />
-            <div class="invalid-feedback">Invalid phone</div>
+            <h:outputLabel for="input-category" value="Category" />
+            <h:selectOneMenu id="input-category" value="#{addProductShopDashboardPresenter.idCategory}" styleClass="custom-select #{addProductShopDashboardPresenter.categoryInputStyleClass}">
+              <f:selectItem itemValue="0" itemLabel="--" />
+              <f:selectItems value="#{addProductShopDashboardPresenter.categories}" var="category" itemValue="#{category.id}" itemLabel="#{category.name}" />
+            </h:selectOneMenu>
+            <div class="invalid-feedback">Choose category for product</div>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <h:outputLabel for="input-address" value="Address" />
-        <h:inputTextarea id="input-address" value="#{addAccountAccesssystemDashboardPresenter.address}" styleClass="form-control #{addAccountAccesssystemDashboardPresenter.addressInputStyleClass}" />
-        <div class="invalid-feedback">Invalid address</div>
+        <h:outputLabel for="input-state" value="State" />
+        <h:selectOneRadio id="input-state" value="#{addProductShopDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
+          <f:selectItem itemValue="true" itemLabel="Enabled" />
+          <f:selectItem itemValue="false" itemLabel="Disabled" />
+        </h:selectOneRadio>
       </div>
-      <h:commandButton action="#{addAccountAccesssystemDashboardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
+      <h:commandButton action="#{addProductShopDashboardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
     </h:form>
   </ui:define>
 </ui:composition>
