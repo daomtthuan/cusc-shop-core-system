@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
+import java.io.Serializable;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -32,7 +33,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "addCategoryGroupShopDashboardPresenter")
 @ViewScoped
-public class AddCategoryGroupShopDashboardPresenter {
+public class AddCategoryGroupShopDashboardPresenter implements Serializable {
 
   /**
    * Creates a new instance of AddCategoryGroupShopDashboardPresenter
