@@ -33,6 +33,7 @@ THE SOFTWARE.
 
     <ui:define name="page">
 
+<<<<<<< HEAD
         <div class="container-fluid">
 
             <div class="row">
@@ -77,4 +78,35 @@ THE SOFTWARE.
         </div>
 
     </ui:define>
+=======
+    <div class="container-fluid">
+      <h2>List of the Category Group</h2>
+      <hr />
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/add')}" styleClass="btn btn-primary" value="Add" />
+      <hr />
+      <h:dataTable id="datatable" value="#{listCategoryGroupShopDashboardPresenter.categoryGroups}" var="categoryGroup" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+        <h:column>
+          <f:facet name="header">Actions</f:facet>
+          <h:form styleClass="d-flex">
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+              <f:param name="id" value="#{categoryGroup.id}" />
+              <i class="fas fa-edit"></i>
+            </h:link>
+            <h:commandLink id="remove" action="#{listCategoryGroupShopDashboardPresenter.removeCategoryGroup(categoryGroup.id)}" styleClass="btn btn-sm btn-danger">
+              <i class="fas fa-trash"></i>
+            </h:commandLink>
+          </h:form>
+        </h:column>
+        <h:column>
+          <f:facet name="header">Name</f:facet>
+            #{categoryGroup.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">State</f:facet>
+            #{categoryGroup.state ? "Enabled" : "Disabled"}
+        </h:column>
+      </h:dataTable>
+    </div>
+  </ui:define>
+>>>>>>> 8fe8d53ee1fd4d38fd2a465069cb24f2e6529cc3
 </ui:composition>
