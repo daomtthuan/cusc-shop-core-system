@@ -29,52 +29,52 @@ THE SOFTWARE.
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-  <ui:define name="title">Shop - Category Group</ui:define>
+    <ui:define name="title">Shop - Category Group</ui:define>
 
-  <ui:define name="page">
+    <ui:define name="page">
 
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-      <div class="row">
-        <div class="col-md-12">
-          <h2>List of the Category Group</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>List of the Category Group</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/add')}" styleClass="btn btn-primary" value="Add" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h:dataTable id="datatable" value="#{listCategoryGroupShopDashboardPresenter.categoryGroups}" var="categoryGroup" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
+                        <h:column>
+                            <f:facet name="header" class="bg-dark">Actions</f:facet>
+                            <h:form>
+                                <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+                                    <f:param name="id" value="#{categoryGroup.id}" />
+                                    <i class="fas fa-edit"></i>
+                                </h:link>
+                                <h:commandLink id="remove" action="#{listCategoryGroupShopDashboardPresenter.removeCategoryGroup(categoryGroup.id)}" styleClass="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </h:commandLink>
+                            </h:form>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                                #{categoryGroup.name}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">State</f:facet>
+                                #{categoryGroup.state ? "Enabled" : "Disabled"}
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/add')}" styleClass="btn btn-primary" value="Add" />
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h:dataTable id="datatable" value="#{listCategoryGroupShopDashboardPresenter.categoryGroups}" var="categoryGroup" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light header-sticky-top">
-            <h:column>
-              <f:facet name="header" class="bg-dark">Actions</f:facet>
-              <h:form>
-                <h:link outcome="#{viewHelper.getPage('dashboard/shop/category-group/edit')}" styleClass="btn btn-sm btn-primary mr-1">
-                  <f:param name="id" value="#{categoryGroup.id}" />
-                  <i class="fas fa-edit"></i>
-                </h:link>
-                <h:commandLink id="remove" action="#{listCategoryGroupShopDashboardPresenter.removeCategoryGroup(categoryGroup.id)}" styleClass="btn btn-sm btn-danger">
-                  <i class="fas fa-trash"></i>
-                </h:commandLink>
-              </h:form>
-            </h:column>
-            <h:column>
-              <f:facet name="header">Name</f:facet>
-                #{categoryGroup.name}
-            </h:column>
-            <h:column>
-              <f:facet name="header">State</f:facet>
-                #{categoryGroup.state ? "Enabled" : "Disabled"}
-            </h:column>
-
-          </h:dataTable>
-        </div>
-      </div>
-    </div>
-
-  </ui:define>
+    </ui:define>
 </ui:composition>

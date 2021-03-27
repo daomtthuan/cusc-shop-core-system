@@ -104,13 +104,17 @@ public class EditCategoryShopDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
-    cate = categoryFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
-    CategoryGroup cateGroups = cate.getCategoryGroup();
+    try {
+      cate = categoryFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      CategoryGroup cateGroups = cate.getCategoryGroup();
 
-    state = cate.getState();
-    name = cate.getName();
+      state = cate.getState();
+      name = cate.getName();
 
-    nameInputStyleClass = null;
+      nameInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
 
   }
 

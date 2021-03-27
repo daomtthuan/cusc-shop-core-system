@@ -24,13 +24,10 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-import java.util.List;
+
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-=======
->>>>>>> ce5467a6a25a6738a150708610f2d8084406f83b
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -107,13 +104,16 @@ public class EditCategoryGroupShopDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
+    try {
+      cg = categoryGroupFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
 
-    cg = categoryGroupFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      state = cg.getState();
+      name = cg.getName();
 
-    state = cg.getState();
-    name = cg.getName();
-
-    nameInputStyleClass = null;
+      nameInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
 
   }
 

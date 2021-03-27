@@ -100,10 +100,14 @@ public class AddCategoryShopDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
-    cateGroup = 0;
-    state = true;
-    name = null;
-    nameInputStyleClass = null;
+    try {
+      cateGroup = 0;
+      state = true;
+      name = null;
+      nameInputStyleClass = null;
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
 
   }
 
