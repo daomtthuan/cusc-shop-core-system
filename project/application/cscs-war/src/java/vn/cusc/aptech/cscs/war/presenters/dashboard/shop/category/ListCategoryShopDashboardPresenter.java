@@ -73,7 +73,7 @@ public class ListCategoryShopDashboardPresenter implements Serializable {
   }
 
   public List<Category> getCategorys() {
-    return categoryFacade.findByFilter(idCategory, idCategoryGroup);
+    return categoryFacade.findByFilters(idCategory, idCategoryGroup);
   }
 
   public String removeCategory(Object id) {

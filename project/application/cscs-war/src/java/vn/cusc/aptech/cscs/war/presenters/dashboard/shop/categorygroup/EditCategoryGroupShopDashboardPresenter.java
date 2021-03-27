@@ -24,10 +24,6 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
 
 import java.io.Serializable;
-<<<<<<< HEAD
-
-=======
->>>>>>> 8fe8d53ee1fd4d38fd2a465069cb24f2e6529cc3
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
