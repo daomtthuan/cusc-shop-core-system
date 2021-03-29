@@ -21,33 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.config;
+package vn.cusc.aptech.cscs.ejb.helpers;
 
-import java.util.HashSet;
-import java.util.Set;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.ApplicationPath;
+import java.security.MessageDigest;
+import java.util.Arrays;
+import java.util.Base64;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 /**
  *
  * @author Daomtthuan
  */
-@ApplicationPath("apis")
-public class RestfulApiConfig extends Application {
+public class KeyHelper {
 
-  @Override
-  public Set<Class<?>> getClasses() {
-    Set<Class<?>> resources = new HashSet<>();
-    addRestResourceClasses(resources);
-    return resources;
+  private static KeyHelper instance;
+
+  private final SecretKeySpec secretKey;
+  private final Cipher cipher;
+
+  private KeyHelper() throws Exception {
+    MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+    secretKey = new SecretKeySpec(Arrays.copyOf(messageDigest.digest("Team 4 EProject".getBytes("UTF-8")), 16), "AES");
+    cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
   }
 
-  /**
-   * Do not modify addRestResourceClasses() method. It is automatically populated with all resources defined in the project. If required, comment out calling
-   * this method in getClasses().
-   */
-  private void addRestResourceClasses(Set<Class<?>> resources) {
-    resources.add(vn.cusc.aptech.cscs.war.apis.auth.CustomerAuthApi.class);
+  public String encrypt(String key) throws Exception {
+    cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+    return Base64.getEncoder().encodeToString(cipher.doFinal(key.getBytes("UTF-8")));
+  }
+
+  public String decrypt(String hashKey) throws Exception {
+    cipher.init(Cipher.DECRYPT_MODE, secretKey);
+    return new String(cipher.doFinal(Base64.getDecoder().decode(hashKey)));
+  }
+
+  public static KeyHelper getInstance() throws Exception {
+    if (instance == null) {
+      instance = new KeyHelper();
+    }
+    return instance;
   }
 
 }

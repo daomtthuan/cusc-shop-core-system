@@ -72,7 +72,7 @@ THE SOFTWARE.
               <f:param name="id" value="#{product.id}" />
               <i class="fas fa-edit"></i>
             </h:link>
-            <h:commandLink id="remove" action="#{listProductShopDashboardPresenter.removeProduct(product.id)}" styleClass="btn btn-sm btn-danger">
+            <h:commandLink id="remove" action="#{listProductShopDashboardPresenter.removeProduct(product.id)}" styleClass="btn btn-sm btn-danger" immediate="true">
               <i class="fas fa-trash"></i>
             </h:commandLink>
           </h:form>
