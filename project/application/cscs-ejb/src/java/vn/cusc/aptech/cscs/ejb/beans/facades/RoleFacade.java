@@ -49,9 +49,9 @@ public class RoleFacade extends AbstractFacade<Role> implements RoleFacadeLocal 
   }
 
   @Override
-  public List<Role> findOnlyEmployeeRoles() {
+  public List<Role> findNotAdministrator() {
     List<Role> roles = em.createQuery("SELECT r FROM Role r WHERE r.name <> :name")
-      .setParameter("name", "customer")
+      .setParameter("name", "administrator")
       .getResultList();
     return roles;
   }
