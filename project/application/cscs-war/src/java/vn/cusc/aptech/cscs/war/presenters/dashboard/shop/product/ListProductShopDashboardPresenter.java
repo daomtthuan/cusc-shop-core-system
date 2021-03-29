@@ -90,9 +90,10 @@ public class ListProductShopDashboardPresenter implements Serializable {
     return productFacade.findByFilter(idBrand, idCategoryGroup, idCategory);
   }
 
-  public String removeProduct(Object id) {
-    productFacade.remove(productFacade.find(id));
-    return viewHelper.getPage("dashboard/shop/product/list");
+  public void removeProduct(String id) {
+//    productFacade.remove(productFacade.find(Integer.valueOf(id)));
+//    return viewHelper.getPage("dashboard/shop/product/list");
+    System.out.println(id);
   }
 
   public int getIdBrand() {

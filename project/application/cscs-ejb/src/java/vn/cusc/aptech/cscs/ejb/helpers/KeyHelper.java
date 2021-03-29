@@ -23,10 +23,11 @@
  */
 package vn.cusc.aptech.cscs.ejb.helpers;
 
-import java.security.MessageDigest;
-import java.util.Arrays;
+import java.security.InvalidKeyException;
 import java.util.Base64;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
@@ -41,14 +42,13 @@ public class KeyHelper {
   private final Cipher cipher;
 
   private KeyHelper() throws Exception {
-    MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-    secretKey = new SecretKeySpec(Arrays.copyOf(messageDigest.digest("Team 4 EProject".getBytes("UTF-8")), 16), "AES");
-    cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+    secretKey = new SecretKeySpec("Team 4 EProject".getBytes(), "AES");
+    cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
   }
 
-  public String encrypt(String key) throws Exception {
+  public String encrypt(String key) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
     cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-    return Base64.getEncoder().encodeToString(cipher.doFinal(key.getBytes("UTF-8")));
+    return Base64.getEncoder().encodeToString(cipher.doFinal(key.getBytes()));
   }
 
   public String decrypt(String hashKey) throws Exception {
