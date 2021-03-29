@@ -32,6 +32,7 @@ THE SOFTWARE.
 
   <ui:define name="page">
     <div class="container-fluid">
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/add')}" styleClass="btn btn-primary" value="Add" />
       <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top" id="datatable">
         <h:column>
           <f:facet name="header">ID</f:facet>

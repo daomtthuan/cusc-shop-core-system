@@ -24,21 +24,20 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "addBrandDashBoardPresenter")
+@Named(value = "DddBrandShopDashBoardPresenter")
 @ViewScoped
 public class AddBrandShopDashBoardPresenter implements Serializable {
 
-  /**
-   * Creates a new instance of AddBrandDashBoardPresenter
-   */
-  public AddBrandShopDashBoardPresenter() {
-  }
+  @EJB
+  private BrandFacadeLocal brandFacade;
 
 }
