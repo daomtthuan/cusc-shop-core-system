@@ -21,46 +21,50 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.helpers;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.product;
 
-import java.security.InvalidKeyException;
-import java.util.Base64;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.spec.SecretKeySpec;
+import java.io.Serializable;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Product;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
  * @author Daomtthuan
  */
-public class KeyHelper {
+@Named(value = "deleteProductShopDashboardPresenter")
+@ViewScoped
+public class DeleteProductShopDashboardPresenter implements Serializable {
 
-  private static KeyHelper instance;
+  @EJB
+  private ProductFacadeLocal productFacade;
 
-  private final SecretKeySpec secretKey;
-  private final Cipher cipher;
+  @Inject
+  private ViewHelper viewHelper;
 
-  private KeyHelper() throws Exception {
-    secretKey = new SecretKeySpec("Team 4 EProject".getBytes(), "AES");
-    cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
-  }
+  private Product product;
 
-  public String encrypt(String key) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-    cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-    return Base64.getEncoder().encodeToString(cipher.doFinal(key.getBytes()));
-  }
-
-  public String decrypt(String hashKey) throws Exception {
-    cipher.init(Cipher.DECRYPT_MODE, secretKey);
-    return new String(cipher.doFinal(Base64.getDecoder().decode(hashKey)));
-  }
-
-  public static KeyHelper getInstance() throws Exception {
-    if (instance == null) {
-      instance = new KeyHelper();
+  @PostConstruct
+  public void init() {
+    try {
+      product = productFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
     }
-    return instance;
+  }
+
+  public String delete() {
+    productFacade.remove(product);
+    return viewHelper.getPage("dashboard/shop/product/list");
+  }
+
+  public Product getProduct() {
+    return product;
   }
 
 }
