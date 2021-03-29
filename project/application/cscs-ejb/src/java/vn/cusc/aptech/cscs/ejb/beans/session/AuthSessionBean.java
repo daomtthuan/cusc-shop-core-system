@@ -25,6 +25,8 @@
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -38,6 +40,7 @@ import vn.cusc.aptech.cscs.ejb.entities.Account;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
+import vn.cusc.aptech.cscs.ejb.helpers.KeyHelper;
 
 /**
  *
@@ -80,16 +83,12 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
       return null;
     }
 
-    try {
-      return account.getUsername() + ":" + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
-    } catch (Exception ex) {
-      return null;
-    }
+    return KeyHelper.encode(account.getUsername() + ":" + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
   }
 
   @Override
-  public Customer authenticateByCustomerLocalAccount(String key) {
-    String[] keyParts = key.split(":");
+  public Customer authenticateByCustomerLocalAccount(String hashKey) {
+    String[] keyParts = KeyHelper.decode(hashKey).split(":");
     Customer account = customerFacade.findByUsername(keyParts[0]);
     if (account == null) {
       return null;
