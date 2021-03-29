@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -33,18 +33,11 @@ THE SOFTWARE.
 
   <ui:define name="page">
     <div class="container-fluid">
+      <h2>Category list</h2>
+      <hr />
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/add')}" styleClass="btn btn-primary" value="Add" />
+      <hr />
 
-      <div class="row">
-        <div class="col-md-12">
-          <h2>List of the Category</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <h:link outcome="#{viewHelper.getPage('dashboard/shop/category/add')}" styleClass="btn btn-primary" value="Add" />
-        </div>
-      </div>
 
       <div class="row">
         <div class="col-md-12">
@@ -53,7 +46,7 @@ THE SOFTWARE.
               <h:outputLabel for="input-role" value="Category Group" />
               <h:selectOneMenu id="input-role" value="#{listCategoryShopDashboardPresenter.idCategoryGroup}" styleClass="custom-select">
                 <f:selectItem itemValue="0" itemLabel="--All Groups--" />
-                <f:selectItems value="#{listCategoryShopDashboardPresenter.categorys}" var="cateGroup" itemValue="#{cateGroup.id}" itemLabel="#{cateGroup.name}" />
+                <f:selectItems value="#{listCategoryShopDashboardPresenter.categoryGroups}" var="cateGroup" itemValue="#{cateGroup.id}" itemLabel="#{cateGroup.name}" />
                 <f:ajax render="datatable" />
               </h:selectOneMenu>
             </div>
@@ -62,7 +55,7 @@ THE SOFTWARE.
       </div>
       <div class="row">
         <div class="col-md-12">
-          <h:dataTable id="datatable" value="#{listCategoryShopDashboardPresenter.categorys}" var="category" styleClass="table table-sm table-striped table-bordered table-responsive-md" headerClass="bg-primary text-light header-sticky-top">
+          <h:dataTable id="datatable" value="#{listCategoryShopDashboardPresenter.categorys}" var="category" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
             <h:column>
               <f:facet name="header" class="bg-dark">Actions</f:facet>
               <h:form>
@@ -70,7 +63,7 @@ THE SOFTWARE.
                   <f:param name="id" value="#{category.id}" />
                   <i class="fas fa-edit"></i>
                 </h:link>
-                <h:commandLink id="remove" action="#{listCategoryShopDashboardPresenter.removeCategory(category.id)}" styleClass="btn btn-sm btn-danger">
+                <h:commandLink id="remove" onclick="return confirm('Are you sure?')" action="#{listCategoryShopDashboardPresenter.deleteCategory(category.id)}" styleClass="btn btn-sm btn-danger">
                   <i class="fas fa-trash"></i>
                 </h:commandLink>
               </h:form>
@@ -88,6 +81,5 @@ THE SOFTWARE.
         </div>
       </div>
     </div>
-
   </ui:define>
 </ui:composition>

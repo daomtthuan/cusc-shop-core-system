@@ -42,6 +42,8 @@ public interface CategoryFacadeLocal {
 
   Category find(Object id);
 
+  Category findID(String id);
+
   List<Category> findAll();
 
   List<Category> findRange(int[] range);
@@ -50,6 +52,6 @@ public interface CategoryFacadeLocal {
 
   List<Category> findByFilter(Object id);
 
-  public List<Category> findByFilter(int idCategory, int idCategoryGroup);
+  public List<Category> findByFilters(int idCategory, int idCategoryGroup);
 
 }

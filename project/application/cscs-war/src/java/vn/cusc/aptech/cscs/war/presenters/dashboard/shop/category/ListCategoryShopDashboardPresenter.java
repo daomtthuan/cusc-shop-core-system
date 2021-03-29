@@ -27,6 +27,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -62,6 +64,15 @@ public class ListCategoryShopDashboardPresenter implements Serializable {
     idCategoryGroup = 0;
 
   }
+  Category c = new Category();
+
+  public Category getC() {
+    return c;
+  }
+
+  public void setC(Category c) {
+    this.c = c;
+  }
 
   /**
    * get category group
@@ -73,11 +84,23 @@ public class ListCategoryShopDashboardPresenter implements Serializable {
   }
 
   public List<Category> getCategorys() {
-    return categoryFacade.findByFilter(idCategory, idCategoryGroup);
+    return categoryFacade.findByFilters(idCategory, idCategoryGroup);
   }
 
   public String removeCategory(Object id) {
+
     categoryFacade.remove(categoryFacade.find(id));
+    return viewHelper.getPage("dashboard/shop/category/list");
+  }
+
+  public String deleteCategory(String id) {
+    this.c = categoryFacade.findID(id);
+    if (this.c != null) {
+      categoryFacade.remove(categoryFacade.find(id));
+    } else {
+      FacesContext context = FacesContext.getCurrentInstance();
+      context.addMessage(null, new FacesMessage("You can't delete it."));
+    }
     return viewHelper.getPage("dashboard/shop/category/list");
   }
 

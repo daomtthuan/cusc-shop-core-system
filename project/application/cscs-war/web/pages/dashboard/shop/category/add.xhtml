@@ -23,13 +23,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-  <ui:define name="title">Access System - Account - Add Account</ui:define>
+  <ui:define name="title">Dashboard - Shop - Add Category</ui:define>
   <ui:define name="page">
     <h:form styleClass="container-fluid">
 
@@ -45,7 +45,7 @@ THE SOFTWARE.
               <div class="col-md-12">
 
                 <div class="form-group">
-                  <h:outputLabel for="input-name" value="name" />
+                  <h:outputLabel for="input-name" value="Name" />
                   <h:inputText id="input-name" value="#{addCategoryShopDashboardPresenter.name}" styleClass="form-control #{addCategoryShopDashboardPresenter.nameInputStyleClass}" />
                   <div class="invalid-feedback">Invalid name</div>
                 </div>

@@ -21,37 +21,33 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.app.config;
 
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import java.util.HashSet;
+import java.util.Set;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.ApplicationPath;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class CustomerFacade extends AbstractFacade<Customer> implements CustomerFacadeLocal {
-
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+@ApplicationPath("apis")
+public class RestfulApiConfig extends Application {
 
   @Override
-  protected EntityManager getEntityManager() {
-    return em;
+  public Set<Class<?>> getClasses() {
+    Set<Class<?>> resources = new HashSet<>();
+    addRestResourceClasses(resources);
+    return resources;
   }
 
-  public CustomerFacade() {
-    super(Customer.class);
-  }
-
-  @Override
-  public Customer findByUsername(String username) {
-    List<Customer> customers = em.createNamedQuery("Customer.findByUsername").setParameter("username", username).getResultList();
-    return customers.isEmpty() ? null : customers.get(0);
+  /**
+   * Do not modify addRestResourceClasses() method. It is automatically populated with all resources defined in the project. If required, comment out calling
+   * this method in getClasses().
+   */
+  private void addRestResourceClasses(Set<Class<?>> resources) {
+    resources.add(vn.cusc.aptech.cscs.war.apis.auth.CustomerAuthApi.class);
   }
 
 }

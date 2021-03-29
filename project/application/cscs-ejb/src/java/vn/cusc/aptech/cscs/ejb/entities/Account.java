@@ -21,37 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
-
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+package vn.cusc.aptech.cscs.ejb.entities;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class CustomerFacade extends AbstractFacade<Customer> implements CustomerFacadeLocal {
+public interface Account {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  Integer getId();
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
-  }
+  void setId(Integer id);
 
-  public CustomerFacade() {
-    super(Customer.class);
-  }
+  String getUsername();
 
-  @Override
-  public Customer findByUsername(String username) {
-    List<Customer> customers = em.createNamedQuery("Customer.findByUsername").setParameter("username", username).getResultList();
-    return customers.isEmpty() ? null : customers.get(0);
-  }
+  void setUsername(String username);
+
+  String getPassword();
+
+  void setPassword(String password);
+
+  boolean getState();
+
+  void setState(boolean state);
+
+  Information getInformation();
+
+  void setInformation(Information information);
 
 }

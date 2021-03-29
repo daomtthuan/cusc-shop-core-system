@@ -52,19 +52,24 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class BillDetails implements Serializable {
 
   private static final long serialVersionUID = 1L;
+
   @EmbeddedId
   protected BillDetailsPK billDetailsPK;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "price")
   private float price;
+
   @Basic(optional = false)
   @NotNull
   @Column(name = "quantity")
   private int quantity;
+
   @JoinColumn(name = "bill", referencedColumnName = "id", insertable = false, updatable = false)
   @ManyToOne(optional = false)
   private Bill bill1;
+
   @JoinColumn(name = "product", referencedColumnName = "id", insertable = false, updatable = false)
   @ManyToOne(optional = false)
   private Product product1;
@@ -135,15 +140,12 @@ public class BillDetails implements Serializable {
 
   @Override
   public boolean equals(Object object) {
-    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof BillDetails)) {
       return false;
     }
+
     BillDetails other = (BillDetails) object;
-    if ((this.billDetailsPK == null && other.billDetailsPK != null) || (this.billDetailsPK != null && !this.billDetailsPK.equals(other.billDetailsPK))) {
-      return false;
-    }
-    return true;
+    return !((this.billDetailsPK == null && other.billDetailsPK != null) || (this.billDetailsPK != null && !this.billDetailsPK.equals(other.billDetailsPK)));
   }
 
   @Override

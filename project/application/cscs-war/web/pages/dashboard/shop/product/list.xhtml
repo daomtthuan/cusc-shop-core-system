@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<ui:composition template="#{configApp.directory.layouts}/dashboard.xhtml"
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -64,7 +64,7 @@ THE SOFTWARE.
         </div>
       </h:form>
       <hr />
-      <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top">
+      <h:dataTable id="datatable" value="#{listProductShopDashboardPresenter.products}" var="product" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
         <h:column>
           <f:facet name="header">Actions</f:facet>
           <h:form styleClass="d-flex">
@@ -72,7 +72,7 @@ THE SOFTWARE.
               <f:param name="id" value="#{product.id}" />
               <i class="fas fa-edit"></i>
             </h:link>
-            <h:commandLink id="remove" action="#{listProductShopDashboardPresenter.removeProduct(product.id)}" styleClass="btn btn-sm btn-danger">
+            <h:commandLink id="remove" action="#{listProductShopDashboardPresenter.removeProduct(product.id)}" styleClass="btn btn-sm btn-danger" immediate="true">
               <i class="fas fa-trash"></i>
             </h:commandLink>
           </h:form>

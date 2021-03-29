@@ -33,9 +33,9 @@ import vn.cusc.aptech.cscs.war.app.config.modules.*;
  *
  * @author Daomtthuan
  */
-@Named(value = "configApp")
+@Named(value = "appConfig")
 @ApplicationScoped
-public class ConfigApp implements Serializable {
+public class AppConfig implements Serializable {
 
   private Meta meta;
   private Directory directory;
@@ -72,7 +72,7 @@ public class ConfigApp implements Serializable {
           "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css" // href
         ),
         new StyleAsset("stylesheet", // rel
-          directory.getRoot() + "/assets/styles/theme.css" // href
+          "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" // href
         ),
         new StyleAsset("stylesheet", // rel
           directory.getRoot() + "/assets/styles/custom.css" // href

@@ -59,7 +59,7 @@ public class CategoryFacade extends AbstractFacade<Category> implements Category
   }
 
   @Override
-  public List<Category> findByFilter(int idCategory, int idCategoryGroup) {
+  public List<Category> findByFilters(int idCategory, int idCategoryGroup) {
     List<Category> categorys = em.createQuery("SELECT c FROM Category c WHERE c.categoryGroup = :categoryGroup OR :idCategoryGroup = 0")
       .setParameter("idCategoryGroup", idCategoryGroup)
       .setParameter("categoryGroup", em.find(CategoryGroup.class, idCategoryGroup))
