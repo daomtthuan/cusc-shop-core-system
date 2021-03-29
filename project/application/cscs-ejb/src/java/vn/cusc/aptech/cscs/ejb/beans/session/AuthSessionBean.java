@@ -24,6 +24,8 @@
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
@@ -37,6 +39,7 @@ import vn.cusc.aptech.cscs.ejb.entities.Account;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
+import vn.cusc.aptech.cscs.ejb.helpers.KeyHelper;
 
 /**
  *
@@ -73,9 +76,39 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
   }
 
   @Override
-  public Customer authenticateByCustomerLocalAccount(String username, String password) {
+  public String authenticateByCustomerLocalAccount(String username, String password) {
     Customer account = customerFacade.findByUsername(username);
-    return authenticate(account, password) ? account : null;
+    if (!authenticate(account, password)) {
+      return null;
+    }
+
+    String key = account.getId() + " " + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
+    try {
+      return KeyHelper.getInstance().encrypt(key);
+    } catch (Exception ex) {
+      return null;
+    }
+  }
+
+  @Override
+  public Customer authenticateByCustomerLocalAccount(String hashKey) {
+    String key;
+    try {
+      key = KeyHelper.getInstance().decrypt(hashKey);
+    } catch (Exception ex) {
+      Logger.getLogger(AuthSessionBean.class.getName()).log(Level.SEVERE, null, ex);
+      return null;
+    }
+
+    String[] keyParts = key.split(" ");
+    String id = keyParts[0];
+    String hashOfHashPassword = keyParts[1];
+
+    Customer account = customerFacade.find(Integer.valueOf(id));
+    if (account == null) {
+      return null;
+    }
+    return BCrypt.checkpw(account.getPassword(), hashOfHashPassword) ? account : null;
   }
 
   @Override

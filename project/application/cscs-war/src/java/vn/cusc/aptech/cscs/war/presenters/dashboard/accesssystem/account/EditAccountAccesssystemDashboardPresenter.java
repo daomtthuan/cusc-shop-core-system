@@ -170,7 +170,9 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
   }
 
   public List<Role> getRoles() {
-    return roleFacade.findOnlyEmployeeRoles();
+    List<Role> roles = roleFacade.findOnlyEmployeeRoles();
+    roles.removeIf(r -> r.getName().equalsIgnoreCase("administrator"));
+    return roles;
   }
 
   public String getUsername() {
