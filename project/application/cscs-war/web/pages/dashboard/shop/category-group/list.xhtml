@@ -46,7 +46,7 @@ THE SOFTWARE.
               <f:param name="id" value="#{categoryGroup.id}" />
               <i class="fas fa-edit"></i>
             </h:link>
-            <h:commandLink id="remove" action="#{listCategoryGroupShopDashboardPresenter.removeCategoryGroup(categoryGroup.id)}" styleClass="btn btn-sm btn-danger">
+            <h:commandLink id="remove" onclick="return confirm('Are you sure?')" action="#{listCategoryGroupShopDashboardPresenter.removeCategoryGroup(categoryGroup.id)}" styleClass="btn btn-sm btn-danger">
               <i class="fas fa-trash"></i>
             </h:commandLink>
           </h:form>

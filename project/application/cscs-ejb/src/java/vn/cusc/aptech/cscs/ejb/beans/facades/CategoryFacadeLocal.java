@@ -42,6 +42,8 @@ public interface CategoryFacadeLocal {
 
   Category find(Object id);
 
+  Category findID(String id);
+
   List<Category> findAll();
 
   List<Category> findRange(int[] range);

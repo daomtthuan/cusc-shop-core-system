@@ -32,11 +32,28 @@ THE SOFTWARE.id
 
   <ui:define name="page">
     <div class="container-fluid">
+<<<<<<< HEAD
+      <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/add')}" styleClass="btn btn-primary" value="Add" />
+      <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top" id="datatable">
+        <h:column>
+          <f:facet name="header">ID</f:facet>
+            #{brand.id}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Name</f:facet>
+            #{brand.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">State</f:facet>
+            #{brand.state}
+        </h:column>
+=======
       <h2>Brand list</h2>
       <hr />
       <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/add')}" styleClass="btn btn-primary" value="Add" />
       <hr />
       <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky" id="datatable">
+>>>>>>> cd3c2846a6d238acce051878e68552a079b68a95
         <h:column>
           <f:facet name="header" class="bg-dark">Actions</f:facet>
           <h:form styleClass="d-flex">
