@@ -108,7 +108,7 @@ CREATE TABLE bill (
     customer INT NOT NULL,
     salesman INT,
     shipper INT,
-    create_date DATETIME NOT NULL,
+    create_date DATETIME NOT NULL DEFAULT NOW(),
     pay_date DATETIME,
     status INT NOT NULL DEFAULT 1, -- 0: Canceled, 1: Pending, 2: Accepted, 3: Shipping, 4: Paid
     state BOOL NOT NULL DEFAULT TRUE, -- TRUE: Enabled, FALSE: Disabled

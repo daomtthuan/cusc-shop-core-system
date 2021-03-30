@@ -23,7 +23,18 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
+import java.util.HashMap;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillDetailsFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import vn.cusc.aptech.cscs.ejb.entities.BillDetails;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Product;
 
 /**
  *
@@ -32,6 +43,24 @@ import javax.ejb.Stateless;
 @Stateless
 public class BillApiSessionBean implements BillApiSessionBeanLocal {
 
-  // Add business logic below. (Right-click in editor and choose
-  // "Insert Code > Add Business Method")
+  @EJB
+  private BillFacadeLocal billFacade;
+
+  @EJB
+  private BillDetailsFacadeLocal billDetailsFacade;
+
+  @Override
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public void addBill(Customer customer, List<HashMap<Product, Integer>> cart) {
+//    Bill bill = new Bill();
+//    bill.setCustomer(customer);
+//    billFacade.create(bill);
+//
+//    for (HashMap<Product, Integer> cartDetails : cart) {
+//      BillDetails billDetails = new BillDetails();
+//      billDetails.setBill1(bill);
+//      billDetails.setProduct1(cartDetails.);
+//    }
+  }
+
 }
