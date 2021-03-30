@@ -52,24 +52,32 @@ public class DeleteBrandShopDashBoardPresenter implements Serializable {
   @Inject
   private ViewHelper viewHelper;
 
-  private Brand brand;
+  private Brand brands;
+
+  public Brand getBrand() {
+    return brands;
+  }
+
+  public void setBrand(Brand brand) {
+    this.brands = brand;
+  }
 
   @PostConstruct
   public void init() {
     try {
-      brand = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      brands = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }
   }
 
   public String delete() {
-    brandFacade.remove(brand);
+    brandFacade.remove(brands);
     return viewHelper.getPage("dashboard/shop/brand/list");
   }
 
   public Brand getBrands() {
-    return brand;
+    return brands;
   }
 
 }
