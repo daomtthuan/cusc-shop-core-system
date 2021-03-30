@@ -33,51 +33,9 @@
     <location>/pages/errors/404.html</location>
   </error-page>
   <ejb-local-ref>
-    <ejb-ref-name>CustomerFacade</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal</local>
-    <ejb-link>cscs-ejb.jar#CustomerFacade</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>CustomerFacade1</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal</local>
-    <ejb-link>cscs-ejb.jar#CustomerFacade</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>CustomerFacade2</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal</local>
-    <ejb-link>cscs-ejb.jar#CustomerFacade</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>CustomerFacade3</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal</local>
-    <ejb-link>cscs-ejb.jar#CustomerFacade</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>AuthSessionBean</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal</local>
-    <ejb-link>cscs-ejb.jar#AuthSessionBean</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>AuthSessionBean1</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal</local>
-    <ejb-link>cscs-ejb.jar#AuthSessionBean</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
-    <ejb-ref-name>AuthSessionBean2</ejb-ref-name>
-    <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal</local>
-    <ejb-link>cscs-ejb.jar#AuthSessionBean</ejb-link>
-  </ejb-local-ref>
-  <ejb-local-ref>
     <ejb-ref-name>AuthApiSessionBean</ejb-ref-name>
     <ejb-ref-type>Session</ejb-ref-type>
-    <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal</local>
+    <local>vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal</local>
     <ejb-link>cscs-ejb.jar#AuthApiSessionBean</ejb-link>
   </ejb-local-ref>
 </web-app>

@@ -21,38 +21,44 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.customer;
+package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.HashMap;
+import java.util.List;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillDetailsFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import vn.cusc.aptech.cscs.ejb.entities.Product;
 
 /**
  *
  * @author Daomtthuan
  */
-@Path("customer/order")
-public class OrderCustomerApi extends ApiHelper {
+@Stateless
+public class BillApiSessionBean implements BillApiSessionBeanLocal {
+
+  @EJB
+  private BillFacadeLocal billFacade;
+
+  @EJB
+  private BillDetailsFacadeLocal billDetailsFacade;
+
+  @Override
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public void addBill(Customer customer, List<HashMap<Product, Integer>> cart) {
+//    Bill bill = new Bill();
+//    bill.setCustomer(customer);
+//    billFacade.create(bill);
 //
-//  @POST
-//  @Consumes(MediaType.APPLICATION_JSON)
-//  @Produces(MediaType.APPLICATION_JSON)
-//  public Response post(@QueryParam("key") String hashKey, String body) {
-//    if (isEmptyParam(hashKey)) {
-//      return sendResponse(Response.Status.BAD_REQUEST);
+//    for (HashMap<Product, Integer> cartDetails : cart) {
+//      BillDetails billDetails = new BillDetails();
+//      billDetails.setBill1(bill);
+//      billDetails.setProduct1(cartDetails.);
 //    }
-//
-//    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-//    if (account == null) {
-//      return sendResponse(Response.Status.UNAUTHORIZED);
-//    }
-//
-//  }
+  }
 
 }

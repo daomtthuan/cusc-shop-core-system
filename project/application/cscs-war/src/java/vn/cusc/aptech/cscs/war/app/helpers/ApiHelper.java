@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal;
+import vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
@@ -39,8 +39,8 @@ import vn.cusc.aptech.cscs.war.models.Model;
  */
 public class ApiHelper {
 
-  protected final Gson gson;
   protected final AuthApiSessionBeanLocal authApiSessionBean;
+  protected final Gson gson;
 
   protected ApiHelper() {
     gson = new Gson();
@@ -73,7 +73,7 @@ public class ApiHelper {
   private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
     try {
       Context c = new InitialContext();
-      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal");
+      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal");
     } catch (NamingException ne) {
       Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
       throw new RuntimeException(ne);

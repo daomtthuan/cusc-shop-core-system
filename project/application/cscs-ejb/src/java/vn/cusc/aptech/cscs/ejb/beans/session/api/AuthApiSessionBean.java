@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
