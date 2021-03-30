@@ -32,6 +32,7 @@ import javax.naming.NamingException;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
@@ -47,6 +48,14 @@ public class ApiHelper {
     authSessionBean = lookupAuthSessionBeanLocal();
   }
 
+  protected boolean isEmptyParam(String param) {
+    return param == null || param.isEmpty();
+  }
+
+  protected boolean isEmptyBody(Model body) {
+    return body == null || body.isEmpty();
+  }
+
   protected Customer authCustomer(String hashKey) {
     return authSessionBean.authenticateByCustomerLocalAccount(hashKey);
   }
@@ -56,12 +65,12 @@ public class ApiHelper {
   }
 
   protected Response sendResponse(Response.Status status) {
-    return Response.status(Response.Status.OK)
+    return Response.status(status)
       .build();
   }
 
   protected Response sendResponse(Response.Status status, Object data) {
-    return Response.status(Response.Status.OK)
+    return Response.status(status)
       .entity(gson.toJson(data))
       .build();
   }

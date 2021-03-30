@@ -23,11 +23,13 @@
  */
 package vn.cusc.aptech.cscs.war.models.auth;
 
+import vn.cusc.aptech.cscs.war.models.Model;
+
 /**
  *
  * @author Daomtthuan
  */
-public class KeyAuthModel {
+public class KeyAuthModel implements Model {
 
   private String key;
 
@@ -44,6 +46,11 @@ public class KeyAuthModel {
 
   public void setKey(String key) {
     this.key = key;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return key == null || key.isEmpty();
   }
 
 }

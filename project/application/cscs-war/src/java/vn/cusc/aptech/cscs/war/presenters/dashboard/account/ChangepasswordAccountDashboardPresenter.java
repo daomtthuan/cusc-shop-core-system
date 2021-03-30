@@ -70,7 +70,7 @@ public class ChangepasswordAccountDashboardPresenter implements Serializable {
       return null;
     }
 
-    message = authSessionBean.changePassword(authSession.getAccount().getId(), oldPassword, newPassword);
+    message = authSessionBean.changePasswordEmployee(authSession.getAccount().getId(), oldPassword, newPassword);
     return message == null ? viewHelper.getPage("dashboard/account/information") : null;
   }
 

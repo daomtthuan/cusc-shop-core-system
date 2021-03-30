@@ -23,11 +23,13 @@
  */
 package vn.cusc.aptech.cscs.war.models.auth;
 
+import vn.cusc.aptech.cscs.war.models.Model;
+
 /**
  *
  * @author Daomtthuan
  */
-public class AuthModel {
+public class AuthModel implements Model {
 
   private String username;
   private String password;
@@ -54,6 +56,11 @@ public class AuthModel {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return username == null || username.isEmpty() || password == null || password.isEmpty();
   }
 
 }

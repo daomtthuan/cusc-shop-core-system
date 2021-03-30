@@ -21,30 +21,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
-
-import java.util.Date;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+package vn.cusc.aptech.cscs.war.models;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+public class ErrorModel implements Model {
 
-  Employee authenticateByEmployeeLocalAccount(String username, String password);
+  public String message;
 
-  String authenticateByCustomerLocalAccount(String username, String password);
+  public ErrorModel() {
+  }
 
-  Customer authenticateByCustomerLocalAccount(String hashKey);
+  public ErrorModel(String message) {
+    this.message = message;
+  }
 
-  String changePasswordEmployee(Object id, String oldPassword, String newPassword);
+  public String getMessage() {
+    return message;
+  }
 
-  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
+  public void setMessage(String message) {
+    this.message = message;
+  }
 
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  @Override
+  public boolean isEmpty() {
+    return message == null || message.isEmpty();
+  }
 
 }

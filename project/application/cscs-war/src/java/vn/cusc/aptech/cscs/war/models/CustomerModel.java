@@ -29,7 +29,7 @@ import vn.cusc.aptech.cscs.ejb.entities.Customer;
  *
  * @author Daomtthuan
  */
-public class CustomerModel {
+public class CustomerModel implements Model {
 
   private int id;
   private String username;
@@ -66,6 +66,11 @@ public class CustomerModel {
 
   public void setState(boolean state) {
     this.state = state;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return id == 0 || username == null || username.isEmpty();
   }
 
 }

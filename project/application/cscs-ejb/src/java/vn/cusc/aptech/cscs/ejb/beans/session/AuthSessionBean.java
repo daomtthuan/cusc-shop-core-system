@@ -61,7 +61,7 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
   @EJB
   private EmployeeFacadeLocal employeeFacade;
 
-  private boolean authenticate(Account account, String password) {
+  private boolean authenticateLocalAccount(Account account, String password) {
     if (account != null) {
       if (BCrypt.checkpw(password, account.getPassword())) {
         return true;
@@ -73,13 +73,13 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
   @Override
   public Employee authenticateByEmployeeLocalAccount(String username, String password) {
     Employee account = employeeFacade.findByUsername(username);
-    return authenticate(account, password) ? account : null;
+    return authenticateLocalAccount(account, password) ? account : null;
   }
 
   @Override
   public String authenticateByCustomerLocalAccount(String username, String password) {
     Customer account = customerFacade.findByUsername(username);
-    if (!authenticate(account, password)) {
+    if (!authenticateLocalAccount(account, password)) {
       return null;
     }
 
@@ -97,18 +97,34 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
   }
 
   @Override
-  public String changePassword(Object id, String oldPassword, String newPassword) {
+  public String changePasswordEmployee(Object id, String oldPassword, String newPassword) {
     Employee account = employeeFacade.find(id);
     if (account == null) {
       return "Account not found";
     }
 
-    if (!authenticate(account, oldPassword)) {
+    if (!authenticateLocalAccount(account, oldPassword)) {
       return "Password incorrect";
     }
 
     account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
     employeeFacade.edit(account);
+    return null;
+  }
+
+  @Override
+  public String changePasswordCustomer(Object id, String oldPassword, String newPassword) {
+    Customer account = customerFacade.find(id);
+    if (account == null) {
+      return "Account not found";
+    }
+
+    if (!authenticateLocalAccount(account, oldPassword)) {
+      return "Password incorrect";
+    }
+
+    account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
+    customerFacade.edit(account);
     return null;
   }
 

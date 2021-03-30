@@ -21,30 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.war.models.auth;
 
-import java.util.Date;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+public class ChangePasswordModel implements Model {
 
-  Employee authenticateByEmployeeLocalAccount(String username, String password);
+  private String oldPassword;
+  private String newPassword;
 
-  String authenticateByCustomerLocalAccount(String username, String password);
+  public ChangePasswordModel() {
+  }
 
-  Customer authenticateByCustomerLocalAccount(String hashKey);
+  public ChangePasswordModel(String oldPassword, String newPassword) {
+    this.oldPassword = oldPassword;
+    this.newPassword = newPassword;
+  }
 
-  String changePasswordEmployee(Object id, String oldPassword, String newPassword);
+  public String getOldPassword() {
+    return oldPassword;
+  }
 
-  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
+  public void setOldPassword(String oldPassword) {
+    this.oldPassword = oldPassword;
+  }
 
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  public String getNewPassword() {
+    return newPassword;
+  }
+
+  public void setNewPassword(String newPassword) {
+    this.newPassword = newPassword;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return oldPassword == null || oldPassword.isEmpty() || newPassword == null || newPassword.isEmpty();
+  }
 
 }
