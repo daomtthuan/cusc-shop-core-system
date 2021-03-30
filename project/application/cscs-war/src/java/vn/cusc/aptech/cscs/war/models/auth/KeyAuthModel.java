@@ -21,24 +21,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.war.models.auth;
 
-import java.time.LocalDate;
-import java.util.Date;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+public class KeyAuthModel implements Model {
 
-  Employee authenticateByLocalAccount(String username, String password);
+  private String key;
 
-  String changePassword(Object id, String oldPassword, String newPassword);
+  public KeyAuthModel() {
+  }
 
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  public KeyAuthModel(String key) {
+    this.key = key;
+  }
+
+  public String getKey() {
+    return key;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return key == null || key.isEmpty();
+  }
 
 }

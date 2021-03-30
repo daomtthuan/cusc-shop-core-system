@@ -55,7 +55,7 @@ public class AuthSession implements Serializable {
   }
 
   public void login(final String username, final String password) {
-    account = auth.authenticateByEmployeeLocalAccount(username, password);
+    account = auth.authenticateByLocalAccount(username, password);
   }
 
   public String logout() {

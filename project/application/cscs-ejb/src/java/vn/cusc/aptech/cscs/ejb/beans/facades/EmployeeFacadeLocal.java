@@ -52,4 +52,6 @@ public interface EmployeeFacadeLocal {
 
   List<Employee> findByFilter(Object idRole);
 
+  Employee findShipperByUsername(String username);
+
 }

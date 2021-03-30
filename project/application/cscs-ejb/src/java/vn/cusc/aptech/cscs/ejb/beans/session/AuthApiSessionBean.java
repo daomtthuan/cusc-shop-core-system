@@ -1,4 +1,3 @@
-
 /*
  * The MIT License
  *
@@ -24,21 +23,15 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import org.mindrot.jbcrypt.BCrypt;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Account;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
-import vn.cusc.aptech.cscs.ejb.entities.Information;
 import vn.cusc.aptech.cscs.ejb.helpers.KeyHelper;
 
 /**
@@ -46,13 +39,10 @@ import vn.cusc.aptech.cscs.ejb.helpers.KeyHelper;
  * @author Daomtthuan
  */
 @Stateless
-public class AuthSessionBean implements AuthSessionBeanLocal {
+public class AuthApiSessionBean implements AuthApiSessionBeanLocal {
 
   @EJB
-  private RoleFacadeLocal roleFacade;
-
-  @EJB
-  private InformationFacadeLocal informationFacade;
+  private CustomerFacadeLocal customerFacade;
 
   @EJB
   private EmployeeFacadeLocal employeeFacade;
@@ -66,14 +56,72 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
     return false;
   }
 
-  @Override
-  public Employee authenticateByLocalAccount(String username, String password) {
-    Employee account = employeeFacade.findByUsername(username);
-    return authenticateLocalAccount(account, password) ? account : null;
+  private String createKey(Account account) {
+    return KeyHelper.encode(account.getUsername() + ":" + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
+  }
+
+  private String[] analyzeHashKey(String hashKey) {
+    return KeyHelper.decode(hashKey).split(":");
   }
 
   @Override
-  public String changePassword(Object id, String oldPassword, String newPassword) {
+  public String authenticateByCustomerLocalAccount(String username, String password) {
+    Customer account = customerFacade.findByUsername(username);
+    if (!authenticateLocalAccount(account, password)) {
+      return null;
+    }
+
+    return createKey(account);
+  }
+
+  @Override
+  public Customer authenticateByCustomerLocalAccount(String hashKey) {
+    String[] keyParts = analyzeHashKey(hashKey);
+    Customer account = customerFacade.findByUsername(keyParts[0]);
+    if (account == null) {
+      return null;
+    }
+    return BCrypt.checkpw(account.getPassword(), keyParts[1]) ? account : null;
+  }
+
+  @Override
+  public String changePasswordCustomer(Object id, String oldPassword, String newPassword) {
+    Customer account = customerFacade.find(id);
+    if (account == null) {
+      return "Account not found";
+    }
+
+    if (!authenticateLocalAccount(account, oldPassword)) {
+      return "Password incorrect";
+    }
+
+    account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
+    customerFacade.edit(account);
+    return null;
+  }
+
+  @Override
+  public String authenticateByShipperLocalAccount(String username, String password) {
+    Employee account = employeeFacade.findShipperByUsername(username);
+    if (!authenticateLocalAccount(account, password)) {
+      return null;
+    }
+
+    return createKey(account);
+  }
+
+  @Override
+  public Employee authenticateByShipperLocalAccount(String hashKey) {
+    String[] keyParts = analyzeHashKey(hashKey);
+    Employee account = employeeFacade.findShipperByUsername(keyParts[0]);
+    if (account == null) {
+      return null;
+    }
+    return BCrypt.checkpw(account.getPassword(), keyParts[1]) ? account : null;
+  }
+
+  @Override
+  public String changePasswordShipper(Object id, String oldPassword, String newPassword) {
     Employee account = employeeFacade.find(id);
     if (account == null) {
       return "Account not found";
@@ -85,25 +133,6 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
 
     account.setPassword(BCrypt.hashpw(newPassword, BCrypt.gensalt()));
     employeeFacade.edit(account);
-    return null;
-  }
-
-  @Override
-  @TransactionAttribute(TransactionAttributeType.REQUIRED)
-  public String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address) {
-    if (employeeFacade.findByUsername(username) != null) {
-      return "Username already exists";
-    }
-
-    Information information = new Information(null, fullName, birthday, gender, email, address, phone);
-    informationFacade.create(information);
-
-    String hashPassword = BCrypt.hashpw("1234", BCrypt.gensalt());
-    Employee account = new Employee(null, username, hashPassword, state);
-    account.setInformation(information);
-    account.setRole(roleFacade.find(idRole));
-    employeeFacade.create(account);
-
     return null;
   }
 

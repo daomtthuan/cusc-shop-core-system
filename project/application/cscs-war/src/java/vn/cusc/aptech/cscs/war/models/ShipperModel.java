@@ -21,24 +21,68 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.war.models;
 
-import java.time.LocalDate;
-import java.util.Date;
-import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface AuthSessionBeanLocal {
+public class ShipperModel implements Model {
 
-  Employee authenticateByLocalAccount(String username, String password);
+  private int id;
+  private String username;
+  private boolean state;
+  private InformationModel information;
 
-  String changePassword(Object id, String oldPassword, String newPassword);
+  public ShipperModel() {
+  }
 
-  String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
+  public ShipperModel(Employee shipper) {
+    this.id = shipper.getId();
+    this.username = shipper.getUsername();
+    this.state = shipper.getState();
+    this.information = new InformationModel(shipper.getInformation());
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  public boolean isState() {
+    return state;
+  }
+
+  public void setState(boolean state) {
+    this.state = state;
+  }
+
+  public InformationModel getInformation() {
+    return information;
+  }
+
+  public void setInformation(InformationModel information) {
+    this.information = information;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return id == 0
+      || username == null || username.isEmpty()
+      || information == null || information.isEmpty();
+  }
 
 }

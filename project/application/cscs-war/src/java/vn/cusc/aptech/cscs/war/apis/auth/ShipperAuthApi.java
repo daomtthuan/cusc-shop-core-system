@@ -32,10 +32,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
-import vn.cusc.aptech.cscs.war.models.CustomerModel;
 import vn.cusc.aptech.cscs.war.models.ErrorModel;
+import vn.cusc.aptech.cscs.war.models.ShipperModel;
 import vn.cusc.aptech.cscs.war.models.auth.AuthModel;
 import vn.cusc.aptech.cscs.war.models.auth.ChangePasswordModel;
 import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
@@ -44,8 +44,8 @@ import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
  *
  * @author Daomtthuan
  */
-@Path("auth/customer")
-public class CustomerAuthApi extends ApiHelper {
+@Path("auth/shipper")
+public class ShipperAuthApi extends ApiHelper {
 
   @GET
   @Consumes(MediaType.APPLICATION_JSON)
@@ -55,8 +55,8 @@ public class CustomerAuthApi extends ApiHelper {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-    return account == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new CustomerModel(account));
+    Employee account = authApiSessionBean.authenticateByShipperLocalAccount(hashKey);
+    return account == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new ShipperModel(account));
   }
 
   @POST
@@ -68,7 +68,7 @@ public class CustomerAuthApi extends ApiHelper {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    String key = authApiSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
+    String key = authApiSessionBean.authenticateByShipperLocalAccount(authModel.getUsername(), authModel.getPassword());
     return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
   }
 
@@ -85,13 +85,13 @@ public class CustomerAuthApi extends ApiHelper {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+    Employee account = authApiSessionBean.authenticateByShipperLocalAccount(hashKey);
     if (account == null) {
       return sendResponse(Response.Status.UNAUTHORIZED);
     }
-    String error = authApiSessionBean.changePasswordCustomer(account.getId(), changePasswordModel.getOldPassword(), changePasswordModel.getNewPassword());
+    String error = authApiSessionBean.changePasswordShipper(account.getId(), changePasswordModel.getOldPassword(), changePasswordModel.getNewPassword());
     if (error == null) {
-      return sendResponse(Response.Status.OK, new KeyAuthModel(authApiSessionBean.authenticateByCustomerLocalAccount(account.getUsername(), changePasswordModel.getNewPassword())));
+      return sendResponse(Response.Status.OK, new KeyAuthModel(authApiSessionBean.authenticateByShipperLocalAccount(account.getUsername(), changePasswordModel.getNewPassword())));
     }
     return sendResponse(Response.Status.UNAUTHORIZED, new ErrorModel(error));
   }
