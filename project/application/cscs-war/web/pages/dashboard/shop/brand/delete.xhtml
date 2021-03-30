@@ -29,43 +29,23 @@ THE SOFTWARE.
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-  <ui:define name="title">Edit Category group</ui:define>
-
+  <ui:define name="title">Shop - Brand - Delete Brand</ui:define>
   <ui:define name="page">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Edit of the Category Group</h2>
-        </div>
-      </div>
+      <h2>Delete Brand</h2>
+      <hr />
+      <p>
+        Do you want to delete
+        <b>#{deleteBrandShopDashBoardPresenter.brands.name}</b>
+        ?
+      </p>
       <hr/>
       <h:form>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <h:outputLabel for="input-name" value="Name" />
-              <h:inputText id="input-name" value="#{editCategoryGroupShopDashboardPresenter.name}" styleClass="form-control #{editCategoryGroupShopDashboardPresenter.nameInputStyleClass}" />
-              <div class="invalid-feedback">Invalid name</div>
-            </div>
-
-            <div class="form-group">
-              <h:outputLabel for="input-state" value="State" />
-              <h:selectOneRadio id="input-state" value="#{editCategoryGroupShopDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
-                <f:selectItem itemValue="true" itemLabel="Enabled" />
-                <f:selectItem itemValue="false" itemLabel="Disabled" />
-              </h:selectOneRadio>
-
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h:commandButton styleClass="btn btn-primary" action="#{editCategoryGroupShopDashboardPresenter.edit()}" value="Save" />
-          </div>
-        </div>
+        <h:link styleClass="btn btn-secondary mr-2" outcome="#{viewHelper.getPage('dashboard/shop/brand/list')}">
+          Cancel
+        </h:link>
+        <h:commandButton styleClass="btn btn-danger" value="Yes" action="#{deleteBrandShopDashBoardPresenter.delete()}" />
       </h:form>
     </div>
   </ui:define>
 </ui:composition>
-
-

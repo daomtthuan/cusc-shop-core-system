@@ -26,11 +26,116 @@ THE SOFTWARE.
 <ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
-  <ui:define name="title">Access System - Account - Add Account</ui:define>
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  <ui:define name="title">Shop - Customer - Add Customer</ui:define>
   <ui:define name="page">
-    <h:form styleClass="container-fluid">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Add of the Customer</h2>
+        </div>
+      </div>
+      <hr/>
+      <h:form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-username" value="Username" />
+              <h:inputText id="input-username" value="#{addCustomerShopDashBoardPresenter.username}" styleClass="form-control #{addCustomerShopDashBoardPresenter.usernameInputStyleClass}" />
+              <div class="invalid-feedback">Invalid username</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-password" value="Password" />
+              <h:inputText id="input-password" value="#{addCustomerShopDashBoardPresenter.password}" styleClass="form-control #{addCustomerShopDashBoardPresenter.passwordInputStyleClass}" />
+              <div class="invalid-feedback">Invalid password</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-role" value="Role" />
+              <h:selectOneMenu id="input-role" value="#{addCustomerShopDashBoardPresenter.idRole}" styleClass="custom-select #{addCustomerShopDashBoardPresenter.roleInputStyleClass}">
+                <f:selectItem itemValue="0" itemLabel="--" />
+                <f:selectItems value="#{addCustomerShopDashBoardPresenter.roles}" var="role" itemValue="#{role.id}" itemLabel="#{role.name}" />
+              </h:selectOneMenu>
+              <div class="invalid-feedback">Choose role for account</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-state" value="State" />
+              <h:selectOneRadio id="input-state" value="#{addCustomerShopDashBoardPresenter.state}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="Enabled" />
+                <f:selectItem itemValue="false" itemLabel="Disabled" />
+              </h:selectOneRadio>
+            </div>
+          </div>
+          <div class="col-md-6">
 
-    </h:form>
+            <div class="form-group">
+              <h:outputLabel value="Birthday" />
+              <div class="no-gutters row #{addCustomerShopDashBoardPresenter.birthdayInputStyleClass}">
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-year-birthday" value="#{addCustomerShopDashBoardPresenter.yearBirthday}" styleClass="custom-select #{addCustomerShopDashBoardPresenter.birthdayInputStyleClass}">
+                    <f:selectItem itemValue="0" itemLabel="--" />
+                    <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center mx-3">
+                  <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-month-birthday" value="#{addCustomerShopDashBoardPresenter.monthBirthday}" styleClass="custom-select #{addCustomerShopDashBoardPresenter.birthdayInputStyleClass}">
+                    <f:selectItem itemValue="0" itemLabel="--" />
+                    <c:forEach begin="1" end="12" var="month">
+                      <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-day-birthday" value="#{addCustomerShopDashBoardPresenter.dayBirthday}" styleClass="custom-select #{addCustomerShopDashBoardPresenter.birthdayInputStyleClass}">
+                    <f:selectItem itemValue="0" itemLabel="--" />
+                    <c:forEach begin="1" end="31" var="day">
+                      <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
+              </div>
+              <div class="invalid-feedback">Invalid birthday</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-gender" value="Gender" />
+              <h:selectOneRadio id="input-gender" value="#{addCustomerShopDashBoardPresenter.gender}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="Male" />
+                <f:selectItem itemValue="false" itemLabel="Female" />
+              </h:selectOneRadio>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-email" value="Email" />
+              <h:inputText id="input-email" value="#{addCustomerShopDashBoardPresenter.email}" styleClass="form-control #{addCustomerShopDashBoardPresenter.emailInputStyleClass}" />
+              <div class="invalid-feedback">Invalid email</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-phone" value="Phone" />
+              <h:inputText id="input-phone" value="#{addCustomerShopDashBoardPresenter.phone}" styleClass="form-control #{addCustomerShopDashBoardPresenter.phoneInputStyleClass}" />
+              <div class="invalid-feedback">Invalid phone</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <h:outputLabel for="input-address" value="Address" />
+              <h:inputTextarea id="input-address" value="#{addCustomerShopDashBoardPresenter.address}" styleClass="form-control #{addCustomerShopDashBoardPresenter.addressInputStyleClass}" />
+              <div class="invalid-feedback">Invalid address</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h:commandButton action="#{addCustomerShopDashBoardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
+          </div>
+        </div>
+
+      </h:form>
+    </div>
   </ui:define>
 </ui:composition>

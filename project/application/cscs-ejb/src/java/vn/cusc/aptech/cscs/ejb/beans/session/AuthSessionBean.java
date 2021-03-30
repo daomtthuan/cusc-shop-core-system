@@ -24,6 +24,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import java.time.LocalDate;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;

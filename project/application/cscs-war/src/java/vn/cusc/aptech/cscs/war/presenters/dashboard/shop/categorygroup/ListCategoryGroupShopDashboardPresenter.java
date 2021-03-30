@@ -65,8 +65,10 @@ public class ListCategoryGroupShopDashboardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
-
-    idCategoryGroup = 0;
+    try {
+      idCategoryGroup = 0;
+    } catch (Exception e) {
+    }
 
   }
 

@@ -56,4 +56,12 @@ public class RoleFacade extends AbstractFacade<Role> implements RoleFacadeLocal 
     return roles;
   }
 
+  @Override
+  public List<Role> findCustomer() {
+    List<Role> roles = em.createQuery("SELECT r FROM Role r WHERE r.name = :name")
+      .setParameter("name", "customer")
+      .getResultList();
+    return roles;
+  }
+
 }

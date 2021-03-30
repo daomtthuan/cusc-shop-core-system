@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 NGUYEN PHUC DUY.
+ * Copyright 2021 ASUS.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,73 +21,63 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Role;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Brand;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
- * @author NGUYEN PHUC DUY
+ * @author ASUS
  */
-@Named(value = "listCustomerShopDashBoardPresenter")
-@Dependent
-public class ListCustomerShopDashBoardPresenter implements Serializable {
+@Named(value = "deleteBrandShopDashBoardPresenter")
+@ViewScoped
+public class DeleteBrandShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListCustomerDashBoardPresenter
+   * Creates a new instance of DeleteBrandShopDashBoardPresenter
    */
-  public ListCustomerShopDashBoardPresenter() {
+  public DeleteBrandShopDashBoardPresenter() {
   }
   @EJB
-  private RoleFacadeLocal roleFacade;
-
-  @EJB
-  private CustomerFacadeLocal customerFacade;
+  private BrandFacadeLocal brandFacade;
 
   @Inject
   private ViewHelper viewHelper;
 
-  private int idRole;
+  private Brand brands;
+
+  public Brand getBrand() {
+    return brands;
+  }
+
+  public void setBrand(Brand brand) {
+    this.brands = brand;
+  }
 
   @PostConstruct
   public void init() {
     try {
-      idRole = 0;
-    } catch (Exception e) {
+      brands = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
     }
-
   }
 
-  public List<Customer> getCustomers() {
-    return customerFacade.findAll();
+  public String delete() {
+    brandFacade.remove(brands);
+    return viewHelper.getPage("dashboard/shop/brand/list");
   }
 
-  public List<Role> getRoles() {
-    return roleFacade.findCustomer();
-  }
-
-  public String removeAccount(int id) {
-    customerFacade.remove(customerFacade.find(id));
-    return viewHelper.getPage("dashboard/shop/customer/list");
-  }
-
-  public int getIdRole() {
-    return idRole;
-  }
-
-  public void setIdRole(int idRole) {
-    this.idRole = idRole;
+  public Brand getBrands() {
+    return brands;
   }
 
 }
