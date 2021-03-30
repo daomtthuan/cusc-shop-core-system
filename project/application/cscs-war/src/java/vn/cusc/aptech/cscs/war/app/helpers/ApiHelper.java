@@ -24,10 +24,8 @@
 package vn.cusc.aptech.cscs.war.app.helpers;
 
 import com.google.gson.Gson;
-import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -39,7 +37,7 @@ import vn.cusc.aptech.cscs.war.models.Model;
  *
  * @author Daomtthuan
  */
-public class ApiHelper implements Serializable {
+public class ApiHelper {
 
   protected final AuthApiSessionBeanLocal authApiSessionBean;
   protected final Gson gson;
