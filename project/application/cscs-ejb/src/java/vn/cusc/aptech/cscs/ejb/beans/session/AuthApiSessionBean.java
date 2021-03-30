@@ -23,7 +23,6 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
-import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import org.mindrot.jbcrypt.BCrypt;

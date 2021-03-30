@@ -25,22 +25,17 @@
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import org.mindrot.jbcrypt.BCrypt;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Account;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
-import vn.cusc.aptech.cscs.ejb.helpers.KeyHelper;
 
 /**
  *
