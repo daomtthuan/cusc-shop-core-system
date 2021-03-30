@@ -32,11 +32,7 @@ THE SOFTWARE.
   <ui:define name="title">Shop - Customer - Add Customer</ui:define>
   <ui:define name="page">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <h2>Add of the Customer</h2>
-        </div>
-      </div>
+      <h2>Add Customer</h2>
       <hr/>
       <h:form>
         <div class="row">
@@ -47,28 +43,19 @@ THE SOFTWARE.
               <div class="invalid-feedback">Invalid username</div>
             </div>
             <div class="form-group">
-              <h:outputLabel for="input-password" value="Password" />
-              <h:inputText id="input-password" value="#{addCustomerShopDashBoardPresenter.password}" styleClass="form-control #{addCustomerShopDashBoardPresenter.passwordInputStyleClass}" />
-              <div class="invalid-feedback">Invalid password</div>
-            </div>
-            <div class="form-group">
-              <h:outputLabel for="input-role" value="Role" />
-              <h:selectOneMenu id="input-role" value="#{addCustomerShopDashBoardPresenter.idRole}" styleClass="custom-select #{addCustomerShopDashBoardPresenter.roleInputStyleClass}">
-                <f:selectItem itemValue="0" itemLabel="--" />
-                <f:selectItems value="#{addCustomerShopDashBoardPresenter.roles}" var="role" itemValue="#{role.id}" itemLabel="#{role.name}" />
-              </h:selectOneMenu>
-              <div class="invalid-feedback">Choose role for account</div>
-            </div>
-            <div class="form-group">
               <h:outputLabel for="input-state" value="State" />
               <h:selectOneRadio id="input-state" value="#{addCustomerShopDashBoardPresenter.state}" styleClass="form-control-radio-inline form-control">
                 <f:selectItem itemValue="true" itemLabel="Enabled" />
                 <f:selectItem itemValue="false" itemLabel="Disabled" />
               </h:selectOneRadio>
             </div>
+            <div class="form-group">
+              <h:outputLabel for="input-full-name" value="Full name" />
+              <h:inputText id="input-full-name" value="#{addCustomerShopDashBoardPresenter.fullName}" styleClass="form-control #{addCustomerShopDashBoardPresenter.fullNameInputStyleClass}" />
+              <div class="invalid-feedback">Invalid full name</div>
+            </div>
           </div>
           <div class="col-md-6">
-
             <div class="form-group">
               <h:outputLabel value="Birthday" />
               <div class="no-gutters row #{addCustomerShopDashBoardPresenter.birthdayInputStyleClass}">
@@ -112,29 +99,19 @@ THE SOFTWARE.
               <h:inputText id="input-email" value="#{addCustomerShopDashBoardPresenter.email}" styleClass="form-control #{addCustomerShopDashBoardPresenter.emailInputStyleClass}" />
               <div class="invalid-feedback">Invalid email</div>
             </div>
-            <div class="form-group">
-              <h:outputLabel for="input-phone" value="Phone" />
-              <h:inputText id="input-phone" value="#{addCustomerShopDashBoardPresenter.phone}" styleClass="form-control #{addCustomerShopDashBoardPresenter.phoneInputStyleClass}" />
-              <div class="invalid-feedback">Invalid phone</div>
-            </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <h:outputLabel for="input-address" value="Address" />
-              <h:inputTextarea id="input-address" value="#{addCustomerShopDashBoardPresenter.address}" styleClass="form-control #{addCustomerShopDashBoardPresenter.addressInputStyleClass}" />
-              <div class="invalid-feedback">Invalid address</div>
-            </div>
-          </div>
+        <div class="form-group">
+          <h:outputLabel for="input-phone" value="Phone" />
+          <h:inputText id="input-phone" value="#{addCustomerShopDashBoardPresenter.phone}" styleClass="form-control #{addCustomerShopDashBoardPresenter.phoneInputStyleClass}" />
+          <div class="invalid-feedback">Invalid phone</div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <h:commandButton action="#{addCustomerShopDashBoardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
-          </div>
+        <div class="form-group">
+          <h:outputLabel for="input-address" value="Address" />
+          <h:inputTextarea id="input-address" value="#{addCustomerShopDashBoardPresenter.address}" styleClass="form-control #{addCustomerShopDashBoardPresenter.addressInputStyleClass}" />
+          <div class="invalid-feedback">Invalid address</div>
         </div>
-
+        <h:commandButton action="#{addCustomerShopDashBoardPresenter.add()}" value="Add" styleClass="btn btn-primary" />
       </h:form>
     </div>
   </ui:define>
