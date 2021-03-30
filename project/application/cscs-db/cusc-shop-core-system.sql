@@ -106,8 +106,8 @@ CREATE TABLE product (
 CREATE TABLE bill (
     id INT NOT NULL AUTO_INCREMENT,
     customer INT NOT NULL,
-    salesman INT NOT NULL,
-    shipper INT NOT NULL,
+    salesman INT,
+    shipper INT,
     create_date DATETIME NOT NULL,
     pay_date DATETIME,
     status INT NOT NULL DEFAULT 1, -- 0: Canceled, 1: Pending, 2: Accepted, 3: Shipping, 4: Paid
@@ -260,3 +260,4 @@ VALUES
     ('Dell Vostro 3470ST (HXKWJ1) Desktop PC',7250,100,23,6),
     ('Laptop Dell G3 Inspiron 3579 70167040 (Black) Geforce GTX1050Ti 4GB Intel Core i7 8750H 128GB 8GB',23490,100,24,6),
     ('ASUS ROG Ranger BP3703 Gaming Backpack – Balo Gaming',6490,100,25,3);
+    

@@ -21,29 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session;
+package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
 import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
  * @author Daomtthuan
  */
 @Local
-public interface AuthApiSessionBeanLocal {
-
-  String authenticateByCustomerLocalAccount(String username, String password);
-
-  Customer authenticateByCustomerLocalAccount(String hashKey);
-
-  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
-
-  String authenticateByShipperLocalAccount(String username, String password);
-
-  Employee authenticateByShipperLocalAccount(String hashKey);
-
-  String changePasswordShipper(Object id, String oldPassword, String newPassword);
+public interface BillApiSessionBeanLocal {
 
 }

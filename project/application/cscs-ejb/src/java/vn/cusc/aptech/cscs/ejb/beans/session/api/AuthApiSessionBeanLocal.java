@@ -21,38 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.customer;
+package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
  * @author Daomtthuan
  */
-@Path("customer/order")
-public class OrderCustomerApi extends ApiHelper {
+@Local
+public interface AuthApiSessionBeanLocal {
 
-  @POST
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response post(@QueryParam("key") String hashKey, String body) {
-//    if (isEmptyParam(hashKey)) {
-//      return sendResponse(Response.Status.BAD_REQUEST);
-//    }
-//
-//    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-//    if (account == null) {
-//      return sendResponse(Response.Status.UNAUTHORIZED);
-//    }
-//
-  }
+  String authenticateByCustomerLocalAccount(String username, String password);
+
+  Customer authenticateByCustomerLocalAccount(String hashKey);
+
+  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
+
+  String authenticateByShipperLocalAccount(String username, String password);
+
+  Employee authenticateByShipperLocalAccount(String hashKey);
+
+  String changePasswordShipper(Object id, String oldPassword, String newPassword);
 
 }

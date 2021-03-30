@@ -30,7 +30,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal;
+import vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
