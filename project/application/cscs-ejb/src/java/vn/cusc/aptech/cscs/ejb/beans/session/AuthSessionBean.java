@@ -24,9 +24,8 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;

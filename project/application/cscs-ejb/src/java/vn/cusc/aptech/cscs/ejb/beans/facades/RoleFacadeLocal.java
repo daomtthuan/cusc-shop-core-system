@@ -50,4 +50,6 @@ public interface RoleFacadeLocal {
 
   List<Role> findNotAdministrator();
 
+  List<Role> findCustomer();
+
 }

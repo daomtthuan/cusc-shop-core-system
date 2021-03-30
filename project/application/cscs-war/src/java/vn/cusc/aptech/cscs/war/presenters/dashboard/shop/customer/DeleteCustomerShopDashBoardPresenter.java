@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 NGUYEN PHUC DUY.
+ * Copyright 2021 ASUS.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,70 +24,52 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
- * @author NGUYEN PHUC DUY
+ * @author ASUS
  */
-@Named(value = "listCustomerShopDashBoardPresenter")
-@Dependent
-public class ListCustomerShopDashBoardPresenter implements Serializable {
+@Named(value = "deleteCustomerShopDashBoardPresenter")
+@ViewScoped
+public class DeleteCustomerShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListCustomerDashBoardPresenter
+   * Creates a new instance of DeleteCustomerShopDashBoardPresenter
    */
-  public ListCustomerShopDashBoardPresenter() {
+  public DeleteCustomerShopDashBoardPresenter() {
   }
-  @EJB
-  private RoleFacadeLocal roleFacade;
-
   @EJB
   private CustomerFacadeLocal customerFacade;
 
   @Inject
   private ViewHelper viewHelper;
 
-  private int idRole;
+  private Customer customer;
 
   @PostConstruct
   public void init() {
     try {
-      idRole = 0;
-    } catch (Exception e) {
+      customer = customerFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
     }
-
   }
 
-  public List<Customer> getCustomers() {
-    return customerFacade.findAll();
-  }
-
-  public List<Role> getRoles() {
-    return roleFacade.findCustomer();
-  }
-
-  public String removeAccount(int id) {
-    customerFacade.remove(customerFacade.find(id));
+  public String delete() {
+    customerFacade.remove(customer);
     return viewHelper.getPage("dashboard/shop/customer/list");
   }
 
-  public int getIdRole() {
-    return idRole;
-  }
-
-  public void setIdRole(int idRole) {
-    this.idRole = idRole;
+  public Customer getCustomers() {
+    return customer;
   }
 
 }
