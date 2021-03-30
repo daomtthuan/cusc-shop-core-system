@@ -25,7 +25,6 @@ package vn.cusc.aptech.cscs.ejb.beans.session;
 
 import java.util.Date;
 import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
@@ -35,15 +34,9 @@ import vn.cusc.aptech.cscs.ejb.entities.Employee;
 @Local
 public interface AuthSessionBeanLocal {
 
-  Employee authenticateByEmployeeLocalAccount(String username, String password);
+  Employee authenticateByLocalAccount(String username, String password);
 
-  String authenticateByCustomerLocalAccount(String username, String password);
-
-  Customer authenticateByCustomerLocalAccount(String hashKey);
-
-  String changePasswordEmployee(Object id, String oldPassword, String newPassword);
-
-  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
+  String changePassword(Object id, String oldPassword, String newPassword);
 
   String createAccount(String username, Object idRole, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
 

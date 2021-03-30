@@ -60,7 +60,8 @@ public class ChangePasswordModel implements Model {
 
   @Override
   public boolean isEmpty() {
-    return oldPassword == null || oldPassword.isEmpty() || newPassword == null || newPassword.isEmpty();
+    return oldPassword == null || oldPassword.isEmpty()
+      || newPassword == null || newPassword.isEmpty();
   }
 
 }

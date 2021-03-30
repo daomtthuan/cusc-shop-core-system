@@ -23,27 +23,27 @@
  */
 package vn.cusc.aptech.cscs.war.models;
 
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CustomerModel implements Model {
+public class ShipperModel implements Model {
 
   private int id;
   private String username;
   private boolean state;
   private InformationModel information;
 
-  public CustomerModel() {
+  public ShipperModel() {
   }
 
-  public CustomerModel(Customer customer) {
-    this.id = customer.getId();
-    this.username = customer.getUsername();
-    this.state = customer.getState();
-    this.information = new InformationModel(customer.getInformation());
+  public ShipperModel(Employee shipper) {
+    this.id = shipper.getId();
+    this.username = shipper.getUsername();
+    this.state = shipper.getState();
+    this.information = new InformationModel(shipper.getInformation());
   }
 
   public int getId() {

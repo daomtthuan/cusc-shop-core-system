@@ -74,4 +74,10 @@
         <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal</local>
         <ejb-link>cscs-ejb.jar#AuthSessionBean</ejb-link>
     </ejb-local-ref>
+    <ejb-local-ref>
+        <ejb-ref-name>AuthApiSessionBean</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local>vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal</local>
+        <ejb-link>cscs-ejb.jar#AuthApiSessionBean</ejb-link>
+    </ejb-local-ref>
 </web-app>

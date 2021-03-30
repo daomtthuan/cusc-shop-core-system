@@ -60,7 +60,8 @@ public class AuthModel implements Model {
 
   @Override
   public boolean isEmpty() {
-    return username == null || username.isEmpty() || password == null || password.isEmpty();
+    return username == null || username.isEmpty()
+      || password == null || password.isEmpty();
   }
 
 }

@@ -30,8 +30,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
@@ -41,11 +40,11 @@ import vn.cusc.aptech.cscs.war.models.Model;
 public class ApiHelper {
 
   protected final Gson gson;
-  protected final AuthSessionBeanLocal authSessionBean;
+  protected final AuthApiSessionBeanLocal authApiSessionBean;
 
   protected ApiHelper() {
     gson = new Gson();
-    authSessionBean = lookupAuthSessionBeanLocal();
+    authApiSessionBean = lookupAuthApiSessionBeanLocal();
   }
 
   protected boolean isEmptyParam(String param) {
@@ -54,10 +53,6 @@ public class ApiHelper {
 
   protected boolean isEmptyBody(Model body) {
     return body == null || body.isEmpty();
-  }
-
-  protected Customer authCustomer(String hashKey) {
-    return authSessionBean.authenticateByCustomerLocalAccount(hashKey);
   }
 
   protected <T extends Object> T getBody(String body, Class<T> classOfT) {
@@ -75,10 +70,10 @@ public class ApiHelper {
       .build();
   }
 
-  private AuthSessionBeanLocal lookupAuthSessionBeanLocal() {
+  private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
     try {
       Context c = new InitialContext();
-      return (AuthSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal");
+      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal");
     } catch (NamingException ne) {
       Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
       throw new RuntimeException(ne);

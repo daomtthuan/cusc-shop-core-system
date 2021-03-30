@@ -21,68 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models;
+package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CustomerModel implements Model {
+@Local
+public interface AuthApiSessionBeanLocal {
 
-  private int id;
-  private String username;
-  private boolean state;
-  private InformationModel information;
+  String authenticateByCustomerLocalAccount(String username, String password);
 
-  public CustomerModel() {
-  }
+  Customer authenticateByCustomerLocalAccount(String hashKey);
 
-  public CustomerModel(Customer customer) {
-    this.id = customer.getId();
-    this.username = customer.getUsername();
-    this.state = customer.getState();
-    this.information = new InformationModel(customer.getInformation());
-  }
+  String changePasswordCustomer(Object id, String oldPassword, String newPassword);
 
-  public int getId() {
-    return id;
-  }
+  String authenticateByShipperLocalAccount(String username, String password);
 
-  public void setId(int id) {
-    this.id = id;
-  }
+  Employee authenticateByShipperLocalAccount(String hashKey);
 
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public boolean isState() {
-    return state;
-  }
-
-  public void setState(boolean state) {
-    this.state = state;
-  }
-
-  public InformationModel getInformation() {
-    return information;
-  }
-
-  public void setInformation(InformationModel information) {
-    this.information = information;
-  }
-
-  @Override
-  public boolean isEmpty() {
-    return id == 0
-      || username == null || username.isEmpty()
-      || information == null || information.isEmpty();
-  }
+  String changePasswordShipper(Object id, String oldPassword, String newPassword);
 
 }
