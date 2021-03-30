@@ -1,7 +1,7 @@
 /*
  * The MIT License
  *
- * Copyright 2021 DANG QUANG NGHI.
+ * Copyright 2021 ASUS.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,64 +21,55 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.categorygroup;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Brand;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
- * @author DANG QUANG NGHI
+ * @author ASUS
  */
-@Named(value = "listCategoryGroupShopDashboardPresenter")
+@Named(value = "deleteBrandShopDashBoardPresenter")
 @ViewScoped
-public class ListCategoryGroupShopDashboardPresenter implements Serializable {
+public class DeleteBrandShopDashBoardPresenter implements Serializable {
 
   /**
-   * Creates a new instance of ListCategoryGroupShopDashboardPresenter
+   * Creates a new instance of DeleteBrandShopDashBoardPresenter
    */
-  public ListCategoryGroupShopDashboardPresenter() {
+  public DeleteBrandShopDashBoardPresenter() {
   }
   @EJB
-  private CategoryGroupFacadeLocal categoryGroupFacade;
+  private BrandFacadeLocal brandFacade;
 
   @Inject
   private ViewHelper viewHelper;
 
-  private int idCategoryGroup;
-
-  public int getIdCategoryGroup() {
-    return idCategoryGroup;
-  }
-
-  public void setIdCategoryGroup(int idCategoryGroup) {
-    this.idCategoryGroup = idCategoryGroup;
-  }
+  private Brand brand;
 
   @PostConstruct
   public void init() {
     try {
-      idCategoryGroup = 0;
-    } catch (Exception e) {
+      brand = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
     }
-
   }
 
-  public List<CategoryGroup> getCategoryGroups() {
-    return categoryGroupFacade.findAll();
+  public String delete() {
+    brandFacade.remove(brand);
+    return viewHelper.getPage("dashboard/shop/brand/list");
   }
 
-  public String removeCategoryGroup(Object id) {
-    categoryGroupFacade.remove(categoryGroupFacade.find(id));
-    return viewHelper.getPage("dashboard/shop/category-group/list");
+  public Brand getBrands() {
+    return brand;
   }
 
 }

@@ -32,12 +32,24 @@ THE SOFTWARE.id
 
   <ui:define name="page">
     <div class="container-fluid">
-      <<<<<<< HEAD
+
+      <h2>Brand list</h2>
+      <hr />
       <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/add')}" styleClass="btn btn-primary" value="Add" />
-      <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light header-sticky-top" id="datatable">
+      <hr />
+      <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky" id="datatable">
         <h:column>
-          <f:facet name="header">ID</f:facet>
-            #{brand.id}
+          <f:facet name="header" class="bg-dark">Actions</f:facet>
+          <h:form styleClass="d-flex">
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/edit')}" styleClass="btn btn-sm btn-primary mr-1">
+              <f:param name="id" value="#{brand.id}" />
+              <i class="fas fa-edit"></i>
+            </h:link>
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/delete')}" styleClass="btn btn-sm btn-danger mr-1">
+              <f:param name="id" value="#{brand.id}" />
+              <i class="fas fa-trash"></i>
+            </h:link>
+          </h:form>
         </h:column>
         <h:column>
           <f:facet name="header">Name</f:facet>
@@ -47,34 +59,7 @@ THE SOFTWARE.id
           <f:facet name="header">State</f:facet>
             #{brand.state}
         </h:column>
-        =======
-        <h2>Brand list</h2>
-        <hr />
-        <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/add')}" styleClass="btn btn-primary" value="Add" />
-        <hr />
-        <h:dataTable value="#{listBrandShopDashBoardPresenter.brands}" var="brand" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky" id="datatable">
-          >>>>>>> cd3c2846a6d238acce051878e68552a079b68a95
-          <h:column>
-            <f:facet name="header" class="bg-dark">Actions</f:facet>
-            <h:form styleClass="d-flex">
-              <h:link outcome="#{viewHelper.getPage('dashboard/shop/brand/edit')}" styleClass="btn btn-sm btn-primary mr-1">
-                <f:param name="id" value="#{brand.id}" />
-                <i class="fas fa-edit"></i>
-              </h:link>
-              <h:commandLink id="remove" action="#{listBrandShopDashBoardPresenter.removeBrand(brand.id)}" styleClass="btn btn-sm btn-danger">
-                <i class="fas fa-trash"></i>
-              </h:commandLink>
-            </h:form>
-          </h:column>
-          <h:column>
-            <f:facet name="header">Name</f:facet>
-              #{brand.name}
-          </h:column>
-          <h:column>
-            <f:facet name="header">State</f:facet>
-              #{brand.state}
-          </h:column>
-        </h:dataTable>
+      </h:dataTable>
     </div>
   </ui:define>
 </ui:composition>

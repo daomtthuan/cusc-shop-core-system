@@ -31,38 +31,38 @@ THE SOFTWARE.
   <ui:define name="title">Shop - Brand - List</ui:define>
 
   <ui:define name="page">
-    <h:form class="container-fluid">
+    <div class="container-fluid">
+
       <div class="row">
-        <div class="form-group">
-          <h:outputLabel for="input-brandname" value="Brandname" />
-          <h:inputText id="input-brandname" value="#{editBrandDashBoardPresenter.name}" styleClass="form-control #{editBrandDashBoardPresenter.brandNameInputStyleClass}" />
+        <div class="col-md-12">
+          <h2>Edit of the Brand</h2>
         </div>
       </div>
-      <div class="row">
-        <div class="form-group">
-          <h:outputLabel for="input-state" value="State" />
-          <h:selectOneRadio id="input-state" value="#{editBrandDashBoardPresenter.state}" styleClass="form-control-radio-inline form-control">
-            <f:selectItem itemValue="true" itemLabel="True" />
-            <f:selectItem itemValue="false" itemLabel="False" />
-          </h:selectOneRadio>
+      <hr/>
+      <h:form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <h:outputLabel for="input-brandname" value="Brand name" />
+              <h:inputText id="input-brandname" value="#{editBrandDashBoardPresenter.name}" styleClass="form-control #{editBrandDashBoardPresenter.brandNameInputStyleClass}" />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <h:outputLabel for="input-state" value="State" />
+              <h:selectOneRadio id="input-state" value="#{editBrandDashBoardPresenter.state}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="True" />
+                <f:selectItem itemValue="false" itemLabel="False" />
+              </h:selectOneRadio>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <h:commandButton action="#{editBrandDashBoardPresenter.edit()}" value="Edit" styleClass="btn btn-primary" />
-
-    </h:form>
-  </ui:define>
-
-  <ui:define name="script">
-    <script src="#{appConfig.getPlugin('datatables.min.js')}"></script>
-    <script src="#{appConfig.getPlugin('datatables.bootstrap4.min.js')}"></script>
-    <script>
-      $('#datatable').DataTable();
-      $('#datatable thead').addClass('thead-dark');
-    </script>
-  </ui:define>
-
-  <ui:define name="style">
-    <link rel="stylesheet" href="#{appConfig.getPlugin('dataTables.bootstrap4.min.css')}" />
+        <div class="row">
+          <div class="col-md-12">
+            <h:commandButton action="#{editBrandDashBoardPresenter.edit()}" value="Save" styleClass="btn btn-primary" />
+          </div>
+        </div>
+      </h:form>
+    </div>
   </ui:define>
 </ui:composition>
