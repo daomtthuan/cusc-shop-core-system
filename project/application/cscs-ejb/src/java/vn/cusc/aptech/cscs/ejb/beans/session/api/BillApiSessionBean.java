@@ -31,8 +31,6 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillDetailsFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.BillDetails;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Product;
 

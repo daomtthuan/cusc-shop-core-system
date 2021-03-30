@@ -24,8 +24,10 @@
 package vn.cusc.aptech.cscs.war.app.helpers;
 
 import com.google.gson.Gson;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -37,10 +39,10 @@ import vn.cusc.aptech.cscs.war.models.Model;
  *
  * @author Daomtthuan
  */
-public class ApiHelper {
+public class ApiHelper implements Serializable {
 
-  protected final Gson gson;
   protected final AuthApiSessionBeanLocal authApiSessionBean;
+  protected final Gson gson;
 
   protected ApiHelper() {
     gson = new Gson();
@@ -73,7 +75,7 @@ public class ApiHelper {
   private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
     try {
       Context c = new InitialContext();
-      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.AuthApiSessionBeanLocal");
+      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal");
     } catch (NamingException ne) {
       Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
       throw new RuntimeException(ne);

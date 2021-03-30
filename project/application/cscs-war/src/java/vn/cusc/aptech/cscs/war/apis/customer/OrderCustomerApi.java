@@ -39,11 +39,11 @@ import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
  */
 @Path("customer/order")
 public class OrderCustomerApi extends ApiHelper {
-
-  @POST
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response post(@QueryParam("key") String hashKey, String body) {
+//
+//  @POST
+//  @Consumes(MediaType.APPLICATION_JSON)
+//  @Produces(MediaType.APPLICATION_JSON)
+//  public Response post(@QueryParam("key") String hashKey, String body) {
 //    if (isEmptyParam(hashKey)) {
 //      return sendResponse(Response.Status.BAD_REQUEST);
 //    }
@@ -52,7 +52,7 @@ public class OrderCustomerApi extends ApiHelper {
 //    if (account == null) {
 //      return sendResponse(Response.Status.UNAUTHORIZED);
 //    }
-
-  }
+//
+//  }
 
 }
