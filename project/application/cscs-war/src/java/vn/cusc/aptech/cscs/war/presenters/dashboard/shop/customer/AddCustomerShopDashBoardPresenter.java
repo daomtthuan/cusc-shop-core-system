@@ -50,4 +50,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 @Dependent
 public class AddCustomerShopDashBoardPresenter implements Serializable {
 
+  private String username;
+  private boolean statel
+
+  private String usernameInputStyleClass;
+
 }
