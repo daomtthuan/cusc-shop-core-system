@@ -23,12 +23,6 @@
  */
 package vn.cusc.aptech.cscs.war.apis.auth;
 
-import com.google.gson.Gson;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Consumes;
@@ -37,86 +31,35 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import vn.cusc.aptech.cscs.war.models.CustomerModel;
+import vn.cusc.aptech.cscs.war.models.auth.AuthModel;
+import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
 
 /**
  *
  * @author Daomtthuan
  */
 @Path("auth/customer")
-public class CustomerAuthApi {
-
-  private final Gson gson;
-  private final AuthSessionBeanLocal authSessionBean;
-
-  public CustomerAuthApi() {
-    gson = new Gson();
-    authSessionBean = lookupAuthSessionBeanLocal();
-  }
-
-  private class AuthModel {
-
-    public String username;
-    public String password;
-
-  }
-
-  private class KeyAuthModel {
-
-    public String key;
-
-    public KeyAuthModel(String key) {
-      this.key = key;
-    }
-
-  }
+public class CustomerAuthApi extends ApiHelper {
 
   @GET
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public Response get(@QueryParam("key") String hashKey) {
-    Customer account = authSessionBean.authenticateByCustomerLocalAccount(hashKey);
-    if (account == null) {
-      return Response
-        .status(Response.Status.UNAUTHORIZED)
-        .build();
-    } else {
-      return Response
-        .status(Response.Status.OK)
-        .entity("{\"username\": \"" + account.getUsername() + "\"}")
-        .build();
-    }
+    Customer account = authCustomer(hashKey);
+    return account == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new CustomerModel(account));
   }
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public Response post(String jsonBody) {
-    AuthModel body = gson.fromJson(jsonBody, AuthModel.class);
+  public Response post(String body) {
+    AuthModel authModel = getBody(body, AuthModel.class);
 
-    String key = authSessionBean.authenticateByCustomerLocalAccount(body.username, body.password);
-
-    if (key == null) {
-      return Response
-        .status(Response.Status.UNAUTHORIZED)
-        .build();
-    } else {
-      return Response
-        .status(Response.Status.OK)
-        .entity(gson.toJson(new KeyAuthModel(key)))
-        .build();
-    }
-  }
-
-  private AuthSessionBeanLocal lookupAuthSessionBeanLocal() {
-    try {
-      Context c = new InitialContext();
-      return (AuthSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal");
-    } catch (NamingException ne) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-      throw new RuntimeException(ne);
-    }
+    String key = authSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
+    return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
   }
 
 }
