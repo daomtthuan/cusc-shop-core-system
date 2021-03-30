@@ -40,26 +40,25 @@ import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
 @Path("customer/order")
 public class OrderCustomerApi extends ApiHelper {
 
-  @POST
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response post(@QueryParam("key") String hashKey, String body) {
-    if (isEmptyParam(hashKey)) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-    if (account == null) {
-      return sendResponse(Response.Status.UNAUTHORIZED);
-    }
-
-    AuthModel authModel = getBody(body, AuthModel.class);
-    if (isEmptyBody(authModel)) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    String key = authApiSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
-    return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
-  }
-
+//  @POST
+//  @Consumes(MediaType.APPLICATION_JSON)
+//  @Produces(MediaType.APPLICATION_JSON)
+//  public Response post(@QueryParam("key") String hashKey, String body) {
+//    if (isEmptyParam(hashKey)) {
+//      return sendResponse(Response.Status.BAD_REQUEST);
+//    }
+//
+//    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+//    if (account == null) {
+//      return sendResponse(Response.Status.UNAUTHORIZED);
+//    }
+//
+//    AuthModel authModel = getBody(body, AuthModel.class);
+//    if (isEmptyBody(authModel)) {
+//      return sendResponse(Response.Status.BAD_REQUEST);
+//    }
+//
+//    String key = authApiSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
+//    return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
+//  }
 }
