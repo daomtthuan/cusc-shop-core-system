@@ -21,67 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.auth;
+package vn.cusc.aptech.cscs.war.apis.customer;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
-import vn.cusc.aptech.cscs.war.models.CustomerModel;
-import vn.cusc.aptech.cscs.war.models.ErrorModel;
-import vn.cusc.aptech.cscs.war.models.auth.AuthModel;
-import vn.cusc.aptech.cscs.war.models.auth.ChangePasswordModel;
-import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
 
 /**
  *
  * @author Daomtthuan
  */
-@Path("auth/customer")
-public class CustomerAuthApi extends ApiHelper {
-
-  @GET
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response get(@QueryParam("key") String hashKey) {
-    if (isEmptyParam(hashKey)) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-    return account == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new CustomerModel(account));
-  }
+@Path("customer/order")
+public class OrderCustomerApi extends ApiHelper {
 
   @POST
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public Response post(String body) {
-    AuthModel authModel = getBody(body, AuthModel.class);
-    if (isEmptyBody(authModel)) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    String key = authApiSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
-    return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
-  }
-
-  @PUT
-  @Consumes(MediaType.APPLICATION_JSON)
-  @Produces(MediaType.APPLICATION_JSON)
-  public Response put(@QueryParam("key") String hashKey, String body) {
+  public Response post(@QueryParam("key") String hashKey, String body) {
     if (isEmptyParam(hashKey)) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    ChangePasswordModel changePasswordModel = getBody(body, ChangePasswordModel.class);
-    if (isEmptyBody(changePasswordModel)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
@@ -89,11 +52,14 @@ public class CustomerAuthApi extends ApiHelper {
     if (account == null) {
       return sendResponse(Response.Status.UNAUTHORIZED);
     }
-    String error = authApiSessionBean.changePasswordCustomer(account.getId(), changePasswordModel.getOldPassword(), changePasswordModel.getNewPassword());
-    if (error == null) {
-      return sendResponse(Response.Status.OK, new KeyAuthModel(authApiSessionBean.authenticateByCustomerLocalAccount(account.getUsername(), changePasswordModel.getNewPassword())));
+
+    AuthModel authModel = getBody(body, AuthModel.class);
+    if (isEmptyBody(authModel)) {
+      return sendResponse(Response.Status.BAD_REQUEST);
     }
-    return sendResponse(Response.Status.UNAUTHORIZED, new ErrorModel(error));
+
+    String key = authApiSessionBean.authenticateByCustomerLocalAccount(authModel.getUsername(), authModel.getPassword());
+    return key == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new KeyAuthModel(key));
   }
 
 }

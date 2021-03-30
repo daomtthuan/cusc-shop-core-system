@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.auth;
+package vn.cusc.aptech.cscs.war.apis.shipper;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -44,8 +44,8 @@ import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
  *
  * @author Daomtthuan
  */
-@Path("auth/shipper")
-public class ShipperAuthApi extends ApiHelper {
+@Path("shipper/auth")
+public class AuthShipperApi extends ApiHelper {
 
   @GET
   @Consumes(MediaType.APPLICATION_JSON)

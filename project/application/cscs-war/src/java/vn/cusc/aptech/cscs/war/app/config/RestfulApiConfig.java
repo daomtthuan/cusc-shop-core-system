@@ -47,8 +47,9 @@ public class RestfulApiConfig extends Application {
    * this method in getClasses().
    */
   private void addRestResourceClasses(Set<Class<?>> resources) {
-    resources.add(vn.cusc.aptech.cscs.war.apis.auth.CustomerAuthApi.class);
-    resources.add(vn.cusc.aptech.cscs.war.apis.auth.ShipperAuthApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.customer.AuthCustomerApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.customer.OrderCustomerApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.shipper.AuthShipperApi.class);
   }
 
 }
