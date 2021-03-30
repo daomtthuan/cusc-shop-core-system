@@ -23,18 +23,14 @@
  */
 package vn.cusc.aptech.cscs.war.models;
 
-import javax.inject.Inject;
+import java.time.ZoneId;
 import vn.cusc.aptech.cscs.ejb.entities.Information;
-import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 
 /**
  *
  * @author Daomtthuan
  */
 public class InformationModel implements Model {
-
-  @Inject
-  private DateHelper dateHelper;
 
   private String fullName;
   private String birthday;
@@ -48,7 +44,7 @@ public class InformationModel implements Model {
 
   public InformationModel(Information information) {
     this.fullName = information.getFullName();
-    this.birthday = dateHelper.localDateOf(information.getBirthday()).toString();
+    this.birthday = information.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().toString();
     this.gender = information.getGender();
     this.email = information.getEmail();
     this.address = information.getAddress();

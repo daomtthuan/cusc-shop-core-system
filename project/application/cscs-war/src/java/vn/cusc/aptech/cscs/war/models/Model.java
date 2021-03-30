@@ -23,11 +23,13 @@
  */
 package vn.cusc.aptech.cscs.war.models;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Daomtthuan
  */
-public interface Model {
+public interface Model extends Serializable {
 
   boolean isEmpty();
 
