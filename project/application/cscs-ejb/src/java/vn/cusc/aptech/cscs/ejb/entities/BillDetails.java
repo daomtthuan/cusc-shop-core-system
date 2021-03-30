@@ -68,11 +68,11 @@ public class BillDetails implements Serializable {
 
   @JoinColumn(name = "bill", referencedColumnName = "id", insertable = false, updatable = false)
   @ManyToOne(optional = false)
-  private Bill bill1;
+  private Bill bill;
 
   @JoinColumn(name = "product", referencedColumnName = "id", insertable = false, updatable = false)
   @ManyToOne(optional = false)
-  private Product product1;
+  private Product product;
 
   public BillDetails() {
   }
@@ -115,20 +115,20 @@ public class BillDetails implements Serializable {
     this.quantity = quantity;
   }
 
-  public Bill getBill1() {
-    return bill1;
+  public Bill getBill() {
+    return bill;
   }
 
-  public void setBill1(Bill bill1) {
-    this.bill1 = bill1;
+  public void setBill(Bill bill) {
+    this.bill = bill;
   }
 
-  public Product getProduct1() {
-    return product1;
+  public Product getProduct() {
+    return product;
   }
 
-  public void setProduct1(Product product1) {
-    this.product1 = product1;
+  public void setProduct(Product product) {
+    this.product = product;
   }
 
   @Override

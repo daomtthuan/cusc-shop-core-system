@@ -35,7 +35,7 @@ import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
 import vn.cusc.aptech.cscs.war.models.ErrorModel;
-import vn.cusc.aptech.cscs.war.models.ShipperModel;
+import vn.cusc.aptech.cscs.war.models.shipper.ShipperModel;
 import vn.cusc.aptech.cscs.war.models.auth.AuthModel;
 import vn.cusc.aptech.cscs.war.models.auth.ChangePasswordModel;
 import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;

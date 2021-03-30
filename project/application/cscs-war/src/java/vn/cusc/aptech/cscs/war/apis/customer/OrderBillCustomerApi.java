@@ -32,27 +32,34 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import vn.cusc.aptech.cscs.war.models.shipper.OrderBillCustomerModel;
 
 /**
  *
  * @author Daomtthuan
  */
 @Path("customer/order")
-public class OrderCustomerApi extends ApiHelper {
-//
-//  @POST
-//  @Consumes(MediaType.APPLICATION_JSON)
-//  @Produces(MediaType.APPLICATION_JSON)
-//  public Response post(@QueryParam("key") String hashKey, String body) {
-//    if (isEmptyParam(hashKey)) {
-//      return sendResponse(Response.Status.BAD_REQUEST);
-//    }
-//
-//    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-//    if (account == null) {
-//      return sendResponse(Response.Status.UNAUTHORIZED);
-//    }
-//
-//  }
+public class OrderBillCustomerApi extends ApiHelper {
+
+  @POST
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response post(@QueryParam("key") String hashKey, String body) {
+    if (isEmptyParam(hashKey)) {
+      return sendResponse(Response.Status.BAD_REQUEST);
+    }
+
+    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+    if (account == null) {
+      return sendResponse(Response.Status.UNAUTHORIZED);
+    }
+
+    OrderBillCustomerModel orderBillCustomerModel = getBody(body, OrderBillCustomerModel.class);
+    if (isEmptyBody(orderBillCustomerModel)) {
+      return sendResponse(Response.Status.BAD_REQUEST);
+    }
+
+    return sendResponse(Response.Status.OK, orderBillCustomerModel);
+  }
 
 }

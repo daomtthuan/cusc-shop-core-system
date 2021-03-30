@@ -21,68 +21,41 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models;
+package vn.cusc.aptech.cscs.war.models.shipper;
 
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import java.util.List;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CustomerModel implements Model {
+public class OrderBillCustomerModel implements Model {
 
-  private int id;
-  private String username;
-  private boolean state;
-  private InformationModel information;
+  private List<OrderBillDetailsCustomerModel> billDetails;
 
-  public CustomerModel() {
+  public OrderBillCustomerModel() {
   }
 
-  public CustomerModel(Customer customer) {
-    this.id = customer.getId();
-    this.username = customer.getUsername();
-    this.state = customer.getState();
-    this.information = new InformationModel(customer.getInformation());
+  public OrderBillCustomerModel(List<OrderBillDetailsCustomerModel> billDetails) {
+    this.billDetails = billDetails;
   }
 
-  public int getId() {
-    return id;
+  public List<OrderBillDetailsCustomerModel> getBillDetails() {
+    return billDetails;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public boolean isState() {
-    return state;
-  }
-
-  public void setState(boolean state) {
-    this.state = state;
-  }
-
-  public InformationModel getInformation() {
-    return information;
-  }
-
-  public void setInformation(InformationModel information) {
-    this.information = information;
+  public void setBillDetails(List<OrderBillDetailsCustomerModel> billDetails) {
+    this.billDetails = billDetails;
   }
 
   @Override
   public boolean isEmpty() {
-    return id == 0
-      || username == null || username.isEmpty()
-      || information == null || information.isEmpty();
+    if (billDetails == null || billDetails.isEmpty()) {
+      return false;
+    }
+
+    return billDetails.stream().noneMatch(billDetail -> (billDetail.isEmpty()));
   }
 
 }

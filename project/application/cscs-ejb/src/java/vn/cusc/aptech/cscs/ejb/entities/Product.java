@@ -96,7 +96,7 @@ public class Product implements Serializable {
   @ManyToOne(optional = false)
   private Brand brand;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "product1")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
   private Collection<BillDetails> billDetailsCollection;
 
   public Product() {

@@ -101,7 +101,7 @@ public class Bill implements Serializable {
   @ManyToOne(optional = false)
   private Employee shipper;
 
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill1")
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
   private Collection<BillDetails> billDetailsCollection;
 
   public Bill() {

@@ -21,21 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session.api;
+package vn.cusc.aptech.cscs.war.models.shipper;
 
-import java.util.HashMap;
-import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface BillApiSessionBeanLocal {
+public class OrderBillDetailsCustomerModel implements Model {
 
-  void addBill(Customer customer, List<Integer> idProducts, List<Integer> quantities);
+  private int idProduct;
+  private int quantity;
+
+  public OrderBillDetailsCustomerModel() {
+  }
+
+  public OrderBillDetailsCustomerModel(int idProduct, int quantity) {
+    this.idProduct = idProduct;
+    this.quantity = quantity;
+  }
+
+  public int getIdProduct() {
+    return idProduct;
+  }
+
+  public void setIdProduct(int idProduct) {
+    this.idProduct = idProduct;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return idProduct == 0;
+  }
 
 }

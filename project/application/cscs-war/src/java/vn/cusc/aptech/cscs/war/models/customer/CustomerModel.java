@@ -21,29 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models;
+package vn.cusc.aptech.cscs.war.models.customer;
 
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.war.models.InformationModel;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-public class ShipperModel implements Model {
+public class CustomerModel implements Model {
 
   private int id;
   private String username;
   private boolean state;
   private InformationModel information;
 
-  public ShipperModel() {
+  public CustomerModel() {
   }
 
-  public ShipperModel(Employee shipper) {
-    this.id = shipper.getId();
-    this.username = shipper.getUsername();
-    this.state = shipper.getState();
-    this.information = new InformationModel(shipper.getInformation());
+  public CustomerModel(Customer customer) {
+    this.id = customer.getId();
+    this.username = customer.getUsername();
+    this.state = customer.getState();
+    this.information = new InformationModel(customer.getInformation());
   }
 
   public int getId() {
