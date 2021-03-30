@@ -24,19 +24,12 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.product;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Brand;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
-import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
 import vn.cusc.aptech.cscs.ejb.entities.Product;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
@@ -44,18 +37,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
  *
  * @author Daomtthuan
  */
-@Named(value = "listProductShopDashboardPresenter")
+@Named(value = "deleteProductShopDashboardPresenter")
 @ViewScoped
-public class ListProductShopDashboardPresenter implements Serializable {
-
-  @EJB
-  private BrandFacadeLocal brandFacade;
-
-  @EJB
-  private CategoryGroupFacadeLocal categoryGroupFacade;
-
-  @EJB
-  private CategoryFacadeLocal categoryFacade;
+public class DeleteProductShopDashboardPresenter implements Serializable {
 
   @EJB
   private ProductFacadeLocal productFacade;
@@ -63,55 +47,24 @@ public class ListProductShopDashboardPresenter implements Serializable {
   @Inject
   private ViewHelper viewHelper;
 
-  private int idBrand;
-  private int idCategoryGroup;
-  private int idCategory;
+  private Product product;
 
   @PostConstruct
   public void init() {
-    idBrand = 0;
-    idCategoryGroup = 0;
-    idCategory = 0;
+    try {
+      product = productFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
-  public List<Brand> getBrands() {
-    return brandFacade.findAll();
+  public String delete() {
+    productFacade.remove(product);
+    return viewHelper.getPage("dashboard/shop/product/list");
   }
 
-  public List<CategoryGroup> getCategoryGroups() {
-    return categoryGroupFacade.findAll();
-  }
-
-  public List<Category> getCategories() {
-    return categoryFacade.findByFilter(idCategoryGroup);
-  }
-
-  public List<Product> getProducts() {
-    return productFacade.findByFilter(idBrand, idCategoryGroup, idCategory);
-  }
-
-  public int getIdBrand() {
-    return idBrand;
-  }
-
-  public void setIdBrand(int idBrand) {
-    this.idBrand = idBrand;
-  }
-
-  public int getIdCategoryGroup() {
-    return idCategoryGroup;
-  }
-
-  public void setIdCategoryGroup(int idCategoryGroup) {
-    this.idCategoryGroup = idCategoryGroup;
-  }
-
-  public int getIdCategory() {
-    return idCategory;
-  }
-
-  public void setIdCategory(int idCategory) {
-    this.idCategory = idCategory;
+  public Product getProduct() {
+    return product;
   }
 
 }

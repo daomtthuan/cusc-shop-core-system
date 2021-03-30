@@ -48,6 +48,6 @@ public interface RoleFacadeLocal {
 
   int count();
 
-  List<Role> findOnlyEmployeeRoles();
+  List<Role> findNotAdministrator();
 
 }

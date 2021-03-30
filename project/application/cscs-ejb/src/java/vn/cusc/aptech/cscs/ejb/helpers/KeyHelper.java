@@ -23,11 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.helpers;
 
-import java.security.MessageDigest;
-import java.util.Arrays;
 import java.util.Base64;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 
 /**
  *
@@ -35,32 +31,12 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class KeyHelper {
 
-  private static KeyHelper instance;
-
-  private final SecretKeySpec secretKey;
-  private final Cipher cipher;
-
-  private KeyHelper() throws Exception {
-    MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-    secretKey = new SecretKeySpec(Arrays.copyOf(messageDigest.digest("Team 4 EProject".getBytes("UTF-8")), 16), "AES");
-    cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+  public static String encode(String key) {
+    return Base64.getEncoder().encodeToString(key.getBytes());
   }
 
-  public String encrypt(String key) throws Exception {
-    cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-    return Base64.getEncoder().encodeToString(cipher.doFinal(key.getBytes("UTF-8")));
-  }
-
-  public String decrypt(String hashKey) throws Exception {
-    cipher.init(Cipher.DECRYPT_MODE, secretKey);
-    return new String(cipher.doFinal(Base64.getDecoder().decode(hashKey)));
-  }
-
-  public static KeyHelper getInstance() throws Exception {
-    if (instance == null) {
-      instance = new KeyHelper();
-    }
-    return instance;
+  public static String decode(String hashKey) {
+    return new String(Base64.getDecoder().decode(hashKey));
   }
 
 }

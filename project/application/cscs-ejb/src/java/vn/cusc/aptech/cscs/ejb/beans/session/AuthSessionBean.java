@@ -1,3 +1,4 @@
+
 /*
  * The MIT License
  *
@@ -82,33 +83,17 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
       return null;
     }
 
-    String key = account.getId() + " " + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
-    try {
-      return KeyHelper.getInstance().encrypt(key);
-    } catch (Exception ex) {
-      return null;
-    }
+    return KeyHelper.encode(account.getUsername() + ":" + BCrypt.hashpw(account.getPassword(), BCrypt.gensalt()));
   }
 
   @Override
   public Customer authenticateByCustomerLocalAccount(String hashKey) {
-    String key;
-    try {
-      key = KeyHelper.getInstance().decrypt(hashKey);
-    } catch (Exception ex) {
-      Logger.getLogger(AuthSessionBean.class.getName()).log(Level.SEVERE, null, ex);
-      return null;
-    }
-
-    String[] keyParts = key.split(" ");
-    String id = keyParts[0];
-    String hashOfHashPassword = keyParts[1];
-
-    Customer account = customerFacade.find(Integer.valueOf(id));
+    String[] keyParts = KeyHelper.decode(hashKey).split(":");
+    Customer account = customerFacade.findByUsername(keyParts[0]);
     if (account == null) {
       return null;
     }
-    return BCrypt.checkpw(account.getPassword(), hashOfHashPassword) ? account : null;
+    return BCrypt.checkpw(account.getPassword(), keyParts[1]) ? account : null;
   }
 
   @Override

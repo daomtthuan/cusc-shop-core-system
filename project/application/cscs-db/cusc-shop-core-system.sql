@@ -146,8 +146,7 @@ VALUES
 	('administrator'), 
 	('manager'), 
 	('salesman'), 
-	('shipper'), 
-	('customer');
+	('shipper');
     
 INSERT INTO
 	information (full_name, birthday, gender, email, address, phone)

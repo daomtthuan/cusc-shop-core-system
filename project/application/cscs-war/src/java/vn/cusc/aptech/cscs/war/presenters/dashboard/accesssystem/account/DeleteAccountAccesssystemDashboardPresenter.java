@@ -24,28 +24,26 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.accesssystem.account;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.RoleFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
-import vn.cusc.aptech.cscs.ejb.entities.Role;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "listAccountAccesssystemDashboardPresenter")
+@Named(value = "deleteAccountAccesssystemDashboardPresenter")
 @ViewScoped
-public class ListAccountAccesssystemDashboardPresenter implements Serializable {
+public class DeleteAccountAccesssystemDashboardPresenter implements Serializable {
 
-  @EJB
-  private RoleFacadeLocal roleFacade;
+  @Inject
+  private AuthSession authSession;
 
   @EJB
   private EmployeeFacadeLocal employeeFacade;
@@ -53,32 +51,27 @@ public class ListAccountAccesssystemDashboardPresenter implements Serializable {
   @Inject
   private ViewHelper viewHelper;
 
-  private int idRole;
+  private Employee account;
 
   @PostConstruct
   public void init() {
-    idRole = 0;
+    try {
+      account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (account.getId().equals(authSession.getAccount().getId())) {
+        viewHelper.redirect("errors/404");
+      }
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
-  public List<Employee> getAccounts() {
-    return employeeFacade.findByFilter(idRole);
-  }
-
-  public List<Role> getRoles() {
-    return roleFacade.findAll();
-  }
-
-  public String removeAccount(int id) {
-    employeeFacade.remove(employeeFacade.find(id));
+  public String delete() {
+    employeeFacade.remove(account);
     return viewHelper.getPage("dashboard/access-system/account/list");
   }
 
-  public int getIdRole() {
-    return idRole;
-  }
-
-  public void setIdRole(int idRole) {
-    this.idRole = idRole;
+  public Employee getAccount() {
+    return account;
   }
 
 }
