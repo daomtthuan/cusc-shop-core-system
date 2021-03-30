@@ -93,14 +93,15 @@ public class ListCategoryShopDashboardPresenter implements Serializable {
     return viewHelper.getPage("dashboard/shop/category/list");
   }
 
-  public String deleteCategory(String id) {
-    this.c = categoryFacade.findID(id);
+  public String deleteCategory(Object id) {
+    //this.c = categoryFacade.findID(id);
     if (this.c != null) {
       categoryFacade.remove(categoryFacade.find(id));
     } else {
       FacesContext context = FacesContext.getCurrentInstance();
       context.addMessage(null, new FacesMessage("You can't delete it."));
     }
+    //System.out.print(id + " deleted");
     return viewHelper.getPage("dashboard/shop/category/list");
   }
 
