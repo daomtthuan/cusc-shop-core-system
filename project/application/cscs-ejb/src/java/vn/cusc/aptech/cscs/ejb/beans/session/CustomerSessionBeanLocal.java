@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import java.util.Date;
 import javax.ejb.Local;
 
 /**
@@ -31,5 +32,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface CustomerSessionBeanLocal {
+
+  public String creatCustomer(String username, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address);
 
 }

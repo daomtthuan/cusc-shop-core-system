@@ -23,7 +23,16 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session;
 
+import java.util.Date;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+import org.mindrot.jbcrypt.BCrypt;
+import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Information;
 
 /**
  *
@@ -32,6 +41,25 @@ import javax.ejb.Stateless;
 @Stateless
 public class CustomerSessionBean implements CustomerSessionBeanLocal {
 
-  // Add business logic below. (Right-click in editor and choose
-  // "Insert Code > Add Business Method")
+  @EJB
+  private InformationFacadeLocal informationFacade;
+
+  @EJB
+  private CustomerFacadeLocal customerFacade;
+
+  @Override
+  @TransactionAttribute(TransactionAttributeType.REQUIRED)
+  public String creatCustomer(String username, boolean state, String fullName, Date birthday, boolean gender, String email, String phone, String address) {
+    if (customerFacade.findByUsername(username) != null) {
+      return "Username already exists";
+    }
+    Information information = new Information(null, fullName, birthday, gender, email, address, phone);
+    informationFacade.create(information);
+    String hashPassword = BCrypt.hashpw("1234", BCrypt.gensalt());
+    Customer customer = new Customer(null, username, hashPassword, state);
+    customer.setInformation(information);
+    customerFacade.create(customer);
+    return null;
+  }
+
 }

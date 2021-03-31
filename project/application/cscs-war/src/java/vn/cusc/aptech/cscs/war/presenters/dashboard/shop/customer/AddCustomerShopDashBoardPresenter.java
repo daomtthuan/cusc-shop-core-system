@@ -25,6 +25,7 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -35,13 +36,14 @@ import vn.cusc.aptech.cscs.ejb.beans.session.CustomerSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import javax.faces.view.ViewScoped;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
 @Named(value = "addCustomerShopDashBoardPresenter")
-@Dependent
+@ViewScoped
 public class AddCustomerShopDashBoardPresenter implements Serializable {
 
   @EJB
@@ -59,7 +61,7 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
   private int dayBirthday;
   private int monthBirthday;
   private int yearBirthday;
-  private LocalDate birthday;
+  private Date birthday;
   private String email;
   private String phone;
   private String address;
@@ -70,6 +72,8 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
   private String emailInputStyleClass;
   private String phoneInputStyleClass;
   private String addressInputStyleClass;
+
+  private String usernameFeedback;
 
   @PostConstruct
   public void init() {
@@ -91,6 +95,7 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
     emailInputStyleClass = null;
     phoneInputStyleClass = null;
     addressInputStyleClass = null;
+
   }
 
   public String add() {
@@ -100,6 +105,24 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
     boolean phoneValid = Pattern.matches(ValidationHelper.RegexPattern.PHONE, phone);
     boolean addressValid = Pattern.matches(ValidationHelper.RegexPattern.ANY, address);
     boolean birthdayValid = true;
+    usernameFeedback = usernameValid ? null : "Invalid username";
+    usernameInputStyleClass = usernameValid ? null : ValidationHelper.StyleClass.INVALID;
+    fullNameInputStyleClass = fullNameValid ? null : ValidationHelper.StyleClass.INVALID;
+    emailInputStyleClass = emailValid ? null : ValidationHelper.StyleClass.INVALID;
+    phoneInputStyleClass = phoneValid ? null : ValidationHelper.StyleClass.INVALID;
+    addressInputStyleClass = addressValid ? null : ValidationHelper.StyleClass.INVALID;
+
+    try {
+      birthday = dateHelper.dateOf(yearBirthday, monthBirthday, dayBirthday);
+    } catch (Exception e) {
+      birthdayValid = false;
+      birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;
+    }
+
+    if (!usernameValid || !fullNameValid || !birthdayValid || !emailValid || !phoneValid || !addressValid) {
+      return null;
+    }
+    customerSessionBean.creatCustomer(username, state, fullName, birthday, gender, email, phone, address);
 
     return viewHelper.getPage("dashboard/shop/customer/list");
   }
@@ -158,14 +181,6 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
 
   public void setYearBirthday(int yearBirthday) {
     this.yearBirthday = yearBirthday;
-  }
-
-  public LocalDate getBirthday() {
-    return birthday;
-  }
-
-  public void setBirthday(LocalDate birthday) {
-    this.birthday = birthday;
   }
 
   public String getEmail() {
