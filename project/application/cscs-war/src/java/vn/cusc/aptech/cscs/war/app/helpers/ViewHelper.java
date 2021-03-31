@@ -26,11 +26,11 @@ package vn.cusc.aptech.cscs.war.app.helpers;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Map;
-import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.war.app.config.AppConfig;
 
 /**

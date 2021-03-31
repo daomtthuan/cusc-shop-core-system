@@ -24,13 +24,11 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.session.CustomerSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;

@@ -24,8 +24,8 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.customer;
 
 import java.io.Serializable;
-import javax.inject.Named;
 import javax.enterprise.context.Dependent;
+import javax.inject.Named;
 
 /**
  *

@@ -25,8 +25,8 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
 
 /**

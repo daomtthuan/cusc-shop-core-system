@@ -26,17 +26,17 @@ THE SOFTWARE.
 <ui:composition template="#{appConfig.directory.layouts}/blank.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-  <ui:define name="title">Error 404 - Not Found</ui:define>
+  <ui:define name="title">Error 403 - Forbidden</ui:define>
 
   <ui:define name="page">
     <div class="error-wrapper d-flex align-items-center">
       <div class="container">
         <div class="col-xl-7 col-lg-6 bg-white shadow-sm p-3 mx-auto">
           <h1 class="text-danger">Oops!</h1>
-          <h2 class="text-dark">Error 404 - Not Found</h2>
+          <h2 class="text-dark">Error 403 - Forbidden</h2>
           <hr/>
           <p>
-            Sorry, the page you are looking for could not be found.
+            Sorry, You do not have access this content.
           </p>
           <a class="btn btn-dark" href="#{appConfig.directory.root}" >
             Go home

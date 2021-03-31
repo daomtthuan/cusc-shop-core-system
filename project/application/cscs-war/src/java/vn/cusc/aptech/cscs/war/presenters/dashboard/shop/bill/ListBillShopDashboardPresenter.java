@@ -27,8 +27,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
 

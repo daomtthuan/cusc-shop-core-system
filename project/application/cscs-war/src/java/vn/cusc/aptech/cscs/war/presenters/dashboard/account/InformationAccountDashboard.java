@@ -24,9 +24,9 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.account;
 
 import java.io.Serializable;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
 

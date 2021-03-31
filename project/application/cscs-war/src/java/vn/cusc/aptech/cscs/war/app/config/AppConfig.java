@@ -25,8 +25,8 @@ package vn.cusc.aptech.cscs.war.app.config;
 
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
-import javax.inject.Named;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.war.app.config.modules.*;
 
 /**

@@ -23,12 +23,12 @@
  */
 package vn.cusc.aptech.cscs.war.session;
 
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
