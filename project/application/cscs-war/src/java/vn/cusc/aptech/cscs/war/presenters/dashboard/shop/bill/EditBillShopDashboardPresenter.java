@@ -24,6 +24,7 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.bill;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -33,17 +34,18 @@ import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
 import vn.cusc.aptech.cscs.ejb.entities.BillDetails;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
-import vn.cusc.aptech.cscs.war.models.BillModel;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "detailsBillShopDashboardPresenter")
+@Named(value = "editBillShopDashboardPresenter")
 @ViewScoped
-public class DetailsBillShopDashboardPresenter implements Serializable {
+public class EditBillShopDashboardPresenter implements Serializable {
 
   @Inject
   private AuthSession authSession;
@@ -58,18 +60,31 @@ public class DetailsBillShopDashboardPresenter implements Serializable {
   private ViewHelper viewHelper;
 
   private Bill bill;
+  private int idShipper;
+  private int status;
+  private boolean state;
 
   @PostConstruct
   public void init() {
     try {
       bill = billFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (!bill.getSalesman().equals(authSession.getAccount())) {
+        viewHelper.redirect("errors/404");
+      }
+      if (bill.getStatus() != 0 && bill.getStatus() != 2) {
+        viewHelper.redirect("errors/404");
+      }
+
+      idShipper = bill.getShipper().getId();
+      status = bill.getStatus();
+      state = bill.getState();
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }
   }
 
-  public String getStatus() {
-    return BillModel.STATUSES[bill.getStatus()];
+  public List<Employee> getShippers() {
+    return employeeFacade.findAllShipper();
   }
 
   public double getTotalPrice() {
@@ -80,12 +95,45 @@ public class DetailsBillShopDashboardPresenter implements Serializable {
     return totalPrice;
   }
 
+  public String edit() {
+    bill.setShipper(employeeFacade.find(idShipper));
+    bill.setStatus(status);
+    bill.setState(state);
+    billFacade.edit(bill);
+
+    return viewHelper.getPage("dashboard/shop/bill/list");
+  }
+
   public Bill getBill() {
     return bill;
   }
 
   public void setBill(Bill bill) {
     this.bill = bill;
+  }
+
+  public int getIdShipper() {
+    return idShipper;
+  }
+
+  public void setIdShipper(int idShipper) {
+    this.idShipper = idShipper;
+  }
+
+  public int getStatus() {
+    return status;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
+  }
+
+  public boolean isState() {
+    return state;
+  }
+
+  public void setState(boolean state) {
+    this.state = state;
   }
 
 }

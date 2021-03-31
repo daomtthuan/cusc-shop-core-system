@@ -21,36 +21,47 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.config;
+package vn.cusc.aptech.cscs.war.models.shipper;
 
-import java.util.HashSet;
-import java.util.Set;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.ApplicationPath;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@ApplicationPath("apis")
-public class RestfulApiConfig extends Application {
+public class StatusModel implements Model {
 
-  @Override
-  public Set<Class<?>> getClasses() {
-    Set<Class<?>> resources = new HashSet<>();
-    addRestResourceClasses(resources);
-    return resources;
+  private int idBill;
+  private int status;
+
+  public StatusModel() {
   }
 
-  /**
-   * Do not modify addRestResourceClasses() method. It is automatically populated with all resources defined in the project. If required, comment out calling
-   * this method in getClasses().
-   */
-  private void addRestResourceClasses(Set<Class<?>> resources) {
-    resources.add(vn.cusc.aptech.cscs.war.apis.customer.AuthCustomerApi.class);
-    resources.add(vn.cusc.aptech.cscs.war.apis.customer.OrderCustomerApi.class);
-    resources.add(vn.cusc.aptech.cscs.war.apis.shipper.AuthShipperApi.class);
-    resources.add(vn.cusc.aptech.cscs.war.apis.shipper.ShipShipperApi.class);
+  public StatusModel(int idBill, int status) {
+    this.idBill = idBill;
+    this.status = status;
+  }
+
+  public int getIdBill() {
+    return idBill;
+  }
+
+  public void setIdBill(int idBill) {
+    this.idBill = idBill;
+  }
+
+  public int getStatus() {
+    return status;
+  }
+
+  public void setStatus(int status) {
+    this.status = status;
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return idBill == 0
+      || (status != 3 && status != 4);
   }
 
 }

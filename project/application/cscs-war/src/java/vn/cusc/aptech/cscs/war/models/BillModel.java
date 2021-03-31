@@ -34,8 +34,10 @@ import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
  */
 public class BillModel implements Model {
 
+  public static final String[] STATUSES = {"Canceled", "Pending", "Accepted", "Shipping", "Paid"};
+
   private int id;
-  private String customer;
+  private InformationModel customer;
   private String salesman;
   private String shipper;
   private String createDate;
@@ -44,7 +46,6 @@ public class BillModel implements Model {
   private String state;
 
   private static DateHelper dateHelper = new DateHelper();
-  private static String[] statuses = {"Canceled", "Pending", "Accepted", "Shipping", "Paid"};
 
   public BillModel() {
   }
@@ -55,12 +56,12 @@ public class BillModel implements Model {
     Date payDateBill = bill.getPayDate();
 
     id = bill.getId();
-    customer = bill.getCustomer().getInformation().getFullName();
+    customer = new InformationModel(bill.getCustomer().getInformation());
     salesman = salesmanBill != null ? salesmanBill.getInformation().getFullName() : null;
     shipper = shipperBill != null ? shipperBill.getInformation().getFullName() : null;
     createDate = dateHelper.stringDateTimeOf(bill.getCreateDate());
     payDate = payDateBill != null ? dateHelper.stringDateTimeOf(payDateBill) : null;
-    status = statuses[bill.getStatus()];
+    status = STATUSES[bill.getStatus()];
     state = bill.getState() ? "Enabled" : "Disabled";
   }
 
@@ -72,11 +73,11 @@ public class BillModel implements Model {
     this.id = id;
   }
 
-  public String getCustomer() {
+  public InformationModel getCustomer() {
     return customer;
   }
 
-  public void setCustomer(String customer) {
+  public void setCustomer(InformationModel customer) {
     this.customer = customer;
   }
 

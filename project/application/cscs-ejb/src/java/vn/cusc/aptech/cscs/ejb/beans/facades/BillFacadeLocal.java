@@ -26,6 +26,7 @@ package vn.cusc.aptech.cscs.ejb.beans.facades;
 import java.util.List;
 import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
@@ -49,5 +50,7 @@ public interface BillFacadeLocal {
   int count();
 
   List<Bill> findByStatus(int status);
+
+  List<Bill> findByShipperAndStatus(Employee shipper, int status);
 
 }

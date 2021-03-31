@@ -100,6 +100,10 @@ public class ConfirmBillShopDashboardPresenter implements Serializable {
   }
 
   public String cancel() {
+    bill.setStatus(0);
+    bill.setSalesman(authSession.getAccount());
+    billFacade.edit(bill);
+
     return viewHelper.getPage("dashboard/shop/bill/list");
   }
 

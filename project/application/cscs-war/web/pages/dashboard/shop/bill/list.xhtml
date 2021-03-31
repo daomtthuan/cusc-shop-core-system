@@ -57,6 +57,10 @@ THE SOFTWARE.
               <f:param name="id" value="#{bill.id}" />
               <i class="fas fa-check"></i>
             </h:link>
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/edit')}" styleClass="btn btn-sm btn-primary mr-1" rendered="#{(bill.status eq 0 or bill.status eq 2) and authSession.account eq bill.salesman }">
+              <f:param name="id" value="#{bill.id}" />
+              <i class="fas fa-edit"></i>
+            </h:link>
             <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/details')}" styleClass="btn btn-sm btn-secondary mr-1">
               <f:param name="id" value="#{bill.id}" />
               <i class="fas fa-eye"></i>
