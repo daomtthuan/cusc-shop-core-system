@@ -21,21 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.session.api;
+package vn.cusc.aptech.cscs.war.apis.customer;
 
-import java.util.List;
-import javafx.util.Pair;
-import javax.ejb.Local;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
+import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import vn.cusc.aptech.cscs.war.models.customer.CartModel;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface BillApiSessionBeanLocal {
+@Path("customer/order")
+public class OrderBillCustomerApi extends ApiHelper {
 
-  void addBill(Customer customer, List<Pair<Product, Integer>> cart);
+  @POST
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response post(@QueryParam("key") String hashKey, String body) {
+    if (isEmptyParam(hashKey)) {
+      return sendResponse(Response.Status.BAD_REQUEST);
+    }
+
+    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+    if (account == null) {
+      return sendResponse(Response.Status.UNAUTHORIZED);
+    }
+
+    CartModel cart = getBody(body, CartModel.class);
+    if (isEmptyBody(cart)) {
+      return sendResponse(Response.Status.BAD_REQUEST);
+    }
+
+    return sendResponse(Response.Status.OK, cart);
+  }
 
 }

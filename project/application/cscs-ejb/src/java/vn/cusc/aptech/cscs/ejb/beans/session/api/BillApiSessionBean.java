@@ -23,14 +23,17 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
-import java.util.HashMap;
 import java.util.List;
+import javafx.util.Pair;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillDetailsFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import vn.cusc.aptech.cscs.ejb.entities.BillDetails;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Product;
 
@@ -42,6 +45,9 @@ import vn.cusc.aptech.cscs.ejb.entities.Product;
 public class BillApiSessionBean implements BillApiSessionBeanLocal {
 
   @EJB
+  private ProductFacadeLocal productFacade;
+
+  @EJB
   private BillFacadeLocal billFacade;
 
   @EJB
@@ -49,16 +55,22 @@ public class BillApiSessionBean implements BillApiSessionBeanLocal {
 
   @Override
   @TransactionAttribute(TransactionAttributeType.REQUIRED)
-  public void addBill(Customer customer, List<HashMap<Product, Integer>> cart) {
-//    Bill bill = new Bill();
-//    bill.setCustomer(customer);
-//    billFacade.create(bill);
-//
-//    for (HashMap<Product, Integer> cartDetails : cart) {
-//      BillDetails billDetails = new BillDetails();
-//      billDetails.setBill1(bill);
-//      billDetails.setProduct1(cartDetails.);
-//    }
+  public void addBill(Customer customer, List<Pair<Product, Integer>> cart) {
+    Bill bill = new Bill();
+    bill.setCustomer(customer);
+    billFacade.create(bill);
+
+    cart.forEach(cartDetails -> {
+      Product product = cartDetails.getKey();
+      int quantity = cartDetails.getValue();
+
+      BillDetails billDetails = new BillDetails();
+      billDetails.setBill(bill);
+      billDetails.setProduct(product);
+      billDetails.setQuantity(quantity);
+      billDetails.setPrice(product.getPrice() * quantity);
+      billDetailsFacade.create(billDetails);
+    });
   }
 
 }

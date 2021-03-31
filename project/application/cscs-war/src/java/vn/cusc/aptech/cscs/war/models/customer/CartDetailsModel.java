@@ -21,68 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models;
+package vn.cusc.aptech.cscs.war.models.customer;
 
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CustomerModel implements Model {
+public class CartDetailsModel implements Model {
 
-  private int id;
-  private String username;
-  private boolean state;
-  private InformationModel information;
+  private int idProduct;
+  private int quantity;
 
-  public CustomerModel() {
+  public CartDetailsModel() {
   }
 
-  public CustomerModel(Customer customer) {
-    this.id = customer.getId();
-    this.username = customer.getUsername();
-    this.state = customer.getState();
-    this.information = new InformationModel(customer.getInformation());
+  public CartDetailsModel(int idProduct, int quantity) {
+    this.idProduct = idProduct;
+    this.quantity = quantity;
   }
 
-  public int getId() {
-    return id;
+  public int getIdProduct() {
+    return idProduct;
   }
 
-  public void setId(int id) {
-    this.id = id;
+  public void setIdProduct(int idProduct) {
+    this.idProduct = idProduct;
   }
 
-  public String getUsername() {
-    return username;
+  public int getQuantity() {
+    return quantity;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public boolean isState() {
-    return state;
-  }
-
-  public void setState(boolean state) {
-    this.state = state;
-  }
-
-  public InformationModel getInformation() {
-    return information;
-  }
-
-  public void setInformation(InformationModel information) {
-    this.information = information;
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
   }
 
   @Override
   public boolean isEmpty() {
-    return id == 0
-      || username == null || username.isEmpty()
-      || information == null || information.isEmpty();
+    return idProduct == 0;
   }
 
 }

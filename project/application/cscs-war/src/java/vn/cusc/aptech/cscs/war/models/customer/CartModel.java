@@ -21,38 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.customer;
+package vn.cusc.aptech.cscs.war.models.customer;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
+import java.util.ArrayList;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Path("customer/order")
-public class OrderCustomerApi extends ApiHelper {
-//
-//  @POST
-//  @Consumes(MediaType.APPLICATION_JSON)
-//  @Produces(MediaType.APPLICATION_JSON)
-//  public Response post(@QueryParam("key") String hashKey, String body) {
-//    if (isEmptyParam(hashKey)) {
-//      return sendResponse(Response.Status.BAD_REQUEST);
-//    }
-//
-//    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
-//    if (account == null) {
-//      return sendResponse(Response.Status.UNAUTHORIZED);
-//    }
-//
-//  }
+public class CartModel extends ArrayList<CartDetailsModel> implements Model {
 
 }
