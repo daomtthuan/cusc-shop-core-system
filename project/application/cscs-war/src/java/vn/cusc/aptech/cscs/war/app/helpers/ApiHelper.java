@@ -42,10 +42,17 @@ public class ApiHelper {
 
   protected final AuthApiSessionBeanLocal authApiSessionBean;
   protected final Gson gson;
+  protected final Context context;
 
   protected ApiHelper() {
     gson = new Gson();
-    authApiSessionBean = lookupAuthApiSessionBeanLocal();
+    try {
+      context = new InitialContext();
+      authApiSessionBean = (AuthApiSessionBeanLocal) context.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal");
+    } catch (NamingException e) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+      throw new RuntimeException(e);
+    }
   }
 
   protected boolean isEmptyParam(String param) {
@@ -70,16 +77,6 @@ public class ApiHelper {
 
   protected Response sendResponse(Response.Status status, Object data) {
     return Response.status(status).entity(gson.toJson(data)).build();
-  }
-
-  private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
-    try {
-      Context c = new InitialContext();
-      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal");
-    } catch (NamingException ne) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-      throw new RuntimeException(ne);
-    }
   }
 
 }

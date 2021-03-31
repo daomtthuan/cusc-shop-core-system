@@ -55,11 +55,16 @@ public class ManagerFilter implements Filter {
     HttpServletRequest req = (HttpServletRequest) request;
     HttpServletResponse res = (HttpServletResponse) response;
 
-    if (!authSession.getAccount().getRole().getName().equalsIgnoreCase("manager")) {
+    String nameRole = authSession.getAccount().getRole().getName();
+
+    if (req.getRequestURI().startsWith("/cscs-war/pages/dashboard/shop/bill/") && nameRole.equalsIgnoreCase("salesman")) {
+      chain.doFilter(request, response);
+    } else if (!authSession.getAccount().getRole().getName().equalsIgnoreCase("manager")) {
       res.sendRedirect(req.getContextPath());
     } else {
       chain.doFilter(request, response);
     }
+
   }
 
   @Override

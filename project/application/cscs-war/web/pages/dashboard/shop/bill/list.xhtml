@@ -25,10 +25,73 @@ THE SOFTWARE.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-  <ui:define name="title">Shop - Bill</ui:define>
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  <ui:define name="title">Shop - Bill - List</ui:define>
 
   <ui:define name="page">
-    Shop - Bill
+    <div class="container-fluid">
+      <h2>Bill list</h2>
+      <hr />
+      <h:form>
+        <div class="form-group">
+          <h:outputLabel for="input-brand" value="Brand" />
+          <h:selectOneMenu id="input-brand" value="#{listBillShopDashboardPresenter.status}" styleClass="custom-select">
+            <f:selectItem itemValue="0" itemLabel="Canceled" />
+            <f:selectItem itemValue="1" itemLabel="Pending" />
+            <f:selectItem itemValue="2" itemLabel="Accepted" />
+            <f:selectItem itemValue="3" itemLabel="Shipping" />
+            <f:selectItem itemValue="4" itemLabel="Paid" />
+            <f:ajax render="datatable" />
+          </h:selectOneMenu>
+        </div>
+      </h:form>
+      <hr />
+      <h:dataTable id="datatable" value="#{listBillShopDashboardPresenter.bills}" var="bill" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+        <h:column>
+          <f:facet name="header">Actions</f:facet>
+          <div class="d-flex">
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/confirm')}" styleClass="btn btn-sm btn-primary mr-1" rendered="#{bill.status eq 1 and authSession.account.role.name eq 'salesman'}">
+              <f:param name="id" value="#{bill.id}" />
+              <i class="fas fa-check"></i>
+            </h:link>
+            <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/details')}" styleClass="btn btn-sm btn-secondary mr-1">
+              <f:param name="id" value="#{bill.id}" />
+              <i class="fas fa-eye"></i>
+            </h:link>
+          </div>
+        </h:column>
+        <h:column>
+          <f:facet name="header">Id</f:facet>
+            #{bill.id}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Customer</f:facet>
+            #{bill.customer.information.fullName}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Salesman</f:facet>
+            #{bill.salesman.information.fullName}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Shipper</f:facet>
+            #{bill.shipper.information.fullName}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Create date</f:facet>
+            #{dateHelper.stringDateTimeOf(bill.createDate)}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Pay date</f:facet>
+            #{dateHelper.stringDateTimeOf(bill.payDate)}
+        </h:column>
+        <h:column>
+          <f:facet name="header">State</f:facet>
+            #{bill.state ? "Enabled" : "Disabled"}
+        </h:column>
+      </h:dataTable>
+    </div>
   </ui:define>
 </ui:composition>

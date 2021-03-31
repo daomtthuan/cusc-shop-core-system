@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,6 +46,11 @@ public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal 
 
   public BillFacade() {
     super(Bill.class);
+  }
+
+  @Override
+  public List<Bill> findByStatus(int status) {
+    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
   }
 
 }

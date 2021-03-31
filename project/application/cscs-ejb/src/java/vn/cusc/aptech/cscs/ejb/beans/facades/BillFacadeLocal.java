@@ -48,4 +48,6 @@ public interface BillFacadeLocal {
 
   int count();
 
+  List<Bill> findByStatus(int status);
+
 }

@@ -45,6 +45,9 @@ public class DateHelper implements Serializable {
   }
 
   public Date dateOf(LocalDate date) {
+    if (date == null) {
+      return null;
+    }
     return Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
   }
 
@@ -53,10 +56,16 @@ public class DateHelper implements Serializable {
   }
 
   public LocalDate localDateOf(Date date) {
+    if (date == null) {
+      return null;
+    }
     return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
   }
 
   public String stringDateTimeOf(Date date) {
+    if (date == null) {
+      return null;
+    }
     return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
   }
 

@@ -21,39 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.bill;
 
+import java.io.Serializable;
 import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.faces.view.ViewScoped;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Bill;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface EmployeeFacadeLocal {
+@Named(value = "listBillShopDashboardPresenter")
+@ViewScoped
+public class ListBillShopDashboardPresenter implements Serializable {
 
-  void create(Employee employee);
+  @EJB
+  private BillFacadeLocal billFacade;
 
-  void edit(Employee employee);
+  private int status;
 
-  void remove(Employee employee);
+  @PostConstruct
+  public void init() {
+    status = 1;
+  }
 
-  Employee find(Object id);
+  public List<Bill> getBills() {
+    return billFacade.findByStatus(status);
+  }
 
-  List<Employee> findAll();
+  public int getStatus() {
+    return status;
+  }
 
-  List<Employee> findRange(int[] range);
-
-  int count();
-
-  Employee findByUsername(String username);
-
-  List<Employee> findByFilter(Object idRole);
-
-  Employee findShipperByUsername(String username);
-
-  List<Employee> findAllShipper();
+  public void setStatus(int status) {
+    this.status = status;
+  }
 
 }

@@ -71,6 +71,14 @@ THE SOFTWARE.
             <hr />
           </div>
         </c:if>
+
+        <c:if test="#{authSession.account.role.name eq 'salesman'}">
+          <button id="heading-shop" class="btn btn-block btn-dark btn-sm text-left mb-2" data-toggle="collapse" data-target="#collapse-shop" aria-expanded="true" aria-controls="collapse-shop">Shop</button>
+          <div id="collapse-shop" class="collapse" aria-labelledby="heading-shop" data-parent="#sidebar-accordion">
+            <h:link styleClass="btn btn-sm btn-block btn-light text-left mb-1 border-dark" value="Bill" outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}" />
+            <hr />
+          </div>
+        </c:if>
       </div>
     </nav>
   </cc:implementation>

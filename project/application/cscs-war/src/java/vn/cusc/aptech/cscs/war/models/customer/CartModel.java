@@ -31,5 +31,4 @@ import vn.cusc.aptech.cscs.war.models.Model;
  * @author Daomtthuan
  */
 public class CartModel extends ArrayList<CartDetailsModel> implements Model {
-
 }

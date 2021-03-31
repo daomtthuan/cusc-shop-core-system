@@ -71,4 +71,11 @@ public class EmployeeFacade extends AbstractFacade<Employee> implements Employee
     return employees;
   }
 
+  @Override
+  public List<Employee> findAllShipper() {
+    return em.createQuery("SELECT e FROM Employee e WHERE e.role.id = :idRole")
+      .setParameter("idRole", 4)
+      .getResultList();
+  }
+
 }

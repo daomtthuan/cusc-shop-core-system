@@ -54,13 +54,18 @@ import vn.cusc.aptech.cscs.war.models.customer.CartModel;
 @Path("customer/order")
 public class OrderCustomerApi extends ApiHelper {
 
-  private final BillApiSessionBeanLocal billApiSessionBean;
   private final ProductFacadeLocal productFacade;
+  private final BillApiSessionBeanLocal billApiSessionBean;
 
   public OrderCustomerApi() {
     super();
-    productFacade = lookupProductFacadeLocal();
-    billApiSessionBean = lookupBillApiSessionBeanLocal();
+    try {
+      productFacade = (ProductFacadeLocal) context.lookup("java:global/application/cscs-ejb/ProductFacade!vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal");
+      billApiSessionBean = (BillApiSessionBeanLocal) context.lookup("java:global/application/cscs-ejb/BillApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal");
+    } catch (NamingException e) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
+      throw new RuntimeException(e);
+    }
   }
 
   @POST
@@ -94,26 +99,6 @@ public class OrderCustomerApi extends ApiHelper {
       return sendResponse(Response.Status.INTERNAL_SERVER_ERROR);
     }
     return sendResponse(Response.Status.OK, new BillModel(bill));
-  }
-
-  private ProductFacadeLocal lookupProductFacadeLocal() {
-    try {
-      Context c = new InitialContext();
-      return (ProductFacadeLocal) c.lookup("java:global/application/cscs-ejb/ProductFacade!vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal");
-    } catch (NamingException ne) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-      throw new RuntimeException(ne);
-    }
-  }
-
-  private BillApiSessionBeanLocal lookupBillApiSessionBeanLocal() {
-    try {
-      Context c = new InitialContext();
-      return (BillApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/BillApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal");
-    } catch (NamingException ne) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
-      throw new RuntimeException(ne);
-    }
   }
 
 }
