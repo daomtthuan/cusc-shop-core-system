@@ -24,7 +24,7 @@
 package vn.cusc.aptech.cscs.ejb.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -60,44 +60,36 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Product implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "name")
   private String name;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "price")
   private float price;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "quantity")
   private int quantity;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
-
   @JoinColumn(name = "category", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Category category;
-
   @JoinColumn(name = "brand", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Brand brand;
-
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-  private Collection<BillDetails> billDetailsCollection;
+  private List<BillDetails> billDetailsList;
 
   public Product() {
   }
@@ -171,12 +163,12 @@ public class Product implements Serializable {
   }
 
   @XmlTransient
-  public Collection<BillDetails> getBillDetailsCollection() {
-    return billDetailsCollection;
+  public List<BillDetails> getBillDetailsList() {
+    return billDetailsList;
   }
 
-  public void setBillDetailsCollection(Collection<BillDetails> billDetailsCollection) {
-    this.billDetailsCollection = billDetailsCollection;
+  public void setBillDetailsList(List<BillDetails> billDetailsList) {
+    this.billDetailsList = billDetailsList;
   }
 
   @Override
@@ -188,12 +180,15 @@ public class Product implements Serializable {
 
   @Override
   public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Product)) {
       return false;
     }
-
     Product other = (Product) object;
-    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override

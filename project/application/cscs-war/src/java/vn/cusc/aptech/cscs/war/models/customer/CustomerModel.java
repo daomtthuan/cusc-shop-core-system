@@ -35,17 +35,17 @@ public class CustomerModel implements Model {
 
   private int id;
   private String username;
-  private boolean state;
+  private String state;
   private InformationModel information;
 
   public CustomerModel() {
   }
 
   public CustomerModel(Customer customer) {
-    this.id = customer.getId();
-    this.username = customer.getUsername();
-    this.state = customer.getState();
-    this.information = new InformationModel(customer.getInformation());
+    id = customer.getId();
+    username = customer.getUsername();
+    state = customer.getState() ? "Enabled" : "Disabled";
+    information = new InformationModel(customer.getInformation());
   }
 
   public int getId() {
@@ -64,11 +64,11 @@ public class CustomerModel implements Model {
     this.username = username;
   }
 
-  public boolean isState() {
+  public String getState() {
     return state;
   }
 
-  public void setState(boolean state) {
+  public void setState(String state) {
     this.state = state;
   }
 
@@ -84,7 +84,8 @@ public class CustomerModel implements Model {
   public boolean isEmpty() {
     return id == 0
       || username == null || username.isEmpty()
-      || information == null || information.isEmpty();
+      || information == null || information.isEmpty()
+      || state == null || state.isEmpty();
   }
 
 }

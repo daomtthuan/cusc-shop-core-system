@@ -24,8 +24,8 @@
 package vn.cusc.aptech.cscs.ejb.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -62,47 +62,38 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Bill implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "create_date")
   @Temporal(TemporalType.TIMESTAMP)
   private Date createDate;
-
   @Column(name = "pay_date")
   @Temporal(TemporalType.TIMESTAMP)
   private Date payDate;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "status")
   private int status;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
-
   @JoinColumn(name = "customer", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Customer customer;
-
   @JoinColumn(name = "salesman", referencedColumnName = "id")
-  @ManyToOne(optional = false)
+  @ManyToOne
   private Employee salesman;
-
   @JoinColumn(name = "shipper", referencedColumnName = "id")
-  @ManyToOne(optional = false)
+  @ManyToOne
   private Employee shipper;
-
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "bill")
-  private Collection<BillDetails> billDetailsCollection;
+  private List<BillDetails> billDetailsList;
 
   public Bill() {
   }
@@ -183,12 +174,12 @@ public class Bill implements Serializable {
   }
 
   @XmlTransient
-  public Collection<BillDetails> getBillDetailsCollection() {
-    return billDetailsCollection;
+  public List<BillDetails> getBillDetailsList() {
+    return billDetailsList;
   }
 
-  public void setBillDetailsCollection(Collection<BillDetails> billDetailsCollection) {
-    this.billDetailsCollection = billDetailsCollection;
+  public void setBillDetailsList(List<BillDetails> billDetailsList) {
+    this.billDetailsList = billDetailsList;
   }
 
   @Override
@@ -204,9 +195,11 @@ public class Bill implements Serializable {
     if (!(object instanceof Bill)) {
       return false;
     }
-
     Bill other = (Bill) object;
-    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override

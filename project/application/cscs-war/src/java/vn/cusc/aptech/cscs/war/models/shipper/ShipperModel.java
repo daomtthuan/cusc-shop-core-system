@@ -35,17 +35,17 @@ public class ShipperModel implements Model {
 
   private int id;
   private String username;
-  private boolean state;
+  private String state;
   private InformationModel information;
 
   public ShipperModel() {
   }
 
   public ShipperModel(Employee shipper) {
-    this.id = shipper.getId();
-    this.username = shipper.getUsername();
-    this.state = shipper.getState();
-    this.information = new InformationModel(shipper.getInformation());
+    id = shipper.getId();
+    username = shipper.getUsername();
+    state = shipper.getState() ? "Enabled" : "Disabled";
+    information = new InformationModel(shipper.getInformation());
   }
 
   public int getId() {
@@ -64,11 +64,11 @@ public class ShipperModel implements Model {
     this.username = username;
   }
 
-  public boolean isState() {
+  public String getState() {
     return state;
   }
 
-  public void setState(boolean state) {
+  public void setState(String state) {
     this.state = state;
   }
 
@@ -84,7 +84,8 @@ public class ShipperModel implements Model {
   public boolean isEmpty() {
     return id == 0
       || username == null || username.isEmpty()
-      || information == null || information.isEmpty();
+      || information == null || information.isEmpty()
+      || state == null || state.isEmpty();
   }
 
 }

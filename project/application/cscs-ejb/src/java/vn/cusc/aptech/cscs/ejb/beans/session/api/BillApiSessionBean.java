@@ -23,7 +23,8 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 import javafx.util.Pair;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -55,22 +56,23 @@ public class BillApiSessionBean implements BillApiSessionBeanLocal {
 
   @Override
   @TransactionAttribute(TransactionAttributeType.REQUIRED)
-  public void addBill(Customer customer, List<Pair<Product, Integer>> cart) {
-    Bill bill = new Bill();
+  public Bill addBill(Customer customer, ArrayList<Pair<Product, Integer>> cart) {
+    Bill bill = new Bill(null, new Date(), 1, true);
     bill.setCustomer(customer);
     billFacade.create(bill);
 
-    cart.forEach(cartDetails -> {
+    for (Pair<Product, Integer> cartDetails : cart) {
       Product product = cartDetails.getKey();
       int quantity = cartDetails.getValue();
 
-      BillDetails billDetails = new BillDetails();
+      BillDetails billDetails = new BillDetails(null, product.getPrice(), quantity);
       billDetails.setBill(bill);
       billDetails.setProduct(product);
-      billDetails.setQuantity(quantity);
-      billDetails.setPrice(product.getPrice() * quantity);
       billDetailsFacade.create(billDetails);
-    });
+    }
+
+    return bill;
+
   }
 
 }

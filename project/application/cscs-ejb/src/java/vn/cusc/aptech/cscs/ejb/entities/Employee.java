@@ -24,9 +24,8 @@
 package vn.cusc.aptech.cscs.ejb.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -59,40 +58,32 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Employee implements Account, Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "username")
   private String username;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "password")
   private String password;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
-
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "salesman")
-  private Collection<Bill> sellBillCollection;
-
-  @OneToMany(cascade = CascadeType.ALL, mappedBy = "shipper")
-  private Collection<Bill> shipBillCollection;
-
+  @OneToMany(mappedBy = "salesman")
+  private List<Bill> billList;
+  @OneToMany(mappedBy = "shipper")
+  private List<Bill> billList1;
   @JoinColumn(name = "role", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Role role;
-
   @JoinColumn(name = "information", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Information information;
@@ -111,62 +102,54 @@ public class Employee implements Account, Serializable {
     this.state = state;
   }
 
-  @Override
   public Integer getId() {
     return id;
   }
 
-  @Override
   public void setId(Integer id) {
     this.id = id;
   }
 
-  @Override
   public String getUsername() {
     return username;
   }
 
-  @Override
   public void setUsername(String username) {
     this.username = username;
   }
 
-  @Override
   public String getPassword() {
     return password;
   }
 
-  @Override
   public void setPassword(String password) {
     this.password = password;
   }
 
-  @Override
   public boolean getState() {
     return state;
   }
 
-  @Override
   public void setState(boolean state) {
     this.state = state;
   }
 
   @XmlTransient
-  public Collection<Bill> getSellBillCollection() {
-    return sellBillCollection;
+  public List<Bill> getBillList() {
+    return billList;
   }
 
-  public void setSellBillCollection(Collection<Bill> sellBillCollection) {
-    this.sellBillCollection = sellBillCollection;
+  public void setBillList(List<Bill> billList) {
+    this.billList = billList;
   }
 
   @XmlTransient
-  public Collection<Bill> getShipBillCollection() {
-    return shipBillCollection;
+  public List<Bill> getBillList1() {
+    return billList1;
   }
 
-  public void setShipBillCollection(Collection<Bill> shipBillCollection) {
-    this.shipBillCollection = shipBillCollection;
+  public void setBillList1(List<Bill> billList1) {
+    this.billList1 = billList1;
   }
 
   public Role getRole() {
@@ -177,12 +160,10 @@ public class Employee implements Account, Serializable {
     this.role = role;
   }
 
-  @Override
   public Information getInformation() {
     return information;
   }
 
-  @Override
   public void setInformation(Information information) {
     this.information = information;
   }
@@ -196,12 +177,15 @@ public class Employee implements Account, Serializable {
 
   @Override
   public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Employee)) {
       return false;
     }
-
     Employee other = (Employee) object;
-    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override

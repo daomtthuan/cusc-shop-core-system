@@ -36,9 +36,9 @@ import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
 import vn.cusc.aptech.cscs.war.models.customer.CustomerModel;
 import vn.cusc.aptech.cscs.war.models.ErrorModel;
-import vn.cusc.aptech.cscs.war.models.auth.AuthModel;
-import vn.cusc.aptech.cscs.war.models.auth.ChangePasswordModel;
-import vn.cusc.aptech.cscs.war.models.auth.KeyAuthModel;
+import vn.cusc.aptech.cscs.war.models.AuthModel;
+import vn.cusc.aptech.cscs.war.models.ChangePasswordModel;
+import vn.cusc.aptech.cscs.war.models.KeyAuthModel;
 
 /**
  *

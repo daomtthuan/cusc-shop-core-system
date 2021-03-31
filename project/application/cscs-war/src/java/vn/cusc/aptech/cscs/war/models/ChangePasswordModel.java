@@ -21,47 +21,45 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.auth;
-
-import vn.cusc.aptech.cscs.war.models.Model;
+package vn.cusc.aptech.cscs.war.models;
 
 /**
  *
  * @author Daomtthuan
  */
-public class AuthModel implements Model {
+public class ChangePasswordModel implements Model {
 
-  private String username;
-  private String password;
+  private String oldPassword;
+  private String newPassword;
 
-  public AuthModel() {
+  public ChangePasswordModel() {
   }
 
-  public AuthModel(String username, String password) {
-    this.username = username;
-    this.password = password;
+  public ChangePasswordModel(String oldPassword, String newPassword) {
+    this.oldPassword = oldPassword;
+    this.newPassword = newPassword;
   }
 
-  public String getUsername() {
-    return username;
+  public String getOldPassword() {
+    return oldPassword;
   }
 
-  public void setUsername(String username) {
-    this.username = username;
+  public void setOldPassword(String oldPassword) {
+    this.oldPassword = oldPassword;
   }
 
-  public String getPassword() {
-    return password;
+  public String getNewPassword() {
+    return newPassword;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setNewPassword(String newPassword) {
+    this.newPassword = newPassword;
   }
 
   @Override
   public boolean isEmpty() {
-    return username == null || username.isEmpty()
-      || password == null || password.isEmpty();
+    return oldPassword == null || oldPassword.isEmpty()
+      || newPassword == null || newPassword.isEmpty();
   }
 
 }

@@ -24,7 +24,7 @@
 package vn.cusc.aptech.cscs.ejb.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -58,27 +58,22 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Category implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "name")
   private String name;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
-
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-  private Collection<Product> productCollection;
-
+  private List<Product> productList;
   @JoinColumn(name = "category_group", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private CategoryGroup categoryGroup;
@@ -121,12 +116,12 @@ public class Category implements Serializable {
   }
 
   @XmlTransient
-  public Collection<Product> getProductCollection() {
-    return productCollection;
+  public List<Product> getProductList() {
+    return productList;
   }
 
-  public void setProductCollection(Collection<Product> productCollection) {
-    this.productCollection = productCollection;
+  public void setProductList(List<Product> productList) {
+    this.productList = productList;
   }
 
   public CategoryGroup getCategoryGroup() {
@@ -146,12 +141,15 @@ public class Category implements Serializable {
 
   @Override
   public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Category)) {
       return false;
     }
-
     Category other = (Category) object;
-    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override

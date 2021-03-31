@@ -21,9 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.auth;
-
-import vn.cusc.aptech.cscs.war.models.Model;
+package vn.cusc.aptech.cscs.war.models;
 
 /**
  *

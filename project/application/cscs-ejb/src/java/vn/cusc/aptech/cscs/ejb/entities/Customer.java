@@ -24,7 +24,7 @@
 package vn.cusc.aptech.cscs.ejb.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -59,33 +59,27 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Customer implements Account, Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Basic(optional = false)
   @Column(name = "id")
   private Integer id;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "username")
   private String username;
-
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 100)
   @Column(name = "password")
   private String password;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "state")
   private boolean state;
-
   @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-  private Collection<Bill> billCollection;
-
+  private List<Bill> billList;
   @JoinColumn(name = "information", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Information information;
@@ -104,61 +98,51 @@ public class Customer implements Account, Serializable {
     this.state = state;
   }
 
-  @Override
   public Integer getId() {
     return id;
   }
 
-  @Override
   public void setId(Integer id) {
     this.id = id;
   }
 
-  @Override
   public String getUsername() {
     return username;
   }
 
-  @Override
   public void setUsername(String username) {
     this.username = username;
   }
 
-  @Override
   public String getPassword() {
     return password;
   }
 
-  @Override
   public void setPassword(String password) {
     this.password = password;
   }
 
-  @Override
   public boolean getState() {
     return state;
   }
 
-  @Override
   public void setState(boolean state) {
     this.state = state;
   }
 
   @XmlTransient
-  public Collection<Bill> getBillCollection() {
-    return billCollection;
+  public List<Bill> getBillList() {
+    return billList;
   }
 
-  public void setBillCollection(Collection<Bill> billCollection) {
-    this.billCollection = billCollection;
+  public void setBillList(List<Bill> billList) {
+    this.billList = billList;
   }
 
-  @Override
   public Information getInformation() {
     return information;
   }
 
-  @Override
   public void setInformation(Information information) {
     this.information = information;
   }
@@ -172,11 +156,15 @@ public class Customer implements Account, Serializable {
 
   @Override
   public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof Customer)) {
       return false;
     }
     Customer other = (Customer) object;
-    return !((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override

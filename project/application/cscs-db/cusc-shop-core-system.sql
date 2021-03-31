@@ -126,12 +126,13 @@ CREATE TABLE bill (
 );
 
 CREATE TABLE bill_details (
+	id INT NOT NULL AUTO_INCREMENT,
     bill INT NOT NULL,
     product INT NOT NULL,
     price FLOAT NOT NULL,
     quantity INT NOT NULL,
     
-    PRIMARY KEY (bill , product),
+    PRIMARY KEY (id),
     FOREIGN KEY (bill)
      REFERENCES bill (id)
      ON DELETE CASCADE,

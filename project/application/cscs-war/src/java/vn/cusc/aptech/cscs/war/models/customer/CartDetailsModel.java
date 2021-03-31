@@ -38,8 +38,8 @@ public class CartDetailsModel implements Model {
   }
 
   public CartDetailsModel(int idProduct, int quantity) {
-    this.idProduct = idProduct;
-    this.quantity = quantity;
+    idProduct = idProduct;
+    quantity = quantity;
   }
 
   public int getIdProduct() {

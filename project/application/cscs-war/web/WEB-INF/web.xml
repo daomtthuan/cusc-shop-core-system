@@ -38,4 +38,16 @@
     <local>vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal</local>
     <ejb-link>cscs-ejb.jar#AuthApiSessionBean</ejb-link>
   </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>ProductFacade</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal</local>
+    <ejb-link>cscs-ejb.jar#ProductFacade</ejb-link>
+  </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>BillApiSessionBean</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal</local>
+    <ejb-link>cscs-ejb.jar#BillApiSessionBean</ejb-link>
+  </ejb-local-ref>
 </web-app>

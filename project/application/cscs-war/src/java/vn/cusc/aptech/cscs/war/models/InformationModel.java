@@ -34,7 +34,7 @@ public class InformationModel implements Model {
 
   private String fullName;
   private String birthday;
-  private boolean gender;
+  private String gender;
   private String email;
   private String address;
   private String phone;
@@ -43,12 +43,12 @@ public class InformationModel implements Model {
   }
 
   public InformationModel(Information information) {
-    this.fullName = information.getFullName();
-    this.birthday = information.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().toString();
-    this.gender = information.getGender();
-    this.email = information.getEmail();
-    this.address = information.getAddress();
-    this.phone = information.getPhone();
+    fullName = information.getFullName();
+    birthday = information.getBirthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate().toString();
+    gender = information.getGender() ? "Male" : "Female";
+    email = information.getEmail();
+    address = information.getAddress();
+    phone = information.getPhone();
   }
 
   public String getFullName() {
@@ -67,11 +67,11 @@ public class InformationModel implements Model {
     this.birthday = birthday;
   }
 
-  public boolean isGender() {
+  public String getGender() {
     return gender;
   }
 
-  public void setGender(boolean gender) {
+  public void setGender(String gender) {
     this.gender = gender;
   }
 
@@ -102,6 +102,7 @@ public class InformationModel implements Model {
   @Override
   public boolean isEmpty() {
     return fullName == null || fullName.isEmpty()
+      || gender == null || gender.isEmpty()
       || birthday == null || birthday.isEmpty()
       || email == null || email.isEmpty()
       || address == null || address.isEmpty()

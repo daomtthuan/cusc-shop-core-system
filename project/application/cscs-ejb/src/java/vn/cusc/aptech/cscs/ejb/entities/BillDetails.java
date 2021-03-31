@@ -26,8 +26,10 @@ package vn.cusc.aptech.cscs.ejb.entities;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -45,58 +47,51 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
   @NamedQuery(name = "BillDetails.findAll", query = "SELECT b FROM BillDetails b"),
-  @NamedQuery(name = "BillDetails.findByBill", query = "SELECT b FROM BillDetails b WHERE b.billDetailsPK.bill = :bill"),
-  @NamedQuery(name = "BillDetails.findByProduct", query = "SELECT b FROM BillDetails b WHERE b.billDetailsPK.product = :product"),
+  @NamedQuery(name = "BillDetails.findById", query = "SELECT b FROM BillDetails b WHERE b.id = :id"),
   @NamedQuery(name = "BillDetails.findByPrice", query = "SELECT b FROM BillDetails b WHERE b.price = :price"),
   @NamedQuery(name = "BillDetails.findByQuantity", query = "SELECT b FROM BillDetails b WHERE b.quantity = :quantity")})
 public class BillDetails implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
-  @EmbeddedId
-  protected BillDetailsPK billDetailsPK;
-
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Basic(optional = false)
+  @Column(name = "id")
+  private Integer id;
   @Basic(optional = false)
   @NotNull
   @Column(name = "price")
   private float price;
-
   @Basic(optional = false)
   @NotNull
   @Column(name = "quantity")
   private int quantity;
-
-  @JoinColumn(name = "bill", referencedColumnName = "id", insertable = false, updatable = false)
+  @JoinColumn(name = "bill", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Bill bill;
-
-  @JoinColumn(name = "product", referencedColumnName = "id", insertable = false, updatable = false)
+  @JoinColumn(name = "product", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Product product;
 
   public BillDetails() {
   }
 
-  public BillDetails(BillDetailsPK billDetailsPK) {
-    this.billDetailsPK = billDetailsPK;
+  public BillDetails(Integer id) {
+    this.id = id;
   }
 
-  public BillDetails(BillDetailsPK billDetailsPK, float price, int quantity) {
-    this.billDetailsPK = billDetailsPK;
+  public BillDetails(Integer id, float price, int quantity) {
+    this.id = id;
     this.price = price;
     this.quantity = quantity;
   }
 
-  public BillDetails(int bill, int product) {
-    this.billDetailsPK = new BillDetailsPK(bill, product);
+  public Integer getId() {
+    return id;
   }
 
-  public BillDetailsPK getBillDetailsPK() {
-    return billDetailsPK;
-  }
-
-  public void setBillDetailsPK(BillDetailsPK billDetailsPK) {
-    this.billDetailsPK = billDetailsPK;
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public float getPrice() {
@@ -134,23 +129,26 @@ public class BillDetails implements Serializable {
   @Override
   public int hashCode() {
     int hash = 0;
-    hash += (billDetailsPK != null ? billDetailsPK.hashCode() : 0);
+    hash += (id != null ? id.hashCode() : 0);
     return hash;
   }
 
   @Override
   public boolean equals(Object object) {
+    // TODO: Warning - this method won't work in the case the id fields are not set
     if (!(object instanceof BillDetails)) {
       return false;
     }
-
     BillDetails other = (BillDetails) object;
-    return !((this.billDetailsPK == null && other.billDetailsPK != null) || (this.billDetailsPK != null && !this.billDetailsPK.equals(other.billDetailsPK)));
+    if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+      return false;
+    }
+    return true;
   }
 
   @Override
   public String toString() {
-    return "vn.cusc.aptech.cscs.ejb.entities.BillDetails[ billDetailsPK=" + billDetailsPK + " ]";
+    return "vn.cusc.aptech.cscs.ejb.entities.BillDetails[ id=" + id + " ]";
   }
 
 }

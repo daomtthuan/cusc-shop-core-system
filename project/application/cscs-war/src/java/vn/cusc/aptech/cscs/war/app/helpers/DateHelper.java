@@ -24,6 +24,7 @@
 package vn.cusc.aptech.cscs.war.app.helpers;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -53,6 +54,10 @@ public class DateHelper implements Serializable {
 
   public LocalDate localDateOf(Date date) {
     return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+  }
+
+  public String stringDateTimeOf(Date date) {
+    return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
   }
 
   public int[] getCurrentYears() {
