@@ -55,6 +55,15 @@ public class EmployeeFacade extends AbstractFacade<Employee> implements Employee
   }
 
   @Override
+  public Employee findNotShipperByUsername(String username) {
+    List<Employee> employees = em.createQuery("SELECT e FROM Employee e WHERE e.username = :username AND e.role.id <> :idRole")
+      .setParameter("username", username)
+      .setParameter("idRole", 4)
+      .getResultList();
+    return employees.isEmpty() ? null : employees.get(0);
+  }
+
+  @Override
   public Employee findShipperByUsername(String username) {
     List<Employee> employees = em.createQuery("SELECT e FROM Employee e WHERE e.username = :username AND e.role.id = :idRole")
       .setParameter("username", username)

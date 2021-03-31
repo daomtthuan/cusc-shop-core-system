@@ -26,23 +26,17 @@ THE SOFTWARE.
 <ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
   <ui:define name="title">Home</ui:define>
 
   <ui:define name="page">
     <div class="container-fluid">
-      <h1>Hello #{authSession.account.information.fullName}</h1>
-      <h2>Birthday:</h2>
-      <p>#{authSession.account.information.birthday}</p>
-      <div class="line"><hr/></div>
-      <h2>Phone:</h2>
-      <p>#{authSession.account.information.phone}</p>
-      <div class="line"><hr/></div>
-      <h3>Email:</h3>
-      <p>#{authSession.account.information.email}</p>
-      <div class="line"><hr/></div>
-      <h2>Address:</h2>
-      <p>#{authSession.account.information.address}</p>
+      <c:choose>
+        <c:when test="#{authSession.account.role.name eq 'administrator'}"></c:when>
+        <c:when test="#{authSession.account.role.name eq 'manager'}"></c:when>
+        <c:when test="#{authSession.account.role.name eq 'salesman'}"></c:when>
+      </c:choose>
     </div>
   </ui:define>
 </ui:composition>

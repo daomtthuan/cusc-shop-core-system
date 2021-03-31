@@ -50,6 +50,8 @@ public interface EmployeeFacadeLocal {
 
   Employee findByUsername(String username);
 
+  Employee findNotShipperByUsername(String username);
+
   List<Employee> findByFilter(Object idRole);
 
   Employee findShipperByUsername(String username);

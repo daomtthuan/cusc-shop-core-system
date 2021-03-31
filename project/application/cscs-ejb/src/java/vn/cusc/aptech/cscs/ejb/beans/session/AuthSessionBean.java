@@ -64,8 +64,9 @@ public class AuthSessionBean implements AuthSessionBeanLocal {
 
   @Override
   public Employee authenticateByLocalAccount(String username, String password) {
-    Employee account = employeeFacade.findByUsername(username);
+    Employee account = employeeFacade.findNotShipperByUsername(username);
     return authenticateLocalAccount(account, password) ? account : null;
+
   }
 
   @Override

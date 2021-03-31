@@ -33,7 +33,7 @@ import javax.ws.rs.ApplicationPath;
  * @author Daomtthuan
  */
 @ApplicationPath("apis")
-public class RestfulApiConfig extends Application {
+public class ApiConfig extends Application {
 
   @Override
   public Set<Class<?>> getClasses() {
