@@ -21,46 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.shipper;
+package vn.cusc.aptech.cscs.war.models.customer;
 
+import java.util.ArrayList;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-public class OrderBillDetailsCustomerModel implements Model {
-
-  private int idProduct;
-  private int quantity;
-
-  public OrderBillDetailsCustomerModel() {
-  }
-
-  public OrderBillDetailsCustomerModel(int idProduct, int quantity) {
-    this.idProduct = idProduct;
-    this.quantity = quantity;
-  }
-
-  public int getIdProduct() {
-    return idProduct;
-  }
-
-  public void setIdProduct(int idProduct) {
-    this.idProduct = idProduct;
-  }
-
-  public int getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-
-  @Override
-  public boolean isEmpty() {
-    return idProduct == 0;
-  }
+public class CartModel extends ArrayList<CartDetailsModel> implements Model {
 
 }

@@ -23,8 +23,8 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.session.api;
 
-import java.util.HashMap;
 import java.util.List;
+import javafx.util.Pair;
 import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Product;
@@ -36,6 +36,6 @@ import vn.cusc.aptech.cscs.ejb.entities.Product;
 @Local
 public interface BillApiSessionBeanLocal {
 
-  void addBill(Customer customer, List<Integer> idProducts, List<Integer> quantities);
+  void addBill(Customer customer, List<Pair<Product, Integer>> cart);
 
 }

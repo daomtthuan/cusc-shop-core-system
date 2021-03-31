@@ -21,41 +21,46 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.shipper;
+package vn.cusc.aptech.cscs.war.models.customer;
 
-import java.util.List;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-public class OrderBillCustomerModel implements Model {
+public class CartDetailsModel implements Model {
 
-  private List<OrderBillDetailsCustomerModel> billDetails;
+  private int idProduct;
+  private int quantity;
 
-  public OrderBillCustomerModel() {
+  public CartDetailsModel() {
   }
 
-  public OrderBillCustomerModel(List<OrderBillDetailsCustomerModel> billDetails) {
-    this.billDetails = billDetails;
+  public CartDetailsModel(int idProduct, int quantity) {
+    this.idProduct = idProduct;
+    this.quantity = quantity;
   }
 
-  public List<OrderBillDetailsCustomerModel> getBillDetails() {
-    return billDetails;
+  public int getIdProduct() {
+    return idProduct;
   }
 
-  public void setBillDetails(List<OrderBillDetailsCustomerModel> billDetails) {
-    this.billDetails = billDetails;
+  public void setIdProduct(int idProduct) {
+    this.idProduct = idProduct;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
   }
 
   @Override
   public boolean isEmpty() {
-    if (billDetails == null || billDetails.isEmpty()) {
-      return false;
-    }
-
-    return billDetails.stream().noneMatch(billDetail -> (billDetail.isEmpty()));
+    return idProduct == 0;
   }
 
 }

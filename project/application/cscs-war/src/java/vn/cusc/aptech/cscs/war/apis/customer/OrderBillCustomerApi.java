@@ -32,7 +32,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
-import vn.cusc.aptech.cscs.war.models.shipper.OrderBillCustomerModel;
+import vn.cusc.aptech.cscs.war.models.customer.CartModel;
 
 /**
  *
@@ -54,12 +54,12 @@ public class OrderBillCustomerApi extends ApiHelper {
       return sendResponse(Response.Status.UNAUTHORIZED);
     }
 
-    OrderBillCustomerModel orderBillCustomerModel = getBody(body, OrderBillCustomerModel.class);
-    if (isEmptyBody(orderBillCustomerModel)) {
+    CartModel cart = getBody(body, CartModel.class);
+    if (isEmptyBody(cart)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    return sendResponse(Response.Status.OK, orderBillCustomerModel);
+    return sendResponse(Response.Status.OK, cart);
   }
 
 }

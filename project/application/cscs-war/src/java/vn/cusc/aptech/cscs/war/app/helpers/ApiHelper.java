@@ -24,6 +24,7 @@
 package vn.cusc.aptech.cscs.war.app.helpers;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -56,18 +57,19 @@ public class ApiHelper {
   }
 
   protected <T extends Object> T getBody(String body, Class<T> classOfT) {
-    return gson.fromJson(body, classOfT);
+    try {
+      return gson.fromJson(body, classOfT);
+    } catch (JsonSyntaxException e) {
+      return null;
+    }
   }
 
   protected Response sendResponse(Response.Status status) {
-    return Response.status(status)
-      .build();
+    return Response.status(status).build();
   }
 
   protected Response sendResponse(Response.Status status, Object data) {
-    return Response.status(status)
-      .entity(gson.toJson(data))
-      .build();
+    return Response.status(status).entity(gson.toJson(data)).build();
   }
 
   private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
