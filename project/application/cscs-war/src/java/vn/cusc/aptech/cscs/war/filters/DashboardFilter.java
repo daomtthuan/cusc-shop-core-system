@@ -40,8 +40,8 @@ import vn.cusc.aptech.cscs.war.session.AuthSession;
  *
  * @author Daomtthuan
  */
-@WebFilter(filterName = "ManagerFilter", urlPatterns = {"/pages/dashboard/shop/*", "/pages/dashboard/shop/statistics/*"})
-public class ManagerFilter implements Filter {
+@WebFilter(filterName = "DashboardFilter", urlPatterns = {"/pages/dashboard/*"})
+public class DashboardFilter implements Filter {
 
   @Inject
   private AuthSession authSession;
@@ -55,16 +55,11 @@ public class ManagerFilter implements Filter {
     HttpServletRequest req = (HttpServletRequest) request;
     HttpServletResponse res = (HttpServletResponse) response;
 
-    String nameRole = authSession.getAccount().getRole().getName();
-
-    if (req.getRequestURI().startsWith("/cscs-war/pages/dashboard/shop/bill/") && nameRole.equalsIgnoreCase("salesman")) {
-      chain.doFilter(request, response);
-    } else if (!authSession.getAccount().getRole().getName().equalsIgnoreCase("manager")) {
+    if (!authSession.isLoggedIn()) {
       res.sendRedirect(req.getContextPath());
     } else {
       chain.doFilter(request, response);
     }
-
   }
 
   @Override

@@ -40,8 +40,8 @@ import vn.cusc.aptech.cscs.war.session.AuthSession;
  *
  * @author Daomtthuan
  */
-@WebFilter(filterName = "AdministratorFilter", urlPatterns = {"/pages/dashboard/access-system/*"})
-public class AdministratorFilter implements Filter {
+@WebFilter(filterName = "StatisticsFilter", urlPatterns = {"/pages/dashboard/shop/statistics/*"})
+public class StatisticsFilter implements Filter {
 
   @Inject
   private AuthSession authSession;
@@ -55,11 +55,12 @@ public class AdministratorFilter implements Filter {
     HttpServletRequest req = (HttpServletRequest) request;
     HttpServletResponse res = (HttpServletResponse) response;
 
-    if (!authSession.getAccount().getRole().getName().equalsIgnoreCase("administrator")) {
+    if (!authSession.getAccount().getRole().getName().equalsIgnoreCase("manager")) {
       res.sendRedirect(req.getContextPath());
     } else {
       chain.doFilter(request, response);
     }
+
   }
 
   @Override
