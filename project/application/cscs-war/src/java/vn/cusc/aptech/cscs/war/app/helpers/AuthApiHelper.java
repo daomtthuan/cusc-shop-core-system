@@ -23,47 +23,34 @@
  */
 package vn.cusc.aptech.cscs.war.app.helpers;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.war.models.Model;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal;
 
 /**
  *
  * @author Daomtthuan
  */
-public class ApiHelper {
+public class AuthApiHelper extends ApiHelper {
 
-  protected final Gson gson;
-  protected final DateHelper dateHelper;
+  protected final AuthApiSessionBeanLocal authApiSessionBean;
 
-  protected ApiHelper() {
-    gson = new Gson();
-    dateHelper = new DateHelper();
+  protected AuthApiHelper() {
+    super();
+    authApiSessionBean = lookupAuthApiSessionBeanLocal();
   }
 
-  protected boolean isEmptyParam(String param) {
-    return param == null || param.isEmpty();
-  }
-
-  protected boolean isEmptyBody(Model body) {
-    return body == null || body.isEmpty();
-  }
-
-  protected <T extends Object> T getBody(String body, Class<T> classOfT) {
+  private AuthApiSessionBeanLocal lookupAuthApiSessionBeanLocal() {
     try {
-      return gson.fromJson(body, classOfT);
-    } catch (JsonSyntaxException e) {
-      return null;
+      Context c = new InitialContext();
+      return (AuthApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/AuthApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal");
+    } catch (NamingException ne) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+      throw new RuntimeException(ne);
     }
-  }
-
-  protected Response sendResponse(Response.Status status) {
-    return Response.status(status).build();
-  }
-
-  protected Response sendResponse(Response.Status status, Object data) {
-    return Response.status(status).entity(gson.toJson(data)).build();
   }
 
 }

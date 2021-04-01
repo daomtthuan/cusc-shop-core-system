@@ -21,49 +21,60 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.helpers;
+package vn.cusc.aptech.cscs.war.models;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.war.models.Model;
+import java.time.LocalDate;
 
 /**
  *
  * @author Daomtthuan
  */
-public class ApiHelper {
+public class DateModel implements Model {
 
-  protected final Gson gson;
-  protected final DateHelper dateHelper;
+  private int day;
+  private int month;
+  private int year;
 
-  protected ApiHelper() {
-    gson = new Gson();
-    dateHelper = new DateHelper();
+  public DateModel() {
   }
 
-  protected boolean isEmptyParam(String param) {
-    return param == null || param.isEmpty();
+  public DateModel(int day, int month, int year) {
+    this.day = day;
+    this.month = month;
+    this.year = year;
   }
 
-  protected boolean isEmptyBody(Model body) {
-    return body == null || body.isEmpty();
+  public int getDay() {
+    return day;
   }
 
-  protected <T extends Object> T getBody(String body, Class<T> classOfT) {
+  public void setDay(int day) {
+    this.day = day;
+  }
+
+  public int getMonth() {
+    return month;
+  }
+
+  public void setMonth(int month) {
+    this.month = month;
+  }
+
+  public int getYear() {
+    return year;
+  }
+
+  public void setYear(int year) {
+    this.year = year;
+  }
+
+  @Override
+  public boolean isEmpty() {
     try {
-      return gson.fromJson(body, classOfT);
-    } catch (JsonSyntaxException e) {
-      return null;
+      return LocalDate.of(year, month, day) == null;
+    } catch (Exception e) {
+      return true;
     }
-  }
-
-  protected Response sendResponse(Response.Status status) {
-    return Response.status(status).build();
-  }
-
-  protected Response sendResponse(Response.Status status, Object data) {
-    return Response.status(status).entity(gson.toJson(data)).build();
   }
 
 }

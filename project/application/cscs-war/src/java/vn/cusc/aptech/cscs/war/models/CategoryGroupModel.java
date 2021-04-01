@@ -21,49 +21,36 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.app.helpers;
+package vn.cusc.aptech.cscs.war.models;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.war.models.Model;
+import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
 
 /**
  *
  * @author Daomtthuan
  */
-public class ApiHelper {
+public class CategoryGroupModel implements Model {
 
-  protected final Gson gson;
-  protected final DateHelper dateHelper;
+  private String name;
 
-  protected ApiHelper() {
-    gson = new Gson();
-    dateHelper = new DateHelper();
+  public CategoryGroupModel() {
   }
 
-  protected boolean isEmptyParam(String param) {
-    return param == null || param.isEmpty();
+  public CategoryGroupModel(CategoryGroup categoryGroup) {
+    name = categoryGroup.getName();
   }
 
-  protected boolean isEmptyBody(Model body) {
-    return body == null || body.isEmpty();
+  public String getName() {
+    return name;
   }
 
-  protected <T extends Object> T getBody(String body, Class<T> classOfT) {
-    try {
-      return gson.fromJson(body, classOfT);
-    } catch (JsonSyntaxException e) {
-      return null;
-    }
+  public void setName(String name) {
+    this.name = name;
   }
 
-  protected Response sendResponse(Response.Status status) {
-    return Response.status(status).build();
-  }
-
-  protected Response sendResponse(Response.Status status, Object data) {
-    return Response.status(status).entity(gson.toJson(data)).build();
+  @Override
+  public boolean isEmpty() {
+    return name == null || name.isEmpty();
   }
 
 }

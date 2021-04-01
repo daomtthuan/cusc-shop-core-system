@@ -42,8 +42,7 @@ import vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.ejb.entities.Product;
-import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
-import vn.cusc.aptech.cscs.war.models.BillModel;
+import vn.cusc.aptech.cscs.war.app.helpers.AuthApiHelper;
 import vn.cusc.aptech.cscs.war.models.customer.CartDetailsModel;
 import vn.cusc.aptech.cscs.war.models.customer.CartModel;
 
@@ -52,7 +51,7 @@ import vn.cusc.aptech.cscs.war.models.customer.CartModel;
  * @author Daomtthuan
  */
 @Path("customer/order")
-public class OrderCustomerApi extends ApiHelper {
+public class OrderCustomerApi extends AuthApiHelper {
 
   private final ProductFacadeLocal productFacade;
   private final BillApiSessionBeanLocal billApiSessionBean;
@@ -94,7 +93,7 @@ public class OrderCustomerApi extends ApiHelper {
     if (bill == null) {
       return sendResponse(Response.Status.INTERNAL_SERVER_ERROR);
     }
-    return sendResponse(Response.Status.OK, new BillModel(bill));
+    return sendResponse(Response.Status.OK);
   }
 
   private ProductFacadeLocal lookupProductFacadeLocal() {

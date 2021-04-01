@@ -47,9 +47,15 @@ public class ApiConfig extends Application {
    * this method in getClasses().
    */
   private void addRestResourceClasses(Set<Class<?>> resources) {
+    resources.add(vn.cusc.aptech.cscs.war.apis.BrandApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.CategoryApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.CategoryGroupApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.ProductApi.class);
     resources.add(vn.cusc.aptech.cscs.war.apis.customer.AuthCustomerApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.customer.InformationCustomerApi.class);
     resources.add(vn.cusc.aptech.cscs.war.apis.customer.OrderCustomerApi.class);
     resources.add(vn.cusc.aptech.cscs.war.apis.shipper.AuthShipperApi.class);
+    resources.add(vn.cusc.aptech.cscs.war.apis.shipper.InformationShipperApi.class);
     resources.add(vn.cusc.aptech.cscs.war.apis.shipper.ShipShipperApi.class);
   }
 

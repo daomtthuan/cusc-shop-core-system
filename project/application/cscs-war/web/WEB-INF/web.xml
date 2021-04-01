@@ -76,4 +76,28 @@
     <local>vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal</local>
     <ejb-link>cscs-ejb.jar#BillFacade</ejb-link>
   </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>InformationFacade</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal</local>
+    <ejb-link>cscs-ejb.jar#InformationFacade</ejb-link>
+  </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>BrandFacade</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal</local>
+    <ejb-link>cscs-ejb.jar#BrandFacade</ejb-link>
+  </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>CategoryGroupFacade</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal</local>
+    <ejb-link>cscs-ejb.jar#CategoryGroupFacade</ejb-link>
+  </ejb-local-ref>
+  <ejb-local-ref>
+    <ejb-ref-name>CategoryFacade</ejb-ref-name>
+    <ejb-ref-type>Session</ejb-ref-type>
+    <local>vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal</local>
+    <ejb-link>cscs-ejb.jar#CategoryFacade</ejb-link>
+  </ejb-local-ref>
 </web-app>

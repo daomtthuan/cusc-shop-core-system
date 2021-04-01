@@ -21,10 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.apis.shipper;
+package vn.cusc.aptech.cscs.war.apis.customer;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -38,53 +36,37 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Information;
 import vn.cusc.aptech.cscs.war.app.helpers.AuthApiHelper;
-import vn.cusc.aptech.cscs.war.models.BillModel;
-import vn.cusc.aptech.cscs.war.models.shipper.StatusModel;
+import vn.cusc.aptech.cscs.war.models.ChangeInformationModel;
+import vn.cusc.aptech.cscs.war.models.InformationModel;
 
 /**
+ * `
  *
  * @author Daomtthuan
  */
-@Path("shipper/ship")
-public class ShipShipperApi extends AuthApiHelper {
+@Path("customer/information")
+public class InformationCustomerApi extends AuthApiHelper {
 
-  private final BillFacadeLocal billFacade;
+  private final InformationFacadeLocal informationFacade;
 
-  public ShipShipperApi() {
+  public InformationCustomerApi() {
     super();
-    billFacade = lookupBillFacadeLocal();
+    informationFacade = lookupInformationFacadeLocal();
   }
 
   @GET
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  public Response get(@QueryParam("key") String hashKey, @QueryParam("status") String status) {
-    if (isEmptyParam(hashKey) || isEmptyParam(status)) {
+  public Response get(@QueryParam("key") String hashKey) {
+    if (isEmptyParam(hashKey)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
-    int statusValue;
-    try {
-      statusValue = Integer.parseInt(status);
-      if (statusValue < 2 || statusValue > 4) {
-        return sendResponse(Response.Status.BAD_REQUEST);
-      }
-    } catch (NumberFormatException e) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-
-    Employee account = authApiSessionBean.authenticateByShipperLocalAccount(hashKey);
-    if (account == null) {
-      return sendResponse(Response.Status.UNAUTHORIZED);
-    }
-
-    ArrayList<BillModel> billModelses = new ArrayList<>();
-    billFacade.findByShipperAndStatus(account, statusValue).forEach(bill -> billModelses.add(new BillModel(bill)));
-
-    return sendResponse(Response.Status.OK, billModelses);
+    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+    return account == null ? sendResponse(Response.Status.UNAUTHORIZED) : sendResponse(Response.Status.OK, new InformationModel(account.getInformation()));
   }
 
   @PUT
@@ -94,34 +76,27 @@ public class ShipShipperApi extends AuthApiHelper {
     if (isEmptyParam(hashKey)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
-
-    Employee account = authApiSessionBean.authenticateByShipperLocalAccount(hashKey);
-    if (account == null) {
-      return sendResponse(Response.Status.UNAUTHORIZED);
-    }
-
-    StatusModel statusModel = getBody(body, StatusModel.class);
-    if (isEmptyBody(statusModel)) {
+    Customer account = authApiSessionBean.authenticateByCustomerLocalAccount(hashKey);
+    ChangeInformationModel changeInformationModel = getBody(body, ChangeInformationModel.class);
+    if (isEmptyBody(changeInformationModel)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    Bill bill = billFacade.find(statusModel.getIdBill());
-    if (bill == null) {
-      return sendResponse(Response.Status.BAD_REQUEST);
-    }
-    bill.setStatus(statusModel.getStatus());
-    if (statusModel.getStatus() == 4) {
-      bill.setPayDate(new Date());
-    }
-    billFacade.edit(bill);
-
+    Information information = account.getInformation();
+    information.setFullName(changeInformationModel.getFullName());
+    information.setBirthday(dateHelper.dateOf(changeInformationModel.getBirthday().getYear(), changeInformationModel.getBirthday().getMonth(), changeInformationModel.getBirthday().getDay()));
+    information.setGender(changeInformationModel.getGender());
+    information.setEmail(changeInformationModel.getEmail());
+    information.setAddress(changeInformationModel.getAddress());
+    information.setPhone(changeInformationModel.getPhone());
+    informationFacade.edit(information);
     return sendResponse(Response.Status.OK);
   }
 
-  private BillFacadeLocal lookupBillFacadeLocal() {
+  private InformationFacadeLocal lookupInformationFacadeLocal() {
     try {
       Context c = new InitialContext();
-      return (BillFacadeLocal) c.lookup("java:global/application/cscs-ejb/BillFacade!vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal");
+      return (InformationFacadeLocal) c.lookup("java:global/application/cscs-ejb/InformationFacade!vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal");
     } catch (NamingException ne) {
       Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
       throw new RuntimeException(ne);

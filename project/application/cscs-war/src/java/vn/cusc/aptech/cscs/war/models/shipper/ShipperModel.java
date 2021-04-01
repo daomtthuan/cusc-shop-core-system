@@ -36,7 +36,6 @@ public class ShipperModel implements Model {
   private int id;
   private String username;
   private String state;
-  private InformationModel information;
 
   public ShipperModel() {
   }
@@ -45,7 +44,6 @@ public class ShipperModel implements Model {
     id = shipper.getId();
     username = shipper.getUsername();
     state = shipper.getState() ? "Enabled" : "Disabled";
-    information = new InformationModel(shipper.getInformation());
   }
 
   public int getId() {
@@ -72,19 +70,10 @@ public class ShipperModel implements Model {
     this.state = state;
   }
 
-  public InformationModel getInformation() {
-    return information;
-  }
-
-  public void setInformation(InformationModel information) {
-    this.information = information;
-  }
-
   @Override
   public boolean isEmpty() {
     return id == 0
       || username == null || username.isEmpty()
-      || information == null || information.isEmpty()
       || state == null || state.isEmpty();
   }
 
