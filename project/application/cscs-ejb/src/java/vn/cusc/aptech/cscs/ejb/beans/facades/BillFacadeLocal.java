@@ -23,6 +23,7 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;

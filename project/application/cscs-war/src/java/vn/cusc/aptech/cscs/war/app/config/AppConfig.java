@@ -80,6 +80,10 @@ public class AppConfig implements Serializable {
         new StyleAsset("stylesheet", // rel
           "https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.min.css", // href
           new String[] {"blank"} // excludes
+        ),
+        new StyleAsset("stylesheet", // rel
+          "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.css", // href
+          new String[] {"blank", "dashboard"} // excludes
         )
       }, //styles
       new ScriptAsset[] {
@@ -88,6 +92,9 @@ public class AppConfig implements Serializable {
         new ScriptAsset(directory.getRoot() + "/assets/scripts/custom.js"),
         new ScriptAsset("https://cdn.jsdelivr.net/npm/malihu-custom-scrollbar-plugin@3.1.5/jquery.mCustomScrollbar.concat.min.js", // src
           new String[] {"blank"} // excludes
+        ),
+        new ScriptAsset("https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js", // src
+          new String[] {"blank", "dashboard"} // excludes
         )
       } // scripts
     );

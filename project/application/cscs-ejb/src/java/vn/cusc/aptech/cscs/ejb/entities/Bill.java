@@ -182,6 +182,14 @@ public class Bill implements Serializable {
     this.billDetailsList = billDetailsList;
   }
 
+  public double getTotalPrice() {
+    double totalPrice = 0;
+    for (BillDetails billDetails : getBillDetailsList()) {
+      totalPrice += billDetails.getPrice() * billDetails.getQuantity();
+    }
+    return totalPrice;
+  }
+
   @Override
   public int hashCode() {
     int hash = 0;

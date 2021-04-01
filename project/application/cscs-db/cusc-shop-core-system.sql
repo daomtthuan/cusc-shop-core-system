@@ -141,6 +141,22 @@ CREATE TABLE bill_details (
      ON DELETE CASCADE
 );
 
+CREATE VIEW date_revenue AS
+    SELECT 
+        DATE(total.pay_date) AS date,
+        SUM(total.total_price) AS total_price
+    FROM
+        (SELECT 
+            bill.*,
+                SUM(bill_details.price * bill_details.quantity) AS total_price
+        FROM
+            bill
+        JOIN bill_details ON bill.id = bill_details.bill
+        WHERE
+            bill.status = 4
+        GROUP BY bill.id) AS total
+    GROUP BY DATE(total.pay_date);
+
 INSERT INTO
 	role (name)
 VALUES 
@@ -261,4 +277,58 @@ VALUES
     ('Dell Vostro 3470ST (HXKWJ1) Desktop PC',7250,100,23,6),
     ('Laptop Dell G3 Inspiron 3579 70167040 (Black) Geforce GTX1050Ti 4GB Intel Core i7 8750H 128GB 8GB',23490,100,24,6),
     ('ASUS ROG Ranger BP3703 Gaming Backpack – Balo Gaming',6490,100,25,3);
-    
+
+INSERT INTO bill(customer, salesman, shipper, pay_date, status)
+VALUES	(1, 3, 4, NOW(), 1),
+		(2, 3, 4, NOW() - INTERVAL 1 DAY, 1),
+		(1, 3, 4, NOW() - INTERVAL 2 DAY, 2),
+        (1, 3, 4, NOW() - INTERVAL 3 DAY, 2),
+        (2, 3, 4, NOW(), 2),
+        (2, 3, 4, NOW(), 3),
+        (2, 3, 4, NOW(), 3),
+        (1, 3, 4, NOW() - INTERVAL 2 DAY, 4),
+        (2, 3, 4, NOW() - INTERVAL 4 DAY, 4),
+        (2, 3, 4, NOW() - INTERVAL 2 DAY, 4),
+        (1, 3, 4, NOW() - INTERVAL 1 DAY, 4),
+        (1, 3, 4, NOW() - INTERVAL 1 DAY, 4),
+		(2, 3, 4, NOW() - INTERVAL 2 DAY, 4),
+        (2, 3, 4, NOW(), 4),
+        (1, 3, 4, NOW() - INTERVAL 3 DAY, 4),
+        (1, 3, 4, NOW() - INTERVAL 2 DAY, 4),
+        (1, 3, 4, NOW() - INTERVAL 1 DAY, 4),
+		(2, 3, 4, NOW() - INTERVAL 1 DAY, 4),
+		(2, 3, 4, NOW() - INTERVAL 1 DAY, 4),
+		(1, 3, 4, NOW(), 4);
+     
+select * from product;
+     
+INSERT INTO bill_details(bill, product, price, quantity)
+VALUES	(1, 1, 12990, 1),
+		(2, 2, 17900, 1),
+        (2, 3, 42800, 1),
+        (3, 4, 4900, 1),
+        (4, 5, 1120, 1),
+        (4, 6, 990, 1),
+        (4, 7, 6690, 1),
+        (5, 8, 5790, 1),
+        (6, 9, 3190, 1),
+        (7, 10, 8290, 1),
+        (7, 11, 6890, 1),
+        (8, 11, 6890, 1),
+        (9, 10, 8290, 1),
+        (9, 9, 3190, 1),
+        (9, 8, 5790, 1),
+        (10, 7, 6690, 1),
+        (11, 6, 990, 1),
+        (12, 5, 1120, 1),
+        (12, 4, 4900, 1),
+        (13, 3, 42800, 1),
+        (14, 2, 17900, 1),
+        (14, 1, 12990, 1),
+        (15, 25, 6490, 1),
+        (16, 24, 23490, 1),
+        (17, 23, 7250, 1),
+        (18, 22, 6979, 1),
+        (19, 21, 350, 1),
+        (20, 20, 550, 1),
+        (20, 19, 2090, 1);

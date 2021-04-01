@@ -21,47 +21,56 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.models.manager;
 
-import java.util.Date;
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
+public class ChartModel implements Model {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  private String type;
+  private DataChartModel data;
+  private OptionsChartModel options;
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
+  public ChartModel() {
   }
 
-  public BillFacade() {
-    super(Bill.class);
+  public ChartModel(String type, DataChartModel data, OptionsChartModel options) {
+    this.type = type;
+    this.data = data;
+    this.options = options;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public DataChartModel getData() {
+    return data;
+  }
+
+  public void setData(DataChartModel data) {
+    this.data = data;
+  }
+
+  public OptionsChartModel getOptions() {
+    return options;
+  }
+
+  public void setOptions(OptionsChartModel options) {
+    this.options = options;
   }
 
   @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
+  public boolean isEmpty() {
+    return false;
   }
 
 }

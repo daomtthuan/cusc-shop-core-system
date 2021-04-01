@@ -72,14 +72,6 @@ public class DetailsBillShopDashboardPresenter implements Serializable {
     return BillModel.STATUSES[bill.getStatus()];
   }
 
-  public double getTotalPrice() {
-    double totalPrice = 0;
-    for (BillDetails billDetails : bill.getBillDetailsList()) {
-      totalPrice += billDetails.getPrice() * billDetails.getQuantity();
-    }
-    return totalPrice;
-  }
-
   public Bill getBill() {
     return bill;
   }

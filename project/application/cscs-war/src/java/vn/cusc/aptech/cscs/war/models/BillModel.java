@@ -44,6 +44,7 @@ public class BillModel implements Model {
   private String payDate;
   private String status;
   private String state;
+  private double totalPrice;
 
   private static DateHelper dateHelper = new DateHelper();
 
@@ -63,6 +64,7 @@ public class BillModel implements Model {
     payDate = payDateBill != null ? dateHelper.stringDateTimeOf(payDateBill) : null;
     status = STATUSES[bill.getStatus()];
     state = bill.getState() ? "Enabled" : "Disabled";
+    totalPrice = bill.getTotalPrice();
   }
 
   public int getId() {
@@ -127,6 +129,14 @@ public class BillModel implements Model {
 
   public void setState(String state) {
     this.state = state;
+  }
+
+  public double getTotalPrice() {
+    return totalPrice;
+  }
+
+  public void setTotalPrice(double totalPrice) {
+    this.totalPrice = totalPrice;
   }
 
   @Override

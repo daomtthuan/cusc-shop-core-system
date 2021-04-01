@@ -21,47 +21,47 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.models.manager;
 
-import java.util.Date;
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import java.util.ArrayList;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
+public class DataChartModel implements Model {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  private ArrayList<String> labels;
+  private ArrayList<DatasetChartModel> datasets;
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
+  public DataChartModel() {
   }
 
-  public BillFacade() {
-    super(Bill.class);
+  public DataChartModel(ArrayList<String> labels, ArrayList<DatasetChartModel> datasets) {
+    this.labels = labels;
+    this.datasets = datasets;
+  }
+
+  public ArrayList<String> getLabels() {
+    return labels;
+  }
+
+  public void setLabels(ArrayList<String> labels) {
+    this.labels = labels;
+  }
+
+  public ArrayList<DatasetChartModel> getDatasets() {
+    return datasets;
+  }
+
+  public void setDatasets(ArrayList<DatasetChartModel> datasets) {
+    this.datasets = datasets;
   }
 
   @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
+  public boolean isEmpty() {
+    return false;
   }
 
 }

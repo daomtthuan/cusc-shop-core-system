@@ -25,43 +25,30 @@ package vn.cusc.aptech.cscs.ejb.beans.facades;
 
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import javax.ejb.Local;
+import vn.cusc.aptech.cscs.ejb.entities.DateRevenue;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
+@Local
+public interface DateRevenueFacadeLocal {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  void create(DateRevenue dateRevenue);
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
-  }
+  void edit(DateRevenue dateRevenue);
 
-  public BillFacade() {
-    super(Bill.class);
-  }
+  void remove(DateRevenue dateRevenue);
 
-  @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
+  DateRevenue find(Object id);
 
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
-  }
+  List<DateRevenue> findAll();
+
+  List<DateRevenue> findRange(int[] range);
+
+  int count();
+
+  List<DateRevenue> findBetween(Date fromDate, Date toDate);
 
 }

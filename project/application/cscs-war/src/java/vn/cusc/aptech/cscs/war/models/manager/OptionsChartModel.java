@@ -21,47 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.models.manager;
 
-import java.util.Date;
-import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
-
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+public class OptionsChartModel implements Model {
 
   @Override
-  protected EntityManager getEntityManager() {
-    return em;
-  }
-
-  public BillFacade() {
-    super(Bill.class);
-  }
-
-  @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
+  public boolean isEmpty() {
+    return false;
   }
 
 }

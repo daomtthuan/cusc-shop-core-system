@@ -95,6 +95,10 @@ THE SOFTWARE.
           <f:facet name="header">State</f:facet>
             #{bill.state ? "Enabled" : "Disabled"}
         </h:column>
+        <h:column>
+          <f:facet name="header">Total price</f:facet>
+            #{bill.totalPrice}
+        </h:column>
       </h:dataTable>
     </div>
   </ui:define>

@@ -21,47 +21,68 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.ejb.beans.facades;
+package vn.cusc.aptech.cscs.war.models.manager;
 
-import java.util.Date;
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
+ * @param <T> Revenue
  */
-@Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
+public class DatasetChartModel<T> implements Model {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  private String label;
+  private String backgroundColor;
+  private String borderColor;
+  private List<T> data;
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
+  public DatasetChartModel() {
   }
 
-  public BillFacade() {
-    super(Bill.class);
+  public DatasetChartModel(String label, String backgroundColor, String borderColor, List<T> data) {
+    this.label = label;
+    this.backgroundColor = backgroundColor;
+    this.borderColor = borderColor;
+    this.data = data;
+  }
+
+  public String getLabel() {
+    return label;
+  }
+
+  public void setLabel(String label) {
+    this.label = label;
+  }
+
+  public String getBackgroundColor() {
+    return backgroundColor;
+  }
+
+  public void setBackgroundColor(String backgroundColor) {
+    this.backgroundColor = backgroundColor;
+  }
+
+  public String getBorderColor() {
+    return borderColor;
+  }
+
+  public void setBorderColor(String borderColor) {
+    this.borderColor = borderColor;
+  }
+
+  public List<T> getData() {
+    return data;
+  }
+
+  public void setData(List<T> data) {
+    this.data = data;
   }
 
   @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
+  public boolean isEmpty() {
+    return false;
   }
 
 }

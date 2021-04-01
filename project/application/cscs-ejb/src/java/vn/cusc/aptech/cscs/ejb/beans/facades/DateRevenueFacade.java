@@ -29,15 +29,14 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.DateRevenue;
 
 /**
  *
  * @author Daomtthuan
  */
 @Stateless
-public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal {
+public class DateRevenueFacade extends AbstractFacade<DateRevenue> implements DateRevenueFacadeLocal {
 
   @PersistenceContext(unitName = "cscs-ejbPU")
   private EntityManager em;
@@ -47,20 +46,15 @@ public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal 
     return em;
   }
 
-  public BillFacade() {
-    super(Bill.class);
+  public DateRevenueFacade() {
+    super(DateRevenue.class);
   }
 
   @Override
-  public List<Bill> findByStatus(int status) {
-    return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
+  public List<DateRevenue> findBetween(Date fromDate, Date toDate) {
+    return em.createQuery("SELECT d FROM DateRevenue d WHERE d.date BETWEEN :fromDate AND :toDate")
+      .setParameter("fromDate", fromDate, TemporalType.DATE)
+      .setParameter("toDate", toDate, TemporalType.DATE)
       .getResultList();
   }
 

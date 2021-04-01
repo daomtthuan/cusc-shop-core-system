@@ -86,14 +86,6 @@ public class EditBillShopDashboardPresenter implements Serializable {
     return employeeFacade.findAllShipper();
   }
 
-  public double getTotalPrice() {
-    double totalPrice = 0;
-    for (BillDetails billDetails : bill.getBillDetailsList()) {
-      totalPrice += billDetails.getPrice() * billDetails.getQuantity();
-    }
-    return totalPrice;
-  }
-
   public String edit() {
     bill.setShipper(employeeFacade.find(idShipper));
     bill.setStatus(status);

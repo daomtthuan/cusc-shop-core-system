@@ -76,14 +76,6 @@ public class ConfirmBillShopDashboardPresenter implements Serializable {
     return employeeFacade.findAllShipper();
   }
 
-  public double getTotalPrice() {
-    double totalPrice = 0;
-    for (BillDetails billDetails : bill.getBillDetailsList()) {
-      totalPrice += billDetails.getPrice() * billDetails.getQuantity();
-    }
-    return totalPrice;
-  }
-
   public String accept() {
     boolean shipperValid = idShipper != 0;
 
