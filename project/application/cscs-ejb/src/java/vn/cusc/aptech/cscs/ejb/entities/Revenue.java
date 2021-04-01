@@ -21,46 +21,22 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.customer;
+package vn.cusc.aptech.cscs.ejb.entities;
 
-import vn.cusc.aptech.cscs.war.models.Model;
+import java.util.Date;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CartDetailsModel implements Model {
+public interface Revenue {
 
-  private int idProduct;
-  private int quantity;
+  Date getDate();
 
-  public CartDetailsModel() {
-  }
+  void setDate(Date date);
 
-  public CartDetailsModel(int idProduct, int quantity) {
-    this.idProduct = idProduct;
-    this.quantity = quantity;
-  }
+  Double getTotalPrice();
 
-  public int getIdProduct() {
-    return idProduct;
-  }
-
-  public void setIdProduct(int idProduct) {
-    this.idProduct = idProduct;
-  }
-
-  public int getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
-
-  @Override
-  public boolean isEmpty() {
-    return idProduct == 0;
-  }
+  void setTotalPrice(Double totalPrice);
 
 }

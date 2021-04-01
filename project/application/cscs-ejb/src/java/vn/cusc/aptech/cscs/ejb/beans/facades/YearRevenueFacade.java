@@ -21,46 +21,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.customer;
+package vn.cusc.aptech.cscs.ejb.beans.facades;
 
-import vn.cusc.aptech.cscs.war.models.Model;
+import java.util.Date;
+import java.util.List;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
+import vn.cusc.aptech.cscs.ejb.entities.Revenue;
+import vn.cusc.aptech.cscs.ejb.entities.YearRevenue;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CartDetailsModel implements Model {
+@Stateless
+public class YearRevenueFacade extends AbstractFacade<YearRevenue> implements YearRevenueFacadeLocal {
 
-  private int idProduct;
-  private int quantity;
+  @PersistenceContext(unitName = "cscs-ejbPU")
+  private EntityManager em;
 
-  public CartDetailsModel() {
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
   }
 
-  public CartDetailsModel(int idProduct, int quantity) {
-    this.idProduct = idProduct;
-    this.quantity = quantity;
-  }
-
-  public int getIdProduct() {
-    return idProduct;
-  }
-
-  public void setIdProduct(int idProduct) {
-    this.idProduct = idProduct;
-  }
-
-  public int getQuantity() {
-    return quantity;
-  }
-
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
+  public YearRevenueFacade() {
+    super(YearRevenue.class);
   }
 
   @Override
-  public boolean isEmpty() {
-    return idProduct == 0;
+  public List<Revenue> findBetween(Date fromDate, Date toDate) {
+    return em.createQuery("SELECT y FROM YearRevenue y WHERE y.date BETWEEN :fromDate AND :toDate")
+      .setParameter("fromDate", fromDate, TemporalType.DATE)
+      .setParameter("toDate", toDate, TemporalType.DATE)
+      .getResultList();
   }
 
 }

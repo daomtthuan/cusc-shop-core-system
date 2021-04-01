@@ -62,6 +62,13 @@ public class DateHelper implements Serializable {
     return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
   }
 
+  public String stringDateOf(Date date, String format) {
+    if (date == null) {
+      return null;
+    }
+    return new SimpleDateFormat(format).format(date);
+  }
+
   public String stringDateTimeOf(Date date) {
     if (date == null) {
       return null;

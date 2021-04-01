@@ -30,11 +30,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
-import vn.cusc.aptech.cscs.ejb.beans.facades.DateRevenueFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.DateRevenue;
+import javax.inject.Named;
+import vn.cusc.aptech.cscs.ejb.beans.facades.DayRevenueFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.MonthRevenueFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.YearRevenueFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Revenue;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.models.manager.ChartModel;
@@ -51,7 +53,13 @@ import vn.cusc.aptech.cscs.war.models.manager.OptionsChartModel;
 public class RevenueStatisticsDashboardPresenter implements Serializable {
 
   @EJB
-  private DateRevenueFacadeLocal dateRevenueFacade;
+  private DayRevenueFacadeLocal dayRevenueFacade;
+
+  @EJB
+  private MonthRevenueFacadeLocal monthRevenueFacade;
+
+  @EJB
+  private YearRevenueFacadeLocal yearRevenueFacade;
 
   @Inject
   private DateHelper dateHelper;
@@ -71,6 +79,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
   private LocalDate toDate;
 
   private Gson gson;
+  private String chart;
 
   @PostConstruct
   public void init() {
@@ -88,30 +97,50 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
     toDateInputStyleClass = null;
 
     gson = new Gson();
+    chart = "{}";
   }
 
-  public String getChart() {
+  private List<Revenue> getRevenue() {
+    return by == 0
+      ? dayRevenueFacade.findBetween(dateHelper.dateOf(fromDate), dateHelper.dateOf(toDate.plusDays(1)))
+      : by == 1
+        ? monthRevenueFacade.findBetween(dateHelper.dateOf(fromDate.minusMonths(1)), dateHelper.dateOf(toDate.plusMonths(1)))
+        : yearRevenueFacade.findBetween(dateHelper.dateOf(fromDate.minusYears(1)), dateHelper.dateOf(toDate.plusYears(1)));
+  }
+
+  private static final String[] formats = {"yyyy-MM-dd", "yyyy-MM", "yyyy"};
+  private static final String[] types = {"line", "line", "bar"};
+  private static final String[] labels = {"Revenue each day", "Revenue each month", "Revenue each year"};
+
+  public void show() {
+    chart = "{}";
     boolean fromDateValid = true;
     boolean toDateValid = true;
     try {
       fromDate = dateHelper.localDateOf(yearFromDate, monthFromDate, dayFromDate);
+      fromDateInputStyleClass = null;
     } catch (Exception e) {
       fromDateValid = false;
       fromDateInputStyleClass = ValidationHelper.StyleClass.INVALID;
     }
     try {
       toDate = dateHelper.localDateOf(yearToDate, monthToDate, dayToDate);
+      toDateInputStyleClass = null;
     } catch (Exception e) {
       toDateValid = false;
       toDateInputStyleClass = ValidationHelper.StyleClass.INVALID;
     }
+    if (fromDate.isAfter(toDate)) {
+      fromDateValid = false;
+      fromDateInputStyleClass = ValidationHelper.StyleClass.INVALID;
+    }
 
     if (!fromDateValid || !toDateValid) {
-      return "{}";
+      return;
     }
 
     ChartModel chartModel = new ChartModel(
-      "line", // type
+      types[by], // type
       new DataChartModel( // data
         new ArrayList<>(), // labels
         new ArrayList<>() // datasets
@@ -119,21 +148,21 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
       new OptionsChartModel() // options
     );
 
-//    List<Revenue> revenues = dateRevenueFacade.findBetween(dateHelper.dateOf(fromDate), dateHelper.dateOf(toDate.plusDays(1)));//
-    List<DateRevenue> revenues = dateRevenueFacade.findAll();
-    System.out.println(revenues.size());
     DatasetChartModel datasetChartModel = new DatasetChartModel( // datasets
-      "Revenue statistics", // label
-      "rgb(255, 99, 132)", // backgroundColor
-      "rgb(255, 99, 132)", // borderColor
-      revenues// data
+      labels[by], // label
+      "rgba(248, 249, 250, 0.5)", // backgroundColor
+      "#007bff", // borderColor
+      3, // borderWidth
+      new ArrayList<>()// data
     );
-    for (DateRevenue revenue : revenues) {
-      chartModel.getData().getLabels().add(dateHelper.stringDateTimeOf(revenue.getDate()));
-    }
-    chartModel.getData().getDatasets().add(datasetChartModel);
 
-    return gson.toJson(chartModel);
+    for (Revenue revenue : getRevenue()) {
+      chartModel.getData().getLabels().add(dateHelper.stringDateOf(revenue.getDate(), formats[by]));
+      datasetChartModel.getData().add(revenue.getTotalPrice());
+    }
+
+    chartModel.getData().getDatasets().add(datasetChartModel);
+    chart = gson.toJson(chartModel);
   }
 
   public int getDayFromDate() {
@@ -206,6 +235,14 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
   public void setToDateInputStyleClass(String toDateInputStyleClass) {
     this.toDateInputStyleClass = toDateInputStyleClass;
+  }
+
+  public String getChart() {
+    return chart;
+  }
+
+  public void setChart(String chart) {
+    this.chart = chart;
   }
 
 }

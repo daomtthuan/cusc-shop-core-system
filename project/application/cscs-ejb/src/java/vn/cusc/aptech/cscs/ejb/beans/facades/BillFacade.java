@@ -23,12 +23,10 @@
  */
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
-import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TemporalType;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 

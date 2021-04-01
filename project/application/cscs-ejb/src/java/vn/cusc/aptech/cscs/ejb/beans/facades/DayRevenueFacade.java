@@ -29,14 +29,15 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TemporalType;
-import vn.cusc.aptech.cscs.ejb.entities.DateRevenue;
+import vn.cusc.aptech.cscs.ejb.entities.DayRevenue;
+import vn.cusc.aptech.cscs.ejb.entities.Revenue;
 
 /**
  *
  * @author Daomtthuan
  */
 @Stateless
-public class DateRevenueFacade extends AbstractFacade<DateRevenue> implements DateRevenueFacadeLocal {
+public class DayRevenueFacade extends AbstractFacade<DayRevenue> implements DayRevenueFacadeLocal {
 
   @PersistenceContext(unitName = "cscs-ejbPU")
   private EntityManager em;
@@ -46,13 +47,13 @@ public class DateRevenueFacade extends AbstractFacade<DateRevenue> implements Da
     return em;
   }
 
-  public DateRevenueFacade() {
-    super(DateRevenue.class);
+  public DayRevenueFacade() {
+    super(DayRevenue.class);
   }
 
   @Override
-  public List<DateRevenue> findBetween(Date fromDate, Date toDate) {
-    return em.createQuery("SELECT d FROM DateRevenue d WHERE d.date BETWEEN :fromDate AND :toDate")
+  public List<Revenue> findBetween(Date fromDate, Date toDate) {
+    return em.createQuery("SELECT d FROM DayRevenue d WHERE d.date BETWEEN :fromDate AND :toDate")
       .setParameter("fromDate", fromDate, TemporalType.DATE)
       .setParameter("toDate", toDate, TemporalType.DATE)
       .getResultList();

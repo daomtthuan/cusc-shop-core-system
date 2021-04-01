@@ -33,7 +33,6 @@ import javax.inject.Inject;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.BillDetails;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 import vn.cusc.aptech.cscs.war.session.AuthSession;

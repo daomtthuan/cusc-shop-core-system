@@ -23,28 +23,29 @@
  */
 package vn.cusc.aptech.cscs.war.models.manager;
 
-import java.util.List;
+import java.util.ArrayList;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
  *
  * @author Daomtthuan
- * @param <T> Revenue
  */
-public class DatasetChartModel<T> implements Model {
+public class DatasetChartModel implements Model {
 
   private String label;
   private String backgroundColor;
   private String borderColor;
-  private List<T> data;
+  private int borderWidth;
+  private ArrayList<Double> data;
 
   public DatasetChartModel() {
   }
 
-  public DatasetChartModel(String label, String backgroundColor, String borderColor, List<T> data) {
+  public DatasetChartModel(String label, String backgroundColor, String borderColor, int borderWidth, ArrayList<Double> data) {
     this.label = label;
     this.backgroundColor = backgroundColor;
     this.borderColor = borderColor;
+    this.borderWidth = borderWidth;
     this.data = data;
   }
 
@@ -72,11 +73,19 @@ public class DatasetChartModel<T> implements Model {
     this.borderColor = borderColor;
   }
 
-  public List<T> getData() {
+  public int getBorderWidth() {
+    return borderWidth;
+  }
+
+  public void setBorderWidth(int borderWidth) {
+    this.borderWidth = borderWidth;
+  }
+
+  public ArrayList<Double> getData() {
     return data;
   }
 
-  public void setData(List<T> data) {
+  public void setData(ArrayList<Double> data) {
     this.data = data;
   }
 

@@ -141,7 +141,7 @@ CREATE TABLE bill_details (
      ON DELETE CASCADE
 );
 
-CREATE VIEW date_revenue AS
+CREATE VIEW day_revenue AS
     SELECT 
         DATE(total.pay_date) AS date,
         SUM(total.total_price) AS total_price
@@ -156,6 +156,38 @@ CREATE VIEW date_revenue AS
             bill.status = 4
         GROUP BY bill.id) AS total
     GROUP BY DATE(total.pay_date);
+    
+CREATE VIEW month_revenue AS
+    SELECT 
+        DATE(CONCAT(YEAR(total.pay_date),'-', MONTH(total.pay_date),'-01')) AS date,
+        SUM(total.total_price) AS total_price
+    FROM
+        (SELECT 
+            bill.*,
+                SUM(bill_details.price * bill_details.quantity) AS total_price
+        FROM
+            bill
+        JOIN bill_details ON bill.id = bill_details.bill
+        WHERE
+            bill.status = 4
+        GROUP BY bill.id) AS total
+    GROUP BY YEAR(total.pay_date) , MONTH(total.pay_date);
+    
+CREATE VIEW year_revenue AS
+    SELECT 
+        DATE(CONCAT(YEAR(total.pay_date),'-01-01')) AS date,
+        SUM(total.total_price) AS total_price
+    FROM
+        (SELECT 
+            bill.*,
+                SUM(bill_details.price * bill_details.quantity) AS total_price
+        FROM
+            bill
+        JOIN bill_details ON bill.id = bill_details.bill
+        WHERE
+            bill.status = 4
+        GROUP BY bill.id) AS total
+    GROUP BY YEAR(total.pay_date);
 
 INSERT INTO
 	role (name)
@@ -299,9 +331,7 @@ VALUES	(1, 3, 4, NOW(), 1),
 		(2, 3, 4, NOW() - INTERVAL 1 DAY, 4),
 		(2, 3, 4, NOW() - INTERVAL 1 DAY, 4),
 		(1, 3, 4, NOW(), 4);
-     
-select * from product;
-     
+	     
 INSERT INTO bill_details(bill, product, price, quantity)
 VALUES	(1, 1, 12990, 1),
 		(2, 2, 17900, 1),
@@ -331,4 +361,4 @@ VALUES	(1, 1, 12990, 1),
         (18, 22, 6979, 1),
         (19, 21, 350, 1),
         (20, 20, 550, 1),
-        (20, 19, 2090, 1);
+        (20, 19, 2090, 1);        

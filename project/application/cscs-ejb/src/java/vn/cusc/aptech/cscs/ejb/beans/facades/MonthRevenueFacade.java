@@ -25,30 +25,38 @@ package vn.cusc.aptech.cscs.ejb.beans.facades;
 
 import java.util.Date;
 import java.util.List;
-import javax.ejb.Local;
-import vn.cusc.aptech.cscs.ejb.entities.DateRevenue;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TemporalType;
+import vn.cusc.aptech.cscs.ejb.entities.MonthRevenue;
+import vn.cusc.aptech.cscs.ejb.entities.Revenue;
 
 /**
  *
  * @author Daomtthuan
  */
-@Local
-public interface DateRevenueFacadeLocal {
+@Stateless
+public class MonthRevenueFacade extends AbstractFacade<MonthRevenue> implements MonthRevenueFacadeLocal {
 
-  void create(DateRevenue dateRevenue);
+  @PersistenceContext(unitName = "cscs-ejbPU")
+  private EntityManager em;
 
-  void edit(DateRevenue dateRevenue);
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
+  }
 
-  void remove(DateRevenue dateRevenue);
+  public MonthRevenueFacade() {
+    super(MonthRevenue.class);
+  }
 
-  DateRevenue find(Object id);
-
-  List<DateRevenue> findAll();
-
-  List<DateRevenue> findRange(int[] range);
-
-  int count();
-
-  List<DateRevenue> findBetween(Date fromDate, Date toDate);
+  @Override
+  public List<Revenue> findBetween(Date fromDate, Date toDate) {
+    return em.createQuery("SELECT m FROM MonthRevenue m WHERE m.date BETWEEN :fromDate AND :toDate")
+      .setParameter("fromDate", fromDate, TemporalType.DATE)
+      .setParameter("toDate", toDate, TemporalType.DATE)
+      .getResultList();
+  }
 
 }

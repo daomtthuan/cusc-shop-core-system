@@ -21,46 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.customer;
+package vn.cusc.aptech.cscs.ejb.beans.facades;
 
-import vn.cusc.aptech.cscs.war.models.Model;
+import java.util.Date;
+import java.util.List;
+import javax.ejb.Local;
+import vn.cusc.aptech.cscs.ejb.entities.MonthRevenue;
+import vn.cusc.aptech.cscs.ejb.entities.Revenue;
 
 /**
  *
  * @author Daomtthuan
  */
-public class CartDetailsModel implements Model {
+@Local
+public interface MonthRevenueFacadeLocal {
 
-  private int idProduct;
-  private int quantity;
+  void create(MonthRevenue monthRevenue);
 
-  public CartDetailsModel() {
-  }
+  void edit(MonthRevenue monthRevenue);
 
-  public CartDetailsModel(int idProduct, int quantity) {
-    this.idProduct = idProduct;
-    this.quantity = quantity;
-  }
+  void remove(MonthRevenue monthRevenue);
 
-  public int getIdProduct() {
-    return idProduct;
-  }
+  MonthRevenue find(Object id);
 
-  public void setIdProduct(int idProduct) {
-    this.idProduct = idProduct;
-  }
+  List<MonthRevenue> findAll();
 
-  public int getQuantity() {
-    return quantity;
-  }
+  List<MonthRevenue> findRange(int[] range);
 
-  public void setQuantity(int quantity) {
-    this.quantity = quantity;
-  }
+  int count();
 
-  @Override
-  public boolean isEmpty() {
-    return idProduct == 0;
-  }
+  List<Revenue> findBetween(Date fromDate, Date toDate);
 
 }

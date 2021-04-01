@@ -40,13 +40,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Daomtthuan
  */
 @Entity
-@Table(name = "date_revenue", catalog = "cusc_shop", schema = "")
+@Table(name = "month_revenue", catalog = "cusc_shop", schema = "")
 @XmlRootElement
 @NamedQueries({
-  @NamedQuery(name = "DateRevenue.findAll", query = "SELECT d FROM DateRevenue d"),
-  @NamedQuery(name = "DateRevenue.findByDate", query = "SELECT d FROM DateRevenue d WHERE d.date = :date"),
-  @NamedQuery(name = "DateRevenue.findByTotalPrice", query = "SELECT d FROM DateRevenue d WHERE d.totalPrice = :totalPrice")})
-public class DateRevenue implements Serializable {
+  @NamedQuery(name = "MonthRevenue.findAll", query = "SELECT m FROM MonthRevenue m"),
+  @NamedQuery(name = "MonthRevenue.findByDate", query = "SELECT m FROM MonthRevenue m WHERE m.date = :date"),
+  @NamedQuery(name = "MonthRevenue.findByTotalPrice", query = "SELECT m FROM MonthRevenue m WHERE m.totalPrice = :totalPrice")})
+public class MonthRevenue implements Revenue, Serializable {
 
   private static final long serialVersionUID = 1L;
   @Column(name = "date")
@@ -57,21 +57,25 @@ public class DateRevenue implements Serializable {
   @Column(name = "total_price")
   private Double totalPrice;
 
-  public DateRevenue() {
+  public MonthRevenue() {
   }
 
+  @Override
   public Date getDate() {
     return date;
   }
 
+  @Override
   public void setDate(Date date) {
     this.date = date;
   }
 
+  @Override
   public Double getTotalPrice() {
     return totalPrice;
   }
 
+  @Override
   public void setTotalPrice(Double totalPrice) {
     this.totalPrice = totalPrice;
   }

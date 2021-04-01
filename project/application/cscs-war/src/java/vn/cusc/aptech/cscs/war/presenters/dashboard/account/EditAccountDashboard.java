@@ -113,6 +113,7 @@ public class EditAccountDashboard implements Serializable {
     addressInputStyleClass = addressValid ? null : ValidationHelper.StyleClass.INVALID;
     try {
       birthday = dateHelper.localDateOf(yearBirthday, monthBirthday, dayBirthday);
+      birthdayInputStyleClass = null;
     } catch (Exception e) {
       birthdayValid = false;
       birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;

@@ -28,13 +28,13 @@ import java.util.Date;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.inject.Named;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.session.CustomerSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
-import javax.faces.view.ViewScoped;
 
 /**
  *
@@ -112,6 +112,7 @@ public class AddCustomerShopDashBoardPresenter implements Serializable {
 
     try {
       birthday = dateHelper.dateOf(yearBirthday, monthBirthday, dayBirthday);
+      birthdayInputStyleClass = null;
     } catch (Exception e) {
       birthdayValid = false;
       birthdayInputStyleClass = ValidationHelper.StyleClass.INVALID;

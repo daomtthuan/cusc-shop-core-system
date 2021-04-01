@@ -35,7 +35,7 @@ THE SOFTWARE.
     <div class="container-fluid">
       <h2>Revenue statistics</h2>
       <hr />
-      <h:form>
+      <h:form id="filter">
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
@@ -45,7 +45,6 @@ THE SOFTWARE.
                   <h:outputLabel value="Year" for="input-year-from-date" styleClass="mb-0 mr-3" />
                   <h:selectOneMenu id="input-year-from-date" value="#{revenueStatisticsDashboardPresenter.yearFromDate}" styleClass="custom-select #{revenueStatisticsDashboardPresenter.fromDateInputStyleClass}">
                     <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
                 <div class="col d-flex align-items-center mx-3">
@@ -54,7 +53,6 @@ THE SOFTWARE.
                     <c:forEach begin="1" end="12" var="month">
                       <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
                     </c:forEach>
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
                 <div class="col d-flex align-items-center">
@@ -63,7 +61,6 @@ THE SOFTWARE.
                     <c:forEach begin="1" end="31" var="day">
                       <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
                     </c:forEach>
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
               </div>
@@ -78,7 +75,6 @@ THE SOFTWARE.
                   <h:outputLabel value="Year" for="input-year-to-date" styleClass="mb-0 mr-3" />
                   <h:selectOneMenu id="input-year-to-date" value="#{revenueStatisticsDashboardPresenter.yearToDate}" styleClass="custom-select #{revenueStatisticsDashboardPresenter.toDateInputStyleClass}">
                     <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
                 <div class="col d-flex align-items-center mx-3">
@@ -87,7 +83,6 @@ THE SOFTWARE.
                     <c:forEach begin="1" end="12" var="month">
                       <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
                     </c:forEach>
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
                 <div class="col d-flex align-items-center">
@@ -96,7 +91,6 @@ THE SOFTWARE.
                     <c:forEach begin="1" end="31" var="day">
                       <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
                     </c:forEach>
-                    <f:ajax render="chart-script" />
                   </h:selectOneMenu>
                 </div>
               </div>
@@ -110,19 +104,18 @@ THE SOFTWARE.
             <f:selectItem itemValue="0" itemLabel="Day" />
             <f:selectItem itemValue="1" itemLabel="Month" />
             <f:selectItem itemValue="2" itemLabel="Year" />
-            <f:ajax render="chart-script" />
           </h:selectOneRadio>
         </div>
+        <h:commandButton styleClass="btn btn-primary mr-2" action="#{revenueStatisticsDashboardPresenter.show()}" value="Show"/>
+        <h:button styleClass="btn btn-primary" onclick="window.print()" value="Print" />
       </h:form>
       <hr />
       <canvas id="chart" width="100" height="30"></canvas>
     </div>
   </ui:define>
   <ui:define name="script">
-    <h:panelGroup id="chart-script">
-      <script>
-        new Chart('chart', JSON.parse('#{revenueStatisticsDashboardPresenter.chart}'));
-      </script>
-    </h:panelGroup>
+    <script>
+      new Chart('chart', JSON.parse('#{revenueStatisticsDashboardPresenter.chart}'));
+    </script>
   </ui:define>
 </ui:composition>
