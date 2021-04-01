@@ -37,6 +37,6 @@ import vn.cusc.aptech.cscs.ejb.entities.Product;
 @Local
 public interface BillApiSessionBeanLocal {
 
-  Bill addBill(Customer customer, ArrayList<Pair<Product, Integer>> cart);
+  Bill addBill(Customer customer, ArrayList<Pair<Integer, Integer>> cart);
 
 }

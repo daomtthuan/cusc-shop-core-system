@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -54,12 +56,7 @@ public class ShipShipperApi extends ApiHelper {
 
   public ShipShipperApi() {
     super();
-    try {
-      billFacade = (BillFacadeLocal) context.lookup("java:global/application/cscs-ejb/BillFacade!vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal");
-    } catch (NamingException e) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-      throw new RuntimeException(e);
-    }
+    billFacade = lookupBillFacadeLocal();
   }
 
   @GET
@@ -119,6 +116,16 @@ public class ShipShipperApi extends ApiHelper {
     billFacade.edit(bill);
 
     return sendResponse(Response.Status.OK);
+  }
+
+  private BillFacadeLocal lookupBillFacadeLocal() {
+    try {
+      Context c = new InitialContext();
+      return (BillFacadeLocal) c.lookup("java:global/application/cscs-ejb/BillFacade!vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal");
+    } catch (NamingException ne) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+      throw new RuntimeException(ne);
+    }
   }
 
 }

@@ -56,19 +56,22 @@ public class BillApiSessionBean implements BillApiSessionBeanLocal {
 
   @Override
   @TransactionAttribute(TransactionAttributeType.REQUIRED)
-  public Bill addBill(Customer customer, ArrayList<Pair<Product, Integer>> cart) {
+  public Bill addBill(Customer customer, ArrayList<Pair<Integer, Integer>> cart) {
     Bill bill = new Bill(null, new Date(), 1, true);
     bill.setCustomer(customer);
     billFacade.create(bill);
 
-    for (Pair<Product, Integer> cartDetails : cart) {
-      Product product = cartDetails.getKey();
+    for (Pair<Integer, Integer> cartDetails : cart) {
+      Product product = productFacade.find(cartDetails.getKey());
       int quantity = cartDetails.getValue();
 
       BillDetails billDetails = new BillDetails(null, product.getPrice(), quantity);
       billDetails.setBill(bill);
       billDetails.setProduct(product);
       billDetailsFacade.create(billDetails);
+
+      product.setQuantity(product.getQuantity() - quantity);
+      productFacade.edit(product);
     }
 
     return bill;

@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.util.Pair;
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -57,13 +59,8 @@ public class OrderCustomerApi extends ApiHelper {
 
   public OrderCustomerApi() {
     super();
-    try {
-      productFacade = (ProductFacadeLocal) context.lookup("java:global/application/cscs-ejb/ProductFacade!vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal");
-      billApiSessionBean = (BillApiSessionBeanLocal) context.lookup("java:global/application/cscs-ejb/BillApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal");
-    } catch (NamingException e) {
-      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-      throw new RuntimeException(e);
-    }
+    productFacade = lookupProductFacadeLocal();
+    billApiSessionBean = lookupBillApiSessionBeanLocal();
   }
 
   @POST
@@ -80,23 +77,44 @@ public class OrderCustomerApi extends ApiHelper {
     }
 
     CartModel cartModel = getBody(body, CartModel.class);
+    System.out.println(body);
     if (isEmptyBody(cartModel)) {
       return sendResponse(Response.Status.BAD_REQUEST);
     }
 
-    ArrayList<Pair<Product, Integer>> cart = new ArrayList<>();
+    ArrayList<Pair<Integer, Integer>> cart = new ArrayList<>();
     for (CartDetailsModel cartDetailsModel : cartModel) {
       Product product = productFacade.find(cartDetailsModel.getIdProduct());
-      if (product == null) {
+      if (product == null || product.getQuantity() < cartDetailsModel.getQuantity()) {
         return sendResponse(Response.Status.BAD_REQUEST);
       }
-      cart.add(new Pair<>(product, cartDetailsModel.getQuantity()));
+      cart.add(new Pair<>(product.getId(), cartDetailsModel.getQuantity()));
     }
     Bill bill = billApiSessionBean.addBill(account, cart);
     if (bill == null) {
       return sendResponse(Response.Status.INTERNAL_SERVER_ERROR);
     }
     return sendResponse(Response.Status.OK, new BillModel(bill));
+  }
+
+  private ProductFacadeLocal lookupProductFacadeLocal() {
+    try {
+      Context c = new InitialContext();
+      return (ProductFacadeLocal) c.lookup("java:global/application/cscs-ejb/ProductFacade!vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal");
+    } catch (NamingException ne) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+      throw new RuntimeException(ne);
+    }
+  }
+
+  private BillApiSessionBeanLocal lookupBillApiSessionBeanLocal() {
+    try {
+      Context c = new InitialContext();
+      return (BillApiSessionBeanLocal) c.lookup("java:global/application/cscs-ejb/BillApiSessionBean!vn.cusc.aptech.cscs.ejb.beans.session.api.BillApiSessionBeanLocal");
+    } catch (NamingException ne) {
+      Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+      throw new RuntimeException(ne);
+    }
   }
 
 }

@@ -36,8 +36,8 @@ public class AuthModel implements Model {
   }
 
   public AuthModel(String username, String password) {
-    username = username;
-    password = password;
+    this.username = username;
+    this.password = password;
   }
 
   public String getUsername() {

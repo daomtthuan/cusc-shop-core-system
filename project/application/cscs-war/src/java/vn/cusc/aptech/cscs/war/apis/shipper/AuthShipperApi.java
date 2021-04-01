@@ -47,6 +47,10 @@ import vn.cusc.aptech.cscs.war.models.shipper.ShipperModel;
 @Path("shipper/auth")
 public class AuthShipperApi extends ApiHelper {
 
+  public AuthShipperApi() {
+    super();
+  }
+
   @GET
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
