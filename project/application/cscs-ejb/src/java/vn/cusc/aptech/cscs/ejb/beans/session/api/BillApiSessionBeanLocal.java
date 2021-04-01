@@ -28,7 +28,6 @@ import javafx.util.Pair;
 import javax.ejb.Local;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
 
 /**
  *

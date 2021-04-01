@@ -23,7 +23,6 @@
  */
 package vn.cusc.aptech.cscs.war.apis.customer;
 
-import com.google.gson.Gson;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
