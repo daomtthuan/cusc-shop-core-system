@@ -33,15 +33,12 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Brand;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
 import vn.cusc.aptech.cscs.war.models.BrandModel;
-import vn.cusc.aptech.cscs.war.models.shipper.ShipperModel;
 
 /**
  *

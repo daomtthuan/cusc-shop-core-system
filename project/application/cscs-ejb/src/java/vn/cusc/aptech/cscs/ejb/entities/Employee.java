@@ -78,9 +78,9 @@ public class Employee implements Account, Serializable {
   @Column(name = "state")
   private boolean state;
   @OneToMany(mappedBy = "salesman")
-  private List<Bill> billList;
+  private List<Bill> sellBillList;
   @OneToMany(mappedBy = "shipper")
-  private List<Bill> billList1;
+  private List<Bill> shipBillList;
   @JoinColumn(name = "role", referencedColumnName = "id")
   @ManyToOne(optional = false)
   private Role role;
@@ -102,54 +102,62 @@ public class Employee implements Account, Serializable {
     this.state = state;
   }
 
+  @Override
   public Integer getId() {
     return id;
   }
 
+  @Override
   public void setId(Integer id) {
     this.id = id;
   }
 
+  @Override
   public String getUsername() {
     return username;
   }
 
+  @Override
   public void setUsername(String username) {
     this.username = username;
   }
 
+  @Override
   public String getPassword() {
     return password;
   }
 
+  @Override
   public void setPassword(String password) {
     this.password = password;
   }
 
+  @Override
   public boolean getState() {
     return state;
   }
 
+  @Override
   public void setState(boolean state) {
     this.state = state;
   }
 
   @XmlTransient
-  public List<Bill> getBillList() {
-    return billList;
+  public List<Bill> getSellBillList() {
+    return sellBillList;
   }
 
-  public void setBillList(List<Bill> billList) {
-    this.billList = billList;
+  public void setSellBillList(List<Bill> sellBillList) {
+    this.sellBillList = sellBillList;
   }
 
   @XmlTransient
-  public List<Bill> getBillList1() {
-    return billList1;
+  public List<Bill> getShipBillList() {
+    return shipBillList;
   }
 
-  public void setBillList1(List<Bill> billList1) {
-    this.billList1 = billList1;
+  public void setShipBillList(List<Bill> shipBillList) {
+    this.shipBillList = shipBillList;
   }
 
   public Role getRole() {

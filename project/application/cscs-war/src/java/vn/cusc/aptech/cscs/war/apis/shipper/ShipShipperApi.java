@@ -82,7 +82,11 @@ public class ShipShipperApi extends AuthApiHelper {
     }
 
     ArrayList<BillModel> billModelses = new ArrayList<>();
-    billFacade.findByShipperAndStatus(account, statusValue).forEach(bill -> billModelses.add(new BillModel(bill)));
+    for (Bill bill : account.getShipBillList()) {
+      if (bill.getStatus() == statusValue) {
+        billModelses.add(new BillModel(bill));
+      }
+    }
 
     return sendResponse(Response.Status.OK, billModelses);
   }

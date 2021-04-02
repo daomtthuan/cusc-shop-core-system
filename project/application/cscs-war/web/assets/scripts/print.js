@@ -21,48 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.models.shipper;
 
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
-import vn.cusc.aptech.cscs.war.models.Model;
+/* global jspdf */
 
-/**
- *
- * @author Daomtthuan
- */
-public class ShipperModel implements Model {
-
-  private int id;
-  private String username;
-
-  public ShipperModel() {
-  }
-
-  public ShipperModel(Employee shipper) {
-    id = shipper.getId();
-    username = shipper.getUsername();
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  @Override
-  public boolean isEmpty() {
-    return id == 0
-      || username == null || username.isEmpty();
-  }
-
-}
+$('#button-print').click(function () {
+  let chart = document.getElementById('chart');
+  let pdf = new jspdf.jsPDF({
+    orientation: 'l',
+    unit: 'pt',
+    format: [chart.width, chart.height]
+  });
+  pdf.addImage(chart.toDataURL(), 'PNG', 0, 0, chart.width, chart.height);
+  pdf.save("revenue.pdf");
+});

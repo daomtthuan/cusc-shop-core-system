@@ -33,7 +33,7 @@ import javax.ws.rs.core.Application;
  * @author Daomtthuan
  */
 @ApplicationPath("apis")
-public class ApiConfig extends Application {
+public class ServiceConfig extends Application {
 
   @Override
   public Set<Class<?>> getClasses() {

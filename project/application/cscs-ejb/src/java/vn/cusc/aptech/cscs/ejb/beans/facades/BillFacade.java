@@ -28,7 +28,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import vn.cusc.aptech.cscs.ejb.entities.Bill;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
 
 /**
  *
@@ -52,14 +51,6 @@ public class BillFacade extends AbstractFacade<Bill> implements BillFacadeLocal 
   @Override
   public List<Bill> findByStatus(int status) {
     return em.createNamedQuery("Bill.findByStatus").setParameter("status", status).getResultList();
-  }
-
-  @Override
-  public List<Bill> findByShipperAndStatus(Employee shipper, int status) {
-    return em.createQuery("SELECT b FROM Bill b WHERE b.shipper = :shipper AND b.status = :status")
-      .setParameter("shipper", shipper)
-      .setParameter("status", status)
-      .getResultList();
   }
 
 }

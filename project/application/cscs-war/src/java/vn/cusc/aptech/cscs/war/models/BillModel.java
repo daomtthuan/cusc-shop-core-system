@@ -43,7 +43,6 @@ public class BillModel implements Model {
   private String createDate;
   private String payDate;
   private String status;
-  private String state;
   private double totalPrice;
 
   private static DateHelper dateHelper = new DateHelper();
@@ -63,7 +62,6 @@ public class BillModel implements Model {
     createDate = dateHelper.stringDateTimeOf(bill.getCreateDate());
     payDate = payDateBill != null ? dateHelper.stringDateTimeOf(payDateBill) : null;
     status = STATUSES[bill.getStatus()];
-    state = bill.getState() ? "Enabled" : "Disabled";
     totalPrice = bill.getTotalPrice();
   }
 
@@ -123,14 +121,6 @@ public class BillModel implements Model {
     this.status = status;
   }
 
-  public String getState() {
-    return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
   public double getTotalPrice() {
     return totalPrice;
   }
@@ -145,8 +135,7 @@ public class BillModel implements Model {
       || customer == null || customer.isEmpty()
       || createDate == null || createDate.isEmpty()
       || customer == null || customer.isEmpty()
-      || status == null || status.isEmpty()
-      || state == null || state.isEmpty();
+      || status == null || status.isEmpty();
   }
 
 }

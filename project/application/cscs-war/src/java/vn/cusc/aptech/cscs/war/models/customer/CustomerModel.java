@@ -24,7 +24,6 @@
 package vn.cusc.aptech.cscs.war.models.customer;
 
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
-import vn.cusc.aptech.cscs.war.models.InformationModel;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**
@@ -35,7 +34,6 @@ public class CustomerModel implements Model {
 
   private int id;
   private String username;
-  private String state;
 
   public CustomerModel() {
   }
@@ -43,7 +41,6 @@ public class CustomerModel implements Model {
   public CustomerModel(Customer customer) {
     id = customer.getId();
     username = customer.getUsername();
-    state = customer.getState() ? "Enabled" : "Disabled";
   }
 
   public int getId() {
@@ -62,19 +59,10 @@ public class CustomerModel implements Model {
     this.username = username;
   }
 
-  public String getState() {
-    return state;
-  }
-
-  public void setState(String state) {
-    this.state = state;
-  }
-
   @Override
   public boolean isEmpty() {
     return id == 0
-      || username == null || username.isEmpty()
-      || state == null || state.isEmpty();
+      || username == null || username.isEmpty();
   }
 
 }

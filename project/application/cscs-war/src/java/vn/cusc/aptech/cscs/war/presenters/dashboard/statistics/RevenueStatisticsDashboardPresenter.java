@@ -81,6 +81,8 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
   private Gson gson;
   private String chart;
 
+  private boolean isShow;
+
   @PostConstruct
   public void init() {
     fromDate = LocalDate.now();
@@ -98,6 +100,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
     gson = new Gson();
     chart = "{}";
+    isShow = false;
   }
 
   private List<Revenue> getRevenue() {
@@ -113,6 +116,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
   private static final String[] labels = {"Revenue each day", "Revenue each month", "Revenue each year"};
 
   public void show() {
+    isShow = false;
     chart = "{}";
     boolean fromDateValid = true;
     boolean toDateValid = true;
@@ -163,6 +167,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
     chartModel.getData().getDatasets().add(datasetChartModel);
     chart = gson.toJson(chartModel);
+    isShow = true;
   }
 
   public int getDayFromDate() {
@@ -243,6 +248,14 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
   public void setChart(String chart) {
     this.chart = chart;
+  }
+
+  public boolean isIsShow() {
+    return isShow;
+  }
+
+  public void setIsShow(boolean isShow) {
+    this.isShow = isShow;
   }
 
 }

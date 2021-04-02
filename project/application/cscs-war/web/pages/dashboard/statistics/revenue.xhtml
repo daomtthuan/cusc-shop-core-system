@@ -107,10 +107,13 @@ THE SOFTWARE.
           </h:selectOneRadio>
         </div>
         <h:commandButton styleClass="btn btn-primary mr-2" action="#{revenueStatisticsDashboardPresenter.show()}" value="Show"/>
-        <h:button styleClass="btn btn-primary" onclick="window.print()" value="Print" />
       </h:form>
       <hr />
-      <canvas id="chart" width="100" height="30"></canvas>
+      <c:if test="#{revenueStatisticsDashboardPresenter.isShow}">
+        <canvas id="chart" width="100" height="30"></canvas>
+        <hr />
+        <button id="button-print" class="btn btn-primary">Print</button>
+      </c:if>
     </div>
   </ui:define>
   <ui:define name="script">

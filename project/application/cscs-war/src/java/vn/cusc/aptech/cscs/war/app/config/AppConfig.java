@@ -95,6 +95,12 @@ public class AppConfig implements Serializable {
         ),
         new ScriptAsset("https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js", // src
           new String[] {"blank", "dashboard"} // excludes
+        ),
+        new ScriptAsset("https://cdn.jsdelivr.net/npm/jspdf@2.3.1/dist/jspdf.umd.min.js", // src
+          new String[] {"blank", "dashboard"} // excludes
+        ),
+        new ScriptAsset(directory.getRoot() + "/assets/scripts/print.js", // src
+          new String[] {"blank", "dashboard"} // excludes
         )
       } // scripts
     );
