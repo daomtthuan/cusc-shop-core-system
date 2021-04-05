@@ -30,6 +30,7 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
@@ -41,11 +42,9 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 @ViewScoped
 public class DeleteCustomerShopDashBoardPresenter implements Serializable {
 
-  /**
-   * Creates a new instance of DeleteCustomerShopDashBoardPresenter
-   */
-  public DeleteCustomerShopDashBoardPresenter() {
-  }
+  @EJB
+  private InformationFacadeLocal informationFacade;
+
   @EJB
   private CustomerFacadeLocal customerFacade;
 
@@ -64,11 +63,11 @@ public class DeleteCustomerShopDashBoardPresenter implements Serializable {
   }
 
   public String delete() {
-    customerFacade.remove(customer);
+    informationFacade.remove(customer.getInformation());
     return viewHelper.getPage("dashboard/shop/customer/list");
   }
 
-  public Customer getCustomers() {
+  public Customer getCustomer() {
     return customer;
   }
 

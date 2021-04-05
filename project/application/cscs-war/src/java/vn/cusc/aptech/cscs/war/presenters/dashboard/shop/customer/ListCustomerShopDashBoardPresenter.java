@@ -27,7 +27,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.Dependent;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.CustomerFacadeLocal;
@@ -41,7 +41,7 @@ import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
  * @author NGUYEN PHUC DUY
  */
 @Named(value = "listCustomerShopDashBoardPresenter")
-@Dependent
+@ViewScoped
 public class ListCustomerShopDashBoardPresenter implements Serializable {
 
   /**

@@ -77,6 +77,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
   private LocalDate fromDate;
   private LocalDate toDate;
+  private String type;
 
   private Gson gson;
   private String chart;
@@ -94,6 +95,7 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
     monthToDate = toDate.getMonthValue();
     yearToDate = toDate.getYear();
     by = 0;
+    type = "line";
 
     fromDateInputStyleClass = null;
     toDateInputStyleClass = null;
@@ -112,12 +114,12 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
   }
 
   private static final String[] formats = {"yyyy-MM-dd", "yyyy-MM", "yyyy"};
-  private static final String[] types = {"line", "line", "bar"};
   private static final String[] labels = {"Revenue each day", "Revenue each month", "Revenue each year"};
 
   public void show() {
     isShow = false;
     chart = "{}";
+
     boolean fromDateValid = true;
     boolean toDateValid = true;
     try {
@@ -144,12 +146,15 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
     }
 
     ChartModel chartModel = new ChartModel(
-      types[by], // type
+      type, // type
       new DataChartModel( // data
         new ArrayList<>(), // labels
         new ArrayList<>() // datasets
       ),
-      new OptionsChartModel() // options
+      new OptionsChartModel(
+        true, // responsive,
+        false // bezierCurve;
+      ) // options
     );
 
     DatasetChartModel datasetChartModel = new DatasetChartModel( // datasets
@@ -157,7 +162,8 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
       "rgba(248, 249, 250, 0.5)", // backgroundColor
       "#007bff", // borderColor
       3, // borderWidth
-      new ArrayList<>()// data
+      new ArrayList<>(),// data
+      0 // lineTension
     );
 
     for (Revenue revenue : getRevenue()) {
@@ -240,6 +246,14 @@ public class RevenueStatisticsDashboardPresenter implements Serializable {
 
   public void setToDateInputStyleClass(String toDateInputStyleClass) {
     this.toDateInputStyleClass = toDateInputStyleClass;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
   }
 
   public String getChart() {

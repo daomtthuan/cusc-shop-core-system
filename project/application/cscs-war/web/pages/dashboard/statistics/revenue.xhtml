@@ -98,13 +98,26 @@ THE SOFTWARE.
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <h:outputLabel for="input-by" value="Statistics by" />
-          <h:selectOneRadio id="input-by" value="#{revenueStatisticsDashboardPresenter.by}" styleClass="form-control-radio-inline form-control">
-            <f:selectItem itemValue="0" itemLabel="Day" />
-            <f:selectItem itemValue="1" itemLabel="Month" />
-            <f:selectItem itemValue="2" itemLabel="Year" />
-          </h:selectOneRadio>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-by" value="Statistics by" />
+              <h:selectOneRadio id="input-by" value="#{revenueStatisticsDashboardPresenter.by}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="0" itemLabel="Day" />
+                <f:selectItem itemValue="1" itemLabel="Month" />
+                <f:selectItem itemValue="2" itemLabel="Year" />
+              </h:selectOneRadio>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-type" value="Type chart" />
+              <h:selectOneRadio id="input-type" value="#{revenueStatisticsDashboardPresenter.type}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="line" itemLabel="Line" />
+                <f:selectItem itemValue="bar" itemLabel="Bar" />
+              </h:selectOneRadio>
+            </div>
+          </div>
         </div>
         <h:commandButton styleClass="btn btn-primary mr-2" action="#{revenueStatisticsDashboardPresenter.show()}" value="Show"/>
       </h:form>

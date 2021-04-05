@@ -31,9 +31,33 @@ import vn.cusc.aptech.cscs.war.models.Model;
  */
 public class OptionsChartModel implements Model {
 
+  private boolean responsive;
+  private boolean bezierCurve;
+
+  public OptionsChartModel(boolean responsive, boolean bezierCurve) {
+    this.responsive = responsive;
+    this.bezierCurve = bezierCurve;
+  }
+
   @Override
   public boolean isEmpty() {
     return false;
+  }
+
+  public boolean isResponsive() {
+    return responsive;
+  }
+
+  public void setResponsive(boolean responsive) {
+    this.responsive = responsive;
+  }
+
+  public boolean isBezierCurve() {
+    return bezierCurve;
+  }
+
+  public void setBezierCurve(boolean bezierCurve) {
+    this.bezierCurve = bezierCurve;
   }
 
 }

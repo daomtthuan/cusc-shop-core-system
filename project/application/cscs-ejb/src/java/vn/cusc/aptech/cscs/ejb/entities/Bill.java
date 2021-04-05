@@ -182,12 +182,12 @@ public class Bill implements Serializable {
     this.billDetailsList = billDetailsList;
   }
 
-  public double getTotalPrice() {
+  public long getTotalPrice() {
     double totalPrice = 0;
     for (BillDetails billDetails : getBillDetailsList()) {
       totalPrice += billDetails.getPrice() * billDetails.getQuantity();
     }
-    return totalPrice;
+    return (long) (totalPrice * 1000);
   }
 
   @Override

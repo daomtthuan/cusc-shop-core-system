@@ -37,16 +37,18 @@ public class DatasetChartModel implements Model {
   private String borderColor;
   private int borderWidth;
   private ArrayList<Double> data;
+  private int lineTension;
 
   public DatasetChartModel() {
   }
 
-  public DatasetChartModel(String label, String backgroundColor, String borderColor, int borderWidth, ArrayList<Double> data) {
+  public DatasetChartModel(String label, String backgroundColor, String borderColor, int borderWidth, ArrayList<Double> data, int lineTension) {
     this.label = label;
     this.backgroundColor = backgroundColor;
     this.borderColor = borderColor;
     this.borderWidth = borderWidth;
     this.data = data;
+    this.lineTension = lineTension;
   }
 
   public String getLabel() {
@@ -87,6 +89,14 @@ public class DatasetChartModel implements Model {
 
   public void setData(ArrayList<Double> data) {
     this.data = data;
+  }
+
+  public int getLineTension() {
+    return lineTension;
+  }
+
+  public void setLineTension(int lineTension) {
+    this.lineTension = lineTension;
   }
 
   @Override

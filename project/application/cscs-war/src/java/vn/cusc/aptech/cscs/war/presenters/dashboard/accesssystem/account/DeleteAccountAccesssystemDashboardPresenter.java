@@ -26,10 +26,13 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.accesssystem.account;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.InformationFacadeLocal;
 import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
@@ -41,6 +44,9 @@ import vn.cusc.aptech.cscs.war.session.AuthSession;
 @Named(value = "deleteAccountAccesssystemDashboardPresenter")
 @ViewScoped
 public class DeleteAccountAccesssystemDashboardPresenter implements Serializable {
+
+  @EJB
+  private InformationFacadeLocal informationFacade;
 
   @Inject
   private AuthSession authSession;
@@ -66,7 +72,7 @@ public class DeleteAccountAccesssystemDashboardPresenter implements Serializable
   }
 
   public String delete() {
-    employeeFacade.remove(account);
+    informationFacade.remove(account.getInformation());
     return viewHelper.getPage("dashboard/access-system/account/list");
   }
 
