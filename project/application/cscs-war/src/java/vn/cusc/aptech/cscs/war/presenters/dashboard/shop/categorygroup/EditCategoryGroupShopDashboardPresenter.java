@@ -104,6 +104,10 @@ public class EditCategoryGroupShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       cg = categoryGroupFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (cg == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
 
       state = cg.getState();
       name = cg.getName();

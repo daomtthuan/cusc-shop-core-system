@@ -28,7 +28,7 @@ THE SOFTWARE.id
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-  <ui:define name="title">Shop - Brand - List</ui:define>
+  <ui:define name="title">Shop - Brand - Brand List</ui:define>
 
   <ui:define name="page">
     <div class="container-fluid">
@@ -57,7 +57,7 @@ THE SOFTWARE.id
         </h:column>
         <h:column>
           <f:facet name="header">State</f:facet>
-            #{brand.state}
+            #{brand.state ? "Enabled" : "Disabled"}
         </h:column>
       </h:dataTable>
     </div>

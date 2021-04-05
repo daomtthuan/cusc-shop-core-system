@@ -58,6 +58,9 @@ public class DeleteCategoryGroupShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       categoryGroup = categoryGroupFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (categoryGroup == null) {
+        viewHelper.redirect("errors/404");
+      }
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }

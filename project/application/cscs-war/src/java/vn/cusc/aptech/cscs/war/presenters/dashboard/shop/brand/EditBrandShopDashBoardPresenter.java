@@ -83,17 +83,27 @@ public class EditBrandShopDashBoardPresenter implements Serializable {
 
   @PostConstruct
   public void init() {
-    brand = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
-    name = brand.getName();
-    state = brand.getState();
+    try {
+      brand = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (brand == null) {
+        viewHelper.redirect("errors/404");
+      }
+      name = brand.getName();
+      state = brand.getState();
+    } catch (NumberFormatException e) {
+      viewHelper.redirect("errors/404");
+    }
   }
 
   public String edit() {
     boolean brandNameValid = Pattern.matches(ValidationHelper.RegexPattern.NAME, name);
+
     brandNameInputStyleClass = brandNameValid ? null : ValidationHelper.StyleClass.INVALID;
+
     brand.setName(name);
     brand.setState(state);
     brandFacade.edit(brand);
+
     return viewHelper.getPage("dashboard/shop/brand/list");
   }
 

@@ -66,6 +66,9 @@ public class ConfirmBillShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       bill = billFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (bill == null) {
+        viewHelper.redirect("errors/404");
+      }
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }

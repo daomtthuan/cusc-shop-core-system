@@ -85,6 +85,11 @@ public class EditProductShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       product = productFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (product == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       Category category = product.getCategory();
 
       name = product.getName();

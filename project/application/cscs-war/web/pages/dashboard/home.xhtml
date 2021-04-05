@@ -27,16 +27,155 @@ THE SOFTWARE.
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
   <ui:define name="title">Home</ui:define>
 
   <ui:define name="page">
     <div class="container-fluid">
-      <c:choose>
-        <c:when test="#{authSession.account.role.name eq 'administrator'}"></c:when>
-        <c:when test="#{authSession.account.role.name eq 'manager'}"></c:when>
-        <c:when test="#{authSession.account.role.name eq 'salesman'}"></c:when>
-      </c:choose>
+      <h2>Home</h2>
+      <hr />
+      <h4>Hello, #{authSession.account.information.fullName}!</h4>
+      <hr />
+
+      <div class="accordion" id="accordion-home">
+        <c:choose>
+          <c:when test="#{authSession.account.role.name eq 'administrator'}">
+            <button id="heading-about" class="btn btn-primary text-left mb-3" type="button" data-toggle="collapse" data-target="#collapse-about" aria-expanded="true" aria-controls="collapse-about">
+              About
+            </button>
+          </c:when>
+          <c:when test="#{authSession.account.role.name eq 'manager'}">
+            <button  id="heading-rank" class="btn btn-primary text-left mb-3" type="button" data-toggle="collapse" data-target="#collapse-rank" aria-expanded="true" aria-controls="collapse-rank">
+              Rankings
+            </button>
+            <button id="heading-about" class="btn btn-primary text-left mb-3" type="button" data-toggle="collapse" data-target="#collapse-about" aria-expanded="true" aria-controls="collapse-about">
+              About
+            </button>
+            <div id="collapse-rank" class="collapse show" aria-labelledby="heading-rank" data-parent="#accordion-home">
+              <div class="row">
+                <div class="col-xl-6">
+                  <c:if test="#{homeDashboardPresenter.topTenProducts.size() > 0}">
+                    <div class="card bg-light mb-3">
+                      <h4 class="card-header">Top 1 Selling</h4>
+                      <div class="card-body">
+                        <h6 class="card-title text-primary">#{homeDashboardPresenter.topTenProducts[0].name}</h6>
+                        <dl class="card-text">
+                          <dt>Total quantity:</dt>
+                          <dd>#{homeDashboardPresenter.topTenProducts[0].totalQuantity}</dd>
+                          <dt>Total price:</dt>
+                          <dd>#{homeDashboardPresenter.topTenProducts[0].totalPrice}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </c:if>
+                  <hr/>
+                  <h4>Top 10 Selling</h4>
+                  <h:dataTable  value="#{homeDashboardPresenter.topTenProducts}" var="product" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+                    <h:column>
+                      <f:facet name="header">Name</f:facet>
+                        #{product.name}
+                    </h:column>
+                    <h:column>
+                      <f:facet name="header">Total quantity</f:facet>
+                        #{product.totalQuantity}
+                    </h:column>
+                    <h:column>
+                      <f:facet name="header">Total price</f:facet>
+                        #{product.totalPrice}
+                    </h:column>
+                  </h:dataTable>
+                </div>
+                <div class="col-xl-6">
+                  <c:if test="#{homeDashboardPresenter.topTenCustomers.size() > 0}">
+                    <div class="card bg-light mb-3">
+                      <h4 class="card-header">Top 1 Selling</h4>
+                      <div class="card-body">
+                        <h6 class="card-title text-primary">#{homeDashboardPresenter.topTenCustomers[0].fullName}</h6>
+                        <dl class="card-text">
+                          <dt>Total bill:</dt>
+                          <dd>#{homeDashboardPresenter.topTenCustomers[0].totalBill}</dd>
+                          <dt>Total buy:</dt>
+                          <dd>#{homeDashboardPresenter.topTenCustomers[0].totalBuy}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </c:if>
+                  <hr/>
+                  <h4>Top 10 Buying</h4>
+                  <h:dataTable  value="#{homeDashboardPresenter.topTenCustomers}" var="customer" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+                    <h:column>
+                      <f:facet name="header">Name</f:facet>
+                        #{customer.fullName}
+                    </h:column>
+                    <h:column>
+                      <f:facet name="header">Total bill</f:facet>
+                        #{customer.totalBill}
+                    </h:column>
+                    <h:column>
+                      <f:facet name="header">Total buy</f:facet>
+                        #{customer.totalBuy}
+                    </h:column>
+                  </h:dataTable>
+                </div>
+              </div>
+            </div>
+          </c:when>
+          <c:when test="#{authSession.account.role.name eq 'salesman'}">
+            <button id="heading-notify" class="btn btn-primary text-left mb-3" type="button" data-toggle="collapse" data-target="#collapse-notify" aria-expanded="true" aria-controls="collapse-notify">
+              Notify <span class="badge badge-light">#{homeDashboardPresenter.notify}</span>
+            </button>
+            <button id="heading-about" class="btn btn-primary text-left mb-3" type="button" data-toggle="collapse" data-target="#collapse-about" aria-expanded="true" aria-controls="collapse-about">
+              About
+            </button>
+            <div id="collapse-notify" class="collapse show" aria-labelledby="heading-notify" data-parent="#accordion-home">
+              <div class="card-body border mb-3">
+                <c:choose>
+                  <c:when test="#{homeDashboardPresenter.pendingBillQuantity == 0}">
+                    Great! There is no pending bill.
+                  </c:when>
+                  <c:when test="#{homeDashboardPresenter.pendingBillQuantity == 1}">
+                    There is <span class="text-primary font-weight-bold">1</span> pending bill. Please <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}">confirm</h:link>!
+                  </c:when>
+                  <c:otherwise>
+                    There are <span class="text-primary font-weight-bold">#{homeDashboardPresenter.pendingBillQuantity}</span> pending bills. Please <h:link outcome="#{viewHelper.getPage('dashboard/shop/bill/list')}">confirm</h:link>!
+                  </c:otherwise>
+                </c:choose>
+              </div>
+            </div>
+          </c:when>
+        </c:choose>
+
+        <div id="collapse-about" class="collapse" aria-labelledby="heading-about" data-parent="#accordion-home">
+          <div class="border">
+            <div class="d-flex align-items-center pt-3">
+              <div class="text-center mx-auto">
+                <div class="logo logo-128 mx-auto mb-2"></div>
+                <h1 class="h2 font-weight-bold text-primary">
+                  CUSC SHOP <br/>
+                  CORE SYSTEM
+                </h1>
+                <h6 class="mb-0">Version #{appConfig.meta.version}</h6>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <h4>EProject Java EE and Computing Project</h4>
+              <h6>Instructor</h6>
+              <p>
+                Mr. Truong Xuan Viet
+              </p>
+              <h6>Team 4 EProject</h6>
+              <p>
+                Dao Minh Trung Thuan<br/>
+                Dang Quang Nghi<br/>
+                Nguyen Phuc Duy<br/>
+                Ho Quang Tam
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </ui:define>
 </ui:composition>

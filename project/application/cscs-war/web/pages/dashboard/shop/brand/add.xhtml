@@ -28,13 +28,13 @@ THE SOFTWARE.
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-  <ui:define name="title">Shop - Brand</ui:define>
+  <ui:define name="title">Shop - Brand - Add Brand</ui:define>
 
   <ui:define name="page">
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
-          <h2>Add of the Brand</h2>
+          <h2>Add brand</h2>
         </div>
       </div>
       <hr/>
@@ -43,7 +43,7 @@ THE SOFTWARE.
           <div class="col-md-12">
             <div class="form-group">
               <h:outputLabel styleClass="text-dark" for="input-name" value="Name" />
-              <h:inputText styleClass="form-control #{addBrandShopPresenter.nameInputStyleClass}" id="input-name" value="#{addBrandShopPresenter.name}"/>
+              <h:inputText styleClass="form-control #{addBrandShopDashBoardPresenter.nameInputStyleClass}" id="input-name" value="#{addBrandShopDashBoardPresenter.name}"/>
               <div class="invalid-feedback">Invalid username</div>
             </div>
           </div>
@@ -52,7 +52,7 @@ THE SOFTWARE.
           <div class="col-md-12">
             <div class="form-group">
               <h:outputLabel for="input-state" value="State" />
-              <h:selectOneRadio value="#{addBrandShopPresenter.state}" styleClass="form-control-radio-inline form-control">
+              <h:selectOneRadio value="#{addBrandShopDashBoardPresenter.state}" styleClass="form-control-radio-inline form-control">
                 <f:selectItem itemValue="#{true}" itemLabel="Enabled" />
                 <f:selectItem itemValue="#{false}" itemLabel="Disabled" />
               </h:selectOneRadio>
@@ -61,7 +61,7 @@ THE SOFTWARE.
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h:commandButton type="submit" styleClass="btn btn-primary" value="Add" action="#{addBrandShopPresenter.add()}" />
+            <h:commandButton type="submit" styleClass="btn btn-primary" value="Add" action="#{addBrandShopDashBoardPresenter.add()}" />
           </div>
         </div>
       </h:form>

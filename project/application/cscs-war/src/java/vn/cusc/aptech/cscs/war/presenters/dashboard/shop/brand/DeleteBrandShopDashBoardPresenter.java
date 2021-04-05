@@ -66,6 +66,9 @@ public class DeleteBrandShopDashBoardPresenter implements Serializable {
   public void init() {
     try {
       brands = brandFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (brands == null) {
+        viewHelper.redirect("errors/404");
+      }
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }

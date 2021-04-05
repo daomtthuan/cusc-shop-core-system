@@ -106,6 +106,11 @@ public class EditCategoryShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       cate = categoryFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (cate == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       CategoryGroup cateGroups = cate.getCategoryGroup();
 
       state = cate.getState();

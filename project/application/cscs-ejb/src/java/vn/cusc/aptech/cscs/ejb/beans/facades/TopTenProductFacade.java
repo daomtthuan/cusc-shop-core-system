@@ -21,53 +21,30 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.product;
+package vn.cusc.aptech.cscs.ejb.beans.facades;
 
-import java.io.Serializable;
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
-import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import vn.cusc.aptech.cscs.ejb.entities.TopTenProduct;
 
 /**
  *
  * @author Daomtthuan
  */
-@Named(value = "deleteProductShopDashboardPresenter")
-@ViewScoped
-public class DeleteProductShopDashboardPresenter implements Serializable {
+@Stateless
+public class TopTenProductFacade extends AbstractFacade<TopTenProduct> implements TopTenProductFacadeLocal {
 
-  @EJB
-  private ProductFacadeLocal productFacade;
+  @PersistenceContext(unitName = "cscs-ejbPU")
+  private EntityManager em;
 
-  @Inject
-  private ViewHelper viewHelper;
-
-  private Product product;
-
-  @PostConstruct
-  public void init() {
-    try {
-      product = productFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
-      if (product == null) {
-        viewHelper.redirect("errors/404");
-      }
-    } catch (NumberFormatException e) {
-      viewHelper.redirect("errors/404");
-    }
+  @Override
+  protected EntityManager getEntityManager() {
+    return em;
   }
 
-  public String delete() {
-    productFacade.remove(product);
-    return viewHelper.getPage("dashboard/shop/product/list");
-  }
-
-  public Product getProduct() {
-    return product;
+  public TopTenProductFacade() {
+    super(TopTenProduct.class);
   }
 
 }

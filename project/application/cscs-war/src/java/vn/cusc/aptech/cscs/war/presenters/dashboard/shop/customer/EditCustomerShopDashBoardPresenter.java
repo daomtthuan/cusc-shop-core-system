@@ -88,6 +88,11 @@ public class EditCustomerShopDashBoardPresenter implements Serializable {
   public void init() {
     try {
       account = customerFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (account == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       Information information = account.getInformation();
 
       username = account.getUsername();

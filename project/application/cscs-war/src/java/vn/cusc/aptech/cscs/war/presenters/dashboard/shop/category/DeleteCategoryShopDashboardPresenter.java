@@ -58,6 +58,9 @@ public class DeleteCategoryShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       category = categoryFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (category == null) {
+        viewHelper.redirect("errors/404");
+      }
     } catch (NumberFormatException e) {
       viewHelper.redirect("errors/404");
     }

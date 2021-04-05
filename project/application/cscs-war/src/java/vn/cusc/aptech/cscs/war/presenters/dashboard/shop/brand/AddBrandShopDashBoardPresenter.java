@@ -24,20 +24,80 @@
 package vn.cusc.aptech.cscs.war.presenters.dashboard.shop.brand;
 
 import java.io.Serializable;
+import java.util.regex.Pattern;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Brand;
+import vn.cusc.aptech.cscs.war.app.helpers.ValidationHelper;
+import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**
  *
  * @author NGUYEN PHUC DUY
  */
-@Named(value = "DddBrandShopDashBoardPresenter")
+@Named(value = "addBrandShopDashBoardPresenter")
 @ViewScoped
 public class AddBrandShopDashBoardPresenter implements Serializable {
 
+  @Inject
+  private ViewHelper viewHelper;
+
   @EJB
   private BrandFacadeLocal brandFacade;
+
+  private String name;
+  private boolean state;
+
+  private String nameInputStyleClass;
+
+  @PostConstruct
+  public void init() {
+    name = null;
+    state = true;
+    nameInputStyleClass = null;
+  }
+
+  public String add() {
+    boolean nameValid = Pattern.matches(ValidationHelper.RegexPattern.ANY_NAME, name);
+
+    nameInputStyleClass = nameValid ? null : ValidationHelper.StyleClass.INVALID;
+
+    if (!nameValid) {
+      return null;
+    }
+
+    Brand brand = new Brand(null, name, state);
+    brandFacade.create(brand);
+
+    return viewHelper.getPage("dashboard/shop/brand/list");
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public boolean isState() {
+    return state;
+  }
+
+  public void setState(boolean state) {
+    this.state = state;
+  }
+
+  public String getNameInputStyleClass() {
+    return nameInputStyleClass;
+  }
+
+  public void setNameInputStyleClass(String nameInputStyleClass) {
+    this.nameInputStyleClass = nameInputStyleClass;
+  }
 
 }

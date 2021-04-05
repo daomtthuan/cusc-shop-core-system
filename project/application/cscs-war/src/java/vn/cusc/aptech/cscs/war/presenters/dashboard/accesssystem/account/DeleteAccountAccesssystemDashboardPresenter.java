@@ -26,8 +26,6 @@ package vn.cusc.aptech.cscs.war.presenters.dashboard.accesssystem.account;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -63,6 +61,11 @@ public class DeleteAccountAccesssystemDashboardPresenter implements Serializable
   public void init() {
     try {
       account = employeeFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (account == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       if (account.getId().equals(authSession.getAccount().getId())) {
         viewHelper.redirect("errors/404");
       }

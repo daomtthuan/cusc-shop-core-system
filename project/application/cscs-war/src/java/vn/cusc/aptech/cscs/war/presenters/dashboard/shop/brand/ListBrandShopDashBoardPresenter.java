@@ -47,13 +47,6 @@ public class ListBrandShopDashBoardPresenter implements Serializable {
   @Inject
   private ViewHelper viewHelper;
 
-  /**
-   * Creates a new instance of ListBrandDashboardPresenter
-   */
-  public ListBrandShopDashBoardPresenter() {
-
-  }
-
   public List<Brand> getBrands() {
     return brandFacade.findAll();
   }

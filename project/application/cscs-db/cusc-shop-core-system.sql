@@ -188,6 +188,44 @@ CREATE VIEW year_revenue AS
             bill.status = 4
         GROUP BY bill.id) AS total
     GROUP BY YEAR(total.pay_date);
+    
+CREATE VIEW total_sell AS
+    SELECT 
+        product, SUM(quantity) AS quantity, SUM(quantity * price) as price
+    FROM
+        bill_details
+    GROUP BY product;
+    
+CREATE VIEW top_ten_product AS
+    SELECT 
+        product.id as id,
+        product.name as name,
+        total_sell.total_quantity as total_quantity,
+        total_sell.total_price as total_price
+    FROM
+        total_sell
+            JOIN
+        product ON product.id = total_sell.product
+    ORDER BY total_quantity DESC , total_price DESC
+    LIMIT 10;
+
+CREATE VIEW top_ten_customer AS
+    SELECT 
+		customer.id as id,
+        information.full_name AS full_name,
+        COUNT(DISTINCT bill.id) AS total_bill,
+        SUM(bill_details.price * bill_details.quantity) AS total_buy
+    FROM
+        bill
+            JOIN
+        bill_details ON bill_details.bill = bill.id
+            JOIN
+        customer ON customer.id = bill.customer
+            JOIN
+        information ON information.id = customer.information
+    GROUP BY customer.id
+    ORDER BY total_buy DESC
+    LIMIT 10;
 
 INSERT INTO
 	role (name)

@@ -66,11 +66,19 @@ public class EditBillShopDashboardPresenter implements Serializable {
   public void init() {
     try {
       bill = billFacade.find(Integer.valueOf(viewHelper.getParameters().get("id")));
+      if (bill == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       if (!bill.getSalesman().equals(authSession.getAccount())) {
         viewHelper.redirect("errors/404");
+        return;
       }
+
       if (bill.getStatus() != 0 && bill.getStatus() != 2) {
         viewHelper.redirect("errors/404");
+        return;
       }
 
       idShipper = bill.getShipper().getId();

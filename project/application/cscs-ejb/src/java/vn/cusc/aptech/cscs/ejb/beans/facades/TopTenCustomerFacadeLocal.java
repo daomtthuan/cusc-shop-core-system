@@ -24,38 +24,28 @@
 package vn.cusc.aptech.cscs.ejb.beans.facades;
 
 import java.util.List;
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import javax.ejb.Local;
+import vn.cusc.aptech.cscs.ejb.entities.TopTenCustomer;
 
 /**
  *
  * @author Daomtthuan
  */
-@Stateless
-public class CustomerFacade extends AbstractFacade<Customer> implements CustomerFacadeLocal {
+@Local
+public interface TopTenCustomerFacadeLocal {
 
-  @PersistenceContext(unitName = "cscs-ejbPU")
-  private EntityManager em;
+  void create(TopTenCustomer topTenCustomer);
 
-  @Override
-  protected EntityManager getEntityManager() {
-    return em;
-  }
+  void edit(TopTenCustomer topTenCustomer);
 
-  public CustomerFacade() {
-    super(Customer.class);
-  }
+  void remove(TopTenCustomer topTenCustomer);
 
-  @Override
-  public Customer findByUsername(String username) {
-    List<Customer> customers = em.createNamedQuery("Customer.findByUsername").setParameter("username", username).getResultList();
-    return customers.isEmpty() ? null : customers.get(0);
-  }
+  TopTenCustomer find(Object id);
 
-//  public List<Customer> findTopBuy() {
-//    List<Customer> customers = em.createNamedQuery("Customer.findByUsername").setParameter("username", username).getResultList();
-//    return customers.isEmpty() ? null : customers.get(0);
-//  }
+  List<TopTenCustomer> findAll();
+
+  List<TopTenCustomer> findRange(int[] range);
+
+  int count();
+
 }

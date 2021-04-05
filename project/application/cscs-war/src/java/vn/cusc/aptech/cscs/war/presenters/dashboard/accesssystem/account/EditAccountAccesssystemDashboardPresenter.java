@@ -105,6 +105,11 @@ public class EditAccountAccesssystemDashboardPresenter implements Serializable {
       }
 
       account = employeeFacade.find(id);
+      if (account == null) {
+        viewHelper.redirect("errors/404");
+        return;
+      }
+
       Information information = account.getInformation();
 
       username = account.getUsername();

@@ -59,9 +59,6 @@ public class AppConfig implements Serializable {
 
     resource = new Asset(
       new StyleAsset[] {
-        new StyleAsset("shortcut icon", // rel
-          directory.getRoot() + "/assets/images/logo/32.png" // href
-        ),
         new StyleAsset("preconnect", // rel
           "https://fonts.gstatic.com"
         ),
