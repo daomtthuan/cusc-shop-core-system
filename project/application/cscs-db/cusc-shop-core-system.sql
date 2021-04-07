@@ -191,7 +191,7 @@ CREATE VIEW year_revenue AS
     
 CREATE VIEW total_sell AS
     SELECT 
-        product, SUM(quantity) AS quantity, SUM(quantity * price) as price
+        product, SUM(quantity) AS total_quantity, SUM(quantity * price) as total_price
     FROM
         bill_details
     GROUP BY product;
