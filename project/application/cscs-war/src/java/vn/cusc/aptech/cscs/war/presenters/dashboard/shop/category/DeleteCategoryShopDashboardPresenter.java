@@ -29,8 +29,8 @@ import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
+import entity.facade.CategoryFacadeLocal;
+import entity.Category;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**

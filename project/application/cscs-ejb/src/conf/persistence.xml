@@ -3,6 +3,6 @@
   <persistence-unit name="cscs-ejbPU" transaction-type="JTA">
     <jta-data-source>jdbc/CuscShop</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties/>
+    <properties />
   </persistence-unit>
 </persistence>

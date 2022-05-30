@@ -35,8 +35,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
+import entity.facade.ProductFacadeLocal;
+import entity.Product;
 import vn.cusc.aptech.cscs.war.app.helpers.ApiHelper;
 import vn.cusc.aptech.cscs.war.models.ProductModel;
 

@@ -30,14 +30,14 @@ import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BrandFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.ProductFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Brand;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
-import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
-import vn.cusc.aptech.cscs.ejb.entities.Product;
+import entity.facade.BrandFacadeLocal;
+import entity.facade.CategoryFacadeLocal;
+import entity.facade.CategoryGroupFacadeLocal;
+import entity.facade.ProductFacadeLocal;
+import entity.Brand;
+import entity.Category;
+import entity.CategoryGroup;
+import entity.Product;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**

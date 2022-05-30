@@ -1,0 +1,16 @@
+/* AUTOMATICALLY GENERATED ON Sun May 29 22:48:15 ICT 2022*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebResourcePermission "/";
+  permission javax.security.jacc.WebUserDataPermission "/";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "vn.cusc.aptech.cscs.war.app.config.ServiceConfig", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+};
+

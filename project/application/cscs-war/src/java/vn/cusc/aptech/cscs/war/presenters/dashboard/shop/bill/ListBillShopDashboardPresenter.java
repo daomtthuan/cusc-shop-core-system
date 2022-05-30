@@ -29,8 +29,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import entity.facade.BillFacadeLocal;
+import entity.Bill;
 
 /**
  *

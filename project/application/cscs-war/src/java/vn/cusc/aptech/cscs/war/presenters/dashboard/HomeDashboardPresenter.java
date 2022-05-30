@@ -29,11 +29,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.TopTenCustomerFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.TopTenProductFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.TopTenCustomer;
-import vn.cusc.aptech.cscs.ejb.entities.TopTenProduct;
+import entity.facade.BillFacadeLocal;
+import entity.facade.TopTenCustomerFacadeLocal;
+import entity.facade.TopTenProductFacadeLocal;
+import entity.TopTenCustomer;
+import entity.TopTenProduct;
 
 /**
  *

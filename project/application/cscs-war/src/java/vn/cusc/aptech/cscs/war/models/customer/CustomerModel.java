@@ -23,7 +23,7 @@
  */
 package vn.cusc.aptech.cscs.war.models.customer;
 
-import vn.cusc.aptech.cscs.ejb.entities.Customer;
+import entity.Customer;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**

@@ -28,7 +28,7 @@ import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-import vn.cusc.aptech.cscs.ejb.beans.session.api.AuthApiSessionBeanLocal;
+import bean.session.api.AuthApiSessionBeanLocal;
 
 /**
  *

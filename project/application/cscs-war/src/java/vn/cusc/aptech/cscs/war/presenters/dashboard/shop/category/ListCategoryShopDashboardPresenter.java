@@ -32,10 +32,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.beans.facades.CategoryGroupFacadeLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Category;
-import vn.cusc.aptech.cscs.ejb.entities.CategoryGroup;
+import entity.facade.CategoryFacadeLocal;
+import entity.facade.CategoryGroupFacadeLocal;
+import entity.Category;
+import entity.CategoryGroup;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**

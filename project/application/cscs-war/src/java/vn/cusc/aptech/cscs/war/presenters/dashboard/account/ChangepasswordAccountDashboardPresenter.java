@@ -29,7 +29,7 @@ import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
+import bean.session.AuthSessionBeanLocal;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
 

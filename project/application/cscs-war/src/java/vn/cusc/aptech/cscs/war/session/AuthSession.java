@@ -29,8 +29,8 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import vn.cusc.aptech.cscs.ejb.beans.session.AuthSessionBeanLocal;
-import vn.cusc.aptech.cscs.ejb.entities.Employee;
+import bean.session.AuthSessionBeanLocal;
+import entity.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 
 /**

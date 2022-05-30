@@ -1,0 +1,8 @@
+account:
+  administrator
+  manager
+  salesman
+  shipper
+
+password:
+  1234
