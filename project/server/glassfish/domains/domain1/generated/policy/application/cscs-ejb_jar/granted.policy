@@ -1,4 +1,4 @@
-/* AUTOMATICALLY GENERATED ON Sun May 29 22:48:15 ICT 2022*/
+/* AUTOMATICALLY GENERATED ON Wed Jun 01 19:41:21 ICT 2022*/
 /* DO NOT EDIT */
 
 grant {
@@ -10,8 +10,8 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "BillFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Bill";
   permission javax.security.jacc.EJBMethodPermission "ProductFacade", "count,Local,";
   permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findByUsername,Local,java.lang.String";
-  permission javax.security.jacc.EJBMethodPermission "AuthApiSessionBean", "changePasswordCustomer,Local,java.lang.Object,java.lang.String,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "BrandFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "AuthApiSessionBean", "changePasswordCustomer,Local,java.lang.Object,java.lang.String,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "InformationFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Information";
   permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "findByFilter,Local,java.lang.Object";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.BillDetails";
@@ -27,10 +27,10 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "AuthSessionBean", "authenticateByLocalAccount,Local,java.lang.String,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "TopTenProductFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.TopTenProduct";
   permission javax.security.jacc.EJBMethodPermission "BrandFacade", "findRange,Local,int[]";
-  permission javax.security.jacc.EJBMethodPermission "BillFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "RoleFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Role";
-  permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "BillFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "findBetween,Local,java.util.Date,java.util.Date";
+  permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "count,Local,";
   permission javax.security.jacc.EJBMethodPermission "CustomerSessionBean", "creatCustomer,Local,java.lang.String,boolean,java.lang.String,java.util.Date,boolean,java.lang.String,java.lang.String,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.DayRevenue";
   permission javax.security.jacc.EJBMethodPermission "BillApiSessionBean", "addBill,Local,vn.cusc.aptech.cscs.ejb.entities.Customer,java.util.ArrayList";
@@ -39,8 +39,8 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "TopTenProductFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.TopTenProduct";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.MonthRevenue";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "findRange,Local,int[]";
-  permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.DayRevenue";
   permission javax.security.jacc.EJBMethodPermission "InformationFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.DayRevenue";
   permission javax.security.jacc.EJBMethodPermission "BrandFacade", "findAll,Local,";
   permission javax.security.jacc.EJBMethodPermission "BillFacade", "findAll,Local,";
   permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "edit,Local,vn.cusc.aptech.cscs.ejb.entities.Employee";
@@ -79,24 +79,24 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "AuthSessionBean", "changePassword,Local,java.lang.Object,java.lang.String,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "count,Local,";
   permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "find,Local,java.lang.Object";
-  permission javax.security.jacc.EJBMethodPermission "YearRevenueFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.YearRevenue";
   permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findShipperByUsername,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "YearRevenueFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.YearRevenue";
   permission javax.security.jacc.EJBMethodPermission "RoleFacade", "findCustomer,Local,";
   permission javax.security.jacc.EJBMethodPermission "RoleFacade", "find,Local,java.lang.Object";
   permission javax.security.jacc.EJBMethodPermission "CustomerFacade", "findAll,Local,";
   permission javax.security.jacc.EJBMethodPermission "ProductFacade", "find,Local,java.lang.Object";
-  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.MonthRevenue";
+  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "findByFilters,Local,int,int";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "find,Local,java.lang.Object";
   permission javax.security.jacc.EJBMethodPermission "TopTenCustomerFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.TopTenCustomer";
   permission javax.security.jacc.EJBMethodPermission "YearRevenueFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.YearRevenue";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "findRange,Local,int[]";
-  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findAllShipper,Local,";
   permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findAllShipper,Local,";
   permission javax.security.jacc.EJBMethodPermission "TopTenProductFacade", "find,Local,java.lang.Object";
-  permission javax.security.jacc.EJBMethodPermission "BillFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.Bill";
   permission javax.security.jacc.EJBMethodPermission "BrandFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "BillFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.Bill";
   permission javax.security.jacc.EJBMethodPermission "YearRevenueFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "YearRevenueFacade", "find,Local,java.lang.Object";
   permission javax.security.jacc.EJBMethodPermission "BillFacade", "edit,Local,vn.cusc.aptech.cscs.ejb.entities.Bill";
@@ -108,8 +108,8 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "TopTenCustomerFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.TopTenCustomer";
   permission javax.security.jacc.EJBMethodPermission "TopTenProductFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.Category";
-  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Employee";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Employee";
   permission javax.security.jacc.EJBMethodPermission "ProductFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "CustomerFacade", "edit,Local,vn.cusc.aptech.cscs.ejb.entities.Customer";
   permission javax.security.jacc.EJBMethodPermission "BillFacade", "count,Local,";
@@ -117,16 +117,16 @@ grant {
   permission javax.security.jacc.EJBMethodPermission "RoleFacade", "count,Local,";
   permission javax.security.jacc.EJBMethodPermission "CustomerFacade", "remove,Local,vn.cusc.aptech.cscs.ejb.entities.Customer";
   permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "findID,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "BrandFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Brand";
   permission javax.security.jacc.EJBMethodPermission "TopTenCustomerFacade", "findRange,Local,int[]";
   permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findByFilter,Local,java.lang.Object";
-  permission javax.security.jacc.EJBMethodPermission "BrandFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Brand";
-  permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Category";
   permission javax.security.jacc.EJBMethodPermission "DayRevenueFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CategoryFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.Category";
   permission javax.security.jacc.EJBMethodPermission "MonthRevenueFacade", "find,Local,java.lang.Object";
   permission javax.security.jacc.EJBMethodPermission "CategoryGroupFacade", "create,Local,vn.cusc.aptech.cscs.ejb.entities.CategoryGroup";
   permission javax.security.jacc.EJBMethodPermission "ProductFacade", "findByFilter,Local,java.lang.Object,java.lang.Object,java.lang.Object";
-  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findNotShipperByUsername,Local,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EmployeeFacade", "findNotShipperByUsername,Local,java.lang.String";
   permission javax.security.jacc.EJBMethodPermission "TopTenCustomerFacade", "edit,Local,vn.cusc.aptech.cscs.ejb.entities.TopTenCustomer";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "count,Local,";
   permission javax.security.jacc.EJBMethodPermission "BillDetailsFacade", "edit,Local,vn.cusc.aptech.cscs.ejb.entities.BillDetails";
@@ -145,12 +145,12 @@ grant      principal * * {
   permission javax.security.jacc.EJBRoleRefPermission "BillDetailsFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "RoleFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "CustomerSessionBean", "**";
-  permission javax.security.jacc.EJBRoleRefPermission "EmployeeFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "BrandFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "EmployeeFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "CustomerFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "BillApiSessionBean", "**";
-  permission javax.security.jacc.EJBRoleRefPermission "CategoryFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "InformationFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CategoryFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "CategoryGroupFacade", "**";
   permission javax.security.jacc.EJBRoleRefPermission "AuthSessionBean", "**";
   permission javax.security.jacc.EJBRoleRefPermission "TopTenProductFacade", "**";
