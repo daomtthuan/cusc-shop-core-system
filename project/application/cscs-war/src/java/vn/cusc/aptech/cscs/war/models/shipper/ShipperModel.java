@@ -23,7 +23,7 @@
  */
 package vn.cusc.aptech.cscs.war.models.shipper;
 
-import entity.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.models.Model;
 
 /**

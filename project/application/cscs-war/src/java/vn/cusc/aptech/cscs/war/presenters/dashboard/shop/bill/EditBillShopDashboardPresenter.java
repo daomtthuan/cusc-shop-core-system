@@ -30,10 +30,10 @@ import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import entity.facade.BillFacadeLocal;
-import entity.facade.EmployeeFacadeLocal;
-import entity.Bill;
-import entity.Employee;
+import vn.cusc.aptech.cscs.ejb.beans.facades.BillFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.beans.facades.EmployeeFacadeLocal;
+import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.ViewHelper;
 import vn.cusc.aptech.cscs.war.session.AuthSession;
 

@@ -24,7 +24,7 @@
 package vn.cusc.aptech.cscs.war.models;
 
 import java.time.ZoneId;
-import entity.Information;
+import vn.cusc.aptech.cscs.ejb.entities.Information;
 
 /**
  *

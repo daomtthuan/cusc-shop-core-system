@@ -32,7 +32,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import entity.Customer;
+import vn.cusc.aptech.cscs.ejb.entities.Customer;
 import vn.cusc.aptech.cscs.war.app.helpers.AuthApiHelper;
 import vn.cusc.aptech.cscs.war.models.AuthModel;
 import vn.cusc.aptech.cscs.war.models.ChangePasswordModel;

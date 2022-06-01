@@ -24,8 +24,8 @@
 package vn.cusc.aptech.cscs.war.models;
 
 import java.util.Date;
-import entity.Bill;
-import entity.Employee;
+import vn.cusc.aptech.cscs.ejb.entities.Bill;
+import vn.cusc.aptech.cscs.ejb.entities.Employee;
 import vn.cusc.aptech.cscs.war.app.helpers.DateHelper;
 
 /**

@@ -23,7 +23,7 @@
  */
 package vn.cusc.aptech.cscs.war.models;
 
-import entity.Category;
+import vn.cusc.aptech.cscs.ejb.entities.Category;
 
 /**
  *
