@@ -1,2 +1,3 @@
-# cusc-shop-core-system
-EProject Java EE &amp; Computing Project
+# CUSC Shop Core System
+
+Project Java EE - Computing Project
