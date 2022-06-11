@@ -465,10 +465,10 @@
   </secure-admin>
   <clusters></clusters>
   <applications>
-    <application context-root="/cusc-shop-core-system-war" object-type="user" name="cusc-shop-core-system" directory-deployed="true" location="file:/D:/Repositories/Github/daomtthuan/cusc-shop-core-system/dist/gfdeploy/cusc-shop-core-system/">
+    <application context-root="/cusc-shop-core-system-war" object-type="user" name="cusc-shop-core-system" directory-deployed="true" location="file:/D:/Repositories/Github/daomtthuan/cusc-shop-core-system/app/dist/gfdeploy/cusc-shop-core-system/">
       <property name="archiveType" value="ear"></property>
       <property name="isComposite" value="true"></property>
-      <property name="appLocation" value="file:/D:/Repositories/Github/daomtthuan/cusc-shop-core-system/dist/gfdeploy/cusc-shop-core-system/"></property>
+      <property name="appLocation" value="file:/D:/Repositories/Github/daomtthuan/cusc-shop-core-system/app/dist/gfdeploy/cusc-shop-core-system/"></property>
       <property name="defaultAppName" value="cusc-shop-core-system"></property>
       <module name="cusc-shop-core-system-war.war">
         <engine sniffer="security"></engine>
