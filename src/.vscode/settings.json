@@ -1,0 +1,9 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "cscs-server/glassfish/lib/appserv-rt.jar",
+    "cscs-server/glassfish/lib/gf-client.jar",
+    "cscs-server/glassfish/lib/javaee.jar",
+    "cscs-server/glassfish/lib/mysql-connector-java-8.0.29.jar"
+  ]
+}

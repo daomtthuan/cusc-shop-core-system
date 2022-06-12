@@ -1,0 +1,2473 @@
+[2022-06-12T00:42:18.602+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654969338493] [timeMillis: 1654969338602] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T00:42:18.603+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654969338493] [timeMillis: 1654969338603] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T00:42:18.674+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338674] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:42:18.676+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338676] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:42:18.680+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338680] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T00:42:18.861+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654969338498] [timeMillis: 1654969338861] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T00:42:18.862+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654969338493] [timeMillis: 1654969338862] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T00:42:18.902+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654969338498] [timeMillis: 1654969338902] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T00:42:18.964+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338964] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 20ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:42:18.978+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338978] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:42:18.985+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654969338491] [timeMillis: 1654969338985] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 3ms - bound to [/0.0.0.0:4848]]]
+
+[2022-06-12T00:42:19.012+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654969338498] [timeMillis: 1654969339012] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T00:42:19.245+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654969339245] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (12,781ms), startup services(757ms), total(13,538ms)]]
+
+[2022-06-12T00:42:19.318+0700] [glassfish 5.0] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654969338498] [timeMillis: 1654969339318] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2022-06-12T00:42:19.397+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=86 _ThreadName=Thread-13] [timeMillis: 1654969339397] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://PC-Daomtthuan:8686/jndi/rmi://PC-Daomtthuan:8686/jmxrmi]]
+
+[2022-06-12T00:42:19.460+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654969338498] [timeMillis: 1654969339460] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:7676]]]
+
+[2022-06-12T00:42:19.462+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654969339462] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@55fee662 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@54089484.]]
+
+[2022-06-12T00:42:19.628+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654969339628] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T00:42:19.630+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654969339630] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T00:42:22.495+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=79 _ThreadName=pool-9-thread-1] [timeMillis: 1654969342495] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:42:22.501+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=79 _ThreadName=pool-9-thread-1] [timeMillis: 1654969342501] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:42:22.738+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-15-thread-1] [timeMillis: 1654969342738] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:42:22.821+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-15-thread-1] [timeMillis: 1654969342821] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:42:22.936+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969342936] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:42:23.208+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343208] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2022-06-12T00:42:23.212+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343212] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2022-06-12T00:42:23.213+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343213] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2022-06-12T00:42:23.232+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343232] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2022-06-12T00:42:23.235+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343235] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2022-06-12T00:42:23.389+0700] [glassfish 5.0] [INFO] [AS-WEB-CORE-00306] [javax.enterprise.web.core] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343389] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2022-06-12T00:42:23.390+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00201] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343390] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2022-06-12T00:42:23.575+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01002] [javax.enterprise.system.core.security] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343575] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2022-06-12T00:42:23.575+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01010] [javax.enterprise.system.core.security] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343575] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2022-06-12T00:42:23.580+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01143] [javax.enterprise.system.core.security] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343580] [levelValue: 800] [[
+  Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.]]
+
+[2022-06-12T00:42:23.619+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01011] [javax.enterprise.system.core.security] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343619] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2022-06-12T00:42:23.762+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343762] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:42:23.774+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343774] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:42:23.774+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969343774] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:42:24.508+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=70 _ThreadName=admin-listener(4)] [timeMillis: 1654969344508] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T00:42:24.735+0700] [glassfish 5.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969344735] [levelValue: 800] [[
+  Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '']]
+
+[2022-06-12T00:42:25.374+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969345374] [levelValue: 800] [[
+  Loading application [__admingui] at [/]]]
+
+[2022-06-12T00:42:25.375+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00022] [javax.enterprise.system.core] [tid: _ThreadID=145 _ThreadName=Thread-33] [timeMillis: 1654969345375] [levelValue: 800] [[
+  Loading application __admingui done in 2,786 ms]]
+
+[2022-06-12T00:42:30.753+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=69 _ThreadName=admin-listener(3)] [timeMillis: 1654969350753] [levelValue: 900] [[
+  Context path from ServletContext:  differs from path from bundle: /]]
+
+[2022-06-12T00:42:51.836+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=191 _ThreadName=admin-listener(6)] [timeMillis: 1654969371836] [levelValue: 800] [[
+  Redirecting to &#x2f;]]
+
+[2022-06-12T00:42:51.911+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=70 _ThreadName=admin-listener(4)] [timeMillis: 1654969371911] [levelValue: 800] [[
+  Admin Console: Initializing Session Attributes...]]
+
+[2022-06-12T00:43:46.015+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=68 _ThreadName=admin-listener(2)] [timeMillis: 1654969426015] [levelValue: 800] [[
+  GUI deployment: uploadToTempfile]]
+
+[2022-06-12T00:43:46.038+0700] [glassfish 5.0] [SEVERE] [] [org.glassfish.admingui] [tid: _ThreadID=68 _ThreadName=admin-listener(2)] [timeMillis: 1654969426038] [levelValue: 1000] [[
+  RestResponse.getResponse&#x28;&#x29; gives FAILURE.  endpoint &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;localhost&#x3a;4848&#x2f;management&#x2f;domain&#x2f;resources&#x2f;add-resources&#x27;&#x3b; attrs &#x3d; &#x27;&#x7b;id&#x3d;, target&#x3d;server&#x7d;&#x27;]]
+
+[2022-06-12T00:47:22.289+0700] [glassfish 5.0] [SEVERE] [error.finding.properties] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.util] [tid: _ThreadID=69 _ThreadName=admin-listener(3)] [timeMillis: 1654969642289] [levelValue: 1000] [[
+  RAR8059: Exception while trying to find properties of class [ com.mysql.jdbc.jdbc2.optional.MysqlDataSource ], set log-level toFINE for more information, com.mysql.jdbc.jdbc2.optional.MysqlDataSource]]
+
+[2022-06-12T00:47:22.290+0700] [glassfish 5.0] [SEVERE] [error.finding.properties] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.util] [tid: _ThreadID=69 _ThreadName=admin-listener(3)] [timeMillis: 1654969642290] [levelValue: 1000] [[
+  RAR8059: Exception while trying to find properties of class [ com.mysql.jdbc.jdbc2.optional.MysqlDataSource ], set log-level toFINE for more information, com.mysql.jdbc.jdbc2.optional.MysqlDataSource]]
+
+[2022-06-12T00:50:38.130+0700] [glassfish 5.0] [SEVERE] [jsf.duplicate_component_id_error] [javax.enterprise.resource.webcontainer.jsf.application] [tid: _ThreadID=71 _ThreadName=admin-listener(5)] [timeMillis: 1654969838130] [levelValue: 1000] [[
+  JSF1007: Duplicate component ID event308 found in view.]]
+
+[2022-06-12T00:50:38.131+0700] [glassfish 5.0] [SEVERE] [] [javax.enterprise.resource.webcontainer.jsf.application] [tid: _ThreadID=71 _ThreadName=admin-listener(5)] [timeMillis: 1654969838131] [levelValue: 1000] [[
+  +id: j_id1
+ type: javax.faces.component.UIViewRoot@1e63717a
+  +id: sun_page51
+   type: com.sun.webui.jsf.component.Page@204d6b4e
+    +id: sun_html52
+     type: com.sun.webui.jsf.component.Html@4f2ab0a2
+      +id: head
+       type: com.sun.webui.jsf.component.Head@b76f9c8
+        +id: h_outputScript53
+         type: javax.faces.component.UIOutput@3ed42d4a
+        +id: txt54
+         type: com.sun.jsftemplating.component.StaticText@750836c5
+        +id: sun_script55
+         type: com.sun.webui.jsf.component.Script@6f3d3766
+        +id: txt43
+         type: com.sun.jsftemplating.component.StaticText@53b92bf0
+        +id: txt56
+         type: com.sun.jsftemplating.component.StaticText@4c18f2b0
+        +id: txt78
+         type: com.sun.jsftemplating.component.StaticText@78924be8
+        +id: txt79
+         type: com.sun.jsftemplating.component.StaticText@7e12d59b
+      +id: sun_body57
+       type: com.sun.webui.jsf.component.Body@64ee8702
+        +id: txt58
+         type: com.sun.jsftemplating.component.StaticText@6f68645d
+        +id: txt59
+         type: com.sun.jsftemplating.component.StaticText@5cfbf53
+        +id: txt60
+         type: com.sun.jsftemplating.component.StaticText@6d191c7c
+        +id: af
+         type: com.sun.webui.jsf.component.Form@7d5f404a
+          +id: restartCheck
+           type: com.sun.jsftemplating.component.EventComponent@51b98930
+            +id: Masthead
+             type: com.sun.webui.jsf.component.Masthead@29748173
+              +id: statusPanel
+               type: com.sun.webui.jsf.component.PanelGroup@cab82dd
+                +id: txt75
+                 type: com.sun.jsftemplating.component.StaticText@b71ce12
+                +id: alertImage
+                 type: com.sun.webui.jsf.component.ImageComponent@169c2645
+                +id: restartLink
+                 type: com.sun.webui.jsf.component.Hyperlink id: restartLink
+                +id: txt76
+                 type: com.sun.jsftemplating.component.StaticText@1b6e52fc
+              +id: helpLink
+               type: com.sun.webui.jsf.component.Button@4b838626
+              +id: homeLink
+               type: com.sun.webui.jsf.component.Hyperlink id: homeLink
+              +id: versionLink
+               type: com.sun.webui.jsf.component.Hyperlink id: versionLink
+              +id: logoutLink
+               type: com.sun.webui.jsf.component.Button@4e87d01a
+          +id: execButton
+           type: javax.faces.component.html.HtmlCommandButton@395e7981
+          +id: execResp
+           type: javax.faces.component.html.HtmlInputText@50ce35e4
+        +id: txt61
+         type: com.sun.jsftemplating.component.StaticText@72b3b6d
+        +id: txt62
+         type: com.sun.jsftemplating.component.StaticText@775c3c92
+        +id: txt63
+         type: com.sun.jsftemplating.component.StaticText@3d04d189
+        +id: txt64
+         type: com.sun.jsftemplating.component.StaticText@1c44b2d8
+        +id: txt44
+         type: com.sun.jsftemplating.component.StaticText@42ea026e
+        +id: treeForm
+         type: com.sun.webui.jsf.component.Form@54c40e0d
+          +id: tree
+           type: com.sun.webui.jsf.component.Tree@4fd71585
+            +id: ct
+             type: com.sun.webui.jsf.component.Hyperlink id: ct
+            +id: nodes
+             type: com.sun.webui.jsf.component.TreeNode@76bcacd5
+              +id: nodes_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: nodes_image
+            +id: applicationServer
+             type: com.sun.webui.jsf.component.TreeNode@64d7291e
+              +id: sun_imageHyperlink85
+               type: com.sun.webui.jsf.component.ImageHyperlink id: sun_imageHyperlink85
+            +id: clusterTreeNode
+             type: com.sun.webui.jsf.component.TreeNode@1017e7ef
+            +id: standaloneTreeNode
+             type: com.sun.webui.jsf.component.TreeNode@671bb355
+            +id: nodeTreeNode
+             type: com.sun.webui.jsf.component.TreeNode@74527167
+              +id: localhost-domain1
+               type: com.sun.webui.jsf.component.TreeNode@2990392a
+                +id: imagelink
+                 type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                +id: link
+                 type: com.sun.webui.jsf.component.Hyperlink id: link
+                +id: localhost-domain1_image
+                 type: com.sun.webui.jsf.component.ImageHyperlink id: localhost-domain1_image
+            +id: applications
+             type: com.sun.webui.jsf.component.TreeNode@6978b68
+              +id: applications_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: applications_image
+            +id: lifecycles
+             type: com.sun.webui.jsf.component.TreeNode@3c2c11f4
+              +id: lifecycles_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: lifecycles_image
+            +id: applicationServerMonitoring
+             type: com.sun.webui.jsf.component.TreeNode@5b12865f
+              +id: applicationServerMonitoring_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: applicationServerMonitoring_image
+            +id: resources
+             type: com.sun.webui.jsf.component.TreeNode@73e3ad7e
+              +id: resources_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: resources_image
+              +id: concurrent
+               type: com.sun.webui.jsf.component.TreeNode@4995a4a1
+                +id: contextServices
+                 type: com.sun.webui.jsf.component.TreeNode@156aafd6
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: concurrent___defaultContextService
+                   type: com.sun.webui.jsf.component.TreeNode@5a05e35a
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: concurrent___defaultContextService_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: concurrent___defaultContextService_image
+                +id: managedThreadFactories
+                 type: com.sun.webui.jsf.component.TreeNode@34e32d39
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: concurrent___defaultManagedThreadFactory
+                   type: com.sun.webui.jsf.component.TreeNode@503727a8
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: concurrent___defaultManagedThreadFactory_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: concurrent___defaultManagedThreadFactory_image
+                +id: managedExecutorServices
+                 type: com.sun.webui.jsf.component.TreeNode@10e33667
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: concurrent___defaultManagedExecutorService
+                   type: com.sun.webui.jsf.component.TreeNode@65091812
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: concurrent___defaultManagedExecutorService_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: concurrent___defaultManagedExecutorService_image
+                +id: managedScheduledExecutorServices
+                 type: com.sun.webui.jsf.component.TreeNode@482e6b6f
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: concurrent___defaultManagedScheduledExecutorService
+                   type: com.sun.webui.jsf.component.TreeNode@214d0fa5
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: concurrent___defaultManagedScheduledExecutorService_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: concurrent___defaultManagedScheduledExecutorService_image
+              +id: Connectors
+               type: com.sun.webui.jsf.component.TreeNode@281455e5
+                +id: connectorResources
+                 type: com.sun.webui.jsf.component.TreeNode@570117d
+                  +id: restIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: restIcon
+                  +id: jms___defaultConnectionFactory
+                   type: com.sun.webui.jsf.component.TreeNode@3e3e67af
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: jms___defaultConnectionFactory_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: jms___defaultConnectionFactory_image
+                +id: connectorConnectionPools
+                 type: com.sun.webui.jsf.component.TreeNode@774767ea
+                  +id: restIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: restIcon
+                  +id: jms___defaultConnectionFactory-Connection-Pool
+                   type: com.sun.webui.jsf.component.TreeNode@7d76bf9a
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: jms___defaultConnectionFactory-Connection-Pool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: jms___defaultConnectionFactory-Connection-Pool_image
+                +id: adminObjectResources
+                 type: com.sun.webui.jsf.component.TreeNode@7888b2b0
+                  +id: restIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: restIcon
+                +id: workSecurityMaps
+                 type: com.sun.webui.jsf.component.TreeNode@35c6a111
+                  +id: restIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: restIcon
+              +id: JDBC
+               type: com.sun.webui.jsf.component.TreeNode@7972e874
+                +id: jdbcResources
+                 type: com.sun.webui.jsf.component.TreeNode@313012af
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: jdbc___TimerPool
+                   type: com.sun.webui.jsf.component.TreeNode@c103b0b
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: jdbc___TimerPool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: jdbc___TimerPool_image
+                  +id: jdbc___default
+                   type: com.sun.webui.jsf.component.TreeNode@cdeddb1
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: jdbc___default_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: jdbc___default_image
+                  +id: jdbc_sample
+                   type: com.sun.webui.jsf.component.TreeNode@6281a516
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: jdbc_sample_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: jdbc_sample_image
+                +id: connectionPoolResources
+                 type: com.sun.webui.jsf.component.TreeNode@53956683
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: DerbyPool
+                   type: com.sun.webui.jsf.component.TreeNode@5ed0d799
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: DerbyPool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: DerbyPool_image
+                  +id: SamplePool
+                   type: com.sun.webui.jsf.component.TreeNode@2419baa7
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: SamplePool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: SamplePool_image
+                  +id: __TimerPool
+                   type: com.sun.webui.jsf.component.TreeNode@4bdf1227
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: __TimerPool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: __TimerPool_image
+              +id: jmsResources
+               type: com.sun.webui.jsf.component.TreeNode@3306d4a1
+                +id: j_id2
+                 type: com.sun.webui.jsf.component.ImageHyperlink id: j_id2
+                +id: jmsConnectionFactories
+                 type: com.sun.webui.jsf.component.TreeNode@6bb2b147
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                  +id: _logical-jndi-name_java_comp_DefaultJMSConnectionFactory__name_jms___defaultConnectionFactory_
+                   type: com.sun.webui.jsf.component.TreeNode@217f214
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: _logical-jndi-name_java_comp_DefaultJMSConnectionFactory__name_jms___defaultConnectionFactory__image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: _logical-jndi-name_java_comp_DefaultJMSConnectionFactory__name_jms___defaultConnectionFactory__image
+                +id: jmsDestinationResources
+                 type: com.sun.webui.jsf.component.TreeNode@316a965b
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+              +id: jndi
+               type: com.sun.webui.jsf.component.TreeNode@344cef0b
+                +id: customResources
+                 type: com.sun.webui.jsf.component.TreeNode@4a8a484c
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                +id: externalResources
+                 type: com.sun.webui.jsf.component.TreeNode@77b0945b
+                  +id: treeIcon
+                   type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+              +id: mailResources
+               type: com.sun.webui.jsf.component.TreeNode@120d1cb8
+              +id: resourceAdapterConfigs
+               type: com.sun.webui.jsf.component.TreeNode@41ea8d45
+            +id: configurations
+             type: com.sun.webui.jsf.component.TreeNode@593a651c
+              +id: configurations_image
+               type: com.sun.webui.jsf.component.ImageHyperlink id: configurations_image
+              +id: default-config
+               type: com.sun.webui.jsf.component.TreeNode@2a5b302c
+                +id: default-config_image
+                 type: com.sun.webui.jsf.component.ImageHyperlink id: default-config_image
+                +id: adminService
+                 type: com.sun.webui.jsf.component.TreeNode@50490103
+                +id: availabilityService
+                 type: com.sun.webui.jsf.component.TreeNode@45dc3eea
+                +id: connectorService
+                 type: com.sun.webui.jsf.component.TreeNode@4f44b1c8
+                +id: ejbContainer
+                 type: com.sun.webui.jsf.component.TreeNode@3c6d325c
+                +id: gms
+                 type: com.sun.webui.jsf.component.TreeNode@24b47dcb
+                +id: httpService
+                 type: com.sun.webui.jsf.component.TreeNode@bb3cd9
+                  +id: httpListeners
+                   type: com.sun.webui.jsf.component.TreeNode@6a1b07f7
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@3f31273a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@38ec4f32
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@6168e102
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                +id: jvmSettings
+                 type: com.sun.webui.jsf.component.TreeNode@53fe6667
+                +id: jmsConfiguration
+                 type: com.sun.webui.jsf.component.TreeNode@65c093d5
+                  +id: j_id3
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: j_id3
+                  +id: jmsHosts
+                   type: com.sun.webui.jsf.component.TreeNode@3f0fd580
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default_JMS_host
+                     type: com.sun.webui.jsf.component.TreeNode@19c94392
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_JMS_host_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_JMS_host_image
+                +id: loggerSetting
+                 type: com.sun.webui.jsf.component.TreeNode@39a4c392
+                +id: monitor
+                 type: com.sun.webui.jsf.component.TreeNode@589ba148
+                  +id: monitor_image
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: monitor_image
+                +id: networkConfig
+                 type: com.sun.webui.jsf.component.TreeNode@1979dc0e
+                  +id: networkListeners
+                   type: com.sun.webui.jsf.component.TreeNode@4a7fd960
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@55d82bee
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@50cc41fc
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@7827e47
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                  +id: protocols
+                   type: com.sun.webui.jsf.component.TreeNode@3302030e
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@2791c9db
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@1560bf74
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@1849bd9
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                    +id: sec-admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@223df294
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: sec-admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: sec-admin-listener_image
+                  +id: transports
+                   type: com.sun.webui.jsf.component.TreeNode@bcb2819
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: tcp
+                     type: com.sun.webui.jsf.component.TreeNode@1bc0bd0b
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: tcp_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: tcp_image
+                +id: orb
+                 type: com.sun.webui.jsf.component.TreeNode@3ebfb7f9
+                  +id: iiopListeners
+                   type: com.sun.webui.jsf.component.TreeNode@735b4be8
+                    +id: SSL
+                     type: com.sun.webui.jsf.component.TreeNode@21022e7a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SSL_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SSL_image
+                    +id: SSL_MUTUALAUTH
+                     type: com.sun.webui.jsf.component.TreeNode@3f34f7b4
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SSL_MUTUALAUTH_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SSL_MUTUALAUTH_image
+                    +id: orb-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@7cf79fd4
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: orb-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: orb-listener-1_image
+                +id: security
+                 type: com.sun.webui.jsf.component.TreeNode@555a9fa9
+                  +id: sun_imageHyperlink106
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: sun_imageHyperlink106
+                  +id: realms
+                   type: com.sun.webui.jsf.component.TreeNode@659b0a86
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-realm
+                     type: com.sun.webui.jsf.component.TreeNode@7d0ad8d6
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-realm_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-realm_image
+                    +id: certificate
+                     type: com.sun.webui.jsf.component.TreeNode@3dc3e19c
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: certificate_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: certificate_image
+                    +id: file
+                     type: com.sun.webui.jsf.component.TreeNode@3c65865a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: file_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: file_image
+                  +id: auditModules
+                   type: com.sun.webui.jsf.component.TreeNode@117646a
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default
+                     type: com.sun.webui.jsf.component.TreeNode@2af0c0f6
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_image
+                  +id: jaccProviders
+                   type: com.sun.webui.jsf.component.TreeNode@89d0b35
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default
+                     type: com.sun.webui.jsf.component.TreeNode@185a1b2a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_image
+                    +id: simple
+                     type: com.sun.webui.jsf.component.TreeNode@22d4187f
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: simple_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: simple_image
+                  +id: messageSecurity
+                   type: com.sun.webui.jsf.component.TreeNode@e8f8ba3
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: SOAP
+                     type: com.sun.webui.jsf.component.TreeNode@6e2bede4
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SOAP_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SOAP_image
+                +id: sysProps
+                 type: com.sun.webui.jsf.component.TreeNode@26602840
+                +id: threadPools
+                 type: com.sun.webui.jsf.component.TreeNode@2475cb13
+                  +id: admin-thread-pool
+                   type: com.sun.webui.jsf.component.TreeNode@56d59ead
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: admin-thread-pool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: admin-thread-pool_image
+                  +id: http-thread-pool
+                   type: com.sun.webui.jsf.component.TreeNode@67a00d5e
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: http-thread-pool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: http-thread-pool_image
+                  +id: thread-pool-1
+                   type: com.sun.webui.jsf.component.TreeNode@40251bc2
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: thread-pool-1_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: thread-pool-1_image
+                +id: transactionService
+                 type: com.sun.webui.jsf.component.TreeNode@4a026d86
+                +id: virtualServers
+                 type: com.sun.webui.jsf.component.TreeNode@3058b29d
+                  +id: __asadmin
+                   type: com.sun.webui.jsf.component.TreeNode@57758335
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: __asadmin_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: __asadmin_image
+                  +id: server
+                   type: com.sun.webui.jsf.component.TreeNode@3fe66912
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: server_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: server_image
+                +id: webContainer
+                 type: com.sun.webui.jsf.component.TreeNode@66d14d35
+              +id: server-config
+               type: com.sun.webui.jsf.component.TreeNode@13e8c728
+                +id: server-config_image
+                 type: com.sun.webui.jsf.component.ImageHyperlink id: server-config_image
+                +id: adminService
+                 type: com.sun.webui.jsf.component.TreeNode@68ff824b
+                +id: availabilityService
+                 type: com.sun.webui.jsf.component.TreeNode@64ddd8bf
+                +id: connectorService
+                 type: com.sun.webui.jsf.component.TreeNode@80999f4
+                +id: ejbContainer
+                 type: com.sun.webui.jsf.component.TreeNode@5d8dde5a
+                +id: gms
+                 type: com.sun.webui.jsf.component.TreeNode@49f4f27a
+                +id: httpService
+                 type: com.sun.webui.jsf.component.TreeNode@43e6c3db
+                  +id: httpListeners
+                   type: com.sun.webui.jsf.component.TreeNode@7e4346a
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@342855c2
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@5aa1161f
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@2f2cee8b
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                +id: jvmSettings
+                 type: com.sun.webui.jsf.component.TreeNode@9cdd860
+                +id: jmsConfiguration
+                 type: com.sun.webui.jsf.component.TreeNode@7f3d1ade
+                  +id: j_id4
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: j_id4
+                  +id: jmsHosts
+                   type: com.sun.webui.jsf.component.TreeNode@2dfeeac8
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default_JMS_host
+                     type: com.sun.webui.jsf.component.TreeNode@656e114a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_JMS_host_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_JMS_host_image
+                +id: loggerSetting
+                 type: com.sun.webui.jsf.component.TreeNode@207cb5f
+                +id: monitor
+                 type: com.sun.webui.jsf.component.TreeNode@157bca2b
+                  +id: monitor_image
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: monitor_image
+                +id: networkConfig
+                 type: com.sun.webui.jsf.component.TreeNode@4f89dae6
+                  +id: networkListeners
+                   type: com.sun.webui.jsf.component.TreeNode@5a78661c
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@6619133f
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@2d78b745
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@2ca716e6
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                  +id: protocols
+                   type: com.sun.webui.jsf.component.TreeNode@35f6dde8
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-listener
+                     type: com.sun.webui.jsf.component.TreeNode@1b58b082
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-listener_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-listener_image
+                    +id: http-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@73f2ee33
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-1_image
+                    +id: http-listener-2
+                     type: com.sun.webui.jsf.component.TreeNode@67f6d68d
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: http-listener-2_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: http-listener-2_image
+                  +id: transports
+                   type: com.sun.webui.jsf.component.TreeNode@646c5e06
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: tcp
+                     type: com.sun.webui.jsf.component.TreeNode@3a6e3ea9
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: tcp_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: tcp_image
+                +id: orb
+                 type: com.sun.webui.jsf.component.TreeNode@5e09cca1
+                  +id: iiopListeners
+                   type: com.sun.webui.jsf.component.TreeNode@f9a2b53
+                    +id: SSL
+                     type: com.sun.webui.jsf.component.TreeNode@980d8c8
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SSL_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SSL_image
+                    +id: SSL_MUTUALAUTH
+                     type: com.sun.webui.jsf.component.TreeNode@42502427
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SSL_MUTUALAUTH_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SSL_MUTUALAUTH_image
+                    +id: orb-listener-1
+                     type: com.sun.webui.jsf.component.TreeNode@52ac9408
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: orb-listener-1_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: orb-listener-1_image
+                +id: security
+                 type: com.sun.webui.jsf.component.TreeNode@cb2edbd
+                  +id: sun_imageHyperlink106
+                   type: com.sun.webui.jsf.component.ImageHyperlink id: sun_imageHyperlink106
+                  +id: realms
+                   type: com.sun.webui.jsf.component.TreeNode@37b227b
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: admin-realm
+                     type: com.sun.webui.jsf.component.TreeNode@40494f2f
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: admin-realm_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: admin-realm_image
+                    +id: certificate
+                     type: com.sun.webui.jsf.component.TreeNode@76739ffa
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: certificate_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: certificate_image
+                    +id: file
+                     type: com.sun.webui.jsf.component.TreeNode@6db74b8c
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: file_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: file_image
+                  +id: auditModules
+                   type: com.sun.webui.jsf.component.TreeNode@3705d4bb
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default
+                     type: com.sun.webui.jsf.component.TreeNode@3d3fc543
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_image
+                  +id: jaccProviders
+                   type: com.sun.webui.jsf.component.TreeNode@57591151
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: default
+                     type: com.sun.webui.jsf.component.TreeNode@65db1d
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: default_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: default_image
+                    +id: simple
+                     type: com.sun.webui.jsf.component.TreeNode@195c67a6
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: simple_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: simple_image
+                  +id: messageSecurity
+                   type: com.sun.webui.jsf.component.TreeNode@5a0aac13
+                    +id: treeIcon
+                     type: com.sun.webui.jsf.component.IconHyperlink id: treeIcon
+                    +id: HttpServlet
+                     type: com.sun.webui.jsf.component.TreeNode@4546ed9a
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: HttpServlet_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: HttpServlet_image
+                    +id: SOAP
+                     type: com.sun.webui.jsf.component.TreeNode@6b557b1c
+                      +id: imagelink
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                      +id: link
+                       type: com.sun.webui.jsf.component.Hyperlink id: link
+                      +id: SOAP_image
+                       type: com.sun.webui.jsf.component.ImageHyperlink id: SOAP_image
+                +id: sysProps
+                 type: com.sun.webui.jsf.component.TreeNode@11ce4087
+                +id: threadPools
+                 type: com.sun.webui.jsf.component.TreeNode@1eab0c99
+                  +id: admin-thread-pool
+                   type: com.sun.webui.jsf.component.TreeNode@6c7308eb
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: admin-thread-pool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: admin-thread-pool_image
+                  +id: http-thread-pool
+                   type: com.sun.webui.jsf.component.TreeNode@2c3e13e2
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: http-thread-pool_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: http-thread-pool_image
+                  +id: thread-pool-1
+                   type: com.sun.webui.jsf.component.TreeNode@4f17b49a
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: thread-pool-1_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: thread-pool-1_image
+                +id: transactionService
+                 type: com.sun.webui.jsf.component.TreeNode@91eb625
+                +id: virtualServers
+                 type: com.sun.webui.jsf.component.TreeNode@7ddec3bd
+                  +id: __asadmin
+                   type: com.sun.webui.jsf.component.TreeNode@21236ee7
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: __asadmin_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: __asadmin_image
+                  +id: server
+                   type: com.sun.webui.jsf.component.TreeNode@5362bd3d
+                    +id: imagelink
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: imagelink
+                    +id: link
+                     type: com.sun.webui.jsf.component.Hyperlink id: link
+                    +id: server_image
+                     type: com.sun.webui.jsf.component.ImageHyperlink id: server_image
+                +id: webContainer
+                 type: com.sun.webui.jsf.component.TreeNode@2fb196ea
+          +id: event81
+           type: com.sun.jsftemplating.component.EventComponent@24f96b8a
+          +id: txt82
+           type: com.sun.jsftemplating.component.StaticText@1e976da4
+        +id: txt46
+         type: com.sun.jsftemplating.component.StaticText@58dab01e
+        +id: txt65
+         type: com.sun.jsftemplating.component.StaticText@7bff6b29
+        +id: txt66
+         type: com.sun.jsftemplating.component.StaticText@14b5eae7
+        +id: txt67
+         type: com.sun.jsftemplating.component.StaticText@31ea5f98
+        +id: txt68
+         type: com.sun.jsftemplating.component.StaticText@3cbd53fb
+        +id: content
+         type: com.sun.webui.jsf.component.Markup@3c1bc166
+          +id: txt47
+           type: com.sun.jsftemplating.component.StaticText@742e6d0
+          +id: event308  <===============
+           type: com.sun.jsftemplating.component.EventComponent@64b76f3f
+          +id: form2
+           type: com.sun.webui.jsf.component.Form@32c3dad9
+            +id: event309
+             type: com.sun.jsftemplating.component.EventComponent@50b12d16
+            +id: pageAlert
+             type: com.sun.webui.jsf.component.Alert@40d525b6
+            +id: validate
+             type: com.sun.webui.jsf.component.HiddenField@1f446404
+            +id: propertyContentPage
+             type: com.sun.webui.jsf.component.ContentPageTitle@33fd7027
+              +id: topButtons
+               type: com.sun.webui.jsf.component.PanelGroup@6a7d32d3
+                +id: previousButton
+                 type: com.sun.webui.jsf.component.Button@3ec52bf
+                +id: finishButton
+                 type: com.sun.webui.jsf.component.Button@3f347282
+                +id: cancelButton
+                 type: com.sun.webui.jsf.component.Button@6790510b
+            +id: sheet
+             type: com.sun.webui.jsf.component.PropertySheet@64f81c80
+              +id: generalSheet
+               type: com.sun.webui.jsf.component.PropertySheetSection@5e0d30a
+                +id: jndiProp
+                 type: com.sun.webui.jsf.component.Property@195c0156
+                  +id: Jndi
+                   type: com.sun.webui.jsf.component.StaticText@7ca1037f
+                +id: resTypeWizProp
+                 type: com.sun.webui.jsf.component.Property@58990c77
+                  +id: resType
+                   type: com.sun.webui.jsf.component.StaticText@5b62fced
+                +id: dbProp
+                 type: com.sun.webui.jsf.component.Property@224d0066
+                  +id: db
+                   type: com.sun.webui.jsf.component.StaticText@568355ab
+                +id: dsProp
+                 type: com.sun.webui.jsf.component.Property@46e901b8
+                  +id: datasource
+                   type: com.sun.webui.jsf.component.DropDown
+                  +id: txt310
+                   type: com.sun.jsftemplating.component.StaticText@aa0181c
+                  +id: datasourceField
+                   type: com.sun.webui.jsf.component.TextField@4024771e
+                +id: ddsProp
+                 type: com.sun.webui.jsf.component.Property@cc65cbc
+                  +id: ddatasource
+                   type: com.sun.webui.jsf.component.DropDown
+                  +id: txt311
+                   type: com.sun.jsftemplating.component.StaticText@22c685d
+                  +id: ddatasourceField
+                   type: com.sun.webui.jsf.component.TextField@8c6e0fc
+                +id: pingProp
+                 type: com.sun.webui.jsf.component.Property@6b39fa7d
+                  +id: sun_checkbox312
+                   type: com.sun.webui.jsf.component.Checkbox
+                +id: descProp
+                 type: com.sun.webui.jsf.component.Property@55a4681a
+                  +id: desc
+                   type: com.sun.webui.jsf.component.TextField@342b9c73
+                +id: txt313
+                 type: com.sun.jsftemplating.component.StaticText@bd55b0a
+              +id: poolSettingsPropertySheet
+               type: com.sun.webui.jsf.component.PropertySheetSection@2f9ba21f
+                +id: initSizeProp
+                 type: com.sun.webui.jsf.component.Property@5989eb4e
+                  +id: ds
+                   type: com.sun.webui.jsf.component.TextField@31292c08
+                  +id: con1
+                   type: com.sun.webui.jsf.component.StaticText@10852c2c
+                +id: maxProp
+                 type: com.sun.webui.jsf.component.Property@627cef79
+                  +id: ds2
+                   type: com.sun.webui.jsf.component.TextField@74b9bbe3
+                  +id: con2
+                   type: com.sun.webui.jsf.component.StaticText@c888010
+                +id: resizeProp
+                 type: com.sun.webui.jsf.component.Property@35d539e1
+                  +id: ds3
+                   type: com.sun.webui.jsf.component.TextField@30d71f05
+                  +id: con3
+                   type: com.sun.webui.jsf.component.StaticText@988dc5f
+                +id: idleProp
+                 type: com.sun.webui.jsf.component.Property@41c8557e
+                  +id: ds
+                   type: com.sun.webui.jsf.component.TextField@5d4e6697
+                  +id: sec
+                   type: com.sun.webui.jsf.component.StaticText@55e9750c
+                +id: maxWaitProp
+                 type: com.sun.webui.jsf.component.Property@1acc21ca
+                  +id: ds
+                   type: com.sun.webui.jsf.component.TextField@192cf448
+                  +id: mil
+                   type: com.sun.webui.jsf.component.StaticText@37785324
+                +id: txt314
+                 type: com.sun.jsftemplating.component.StaticText@29a701d2
+              +id: transactionPropertySheet
+               type: com.sun.webui.jsf.component.PropertySheetSection@529ea75d
+                +id: nonTransProp
+                 type: com.sun.webui.jsf.component.Property@2c6e97f2
+                  +id: sun_checkbox315
+                   type: com.sun.webui.jsf.component.Checkbox
+                +id: transProp
+                 type: com.sun.webui.jsf.component.Property@597a0028
+                  +id: transIso
+                   type: com.sun.webui.jsf.component.DropDown
+                +id: levelProp
+                 type: com.sun.webui.jsf.component.Property@48422344
+                  +id: sun_checkbox316
+                   type: com.sun.webui.jsf.component.Checkbox
+                +id: txt317
+                 type: com.sun.jsftemplating.component.StaticText@6f41c15e
+            +id: basicTable
+             type: com.sun.webui.jsf.component.Table@37c80a43
+              +id: topActionsGroup1
+               type: com.sun.webui.jsf.component.PanelGroup@3eba27d2
+                +id: addSharedTableButton
+                 type: com.sun.webui.jsf.component.Button@67bb6b42
+                +id: button1
+                 type: com.sun.webui.jsf.component.Button@6110dda
+              +id: rowGroup1
+               type: com.sun.webui.jsf.component.TableRowGroup@64dc9262
+                +id: col1
+                 type: com.sun.webui.jsf.component.TableColumn@717c8549
+                  +id: select
+                   type: com.sun.webui.jsf.component.Checkbox
+                +id: col2
+                 type: com.sun.webui.jsf.component.TableColumn@1e97a803
+                  +id: col1St
+                   type: com.sun.webui.jsf.component.TextField@224a21e8
+                +id: col3
+                 type: com.sun.webui.jsf.component.TableColumn@2cbb97a6
+                  +id: col1St
+                   type: com.sun.webui.jsf.component.TextField@39f809b5
+                +id: col4
+                 type: com.sun.webui.jsf.component.TableColumn@1a0c6939
+                  +id: col1St
+                   type: com.sun.webui.jsf.component.TextField@69ba4ef1
+                +id: txt318
+                 type: com.sun.jsftemplating.component.StaticText@194cf2c7
+            +id: sun_title319
+             type: com.sun.webui.jsf.component.ContentPageTitle@6000e5fa
+              +id: topButtons
+               type: com.sun.webui.jsf.component.PanelGroup@193c1d62
+                +id: previousButton
+                 type: com.sun.webui.jsf.component.Button@22ca0572
+                +id: finishButton
+                 type: com.sun.webui.jsf.component.Button@5c6e0126
+                +id: cancelButton
+                 type: com.sun.webui.jsf.component.Button@3ba60064
+            +id: helpKey
+             type: com.sun.webui.jsf.component.HiddenField@4208dd7f
+          +id: txt320
+           type: com.sun.jsftemplating.component.StaticText@301ba1d9
+          +id: txt321
+           type: com.sun.jsftemplating.component.StaticText@1cd0e1cd
+          +id: txt322
+           type: com.sun.jsftemplating.component.StaticText@177e6713
+          +id: txt323
+           type: com.sun.jsftemplating.component.StaticText@1399a3a6
+          +id: txt324
+           type: com.sun.jsftemplating.component.StaticText@7ee1dd65
+          +id: txt325
+           type: com.sun.jsftemplating.component.StaticText@65a485fd
+          +id: txt326
+           type: com.sun.jsftemplating.component.StaticText@10620a5
+          +id: txt327
+           type: com.sun.jsftemplating.component.StaticText@5f5c37b0
+          +id: txt328
+           type: com.sun.jsftemplating.component.StaticText@2f26d3cb
+          +id: txt329
+           type: com.sun.jsftemplating.component.StaticText@6e6c20bf
+          +id: txt330
+           type: com.sun.jsftemplating.component.StaticText@5e5f26df
+          +id: txt331
+           type: com.sun.jsftemplating.component.StaticText@60807b13
+          +id: txt332
+           type: com.sun.jsftemplating.component.StaticText@79a14443
+          +id: txt333
+           type: com.sun.jsftemplating.component.StaticText@76c7ea10
+          +id: txt334
+           type: com.sun.jsftemplating.component.StaticText@510943c9
+          +id: txt49
+           type: com.sun.jsftemplating.component.StaticText@3232f218
+        +id: txt70
+         type: com.sun.jsftemplating.component.StaticText@41422b41
+        +id: txt71
+         type: com.sun.jsftemplating.component.StaticText@81cce13
+    +id: txt72
+     type: com.sun.jsftemplating.component.StaticText@1310d3d2
+    +id: txt73
+     type: com.sun.jsftemplating.component.StaticText@3617419a
+  +id: event308  <===============
+   type: com.sun.jsftemplating.component.EventComponent@66df6c3a
+  +id: event130
+   type: com.sun.jsftemplating.component.EventComponent@85d5aa4
+  +id: form2
+   type: com.sun.webui.jsf.component.Form@1d46863e
+]]
+
+[2022-06-12T00:50:38.199+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.web] [tid: _ThreadID=71 _ThreadName=admin-listener(5)] [timeMillis: 1654969838199] [levelValue: 900] [[
+  StandardWrapperValve[FacesServlet]: Servlet.service() for servlet FacesServlet threw exception
+java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	at org.apache.catalina.connector.Response.getWriter(Response.java:695)
+	at org.apache.catalina.connector.ResponseFacade.getWriter(ResponseFacade.java:180)
+	at com.sun.faces.context.ExternalContextImpl.getResponseOutputWriter(ExternalContextImpl.java:1006)
+	at com.sun.faces.context.PartialViewContextImpl.createPartialResponseWriter(PartialViewContextImpl.java:561)
+	at com.sun.faces.context.PartialViewContextImpl.access$300(PartialViewContextImpl.java:87)
+	at com.sun.faces.context.PartialViewContextImpl$DelayedInitPartialResponseWriter.getWrapped(PartialViewContextImpl.java:702)
+	at javax.faces.context.PartialResponseWriter.startDocument(PartialResponseWriter.java:115)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handlePartialResponseError(AjaxExceptionHandlerImpl.java:202)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handle(AjaxExceptionHandlerImpl.java:124)
+	at javax.faces.context.ExceptionHandlerWrapper.handle(ExceptionHandlerWrapper.java:117)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:118)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:223)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:671)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T00:51:01.305+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00092] [javax.enterprise.system.core] [tid: _ThreadID=241 _ThreadName=Thread-50] [timeMillis: 1654969861305] [levelValue: 800] [[
+  Server shutdown initiated]]
+
+[2022-06-12T00:51:01.311+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=241 _ThreadName=Thread-50] [timeMillis: 1654969861311] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@55fee662 from service registry.]]
+
+[2022-06-12T00:51:01.312+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=241 _ThreadName=Thread-8] [timeMillis: 1654969861312] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2022-06-12T00:51:01.315+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00002] [javax.enterprise.system.jmx] [tid: _ThreadID=241 _ThreadName=Thread-50] [timeMillis: 1654969861315] [levelValue: 800] [[
+  JMXStartupService: Stopped JMXConnectorServer: null]]
+
+[2022-06-12T00:51:01.316+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00001] [javax.enterprise.system.jmx] [tid: _ThreadID=241 _ThreadName=Thread-50] [timeMillis: 1654969861316] [levelValue: 800] [[
+  JMXStartupService and JMXConnectors have been shut down.]]
+
+[2022-06-12T00:51:01.405+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=249 _ThreadName=Thread-8] [timeMillis: 1654969861405] [levelValue: 800] [[
+  JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool]]]
+
+[2022-06-12T00:57:33.345+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970253264] [timeMillis: 1654970253345] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T00:57:33.347+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970253264] [timeMillis: 1654970253347] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T00:57:33.416+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970253263] [timeMillis: 1654970253416] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:57:33.417+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970253263] [timeMillis: 1654970253417] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:57:33.420+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970253263] [timeMillis: 1654970253420] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T00:57:33.594+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970253264] [timeMillis: 1654970253594] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T00:57:33.620+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654970253269] [timeMillis: 1654970253620] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T00:57:33.684+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654970253269] [timeMillis: 1654970253684] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 15ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:57:33.700+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654970253269] [timeMillis: 1654970253700] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:57:33.705+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654970253269] [timeMillis: 1654970253705] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:4848]]]
+
+[2022-06-12T00:57:33.727+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970253264] [timeMillis: 1654970253727] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 3ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T00:57:33.727+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654970253727] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (1,575ms), startup services(468ms), total(2,043ms)]]
+
+[2022-06-12T00:57:33.784+0700] [glassfish 5.0] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970253263] [timeMillis: 1654970253784] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2022-06-12T00:57:33.828+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654970253269] [timeMillis: 1654970253828] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:7676]]]
+
+[2022-06-12T00:57:33.845+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=82 _ThreadName=Thread-15] [timeMillis: 1654970253845] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://PC-Daomtthuan:8686/jndi/rmi://PC-Daomtthuan:8686/jmxrmi]]
+
+[2022-06-12T00:57:34.769+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=71 _ThreadName=admin-listener(2)] [timeMillis: 1654970254769] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T00:57:34.973+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=97 _ThreadName=pool-12-thread-1] [timeMillis: 1654970254973] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:57:34.978+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=97 _ThreadName=pool-12-thread-1] [timeMillis: 1654970254978] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:57:35.180+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255180] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:57:35.246+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-13-thread-1] [timeMillis: 1654970255246] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:57:35.256+0700] [glassfish 5.0] [SEVERE] [] [javax.enterprise.admin.rest] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970255256] [levelValue: 1000] [[
+  
+java.lang.ClassNotFoundException: org.glassfish.admin.rest.resources.generatedASM.DomainResource not found by org.glassfish.main.admin.rest-service [246]
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1639)
+	at org.apache.felix.framework.BundleWiringImpl.access$200(BundleWiringImpl.java:80)
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:2053)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:264)
+	at org.glassfish.admin.rest.adapter.RestManagementResourceProvider.getResourceClasses(RestManagementResourceProvider.java:110)
+	at org.glassfish.admin.rest.adapter.RestAdapter.exposeContext(RestAdapter.java:294)
+	at org.glassfish.admin.rest.adapter.RestAdapter.service(RestAdapter.java:175)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T00:57:35.301+0700] [glassfish 5.0] [INFO] [NCLS-REST-00003] [javax.enterprise.admin.rest] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970255301] [levelValue: 800] [[
+  An error occurred while processing the request. Please see the server logs for details.
+java.lang.IllegalArgumentException: Registered component class cannot be null.
+	at org.glassfish.jersey.model.internal.CommonConfig.checkComponentClassNotNull(CommonConfig.java:569)
+	at org.glassfish.jersey.model.internal.CommonConfig.register(CommonConfig.java:407)
+	at org.glassfish.jersey.server.ResourceConfig.register(ResourceConfig.java:422)
+	at org.glassfish.jersey.server.ResourceConfig.registerClasses(ResourceConfig.java:498)
+	at org.glassfish.jersey.server.ResourceConfig.<init>(ResourceConfig.java:364)
+	at org.glassfish.admin.rest.adapter.AbstractRestResourceProvider.getResourceConfig(AbstractRestResourceProvider.java:104)
+	at org.glassfish.admin.rest.adapter.RestManagementResourceProvider.getResourceConfig(RestManagementResourceProvider.java:96)
+	at org.glassfish.admin.rest.adapter.RestAdapter.exposeContext(RestAdapter.java:304)
+	at org.glassfish.admin.rest.adapter.RestAdapter.service(RestAdapter.java:175)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T00:57:35.339+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=133 _ThreadName=pool-20-thread-1] [timeMillis: 1654970255339] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:57:35.506+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255506] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2022-06-12T00:57:35.509+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255509] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2022-06-12T00:57:35.511+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255511] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2022-06-12T00:57:35.528+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255528] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2022-06-12T00:57:35.530+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255530] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2022-06-12T00:57:35.675+0700] [glassfish 5.0] [INFO] [AS-WEB-CORE-00306] [javax.enterprise.web.core] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255675] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2022-06-12T00:57:35.675+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00201] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970255675] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2022-06-12T00:57:36.093+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01002] [javax.enterprise.system.core.security] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256093] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2022-06-12T00:57:36.094+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01010] [javax.enterprise.system.core.security] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256094] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2022-06-12T00:57:36.097+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01143] [javax.enterprise.system.core.security] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256097] [levelValue: 800] [[
+  Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.]]
+
+[2022-06-12T00:57:36.137+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01011] [javax.enterprise.system.core.security] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256137] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2022-06-12T00:57:36.148+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=71 _ThreadName=admin-listener(2)] [timeMillis: 1654970256148] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T00:57:36.216+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654970256216] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@6a969fb8 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@7a18e8d.]]
+
+[2022-06-12T00:57:36.289+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256289] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:57:36.307+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256307] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:57:36.308+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256308] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:57:36.335+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654970256335] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T00:57:36.336+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654970256336] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T00:57:36.968+0700] [glassfish 5.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970256968] [levelValue: 800] [[
+  Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '']]
+
+[2022-06-12T00:57:37.554+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970257554] [levelValue: 800] [[
+  Loading application [__admingui] at [/]]]
+
+[2022-06-12T00:57:37.556+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00022] [javax.enterprise.system.core] [tid: _ThreadID=120 _ThreadName=Thread-18] [timeMillis: 1654970257556] [levelValue: 800] [[
+  Loading application __admingui done in 2,520 ms]]
+
+[2022-06-12T00:57:43.244+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970263244] [levelValue: 900] [[
+  Context path from ServletContext:  differs from path from bundle: /]]
+
+[2022-06-12T00:58:31.941+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970311941] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T00:58:31.942+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970311942] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T00:58:32.016+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312016] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:58:32.017+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312017] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T00:58:32.020+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312020] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T00:58:32.215+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312215] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T00:58:32.240+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654970311875] [timeMillis: 1654970312240] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T00:58:32.310+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312310] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 17ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:58:32.325+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312325] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:58:32.329+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312329] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:4848]]]
+
+[2022-06-12T00:58:32.351+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654970311875] [timeMillis: 1654970312351] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T00:58:32.351+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654970312351] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (1,434ms), startup services(485ms), total(1,919ms)]]
+
+[2022-06-12T00:58:32.418+0700] [glassfish 5.0] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312418] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2022-06-12T00:58:32.461+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654970311871] [timeMillis: 1654970312461] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 3ms - bound to [/0.0.0.0:7676]]]
+
+[2022-06-12T00:58:32.462+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=80 _ThreadName=Thread-13] [timeMillis: 1654970312462] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://PC-Daomtthuan:8686/jndi/rmi://PC-Daomtthuan:8686/jmxrmi]]
+
+[2022-06-12T00:58:33.469+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=71 _ThreadName=admin-listener(2)] [timeMillis: 1654970313469] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T00:58:33.834+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=102 _ThreadName=pool-16-thread-1] [timeMillis: 1654970313834] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:58:33.843+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=102 _ThreadName=pool-16-thread-1] [timeMillis: 1654970313843] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:58:34.089+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=101 _ThreadName=pool-13-thread-1] [timeMillis: 1654970314089] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T00:58:34.095+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314095] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:58:34.176+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=101 _ThreadName=pool-13-thread-1] [timeMillis: 1654970314176] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T00:58:34.344+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970314344] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T00:58:34.344+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=71 _ThreadName=admin-listener(2)] [timeMillis: 1654970314344] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T00:58:34.431+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314431] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2022-06-12T00:58:34.434+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314434] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2022-06-12T00:58:34.437+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314437] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2022-06-12T00:58:34.442+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654970314442] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@726a17c4 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@5dc3fcb7.]]
+
+[2022-06-12T00:58:34.456+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314456] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2022-06-12T00:58:34.457+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314457] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2022-06-12T00:58:34.828+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654970314828] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T00:58:34.830+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654970314830] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T00:58:34.915+0700] [glassfish 5.0] [INFO] [AS-WEB-CORE-00306] [javax.enterprise.web.core] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314915] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2022-06-12T00:58:34.915+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00201] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970314915] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2022-06-12T00:58:35.064+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01002] [javax.enterprise.system.core.security] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315064] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2022-06-12T00:58:35.065+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01010] [javax.enterprise.system.core.security] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315065] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2022-06-12T00:58:35.067+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01143] [javax.enterprise.system.core.security] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315067] [levelValue: 800] [[
+  Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.]]
+
+[2022-06-12T00:58:35.101+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01011] [javax.enterprise.system.core.security] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315101] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2022-06-12T00:58:35.256+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315256] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:58:35.273+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315273] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:58:35.274+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315274] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T00:58:35.889+0700] [glassfish 5.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970315889] [levelValue: 800] [[
+  Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '']]
+
+[2022-06-12T00:58:36.525+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970316525] [levelValue: 800] [[
+  Loading application [__admingui] at [/]]]
+
+[2022-06-12T00:58:36.526+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00022] [javax.enterprise.system.core] [tid: _ThreadID=119 _ThreadName=Thread-18] [timeMillis: 1654970316526] [levelValue: 800] [[
+  Loading application __admingui done in 2,603 ms]]
+
+[2022-06-12T00:58:42.067+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970322067] [levelValue: 900] [[
+  Context path from ServletContext:  differs from path from bundle: /]]
+
+[2022-06-12T00:58:54.987+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970334987] [levelValue: 800] [[
+  Redirecting to &#x2f;]]
+
+[2022-06-12T00:58:55.086+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=72 _ThreadName=admin-listener(3)] [timeMillis: 1654970335086] [levelValue: 800] [[
+  Admin Console: Initializing Session Attributes...]]
+
+[2022-06-12T00:59:14.186+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970354186] [levelValue: 800] [[
+  GUI deployment: uploadToTempfile]]
+
+[2022-06-12T00:59:14.216+0700] [glassfish 5.0] [SEVERE] [] [org.glassfish.admingui] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970354216] [levelValue: 1000] [[
+  RestResponse.getResponse&#x28;&#x29; gives FAILURE.  endpoint &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;localhost&#x3a;4848&#x2f;management&#x2f;domain&#x2f;resources&#x2f;add-resources&#x27;&#x3b; attrs &#x3d; &#x27;&#x7b;id&#x3d;, target&#x3d;server&#x7d;&#x27;]]
+
+[2022-06-12T01:01:27.711+0700] [glassfish 5.0] [SEVERE] [error.finding.properties] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.util] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970487711] [levelValue: 1000] [[
+  RAR8059: Exception while trying to find properties of class [ com.mysql.jdbc.jdbc2.optional.MysqlDataSource ], set log-level toFINE for more information, com.mysql.jdbc.jdbc2.optional.MysqlDataSource]]
+
+[2022-06-12T01:01:27.712+0700] [glassfish 5.0] [SEVERE] [error.finding.properties] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.util] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970487712] [levelValue: 1000] [[
+  RAR8059: Exception while trying to find properties of class [ com.mysql.jdbc.jdbc2.optional.MysqlDataSource ], set log-level toFINE for more information, com.mysql.jdbc.jdbc2.optional.MysqlDataSource]]
+
+[2022-06-12T01:04:38.622+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.dol] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970678622] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:04:43.055+0700] [glassfish 5.0] [WARNING] [test.connection.pool.failed] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=74 _ThreadName=admin-listener(5)] [timeMillis: 1654970683055] [levelValue: 900] [[
+  RAR8054: Exception while creating an unpooled [test] connection for pool [ CuscShopPool ], Connection could not be allocated because: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]]
+
+[2022-06-12T01:04:43.057+0700] [glassfish 5.0] [SEVERE] [] [org.glassfish.admingui] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970683057] [levelValue: 1000] [[
+  RestResponse.getResponse&#x28;&#x29; gives FAILURE.  endpoint &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;localhost&#x3a;4848&#x2f;management&#x2f;domain&#x2f;resources&#x2f;ping-connection-pool.json&#x27;&#x3b; attrs &#x3d; &#x27;&#x7b;id&#x3d;CuscShopPool&#x7d;&#x27;]]
+
+[2022-06-12T01:04:43.071+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.web] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970683071] [levelValue: 900] [[
+  StandardWrapperValve[FacesServlet]: Servlet.service() for servlet FacesServlet threw exception
+java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	at org.apache.catalina.connector.Response.getWriter(Response.java:695)
+	at org.apache.catalina.connector.ResponseFacade.getWriter(ResponseFacade.java:180)
+	at com.sun.faces.context.ExternalContextImpl.getResponseOutputWriter(ExternalContextImpl.java:1006)
+	at com.sun.faces.context.PartialViewContextImpl.createPartialResponseWriter(PartialViewContextImpl.java:561)
+	at com.sun.faces.context.PartialViewContextImpl.access$300(PartialViewContextImpl.java:87)
+	at com.sun.faces.context.PartialViewContextImpl$DelayedInitPartialResponseWriter.getWrapped(PartialViewContextImpl.java:702)
+	at javax.faces.context.PartialResponseWriter.startDocument(PartialResponseWriter.java:115)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handlePartialResponseError(AjaxExceptionHandlerImpl.java:202)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handle(AjaxExceptionHandlerImpl.java:124)
+	at javax.faces.context.ExceptionHandlerWrapper.handle(ExceptionHandlerWrapper.java:117)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:118)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:223)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:671)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T01:05:09.563+0700] [glassfish 5.0] [WARNING] [test.connection.pool.failed] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=72 _ThreadName=admin-listener(3)] [timeMillis: 1654970709563] [levelValue: 900] [[
+  RAR8054: Exception while creating an unpooled [test] connection for pool [ CuscShopPool ], Connection could not be allocated because: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]]
+
+[2022-06-12T01:05:09.566+0700] [glassfish 5.0] [SEVERE] [] [org.glassfish.admingui] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970709566] [levelValue: 1000] [[
+  RestResponse.getResponse&#x28;&#x29; gives FAILURE.  endpoint &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;localhost&#x3a;4848&#x2f;management&#x2f;domain&#x2f;resources&#x2f;ping-connection-pool.json&#x27;&#x3b; attrs &#x3d; &#x27;&#x7b;id&#x3d;CuscShopPool&#x7d;&#x27;]]
+
+[2022-06-12T01:05:20.374+0700] [glassfish 5.0] [SEVERE] [] [javax.enterprise.resource.webcontainer.jsf.context] [tid: _ThreadID=70 _ThreadName=admin-listener(1)] [timeMillis: 1654970720374] [levelValue: 1000] [[
+  java.lang.RuntimeException: java.lang.reflect.InvocationTargetException while attempting to process a 'beforeCreate' event for 'event417'.
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:443)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:412)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.beforeCreate(LayoutComponent.java:366)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.getChild(LayoutComponent.java:306)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:575)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:569)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.createView(LayoutViewHandler.java:273)
+	at com.sun.faces.lifecycle.RestoreViewPhase.execute(RestoreViewPhase.java:261)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:100)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:133)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:201)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:670)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.jsftemplating.layout.descriptors.handler.Handler.invoke(Handler.java:460)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:438)
+	... 46 more
+Caused by: java.lang.IllegalArgumentException: "segments" parameter is null.
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.appendPath(JerseyUriBuilder.java:732)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:434)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:72)
+	at org.glassfish.admingui.common.util.RestUtil.appendEncodedSegment(RestUtil.java:533)
+	at org.glassfish.admingui.common.handlers.RestApiHandlers.encodeUrl(RestApiHandlers.java:467)
+	... 52 more
+]]
+
+[2022-06-12T01:05:25.538+0700] [glassfish 5.0] [SEVERE] [] [javax.enterprise.resource.webcontainer.jsf.context] [tid: _ThreadID=70 _ThreadName=admin-listener(1)] [timeMillis: 1654970725538] [levelValue: 1000] [[
+  java.lang.RuntimeException: java.lang.reflect.InvocationTargetException while attempting to process a 'beforeCreate' event for 'event417'.
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:443)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:412)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.beforeCreate(LayoutComponent.java:366)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.getChild(LayoutComponent.java:306)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:575)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:569)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.createView(LayoutViewHandler.java:273)
+	at com.sun.faces.lifecycle.RestoreViewPhase.execute(RestoreViewPhase.java:261)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:100)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:133)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:201)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:670)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.jsftemplating.layout.descriptors.handler.Handler.invoke(Handler.java:460)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:438)
+	... 46 more
+Caused by: java.lang.IllegalArgumentException: "segments" parameter is null.
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.appendPath(JerseyUriBuilder.java:732)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:434)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:72)
+	at org.glassfish.admingui.common.util.RestUtil.appendEncodedSegment(RestUtil.java:533)
+	at org.glassfish.admingui.common.handlers.RestApiHandlers.encodeUrl(RestApiHandlers.java:467)
+	... 52 more
+]]
+
+[2022-06-12T01:05:32.499+0700] [glassfish 5.0] [SEVERE] [] [javax.enterprise.resource.webcontainer.jsf.context] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970732499] [levelValue: 1000] [[
+  java.lang.RuntimeException: java.lang.reflect.InvocationTargetException while attempting to process a 'beforeCreate' event for 'event437'.
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:443)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:412)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.beforeCreate(LayoutComponent.java:366)
+	at com.sun.jsftemplating.layout.descriptors.LayoutComponent.getChild(LayoutComponent.java:306)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:575)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:569)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.buildUIComponentTree(LayoutViewHandler.java:525)
+	at com.sun.jsftemplating.layout.LayoutViewHandler.createView(LayoutViewHandler.java:273)
+	at com.sun.faces.lifecycle.RestoreViewPhase.execute(RestoreViewPhase.java:261)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:100)
+	at com.sun.faces.lifecycle.RestoreViewPhase.doPhase(RestoreViewPhase.java:133)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:201)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:670)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.sun.jsftemplating.layout.descriptors.handler.Handler.invoke(Handler.java:460)
+	at com.sun.jsftemplating.layout.descriptors.LayoutElementBase.dispatchHandlers(LayoutElementBase.java:438)
+	... 46 more
+Caused by: java.lang.IllegalArgumentException: "segments" parameter is null.
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.appendPath(JerseyUriBuilder.java:732)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:434)
+	at org.glassfish.jersey.uri.internal.JerseyUriBuilder.segment(JerseyUriBuilder.java:72)
+	at org.glassfish.admingui.common.util.RestUtil.appendEncodedSegment(RestUtil.java:533)
+	at org.glassfish.admingui.common.handlers.RestApiHandlers.encodeUrl(RestApiHandlers.java:467)
+	... 52 more
+]]
+
+[2022-06-12T01:07:24.117+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.web] [tid: _ThreadID=72 _ThreadName=admin-listener(3)] [timeMillis: 1654970844117] [levelValue: 900] [[
+  StandardWrapperValve[FacesServlet]: Servlet.service() for servlet FacesServlet threw exception
+java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	at org.apache.catalina.connector.Response.getWriter(Response.java:695)
+	at org.apache.catalina.connector.ResponseFacade.getWriter(ResponseFacade.java:180)
+	at com.sun.faces.context.ExternalContextImpl.getResponseOutputWriter(ExternalContextImpl.java:1006)
+	at com.sun.faces.context.PartialViewContextImpl.createPartialResponseWriter(PartialViewContextImpl.java:561)
+	at com.sun.faces.context.PartialViewContextImpl.access$300(PartialViewContextImpl.java:87)
+	at com.sun.faces.context.PartialViewContextImpl$DelayedInitPartialResponseWriter.getWrapped(PartialViewContextImpl.java:702)
+	at javax.faces.context.PartialResponseWriter.startDocument(PartialResponseWriter.java:115)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handlePartialResponseError(AjaxExceptionHandlerImpl.java:202)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handle(AjaxExceptionHandlerImpl.java:124)
+	at javax.faces.context.ExceptionHandlerWrapper.handle(ExceptionHandlerWrapper.java:117)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:118)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:223)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:671)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T01:07:27.514+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.web] [tid: _ThreadID=178 _ThreadName=admin-listener(6)] [timeMillis: 1654970847514] [levelValue: 900] [[
+  StandardWrapperValve[FacesServlet]: Servlet.service() for servlet FacesServlet threw exception
+java.lang.IllegalStateException: getOutputStream() has already been called for this response
+	at org.apache.catalina.connector.Response.getWriter(Response.java:695)
+	at org.apache.catalina.connector.ResponseFacade.getWriter(ResponseFacade.java:180)
+	at com.sun.faces.context.ExternalContextImpl.getResponseOutputWriter(ExternalContextImpl.java:1006)
+	at com.sun.faces.context.PartialViewContextImpl.createPartialResponseWriter(PartialViewContextImpl.java:561)
+	at com.sun.faces.context.PartialViewContextImpl.access$300(PartialViewContextImpl.java:87)
+	at com.sun.faces.context.PartialViewContextImpl$DelayedInitPartialResponseWriter.getWrapped(PartialViewContextImpl.java:702)
+	at javax.faces.context.PartialResponseWriter.startDocument(PartialResponseWriter.java:115)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handlePartialResponseError(AjaxExceptionHandlerImpl.java:202)
+	at com.sun.faces.context.AjaxExceptionHandlerImpl.handle(AjaxExceptionHandlerImpl.java:124)
+	at javax.faces.context.ExceptionHandlerWrapper.handle(ExceptionHandlerWrapper.java:117)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:118)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:223)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:671)
+	at org.apache.catalina.core.StandardWrapper.service(StandardWrapper.java:1540)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:297)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at com.sun.webui.jsf.util.UploadFilter.doFilter(UploadFilter.java:251)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:167)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:215)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:119)
+	at org.apache.catalina.core.StandardPipeline.doInvoke(StandardPipeline.java:611)
+	at org.apache.catalina.core.StandardPipeline.doChainInvoke(StandardPipeline.java:555)
+	at com.sun.enterprise.web.WebPipeline.invoke(WebPipeline.java:97)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:114)
+	at org.apache.catalina.connector.CoyoteAdapter.doService(CoyoteAdapter.java:332)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:199)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper$HttpHandlerCallable.call(ContainerMapper.java:463)
+	at com.sun.enterprise.v3.services.impl.ContainerMapper.service(ContainerMapper.java:168)
+	at org.glassfish.grizzly.http.server.HttpHandler.runService(HttpHandler.java:206)
+	at org.glassfish.grizzly.http.server.HttpHandler.doHandle(HttpHandler.java:180)
+	at org.glassfish.grizzly.http.server.HttpServerFilter.handleRead(HttpServerFilter.java:242)
+	at org.glassfish.grizzly.filterchain.ExecutorResolver$9.execute(ExecutorResolver.java:119)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeFilter(DefaultFilterChain.java:284)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.executeChainPart(DefaultFilterChain.java:201)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.execute(DefaultFilterChain.java:133)
+	at org.glassfish.grizzly.filterchain.DefaultFilterChain.process(DefaultFilterChain.java:112)
+	at org.glassfish.grizzly.ProcessorExecutor.execute(ProcessorExecutor.java:77)
+	at org.glassfish.grizzly.nio.transport.TCPNIOTransport.fireIOEvent(TCPNIOTransport.java:539)
+	at org.glassfish.grizzly.strategies.AbstractIOStrategy.fireIOEvent(AbstractIOStrategy.java:112)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.run0(WorkerThreadIOStrategy.java:117)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy.access$100(WorkerThreadIOStrategy.java:56)
+	at org.glassfish.grizzly.strategies.WorkerThreadIOStrategy$WorkerThreadRunnable.run(WorkerThreadIOStrategy.java:137)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:593)
+	at org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:573)
+	at java.lang.Thread.run(Thread.java:750)
+]]
+
+[2022-06-12T01:08:38.661+0700] [glassfish 5.0] [WARNING] [test.connection.pool.failed] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=72 _ThreadName=admin-listener(3)] [timeMillis: 1654970918661] [levelValue: 900] [[
+  RAR8054: Exception while creating an unpooled [test] connection for pool [ CuscShopPool ], Connection could not be allocated because: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]]
+
+[2022-06-12T01:08:38.664+0700] [glassfish 5.0] [SEVERE] [] [org.glassfish.admingui] [tid: _ThreadID=70 _ThreadName=admin-listener(1)] [timeMillis: 1654970918664] [levelValue: 1000] [[
+  RestResponse.getResponse&#x28;&#x29; gives FAILURE.  endpoint &#x3d; &#x27;http&#x3a;&#x2f;&#x2f;localhost&#x3a;4848&#x2f;management&#x2f;domain&#x2f;resources&#x2f;ping-connection-pool.json&#x27;&#x3b; attrs &#x3d; &#x27;&#x7b;id&#x3d;CuscShopPool&#x7d;&#x27;]]
+
+[2022-06-12T01:10:02.243+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.core] [tid: _ThreadID=277 _ThreadName=Thread-46] [timeMillis: 1654971002243] [levelValue: 800] [[
+  Server restart initiated]]
+
+[2022-06-12T01:10:02.257+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=277 _ThreadName=Thread-46] [timeMillis: 1654971002257] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@726a17c4 from service registry.]]
+
+[2022-06-12T01:10:02.257+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=277 _ThreadName=Thread-8] [timeMillis: 1654971002257] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2022-06-12T01:10:02.261+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00002] [javax.enterprise.system.jmx] [tid: _ThreadID=277 _ThreadName=Thread-46] [timeMillis: 1654971002261] [levelValue: 800] [[
+  JMXStartupService: Stopped JMXConnectorServer: null]]
+
+[2022-06-12T01:10:02.261+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00001] [javax.enterprise.system.jmx] [tid: _ThreadID=277 _ThreadName=Thread-46] [timeMillis: 1654971002261] [levelValue: 800] [[
+  JMXStartupService and JMXConnectors have been shut down.]]
+
+[2022-06-12T01:10:02.351+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=287 _ThreadName=Thread-8] [timeMillis: 1654971002351] [levelValue: 800] [[
+  JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource]]]
+
+[2022-06-12T01:10:02.355+0700] [glassfish 5.0] [INFO] [ra.stop-successful] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=289 _ThreadName=Thread-55] [timeMillis: 1654971002355] [levelValue: 800] [[
+  RAR7094: __ds_jdbc_ra shutdown successful.]]
+
+[2022-06-12T01:10:04.099+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971004020] [timeMillis: 1654971004099] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T01:10:04.101+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971004020] [timeMillis: 1654971004101] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T01:10:04.174+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971004018] [timeMillis: 1654971004174] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:10:04.175+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971004018] [timeMillis: 1654971004175] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:10:04.178+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971004018] [timeMillis: 1654971004178] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T01:10:04.342+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971004020] [timeMillis: 1654971004342] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T01:10:04.372+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654971004020] [timeMillis: 1654971004372] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T01:10:04.446+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654971004020] [timeMillis: 1654971004446] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 18ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T01:10:04.447+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971004447] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (1,622ms), startup services(435ms), total(2,057ms)]]
+
+[2022-06-12T01:10:04.447+0700] [glassfish 5.0] [SEVERE] [NCLS-CORE-00019] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971004447] [levelValue: 1000] [[
+  Shutting down server due to startup exception
+java.lang.NoClassDefFoundError: org/glassfish/grizzly/npn/AlpnServerNegotiator
+	at org.glassfish.grizzly.config.GenericGrizzlyListener.configureHttp2Support(GenericGrizzlyListener.java:749)
+	at org.glassfish.grizzly.config.GenericGrizzlyListener.configureHttpProtocol(GenericGrizzlyListener.java:726)
+	at com.sun.enterprise.v3.services.impl.GlassfishNetworkListener.configureHttpProtocol(GlassfishNetworkListener.java:211)
+	at org.glassfish.grizzly.config.GenericGrizzlyListener.configureSubProtocol(GenericGrizzlyListener.java:420)
+	at org.glassfish.grizzly.config.GenericGrizzlyListener.configureProtocol(GenericGrizzlyListener.java:409)
+	at org.glassfish.grizzly.config.GenericGrizzlyListener.configure(GenericGrizzlyListener.java:306)
+	at com.sun.enterprise.v3.services.impl.GrizzlyProxy.initialize(GrizzlyProxy.java:124)
+	at com.sun.enterprise.v3.services.impl.GrizzlyService.createNetworkProxy(GrizzlyService.java:591)
+	at com.sun.enterprise.v3.services.impl.GrizzlyService.postConstruct(GrizzlyService.java:542)
+	at org.jvnet.hk2.internal.ClazzCreator.postConstructMe(ClazzCreator.java:327)
+	at org.jvnet.hk2.internal.ClazzCreator.create(ClazzCreator.java:375)
+	at org.jvnet.hk2.internal.SystemDescriptor.create(SystemDescriptor.java:487)
+	at org.glassfish.hk2.runlevel.internal.AsyncRunLevelContext.findOrCreate(AsyncRunLevelContext.java:305)
+	at org.glassfish.hk2.runlevel.RunLevelContext.findOrCreate(RunLevelContext.java:89)
+	at org.jvnet.hk2.internal.Utilities.createService(Utilities.java:2126)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:116)
+	at org.jvnet.hk2.internal.ServiceHandleImpl.getService(ServiceHandleImpl.java:90)
+	at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$QueueRunner.oneJob(CurrentTaskFuture.java:1237)
+	at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$QueueRunner.run(CurrentTaskFuture.java:1168)
+	at org.glassfish.hk2.runlevel.internal.CurrentTaskFuture$UpOneLevel.run(CurrentTaskFuture.java:786)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+Caused by: java.lang.ClassNotFoundException: org.glassfish.grizzly.npn.AlpnServerNegotiator
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:387)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at org.apache.felix.framework.ExtensionManager$ExtensionManagerWiring.getClassByDelegation(ExtensionManager.java:940)
+	at org.apache.felix.framework.BundleWiringImpl.searchImports(BundleWiringImpl.java:1660)
+	at org.apache.felix.framework.BundleWiringImpl.findClassOrResourceByDelegation(BundleWiringImpl.java:1590)
+	at org.apache.felix.framework.BundleWiringImpl.access$200(BundleWiringImpl.java:80)
+	at org.apache.felix.framework.BundleWiringImpl$BundleClassLoader.loadClass(BundleWiringImpl.java:2053)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 23 more
+]]
+
+[2022-06-12T01:10:04.474+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971004474] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T01:10:04.612+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00092] [javax.enterprise.system.core] [tid: _ThreadID=57 _ThreadName=Thread-11] [timeMillis: 1654971004612] [levelValue: 800] [[
+  Server shutdown initiated]]
+
+[2022-06-12T01:10:04.613+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971004613] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@2324bfe7 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@112d1c8e.]]
+
+[2022-06-12T01:10:04.684+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971004684] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T01:10:04.685+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971004685] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T01:10:05.628+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=57 _ThreadName=Thread-11] [timeMillis: 1654971005628] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@2324bfe7 from service registry.]]
+
+[2022-06-12T01:10:05.628+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=57 _ThreadName=Thread-8] [timeMillis: 1654971005628] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2022-06-12T01:10:55.700+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055700] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T01:10:55.700+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055700] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T01:10:55.778+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055778] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:10:55.779+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055779] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:10:55.782+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055782] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T01:10:55.951+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971055951] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T01:10:55.978+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654971055631] [timeMillis: 1654971055978] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T01:10:56.050+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654971055630] [timeMillis: 1654971056050] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 16ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:10:56.062+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654971055630] [timeMillis: 1654971056062] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 0ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:10:56.069+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654971055630] [timeMillis: 1654971056069] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:4848]]]
+
+[2022-06-12T01:10:56.090+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971056090] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T01:10:56.091+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971056091] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (1,477ms), startup services(470ms), total(1,947ms)]]
+
+[2022-06-12T01:10:56.155+0700] [glassfish 5.0] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971056155] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2022-06-12T01:10:56.196+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971055626] [timeMillis: 1654971056196] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:7676]]]
+
+[2022-06-12T01:10:56.201+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=78 _ThreadName=Thread-13] [timeMillis: 1654971056201] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://PC-Daomtthuan:8686/jndi/rmi://PC-Daomtthuan:8686/jmxrmi]]
+
+[2022-06-12T01:10:57.216+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=68 _ThreadName=admin-listener(1)] [timeMillis: 1654971057216] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T01:10:57.540+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-13-thread-1] [timeMillis: 1654971057540] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:10:57.549+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-13-thread-1] [timeMillis: 1654971057549] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:10:57.772+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=115 _ThreadName=pool-15-thread-1] [timeMillis: 1654971057772] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:10:57.813+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971057813] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:10:57.857+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=99 _ThreadName=pool-13-thread-1] [timeMillis: 1654971057857] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:10:58.095+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058095] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2022-06-12T01:10:58.098+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058098] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2022-06-12T01:10:58.099+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058099] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2022-06-12T01:10:58.109+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=72 _ThreadName=admin-listener(5)] [timeMillis: 1654971058109] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T01:10:58.109+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=68 _ThreadName=admin-listener(1)] [timeMillis: 1654971058109] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T01:10:58.120+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058120] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2022-06-12T01:10:58.121+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058121] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2022-06-12T01:10:58.189+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971058189] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@65cc8228 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@53093491.]]
+
+[2022-06-12T01:10:58.546+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971058546] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T01:10:58.547+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971058547] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T01:10:58.562+0700] [glassfish 5.0] [INFO] [AS-WEB-CORE-00306] [javax.enterprise.web.core] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058562] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2022-06-12T01:10:58.562+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00201] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058562] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2022-06-12T01:10:58.706+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01002] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058706] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2022-06-12T01:10:58.706+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01010] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058706] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2022-06-12T01:10:58.708+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01143] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058708] [levelValue: 800] [[
+  Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.]]
+
+[2022-06-12T01:10:58.737+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01011] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058737] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2022-06-12T01:10:58.869+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058869] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:10:58.881+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058881] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:10:58.882+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971058882] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:10:59.500+0700] [glassfish 5.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971059500] [levelValue: 800] [[
+  Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '']]
+
+[2022-06-12T01:11:00.141+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971060141] [levelValue: 800] [[
+  Loading application [__admingui] at [/]]]
+
+[2022-06-12T01:11:00.142+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00022] [javax.enterprise.system.core] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971060142] [levelValue: 800] [[
+  Loading application __admingui done in 2,501 ms]]
+
+[2022-06-12T01:11:05.632+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=72 _ThreadName=admin-listener(5)] [timeMillis: 1654971065632] [levelValue: 900] [[
+  Context path from ServletContext:  differs from path from bundle: /]]
+
+[2022-06-12T01:11:06.961+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=70 _ThreadName=admin-listener(3)] [timeMillis: 1654971066961] [levelValue: 800] [[
+  Redirecting to &#x2f;]]
+
+[2022-06-12T01:11:07.042+0700] [glassfish 5.0] [INFO] [] [org.glassfish.admingui] [tid: _ThreadID=175 _ThreadName=admin-listener(6)] [timeMillis: 1654971067042] [levelValue: 800] [[
+  Admin Console: Initializing Session Attributes...]]
+
+[2022-06-12T01:12:14.165+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.dol] [tid: _ThreadID=68 _ThreadName=admin-listener(1)] [timeMillis: 1654971134165] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:16:55.578+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00092] [javax.enterprise.system.core] [tid: _ThreadID=229 _ThreadName=Thread-44] [timeMillis: 1654971415578] [levelValue: 800] [[
+  Server shutdown initiated]]
+
+[2022-06-12T01:16:55.585+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=229 _ThreadName=Thread-44] [timeMillis: 1654971415585] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@65cc8228 from service registry.]]
+
+[2022-06-12T01:16:55.585+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=229 _ThreadName=Thread-8] [timeMillis: 1654971415585] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2022-06-12T01:16:55.588+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00002] [javax.enterprise.system.jmx] [tid: _ThreadID=229 _ThreadName=Thread-44] [timeMillis: 1654971415588] [levelValue: 800] [[
+  JMXStartupService: Stopped JMXConnectorServer: null]]
+
+[2022-06-12T01:16:55.588+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00001] [javax.enterprise.system.jmx] [tid: _ThreadID=229 _ThreadName=Thread-44] [timeMillis: 1654971415588] [levelValue: 800] [[
+  JMXStartupService and JMXConnectors have been shut down.]]
+
+[2022-06-12T01:16:55.665+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=235 _ThreadName=Thread-8] [timeMillis: 1654971415665] [levelValue: 800] [[
+  JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource]]]
+
+[2022-06-12T01:16:55.668+0700] [glassfish 5.0] [INFO] [ra.stop-successful] [javax.enterprise.resource.resourceadapter.com.sun.enterprise.connectors.service] [tid: _ThreadID=238 _ThreadName=Thread-53] [timeMillis: 1654971415668] [levelValue: 800] [[
+  RAR7094: __ds_jdbc_ra shutdown successful.]]
+
+[2022-06-12T01:17:03.431+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971423357] [timeMillis: 1654971423431] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  5.0.1  (build 5)]]
+
+[2022-06-12T01:17:03.432+0700] [glassfish 5.0] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971423357] [timeMillis: 1654971423432] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2022-06-12T01:17:03.503+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423503] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:17:03.503+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423503] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2022-06-12T01:17:03.506+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423506] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2022-06-12T01:17:03.704+0700] [glassfish 5.0] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971423357] [timeMillis: 1654971423704] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2022-06-12T01:17:03.726+0700] [glassfish 5.0] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=44 _ThreadName=RunLevelControllerThread-1654971423361] [timeMillis: 1654971423726] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2022-06-12T01:17:03.797+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423797] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 14ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:17:03.810+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423810] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:17:03.815+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=42 _ThreadName=RunLevelControllerThread-1654971423356] [timeMillis: 1654971423815] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:4848]]]
+
+[2022-06-12T01:17:03.835+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971423357] [timeMillis: 1654971423835] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:3700]]]
+
+[2022-06-12T01:17:03.836+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971423836] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  5.0.1  (5) startup time : Felix (1,460ms), startup services(485ms), total(1,945ms)]]
+
+[2022-06-12T01:17:03.892+0700] [glassfish 5.0] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=45 _ThreadName=RunLevelControllerThread-1654971423361] [timeMillis: 1654971423892] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2022-06-12T01:17:03.938+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=43 _ThreadName=RunLevelControllerThread-1654971423357] [timeMillis: 1654971423938] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:7676]]]
+
+[2022-06-12T01:17:03.950+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=78 _ThreadName=Thread-13] [timeMillis: 1654971423950] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://PC-Daomtthuan:8686/jndi/rmi://PC-Daomtthuan:8686/jmxrmi]]
+
+[2022-06-12T01:17:04.942+0700] [glassfish 5.0] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=69 _ThreadName=admin-listener(2)] [timeMillis: 1654971424942] [levelValue: 800] [[
+  HV000001: Hibernate Validator 6.0.10.Final]]
+
+[2022-06-12T01:17:05.293+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=96 _ThreadName=pool-10-thread-1] [timeMillis: 1654971425293] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:17:05.301+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=96 _ThreadName=pool-10-thread-1] [timeMillis: 1654971425301] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:17:05.534+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=96 _ThreadName=pool-10-thread-1] [timeMillis: 1654971425534] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 1ms - bound to [/0.0.0.0:8181]]]
+
+[2022-06-12T01:17:05.544+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425544] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:17:05.615+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=96 _ThreadName=pool-10-thread-1] [timeMillis: 1654971425615] [levelValue: 800] [[
+  Grizzly Framework 2.4.3 started in: 2ms - bound to [/0.0.0.0:8080]]]
+
+[2022-06-12T01:17:05.787+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=69 _ThreadName=admin-listener(2)] [timeMillis: 1654971425787] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T01:17:05.787+0700] [glassfish 5.0] [INFO] [NCLS-REST-00001] [javax.enterprise.admin.rest] [tid: _ThreadID=72 _ThreadName=admin-listener(5)] [timeMillis: 1654971425787] [levelValue: 800] [[
+  Listening to REST requests at context: /management/domain.]]
+
+[2022-06-12T01:17:05.835+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425835] [levelValue: 800] [[
+  Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080]]
+
+[2022-06-12T01:17:05.839+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425839] [levelValue: 800] [[
+  Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181]]
+
+[2022-06-12T01:17:05.840+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00198] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425840] [levelValue: 800] [[
+  Created HTTP listener admin-listener on host/port 0.0.0.0:4848]]
+
+[2022-06-12T01:17:05.858+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425858] [levelValue: 800] [[
+  Created virtual server server]]
+
+[2022-06-12T01:17:05.861+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00200] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971425861] [levelValue: 800] [[
+  Created virtual server __asadmin]]
+
+[2022-06-12T01:17:05.862+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1654971425862] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@65cc8228 as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@53093491.]]
+
+[2022-06-12T01:17:06.219+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971426219] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.cm.ManagedService] as the service object could not be obtained.]]
+
+[2022-06-12T01:17:06.221+0700] [glassfish 5.0] [INFO] [] [org.jvnet.hk2.osgiadapter] [tid: _ThreadID=29 _ThreadName=FelixStartLevel] [timeMillis: 1654971426221] [levelValue: 800] [[
+  Skipping registration of inhabitant for service reference [org.osgi.service.metatype.MetaTypeProvider] as the service object could not be obtained.]]
+
+[2022-06-12T01:17:06.310+0700] [glassfish 5.0] [INFO] [AS-WEB-CORE-00306] [javax.enterprise.web.core] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426310] [levelValue: 800] [[
+  Setting JAAS app name glassfish-web]]
+
+[2022-06-12T01:17:06.310+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00201] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426310] [levelValue: 800] [[
+  Virtual server server loaded default web module ]]
+
+[2022-06-12T01:17:06.457+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01002] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426457] [levelValue: 800] [[
+  Java security manager is disabled.]]
+
+[2022-06-12T01:17:06.457+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01010] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426457] [levelValue: 800] [[
+  Entering Security Startup Service.]]
+
+[2022-06-12T01:17:06.459+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01143] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426459] [levelValue: 800] [[
+  Loading policy provider com.sun.enterprise.security.provider.PolicyWrapper.]]
+
+[2022-06-12T01:17:06.493+0700] [glassfish 5.0] [INFO] [NCLS-SECURITY-01011] [javax.enterprise.system.core.security] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426493] [levelValue: 800] [[
+  Security Service(s) started successfully.]]
+
+[2022-06-12T01:17:06.637+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426637] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:17:06.652+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426652] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:17:06.652+0700] [glassfish 5.0] [INFO] [] [javax.enterprise.system.tools.deployment.common] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971426652] [levelValue: 800] [[
+  visiting unvisited references]]
+
+[2022-06-12T01:17:07.250+0700] [glassfish 5.0] [INFO] [jsf.config.listener.version] [javax.enterprise.resource.webcontainer.jsf.config] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971427250] [levelValue: 800] [[
+  Initializing Mojarra 2.3.2 ( 20170627-2139 e63598abf2ed2bb1a24674f308a734e0dce18a72) for context '']]
+
+[2022-06-12T01:17:07.904+0700] [glassfish 5.0] [INFO] [AS-WEB-GLUE-00172] [javax.enterprise.web] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971427904] [levelValue: 800] [[
+  Loading application [__admingui] at [/]]]
+
+[2022-06-12T01:17:07.906+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00022] [javax.enterprise.system.core] [tid: _ThreadID=117 _ThreadName=Thread-18] [timeMillis: 1654971427906] [levelValue: 800] [[
+  Loading application __admingui done in 2,520 ms]]
+
+[2022-06-12T01:17:13.525+0700] [glassfish 5.0] [WARNING] [] [javax.enterprise.system.container.web.com.sun.web.security] [tid: _ThreadID=70 _ThreadName=admin-listener(3)] [timeMillis: 1654971433525] [levelValue: 900] [[
+  Context path from ServletContext:  differs from path from bundle: /]]
+
+[2022-06-12T01:31:25.163+0700] [glassfish 5.0] [INFO] [NCLS-CORE-00092] [javax.enterprise.system.core] [tid: _ThreadID=288 _ThreadName=Thread-42] [timeMillis: 1654972285163] [levelValue: 800] [[
+  Server shutdown initiated]]
+
+[2022-06-12T01:31:25.176+0700] [glassfish 5.0] [INFO] [NCLS-BOOTSTRAP-00028] [javax.enterprise.bootstrap] [tid: _ThreadID=288 _ThreadName=Thread-42] [timeMillis: 1654972285176] [levelValue: 800] [[
+  Unregistered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@65cc8228 from service registry.]]
+
+[2022-06-12T01:31:25.176+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=288 _ThreadName=Thread-8] [timeMillis: 1654972285176] [levelValue: 800] [[
+  FileMonitoring shutdown]]
+
+[2022-06-12T01:31:25.180+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00002] [javax.enterprise.system.jmx] [tid: _ThreadID=288 _ThreadName=Thread-42] [timeMillis: 1654972285180] [levelValue: 800] [[
+  JMXStartupService: Stopped JMXConnectorServer: null]]
+
+[2022-06-12T01:31:25.181+0700] [glassfish 5.0] [INFO] [NCLS-JMX-00001] [javax.enterprise.system.jmx] [tid: _ThreadID=288 _ThreadName=Thread-42] [timeMillis: 1654972285181] [levelValue: 800] [[
+  JMXStartupService and JMXConnectors have been shut down.]]
+
+[2022-06-12T01:31:25.296+0700] [glassfish 5.0] [INFO] [] [] [tid: _ThreadID=292 _ThreadName=Thread-8] [timeMillis: 1654972285296] [levelValue: 800] [[
+  JdbcRuntimeExtension,  getAllSystemRAResourcesAndPools = [GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcConnectionPool, GlassFishConfigBean.org.glassfish.jdbc.config.JdbcResource]]]
+
