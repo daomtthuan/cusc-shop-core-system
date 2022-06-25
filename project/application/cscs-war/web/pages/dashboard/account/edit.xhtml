@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The MIT License
+
+Copyright 2021 Daomtthuan.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  <ui:define name="title">Account - Information</ui:define>
+
+  <ui:define name="page">
+    <div class="container-fluid">
+      <h2>Edit account information</h2>
+      <hr/>
+      <h:form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-username" value="Username" />
+              <h:inputText id="input-username" value="#{editAccountDashboard.account.username}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-role" value="Role" />
+              <h:inputText id="input-role" value="#{editAccountDashboard.account.role.name}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-state" value="State" />
+              <h:inputText id="input-state" value="#{editAccountDashboard.account.state ? 'Enabled' : 'Disabled'}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-full-name" value="Full name" />
+              <h:inputText id="input-full-name" value="#{editAccountDashboard.fullName}" styleClass="form-control #{editAccountDashboard.fullNameInputStyleClass}" />
+              <div class="invalid-feedback">Invalid full name</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel value="Birthday" />
+              <div class="no-gutters row #{editAccountDashboard.birthdayInputStyleClass}">
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Year" for="input-year-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-year-birthday" value="#{editAccountDashboard.yearBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <f:selectItems value="#{dateHelper.currentYears}" var="year" itemValue="#{year}" itemLabel="#{year}" />
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center mx-3">
+                  <h:outputLabel value="Month" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-month-birthday" value="#{editAccountDashboard.monthBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <c:forEach begin="1" end="12" var="month">
+                      <f:selectItem itemValue="#{month}" itemLabel="#{month}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
+                <div class="col d-flex align-items-center">
+                  <h:outputLabel value="Day" for="input-month-birthday" styleClass="mb-0 mr-3" />
+                  <h:selectOneMenu id="input-day-birthday" value="#{editAccountDashboard.dayBirthday}" styleClass="custom-select #{editAccountDashboard.birthdayInputStyleClass}">
+                    <c:forEach begin="1" end="31" var="day">
+                      <f:selectItem itemValue="#{day}" itemLabel="#{day}" />
+                    </c:forEach>
+                  </h:selectOneMenu>
+                </div>
+              </div>
+              <div class="invalid-feedback">Invalid birthday</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-gender" value="Gender" />
+              <h:selectOneRadio id="input-gender" value="#{editAccountDashboard.gender}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="Male" />
+                <f:selectItem itemValue="false" itemLabel="Female" />
+              </h:selectOneRadio>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-email" value="Email" />
+              <h:inputText id="input-email" value="#{editAccountDashboard.email}" styleClass="form-control #{editAccountDashboard.emailInputStyleClass}" />
+              <div class="invalid-feedback">Invalid email</div>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-phone" value="Phone" />
+              <h:inputText id="input-phone" value="#{editAccountDashboard.phone}" styleClass="form-control #{editAccountDashboard.phoneInputStyleClass}" />
+              <div class="invalid-feedback">Invalid phone</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <h:outputLabel for="input-address" value="Address" />
+          <h:inputTextarea id="input-address" value="#{editAccountDashboard.address}" styleClass="form-control #{editAccountDashboard.addressInputStyleClass}" />
+          <div class="invalid-feedback">Invalid address</div>
+        </div>
+        <h:commandButton styleClass="btn btn-primary" action="#{editAccountDashboard.edit()}" value="Edit" />
+      </h:form>
+    </div>
+  </ui:define>
+</ui:composition>

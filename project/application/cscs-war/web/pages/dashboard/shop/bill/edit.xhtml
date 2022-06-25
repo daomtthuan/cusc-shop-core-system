@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The MIT License
+
+Copyright 2021 Daomtthuan.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="#{appConfig.directory.layouts}/dashboard.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+  <ui:define name="title">Shop - Bill - Edit Bill</ui:define>
+
+  <ui:define name="page">
+    <div class="container-fluid">
+      <h2>Edit bill</h2>
+      <hr />
+      <h:form >
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-id" value="Id" />
+              <h:inputText id="input-id" value="#{editBillShopDashboardPresenter.bill.id}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-customer" value="Customer" />
+              <h:inputText id="input-customer" value="#{editBillShopDashboardPresenter.bill.customer.information.fullName}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-shipper" value="Shipper" />
+              <h:selectOneMenu id="input-shipper" value="#{editBillShopDashboardPresenter.idShipper}" styleClass="custom-select">
+                <f:selectItems value="#{editBillShopDashboardPresenter.shippers}" var="shipper" itemValue="#{shipper.id}" itemLabel="#{shipper.information.fullName}" />
+              </h:selectOneMenu>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <h:outputLabel for="input-create-date" value="Create date" />
+              <h:inputText id="input-create-date" value="#{dateHelper.stringDateTimeOf(editBillShopDashboardPresenter.bill.createDate)}" styleClass="form-control" disabled="true" />
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-status" value="Status" />
+              <h:selectOneMenu id="input-status" value="#{editBillShopDashboardPresenter.status}" styleClass="custom-select">
+                <f:selectItem itemValue="0" itemLabel="Canceled" />
+                <f:selectItem itemValue="2" itemLabel="Accepted" />
+              </h:selectOneMenu>
+            </div>
+            <div class="form-group">
+              <h:outputLabel for="input-state" value="State" />
+              <h:selectOneRadio id="input-state" value="#{editBillShopDashboardPresenter.state}" styleClass="form-control-radio-inline form-control">
+                <f:selectItem itemValue="true" itemLabel="Enabled" />
+                <f:selectItem itemValue="false" itemLabel="Disabled" />
+              </h:selectOneRadio>
+            </div>
+          </div>
+        </div>
+        <h:commandButton action="#{editBillShopDashboardPresenter.edit()}" value="Edit" styleClass="btn btn-primary" />
+      </h:form>
+      <hr />
+      <h5>Bill details</h5>
+      <h:dataTable id="datatable" value="#{confirmBillShopDashboardPresenter.bill.billDetailsList}" var="billDetails" styleClass="table table-sm table-striped table-bordered" headerClass="bg-primary text-light position-sticky">
+        <h:column>
+          <f:facet name="header">Product</f:facet>
+            #{billDetails.product.name}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Price</f:facet>
+            #{billDetails.price}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Quantity</f:facet>
+            #{billDetails.quantity}
+        </h:column>
+        <h:column>
+          <f:facet name="header">Total</f:facet>
+            #{billDetails.price * billDetails.quantity}
+        </h:column>
+      </h:dataTable>
+      <h5>Total Price: <span class="text-primary">#{confirmBillShopDashboardPresenter.bill.totalPrice}</span></h5>
+    </div>
+  </ui:define>
+</ui:composition>
